@@ -126,25 +126,27 @@ namespace QLKFC
 
         private void btnHDKho_Click(object sender, EventArgs e)
         {
-            //openForm(new HoaDonKho());
+            openForm(new Quản_lý_hóa_đơn_kho());
             hideSubMenu();
         }
 
         private void btnHDBanHang_Click(object sender, EventArgs e)
         {
-            //openForm(new HoaDon());
+            openForm(new Quản_Lý_Hóa_Đơn());
             hideSubMenu();
         }
 
         private void btnKho_Click(object sender, EventArgs e)
         {
-            //openForm(new Kho());
+            openForm(new QuanLyKho());
         }
         #endregion
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
+            DangNhap dn = new DangNhap();
+            dn.Show();
         }
     }
 }

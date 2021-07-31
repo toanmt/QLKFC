@@ -349,7 +349,7 @@ namespace QLKFC
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(753, 651);
+            this.label3.Location = new System.Drawing.Point(753, 503);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 18);
             this.label3.TabIndex = 2;
@@ -387,6 +387,7 @@ namespace QLKFC
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý KFC";
             this.panel1.ResumeLayout(false);
             this.panel_submenu_HD.ResumeLayout(false);

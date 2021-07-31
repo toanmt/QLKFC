@@ -63,6 +63,66 @@ namespace QLKFC.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconLogin {
+            get {
+                object obj = ResourceManager.GetObject("iconLogin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconLogin1 {
+            get {
+                object obj = ResourceManager.GetObject("iconLogin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconLogin2_jpg {
+            get {
+                object obj = ResourceManager.GetObject("iconLogin2.jpg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconTrinhquanlyBanHang {
+            get {
+                object obj = ResourceManager.GetObject("iconTrinhquanlyBanHang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconTrinhquanlyHoaDon {
+            get {
+                object obj = ResourceManager.GetObject("iconTrinhquanlyHoaDon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconTrinhquanlyNhaKho {
+            get {
+                object obj = ResourceManager.GetObject("iconTrinhquanlyNhaKho", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kfc__1_ {
             get {
                 object obj = ResourceManager.GetObject("kfc (1)", resourceCulture);
@@ -86,6 +146,16 @@ namespace QLKFC.Properties {
         internal static System.Drawing.Bitmap online_order {
             get {
                 object obj = ResourceManager.GetObject("online-order", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_0_1492308283029 {
+            get {
+                object obj = ResourceManager.GetObject("photo-0-1492308283029", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
