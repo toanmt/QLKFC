@@ -56,25 +56,7 @@ namespace QLKFC
         }
         #endregion
 
-        private void ptbTrangChu_Click(object sender, EventArgs e)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-        }
-        private void btnOrder_Click(object sender, EventArgs e)
-        {
-            //openForm(new Order());
-        }
-        private void btnTrangChu_Click(object sender, EventArgs e)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-        }
-
+        #region Hiển thị menu con
         private void btnSanPham_Click(object sender, EventArgs e)
         {
             showSubMenu(panel_submenu_SP);
@@ -85,15 +67,42 @@ namespace QLKFC
             showSubMenu(panel_submenu_NS);
         }
 
+        private void btnHoaDon_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panel_submenu_HD);
+        }
+        #endregion
+
+        private void ptbTrangChu_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+        }
+        private void btnTrangChu_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+        }
+
+        #region Hiển thị form chức năng
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            openForm(new Order());
+        }
+
         private void btnQLThucDon_Click(object sender, EventArgs e)
         {
-            //openForm(new QuanLyThucDon());
+            openForm(new QuanLyThucDon());
             hideSubMenu();
         }
 
         private void btnQLLoaiSanPham_Click(object sender, EventArgs e)
         {
-            //openForm(new QuanLyLoaiSanPham());
+            openForm(new QuanLyLoaiSanPham());
             hideSubMenu();
         }
 
@@ -131,11 +140,7 @@ namespace QLKFC
         {
             //openForm(new Kho());
         }
-
-        private void btnHoaDon_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panel_submenu_HD);
-        }
+        #endregion
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {

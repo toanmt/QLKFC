@@ -304,7 +304,7 @@ namespace QLKFC
             this.btnOrder.TabIndex = 2;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
-            this.btnOrder.Click += new System.EventHandler(this.btnTrangChu_Click);
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // btnTrangChu
             // 
@@ -333,6 +333,7 @@ namespace QLKFC
             // 
             // panel_control
             // 
+            this.panel_control.BackColor = System.Drawing.Color.White;
             this.panel_control.Controls.Add(this.label3);
             this.panel_control.Controls.Add(this.label2);
             this.panel_control.Controls.Add(this.label1);
@@ -344,6 +345,7 @@ namespace QLKFC
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
@@ -383,6 +385,7 @@ namespace QLKFC
             this.ClientSize = new System.Drawing.Size(1185, 680);
             this.Controls.Add(this.panel_control);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Dashboard";
             this.Text = "Quản lý KFC";
             this.panel1.ResumeLayout(false);
