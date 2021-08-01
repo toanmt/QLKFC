@@ -19,9 +19,12 @@ namespace QLKFC
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+
+            this.Hide();
             Dashboard frm = new Dashboard();
             frm.ShowDialog();
+            this.Close();
+            
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
