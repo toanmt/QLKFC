@@ -80,13 +80,6 @@ namespace QLKFC
                 activeForm.Close();
             }
         }
-        private void btnTrangChu_Click(object sender, EventArgs e)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-        }
 
         #region Hiển thị form chức năng
         private void btnOrder_Click(object sender, EventArgs e)
@@ -108,19 +101,19 @@ namespace QLKFC
 
         private void btnQLNhanVien_Click(object sender, EventArgs e)
         {
-            //openForm(new NhanVien());
+            openForm(new QuanLyNhanVien());
             hideSubMenu();
         }
 
         private void btnQLChucVu_Click(object sender, EventArgs e)
         {
-            //openForm(new ChucVu());
+            openForm(new QuanLyChucVu());
             hideSubMenu();
         }
 
         private void btnQLTaiKhoan_Click(object sender, EventArgs e)
         {
-            //openForm(new TaiKhoan());
+            openForm(new QuanLyTaiKhoan());
             hideSubMenu();
         }
 
@@ -144,7 +137,7 @@ namespace QLKFC
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Dispose();
             DangNhap dn = new DangNhap();
             dn.Show();
         }

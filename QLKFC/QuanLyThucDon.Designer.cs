@@ -364,6 +364,7 @@ namespace QLKFC
             this.pcbMoTa.Location = new System.Drawing.Point(10, 14);
             this.pcbMoTa.Name = "pcbMoTa";
             this.pcbMoTa.Size = new System.Drawing.Size(174, 183);
+            this.pcbMoTa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbMoTa.TabIndex = 0;
             this.pcbMoTa.TabStop = false;
             // 
