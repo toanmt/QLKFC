@@ -24,7 +24,6 @@ namespace QLKFC
             Dashboard frm = new Dashboard();
             frm.ShowDialog();
             this.Close();
-            
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

@@ -29,27 +29,30 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel_header = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtMaMon = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnHuyBo = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.txtTenLoaiMon = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtMaMon = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.dgv_DSLoaiSPham = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSLoaiSPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_header
@@ -99,7 +102,7 @@ namespace QLKFC
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnSua);
             this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtTenLoaiMon);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtMaMon);
             this.panel1.Controls.Add(this.label2);
@@ -109,14 +112,77 @@ namespace QLKFC
             this.panel1.Size = new System.Drawing.Size(930, 233);
             this.panel1.TabIndex = 3;
             // 
-            // panel2
+            // btnHuyBo
             // 
-            this.panel2.Controls.Add(this.dgv_DSLoaiSPham);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 317);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(930, 363);
-            this.panel2.TabIndex = 4;
+            this.btnHuyBo.BackColor = System.Drawing.Color.Red;
+            this.btnHuyBo.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHuyBo.ForeColor = System.Drawing.Color.White;
+            this.btnHuyBo.Location = new System.Drawing.Point(699, 164);
+            this.btnHuyBo.Name = "btnHuyBo";
+            this.btnHuyBo.Size = new System.Drawing.Size(129, 43);
+            this.btnHuyBo.TabIndex = 12;
+            this.btnHuyBo.Text = "Hủy bỏ";
+            this.btnHuyBo.UseVisualStyleBackColor = false;
+            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.BackColor = System.Drawing.Color.Red;
+            this.btnXoa.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(500, 164);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(129, 43);
+            this.btnXoa.TabIndex = 11;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.BackColor = System.Drawing.Color.Red;
+            this.btnSua.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.Location = new System.Drawing.Point(301, 164);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(129, 43);
+            this.btnSua.TabIndex = 10;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.BackColor = System.Drawing.Color.Red;
+            this.btnThem.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(102, 164);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(129, 43);
+            this.btnThem.TabIndex = 9;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // txtTenLoaiMon
+            // 
+            this.txtTenLoaiMon.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTenLoaiMon.Location = new System.Drawing.Point(323, 104);
+            this.txtTenLoaiMon.Name = "txtTenLoaiMon";
+            this.txtTenLoaiMon.Size = new System.Drawing.Size(357, 31);
+            this.txtTenLoaiMon.TabIndex = 8;
+            this.txtTenLoaiMon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenLoaiMon_Validating);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(143, 107);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(153, 23);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Tên loại món:";
             // 
             // txtMaMon
             // 
@@ -138,72 +204,14 @@ namespace QLKFC
             this.label2.TabIndex = 5;
             this.label2.Text = "Mã món:";
             // 
-            // textBox1
+            // panel2
             // 
-            this.textBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(323, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(357, 31);
-            this.textBox1.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(143, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 23);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Tên loại món:";
-            // 
-            // btnHuyBo
-            // 
-            this.btnHuyBo.BackColor = System.Drawing.Color.Red;
-            this.btnHuyBo.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnHuyBo.ForeColor = System.Drawing.Color.White;
-            this.btnHuyBo.Location = new System.Drawing.Point(699, 149);
-            this.btnHuyBo.Name = "btnHuyBo";
-            this.btnHuyBo.Size = new System.Drawing.Size(129, 43);
-            this.btnHuyBo.TabIndex = 12;
-            this.btnHuyBo.Text = "Hủy bỏ";
-            this.btnHuyBo.UseVisualStyleBackColor = false;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.Red;
-            this.btnXoa.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(307, 149);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(129, 43);
-            this.btnXoa.TabIndex = 11;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = false;
-            // 
-            // btnSua
-            // 
-            this.btnSua.BackColor = System.Drawing.Color.Red;
-            this.btnSua.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(111, 149);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(129, 43);
-            this.btnSua.TabIndex = 10;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = false;
-            // 
-            // btnThem
-            // 
-            this.btnThem.BackColor = System.Drawing.Color.Red;
-            this.btnThem.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(503, 149);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(129, 43);
-            this.btnThem.TabIndex = 9;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = false;
+            this.panel2.Controls.Add(this.dgv_DSLoaiSPham);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 317);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(930, 363);
+            this.panel2.TabIndex = 4;
             // 
             // dgv_DSLoaiSPham
             // 
@@ -218,6 +226,11 @@ namespace QLKFC
             this.dgv_DSLoaiSPham.RowTemplate.Height = 29;
             this.dgv_DSLoaiSPham.Size = new System.Drawing.Size(906, 345);
             this.dgv_DSLoaiSPham.TabIndex = 5;
+            this.dgv_DSLoaiSPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSLoaiSPham_CellClick);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // QuanLyLoaiSanPham
             // 
@@ -239,6 +252,7 @@ namespace QLKFC
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSLoaiSPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,7 +265,7 @@ namespace QLKFC
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTenLoaiMon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMaMon;
         private System.Windows.Forms.Label label2;
@@ -260,5 +274,6 @@ namespace QLKFC
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridView dgv_DSLoaiSPham;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

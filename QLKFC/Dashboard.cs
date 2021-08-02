@@ -139,7 +139,7 @@ namespace QLKFC
         {
             Dispose();
             DangNhap dn = new DangNhap();
-            dn.Show();
+            dn.ShowDialog();
         }
     }
 }
