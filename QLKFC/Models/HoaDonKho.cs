@@ -9,7 +9,6 @@ namespace QLKFC.Models
     {
         public int MaHdk { get; set; }
         public DateTime? NgayCc { get; set; }
-        public string NhaCc { get; set; }
         public string TrangThai { get; set; }
     }
 }

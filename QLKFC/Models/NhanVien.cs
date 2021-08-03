@@ -7,6 +7,11 @@ namespace QLKFC.Models
 {
     public partial class NhanVien
     {
+        public NhanVien()
+        {
+            HoaDons = new HashSet<HoaDon>();
+        }
+
         public int MaNv { get; set; }
         public int? MaCv { get; set; }
         public int? Id { get; set; }
@@ -20,5 +25,6 @@ namespace QLKFC.Models
 
         public virtual TaiKhoan IdNavigation { get; set; }
         public virtual ChucVu MaCvNavigation { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

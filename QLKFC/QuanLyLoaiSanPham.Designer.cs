@@ -44,15 +44,17 @@ namespace QLKFC
             this.txtMaMon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgv_DSLoaiSPham = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dgv_DSLoaiSPham = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DSLoaiSPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DSLoaiSPham)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_header
@@ -213,6 +215,10 @@ namespace QLKFC
             this.panel2.Size = new System.Drawing.Size(930, 363);
             this.panel2.TabIndex = 4;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // dgv_DSLoaiSPham
             // 
             this.dgv_DSLoaiSPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -220,6 +226,9 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_DSLoaiSPham.BackgroundColor = System.Drawing.Color.White;
             this.dgv_DSLoaiSPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DSLoaiSPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
             this.dgv_DSLoaiSPham.Location = new System.Drawing.Point(12, 6);
             this.dgv_DSLoaiSPham.Name = "dgv_DSLoaiSPham";
             this.dgv_DSLoaiSPham.RowHeadersWidth = 51;
@@ -228,9 +237,19 @@ namespace QLKFC
             this.dgv_DSLoaiSPham.TabIndex = 5;
             this.dgv_DSLoaiSPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSLoaiSPham_CellClick);
             // 
-            // errorProvider1
+            // Column1
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.Column1.HeaderText = "Mã";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên Loại Món";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
             // 
             // QuanLyLoaiSanPham
             // 
@@ -251,8 +270,8 @@ namespace QLKFC
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DSLoaiSPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DSLoaiSPham)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -273,7 +292,9 @@ namespace QLKFC
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.DataGridView dgv_DSLoaiSPham;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridView dgv_DSLoaiSPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

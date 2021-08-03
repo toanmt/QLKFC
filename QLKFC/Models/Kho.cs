@@ -7,9 +7,9 @@ namespace QLKFC.Models
 {
     public partial class Kho
     {
-        public int? MaSp { get; set; }
+        public int? MaNl { get; set; }
         public int? SoLuong { get; set; }
 
-        public virtual SanPham MaSpNavigation { get; set; }
+        public virtual NguyenLieu MaNlNavigation { get; set; }
     }
 }

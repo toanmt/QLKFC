@@ -119,13 +119,13 @@ namespace QLKFC
 
         private void btnHDKho_Click(object sender, EventArgs e)
         {
-            openForm(new Quản_lý_hóa_đơn_kho());
+            openForm(new QuanLyHoaDonKho());
             hideSubMenu();
         }
 
         private void btnHDBanHang_Click(object sender, EventArgs e)
         {
-            openForm(new Quản_Lý_Hóa_Đơn());
+            openForm(new QuanLyHoaDon());
             hideSubMenu();
         }
 

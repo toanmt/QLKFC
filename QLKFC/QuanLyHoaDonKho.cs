@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace QLKFC
 {
-    public partial class Quản_lý_hóa_đơn_kho : Form
+    public partial class QuanLyHoaDonKho : Form
     {
-        public Quản_lý_hóa_đơn_kho()
+        public QuanLyHoaDonKho()
         {
             InitializeComponent();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Nhập_Hàng frm = new Nhập_Hàng();
+            NhapHang frm = new NhapHang();
             frm.ShowDialog();
         }
     }

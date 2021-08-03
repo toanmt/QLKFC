@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLKFC
 {
-    public partial class Nhập_Hàng : Form
+    public partial class NhapHang : Form
     {
-        public Nhập_Hàng()
+        public NhapHang()
         {
             InitializeComponent();
         }

@@ -1,7 +1,7 @@
 ﻿
 namespace QLKFC
 {
-    partial class Quản_lý_hóa_đơn_kho
+    partial class QuanLyHoaDonKho
     {
         /// <summary>
         /// Required designer variable.

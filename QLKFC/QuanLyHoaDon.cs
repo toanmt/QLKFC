@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLKFC
 {
-    public partial class Quản_Lý_Hóa_Đơn : Form
+    public partial class QuanLyHoaDon : Form
     {
-        public Quản_Lý_Hóa_Đơn()
+        public QuanLyHoaDon()
         {
             InitializeComponent();
         }
