@@ -135,11 +135,17 @@ namespace QLKFC
         }
         #endregion
 
-        private void btnDangXuat_Click(object sender, EventArgs e)
+
+        private void btnDangXuat_Click_1(object sender, EventArgs e)
         {
             Dispose();
             DangNhap dn = new DangNhap();
-            dn.ShowDialog();
+            dn.Show();
+        }
+
+        private void btnNhapNL_Click(object sender, EventArgs e)
+        {
+            openForm(new NhapNguyenLieu());
         }
     }
 }
