@@ -10,5 +10,7 @@ namespace QLKFC.Models
         public int MaNl { get; set; }
         public string TenNl { get; set; }
         public int? DonGia { get; set; }
+
+        public virtual Kho Kho { get; set; }
     }
 }
