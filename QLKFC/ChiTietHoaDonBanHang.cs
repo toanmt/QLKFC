@@ -24,14 +24,31 @@ namespace QLKFC
         {
             int check = (int)this.Tag;
             var query = db.HoaDons.Where(x => x.MaHd == check).SingleOrDefault();
-            //lblTenNhanVien.Text = query.MaNvNavigation.TenNv;
+            var nvtg = db.NhanViens.Where(x => x.MaNv == query.MaNv).SingleOrDefault();
+            lblTenNhanVien.Text = nvtg.TenNv;
             lblPos.Text = query.Pos;
             lblStoreID.Text = query.StoreId;
+
+            var query2 = from s in db.CthoaDons
+                         where s.MaHd == check
+                         select new
+                         {
+                             s.MaSp,
+                             s.MaSpNavigation.TenSp,
+                             s.MaSpNavigation.Mota,
+                             s.SoLuong
+                         };
+            dgvChiTietHoaDonBanHang.DataSource = query2.ToList();
         }
 
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblStoreID_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

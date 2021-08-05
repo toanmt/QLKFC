@@ -59,39 +59,39 @@ namespace QLKFC
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(517, 549);
+            this.panel1.Size = new System.Drawing.Size(583, 479);
             this.panel1.TabIndex = 0;
             // 
             // lblTenNhanVien
             // 
             this.lblTenNhanVien.AutoSize = true;
-            this.lblTenNhanVien.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTenNhanVien.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTenNhanVien.ForeColor = System.Drawing.Color.Black;
-            this.lblTenNhanVien.Location = new System.Drawing.Point(254, 133);
+            this.lblTenNhanVien.Location = new System.Drawing.Point(357, 117);
             this.lblTenNhanVien.Name = "lblTenNhanVien";
-            this.lblTenNhanVien.Size = new System.Drawing.Size(251, 38);
+            this.lblTenNhanVien.Size = new System.Drawing.Size(195, 29);
             this.lblTenNhanVien.TabIndex = 42;
             this.lblTenNhanVien.Text = "Tên Nhân Viên";
             // 
             // lblPos
             // 
             this.lblPos.AutoSize = true;
-            this.lblPos.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPos.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPos.ForeColor = System.Drawing.Color.Black;
-            this.lblPos.Location = new System.Drawing.Point(106, 133);
+            this.lblPos.Location = new System.Drawing.Point(96, 117);
             this.lblPos.Name = "lblPos";
-            this.lblPos.Size = new System.Drawing.Size(35, 38);
+            this.lblPos.Size = new System.Drawing.Size(27, 29);
             this.lblPos.TabIndex = 41;
             this.lblPos.Text = "X";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(22, 133);
+            this.label5.Location = new System.Drawing.Point(21, 117);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 38);
+            this.label5.Size = new System.Drawing.Size(69, 29);
             this.label5.TabIndex = 40;
             this.label5.Text = "Pos:";
             // 
@@ -100,42 +100,43 @@ namespace QLKFC
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(51, 104);
+            this.label4.Location = new System.Drawing.Point(21, 88);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(405, 29);
+            this.label4.Size = new System.Drawing.Size(531, 29);
             this.label4.TabIndex = 39;
-            this.label4.Text = "----------------------------";
+            this.label4.Text = "-------------------------------------";
             // 
             // lblStoreID
             // 
             this.lblStoreID.AutoSize = true;
-            this.lblStoreID.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStoreID.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStoreID.ForeColor = System.Drawing.Color.Black;
-            this.lblStoreID.Location = new System.Drawing.Point(309, 71);
+            this.lblStoreID.Location = new System.Drawing.Point(322, 59);
             this.lblStoreID.Name = "lblStoreID";
-            this.lblStoreID.Size = new System.Drawing.Size(35, 38);
+            this.lblStoreID.Size = new System.Drawing.Size(27, 29);
             this.lblStoreID.TabIndex = 38;
             this.lblStoreID.Text = "X";
+            this.lblStoreID.Click += new System.EventHandler(this.lblStoreID_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(106, 71);
+            this.label3.Location = new System.Drawing.Point(175, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(197, 38);
+            this.label3.Size = new System.Drawing.Size(153, 29);
             this.label3.TabIndex = 37;
             this.label3.Text = "Store ID :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(11, 9);
+            this.label2.Location = new System.Drawing.Point(73, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(503, 38);
+            this.label2.Size = new System.Drawing.Size(391, 29);
             this.label2.TabIndex = 36;
             this.label2.Text = "Công ty LD TNHH KFC VietNam";
             // 
@@ -144,15 +145,15 @@ namespace QLKFC
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(51, 33);
+            this.label1.Location = new System.Drawing.Point(0, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(413, 38);
+            this.label1.Size = new System.Drawing.Size(575, 38);
             this.label1.TabIndex = 35;
-            this.label1.Text = "----------------------";
+            this.label1.Text = "-------------------------------";
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(411, 508);
+            this.btnDong.Location = new System.Drawing.Point(486, 441);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(94, 29);
             this.btnDong.TabIndex = 1;
@@ -162,19 +163,20 @@ namespace QLKFC
             // 
             // dgvChiTietHoaDonBanHang
             // 
+            this.dgvChiTietHoaDonBanHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChiTietHoaDonBanHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChiTietHoaDonBanHang.Location = new System.Drawing.Point(12, 186);
+            this.dgvChiTietHoaDonBanHang.Location = new System.Drawing.Point(3, 186);
             this.dgvChiTietHoaDonBanHang.Name = "dgvChiTietHoaDonBanHang";
             this.dgvChiTietHoaDonBanHang.RowHeadersWidth = 51;
             this.dgvChiTietHoaDonBanHang.RowTemplate.Height = 29;
-            this.dgvChiTietHoaDonBanHang.Size = new System.Drawing.Size(482, 305);
+            this.dgvChiTietHoaDonBanHang.Size = new System.Drawing.Size(577, 249);
             this.dgvChiTietHoaDonBanHang.TabIndex = 0;
             // 
             // ChiTietHoaDonBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 549);
+            this.ClientSize = new System.Drawing.Size(583, 479);
             this.Controls.Add(this.panel1);
             this.Name = "ChiTietHoaDonBanHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
