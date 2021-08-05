@@ -35,15 +35,12 @@ namespace QLKFC
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvHDBH = new System.Windows.Forms.DataGridView();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -51,9 +48,7 @@ namespace QLKFC
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHDBH)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_header
@@ -109,41 +104,22 @@ namespace QLKFC
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(3, 177);
+            this.panel2.Controls.Add(this.dgvHDBH);
+            this.panel2.Location = new System.Drawing.Point(12, 177);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(441, 380);
+            this.panel2.Size = new System.Drawing.Size(866, 319);
             this.panel2.TabIndex = 3;
             // 
-            // dataGridView1
+            // dgvHDBH
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(441, 380);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dataGridView2);
-            this.panel3.Location = new System.Drawing.Point(468, 177);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(441, 380);
-            this.panel3.TabIndex = 4;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(441, 380);
-            this.dataGridView2.TabIndex = 0;
+            this.dgvHDBH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHDBH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHDBH.Location = new System.Drawing.Point(0, 0);
+            this.dgvHDBH.Name = "dgvHDBH";
+            this.dgvHDBH.RowHeadersWidth = 51;
+            this.dgvHDBH.RowTemplate.Height = 29;
+            this.dgvHDBH.Size = new System.Drawing.Size(866, 319);
+            this.dgvHDBH.TabIndex = 0;
             // 
             // txtTimKiem
             // 
@@ -168,7 +144,7 @@ namespace QLKFC
             // 
             this.dateTimePicker1.CustomFormat = "";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 144);
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 144);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(134, 27);
             this.dateTimePicker1.TabIndex = 1;
@@ -176,7 +152,7 @@ namespace QLKFC
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(322, 144);
+            this.dateTimePicker2.Location = new System.Drawing.Point(756, 144);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(122, 27);
             this.dateTimePicker2.TabIndex = 10;
@@ -186,30 +162,19 @@ namespace QLKFC
             this.button1.BackColor = System.Drawing.Color.Red;
             this.button1.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(168, 139);
+            this.button1.Location = new System.Drawing.Point(390, 139);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 36);
             this.button1.TabIndex = 11;
             this.button1.Text = "Thống Kê";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(532, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(321, 40);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Chi Tiết Hóa Đơn";
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(728, 574);
+            this.button2.Location = new System.Drawing.Point(687, 554);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 47);
             this.button2.TabIndex = 21;
@@ -221,26 +186,27 @@ namespace QLKFC
             this.button3.BackColor = System.Drawing.Color.Red;
             this.button3.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(12, 574);
+            this.button3.Location = new System.Drawing.Point(31, 554);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(172, 47);
             this.button3.TabIndex = 22;
             this.button3.Text = "Chi Tiết";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Red;
             this.button4.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(255, 574);
+            this.button4.Location = new System.Drawing.Point(358, 554);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(172, 47);
             this.button4.TabIndex = 23;
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // Quản_Lý_Hóa_Đơn
+            // QuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -248,26 +214,22 @@ namespace QLKFC
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtTimKiem);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Quản_Lý_Hóa_Đơn";
+            this.Name = "QuanLyHoaDon";
             this.Text = "Quản_Lý_Hóa_Đơn";
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHDBH)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,15 +243,12 @@ namespace QLKFC
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvHDBH;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

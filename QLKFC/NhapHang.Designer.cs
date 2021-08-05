@@ -35,10 +35,6 @@ namespace QLKFC
             this.datatimepick = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuiDi = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,6 +50,10 @@ namespace QLKFC
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,30 +119,6 @@ namespace QLKFC
             this.dgvNhapHang.RowTemplate.Height = 29;
             this.dgvNhapHang.Size = new System.Drawing.Size(767, 234);
             this.dgvNhapHang.TabIndex = 19;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Mã nguyên liệu";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Tên nguyên liệu";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Đơn giá";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Số lượng";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
             // 
             // btnGuiDi
             // 
@@ -211,6 +187,7 @@ namespace QLKFC
             this.btnXoa.TabIndex = 27;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // label6
             // 
@@ -289,6 +266,33 @@ namespace QLKFC
             this.Column4.Name = "Column4";
             this.Column4.Width = 125;
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Mã nguyên liệu";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Tên nguyên liệu";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Đơn giá";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Số lượng";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            // 
             // NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -342,12 +346,12 @@ namespace QLKFC
         private System.Windows.Forms.TextBox txtdongia;
         public System.Windows.Forms.DataGridView dgvNhapHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

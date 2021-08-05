@@ -36,16 +36,29 @@ namespace QLKFC
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            var check = (from s in db.NguyenLieus
+            var getma = (from s in db.NguyenLieus
                         where s.TenNl == cbNguyenLieu.Text
                         select s.MaNl).SingleOrDefault();
-            string[] row = {check.ToString(),cbNguyenLieu.Text,txtSoLuong.Text,txtdongia.Text};
-            dgvNhapHang.Rows.Add(row);
+            for (int i = 0; i < dgvNhapHang.Rows.Count - 1; i++)
+                if (getma.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
+                {
+                    MessageBox.Show("Trùng mã");
+                    return;
+                }
+
+                string[] row = { getma.ToString(), cbNguyenLieu.Text, txtSoLuong.Text, txtdongia.Text };
+                dgvNhapHang.Rows.Add(row); 
         }
 
         private void cbNguyenLieu_SelectedValueChanged(object sender, EventArgs e)
         {
             txtdongia.Text = cbNguyenLieu.SelectedValue.ToString();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            int index = dgvNhapHang.SelectedRows.Count;
+            dgvNhapHang.Rows.RemoveAt(index);
         }
     }
 }
