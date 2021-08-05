@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace QLKFC.Models2
+namespace QLKFC.Models
 {
     public partial class CthoaDon
     {

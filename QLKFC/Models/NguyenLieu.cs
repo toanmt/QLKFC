@@ -9,7 +9,6 @@ namespace QLKFC.Models
     {
         public int MaNl { get; set; }
         public string TenNl { get; set; }
-        public int? SoLuong { get; set; }
         public int? DonGia { get; set; }
     }
 }
