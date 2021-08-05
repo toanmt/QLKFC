@@ -40,12 +40,12 @@ namespace QLKFC.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Vietnamese_CI_AS");
+            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.Entity<ChucVu>(entity =>
             {
                 entity.HasKey(e => e.MaCv)
-                    .HasName("PK__ChucVu__27258E761CAAFB69");
+                    .HasName("PK__ChucVu__27258E768AECCF94");
 
                 entity.ToTable("ChucVu");
 
@@ -101,7 +101,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<HoaDon>(entity =>
             {
                 entity.HasKey(e => e.MaHd)
-                    .HasName("PK__HoaDon__2725A6E088B3050C");
+                    .HasName("PK__HoaDon__2725A6E0FF006FFB");
 
                 entity.ToTable("HoaDon");
 
@@ -129,7 +129,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<HoaDonKho>(entity =>
             {
                 entity.HasKey(e => e.MaHdk)
-                    .HasName("PK__HoaDonKh__3C90E8C32647C4F3");
+                    .HasName("PK__HoaDonKh__3C90E8C32ED4DD89");
 
                 entity.ToTable("HoaDonKho");
 
@@ -144,26 +144,22 @@ namespace QLKFC.Models
 
             modelBuilder.Entity<Kho>(entity =>
             {
-                entity.HasKey(e => e.MaNl)
-                    .HasName("PK__Kho__2725D73C1E6AE901");
+                entity.HasNoKey();
 
                 entity.ToTable("Kho");
 
-                entity.Property(e => e.MaNl)
-                    .ValueGeneratedNever()
-                    .HasColumnName("MaNL");
+                entity.Property(e => e.MaNl).HasColumnName("MaNL");
 
                 entity.HasOne(d => d.MaNlNavigation)
-                    .WithOne(p => p.Kho)
-                    .HasForeignKey<Kho>(d => d.MaNl)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .WithMany()
+                    .HasForeignKey(d => d.MaNl)
                     .HasConstraintName("fk_K_SP");
             });
 
             modelBuilder.Entity<LoaiSanPham>(entity =>
             {
                 entity.HasKey(e => e.MaLsp)
-                    .HasName("PK__LoaiSanP__3B983FFEB80821BA");
+                    .HasName("PK__LoaiSanP__3B983FFE41C4C665");
 
                 entity.ToTable("LoaiSanPham");
 
@@ -177,7 +173,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<NguyenLieu>(entity =>
             {
                 entity.HasKey(e => e.MaNl)
-                    .HasName("PK__NguyenLi__2725D73C037C1868");
+                    .HasName("PK__NguyenLi__2725D73C25D6FB40");
 
                 entity.ToTable("NguyenLieu");
 
@@ -191,7 +187,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<NhanVien>(entity =>
             {
                 entity.HasKey(e => e.MaNv)
-                    .HasName("PK__NhanVien__2725D70A4C87A99A");
+                    .HasName("PK__NhanVien__2725D70A4D91607E");
 
                 entity.ToTable("NhanVien");
 
@@ -236,13 +232,11 @@ namespace QLKFC.Models
             modelBuilder.Entity<SanPham>(entity =>
             {
                 entity.HasKey(e => e.MaSp)
-                    .HasName("PK__SanPham__2725081CB994A84B");
+                    .HasName("PK__SanPham__2725081C7C18D9AA");
 
                 entity.ToTable("SanPham");
 
                 entity.Property(e => e.MaSp).HasColumnName("MaSP");
-
-                entity.Property(e => e.DonGia).HasColumnType("money");
 
                 entity.Property(e => e.Loai).HasMaxLength(20);
 
