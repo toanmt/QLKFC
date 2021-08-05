@@ -29,6 +29,8 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_header = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -43,16 +45,16 @@ namespace QLKFC
             this.txtMoTa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.txtGiaBan = new System.Windows.Forms.TextBox();
-            this.txtTenMon = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtLoai = new System.Windows.Forms.TextBox();
             this.cmbLoai = new System.Windows.Forms.ComboBox();
             this.txtMaMon = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtGiaBan = new System.Windows.Forms.TextBox();
+            this.txtTenMon = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnChonAnh = new System.Windows.Forms.Button();
             this.pcbMoTa = new System.Windows.Forms.PictureBox();
@@ -70,8 +72,6 @@ namespace QLKFC
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMoTa)).BeginInit();
             this.panel3.SuspendLayout();
@@ -132,16 +132,37 @@ namespace QLKFC
             // 
             // dgv_DSSP
             // 
+            this.dgv_DSSP.AllowUserToResizeRows = false;
             this.dgv_DSSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_DSSP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_DSSP.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_DSSP.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_DSSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DSSP.Location = new System.Drawing.Point(12, 49);
             this.dgv_DSSP.Name = "dgv_DSSP";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Khaki;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_DSSP.RowHeadersVisible = false;
             this.dgv_DSSP.RowHeadersWidth = 51;
-            this.dgv_DSSP.RowTemplate.Height = 29;
-            this.dgv_DSSP.Size = new System.Drawing.Size(906, 247);
+            this.dgv_DSSP.RowTemplate.Height = 120;
+            this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_DSSP.Size = new System.Drawing.Size(906, 186);
             this.dgv_DSSP.TabIndex = 4;
             // 
             // btnFind
@@ -170,9 +191,9 @@ namespace QLKFC
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 302);
+            this.panel2.Location = new System.Drawing.Point(0, 241);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(930, 294);
+            this.panel2.Size = new System.Drawing.Size(930, 355);
             this.panel2.TabIndex = 0;
             // 
             // panel5
@@ -182,7 +203,7 @@ namespace QLKFC
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(586, 294);
+            this.panel5.Size = new System.Drawing.Size(586, 355);
             this.panel5.TabIndex = 2;
             // 
             // panel9
@@ -190,9 +211,9 @@ namespace QLKFC
             this.panel9.Controls.Add(this.txtMoTa);
             this.panel9.Controls.Add(this.label6);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 117);
+            this.panel9.Location = new System.Drawing.Point(0, 148);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(586, 177);
+            this.panel9.Size = new System.Drawing.Size(586, 207);
             this.panel9.TabIndex = 1;
             // 
             // txtMoTa
@@ -204,7 +225,7 @@ namespace QLKFC
             this.txtMoTa.Location = new System.Drawing.Point(95, 7);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(485, 158);
+            this.txtMoTa.Size = new System.Drawing.Size(485, 188);
             this.txtMoTa.TabIndex = 8;
             // 
             // label6
@@ -220,110 +241,71 @@ namespace QLKFC
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.panel8);
-            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Controls.Add(this.label7);
+            this.panel6.Controls.Add(this.txtLoai);
+            this.panel6.Controls.Add(this.cmbLoai);
+            this.panel6.Controls.Add(this.txtMaMon);
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.txtGiaBan);
+            this.panel6.Controls.Add(this.txtTenMon);
+            this.panel6.Controls.Add(this.label5);
+            this.panel6.Controls.Add(this.label4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(586, 117);
+            this.panel6.Size = new System.Drawing.Size(586, 148);
             this.panel6.TabIndex = 0;
             // 
-            // panel8
+            // label7
             // 
-            this.panel8.Controls.Add(this.txtGiaBan);
-            this.panel8.Controls.Add(this.txtTenMon);
-            this.panel8.Controls.Add(this.label5);
-            this.panel8.Controls.Add(this.label4);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(284, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(302, 117);
-            this.panel8.TabIndex = 1;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(3, 111);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(164, 23);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Loại sản phẩm:";
             // 
-            // txtGiaBan
+            // txtLoai
             // 
-            this.txtGiaBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGiaBan.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtGiaBan.Location = new System.Drawing.Point(98, 68);
-            this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(198, 31);
-            this.txtGiaBan.TabIndex = 6;
-            // 
-            // txtTenMon
-            // 
-            this.txtTenMon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenMon.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTenMon.Location = new System.Drawing.Point(98, 13);
-            this.txtTenMon.Name = "txtTenMon";
-            this.txtTenMon.Size = new System.Drawing.Size(198, 31);
-            this.txtTenMon.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(6, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 23);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Giá bán:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(6, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 23);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Tên món:";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.cmbLoai);
-            this.panel7.Controls.Add(this.txtMaMon);
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Controls.Add(this.label2);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(284, 117);
-            this.panel7.TabIndex = 0;
+            this.txtLoai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtLoai.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtLoai.Location = new System.Drawing.Point(98, 65);
+            this.txtLoai.Name = "txtLoai";
+            this.txtLoai.Size = new System.Drawing.Size(180, 31);
+            this.txtLoai.TabIndex = 15;
             // 
             // cmbLoai
             // 
             this.cmbLoai.Enabled = false;
             this.cmbLoai.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbLoai.FormattingEnabled = true;
-            this.cmbLoai.Location = new System.Drawing.Point(98, 68);
+            this.cmbLoai.Location = new System.Drawing.Point(223, 105);
             this.cmbLoai.Name = "cmbLoai";
-            this.cmbLoai.Size = new System.Drawing.Size(180, 31);
-            this.cmbLoai.TabIndex = 5;
+            this.cmbLoai.Size = new System.Drawing.Size(230, 31);
+            this.cmbLoai.TabIndex = 14;
             // 
             // txtMaMon
             // 
             this.txtMaMon.Enabled = false;
             this.txtMaMon.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMaMon.Location = new System.Drawing.Point(98, 13);
+            this.txtMaMon.Location = new System.Drawing.Point(98, 12);
             this.txtMaMon.Name = "txtMaMon";
             this.txtMaMon.Size = new System.Drawing.Size(180, 31);
-            this.txtMaMon.TabIndex = 4;
+            this.txtMaMon.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(3, 69);
+            this.label3.Location = new System.Drawing.Point(3, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 23);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 12;
             this.label3.Text = "Loại:";
             // 
             // label2
@@ -331,11 +313,55 @@ namespace QLKFC
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(3, 14);
+            this.label2.Location = new System.Drawing.Point(3, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 23);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 11;
             this.label2.Text = "Mã món:";
+            // 
+            // txtGiaBan
+            // 
+            this.txtGiaBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtGiaBan.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtGiaBan.Location = new System.Drawing.Point(382, 68);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.Size = new System.Drawing.Size(198, 31);
+            this.txtGiaBan.TabIndex = 10;
+            // 
+            // txtTenMon
+            // 
+            this.txtTenMon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenMon.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTenMon.Location = new System.Drawing.Point(382, 13);
+            this.txtTenMon.Name = "txtTenMon";
+            this.txtTenMon.Size = new System.Drawing.Size(198, 31);
+            this.txtTenMon.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(290, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 23);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Giá bán:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(290, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 23);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Tên món:";
             // 
             // panel4
             // 
@@ -344,7 +370,7 @@ namespace QLKFC
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(586, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(190, 294);
+            this.panel4.Size = new System.Drawing.Size(190, 355);
             this.panel4.TabIndex = 1;
             // 
             // btnChonAnh
@@ -377,7 +403,7 @@ namespace QLKFC
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(776, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(154, 294);
+            this.panel3.Size = new System.Drawing.Size(154, 355);
             this.panel3.TabIndex = 0;
             // 
             // btnHuyBo
@@ -451,10 +477,7 @@ namespace QLKFC
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel6.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcbMoTa)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -486,15 +509,15 @@ namespace QLKFC
         private System.Windows.Forms.TextBox txtMoTa;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox txtGiaBan;
-        private System.Windows.Forms.TextBox txtTenMon;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtLoai;
         private System.Windows.Forms.ComboBox cmbLoai;
         private System.Windows.Forms.TextBox txtMaMon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtGiaBan;
+        private System.Windows.Forms.TextBox txtTenMon;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

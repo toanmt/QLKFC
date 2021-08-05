@@ -49,7 +49,6 @@ namespace QLKFC
                                         lsp.TenLsp
                                     };
             dgv_DSLoaiSPham.DataSource = query.ToList();
-            dgv_DSLoaiSPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         #endregion
 

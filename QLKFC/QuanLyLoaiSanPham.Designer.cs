@@ -218,12 +218,15 @@ namespace QLKFC
             this.dgv_DSLoaiSPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_DSLoaiSPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_DSLoaiSPham.BackgroundColor = System.Drawing.Color.White;
             this.dgv_DSLoaiSPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DSLoaiSPham.Location = new System.Drawing.Point(12, 6);
             this.dgv_DSLoaiSPham.Name = "dgv_DSLoaiSPham";
+            this.dgv_DSLoaiSPham.RowHeadersVisible = false;
             this.dgv_DSLoaiSPham.RowHeadersWidth = 51;
             this.dgv_DSLoaiSPham.RowTemplate.Height = 29;
+            this.dgv_DSLoaiSPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DSLoaiSPham.Size = new System.Drawing.Size(906, 345);
             this.dgv_DSLoaiSPham.TabIndex = 5;
             this.dgv_DSLoaiSPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSLoaiSPham_CellClick);
