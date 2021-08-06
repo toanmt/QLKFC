@@ -139,9 +139,10 @@ namespace QLKFC
 
         private void btnDangXuat_Click_1(object sender, EventArgs e)
         {
-            Dispose();
+            this.Hide();
             DangNhap dn = new DangNhap();
-            dn.Show();
+            dn.ShowDialog();
+            this.Close();
         }
 
         private void btnNhapNL_Click(object sender, EventArgs e)

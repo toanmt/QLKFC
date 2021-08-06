@@ -29,6 +29,8 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_header = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -88,6 +90,7 @@ namespace QLKFC
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::QLKFC.Properties.Resources.online_order;
             this.pictureBox2.Location = new System.Drawing.Point(680, 12);
             this.pictureBox2.Name = "pictureBox2";
@@ -106,6 +109,7 @@ namespace QLKFC
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -138,17 +142,38 @@ namespace QLKFC
             // 
             // dgv_DSSP
             // 
+            this.dgv_DSSP.AllowUserToResizeRows = false;
             this.dgv_DSSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_DSSP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_DSSP.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_DSSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DSSP.Location = new System.Drawing.Point(12, 124);
+            this.dgv_DSSP.EnableHeadersVisualStyles = false;
+            this.dgv_DSSP.Location = new System.Drawing.Point(3, 124);
             this.dgv_DSSP.Name = "dgv_DSSP";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Khaki;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_DSSP.RowHeadersVisible = false;
             this.dgv_DSSP.RowHeadersWidth = 51;
-            this.dgv_DSSP.RowTemplate.Height = 29;
-            this.dgv_DSSP.Size = new System.Drawing.Size(444, 460);
-            this.dgv_DSSP.TabIndex = 3;
+            this.dgv_DSSP.RowTemplate.Height = 150;
+            this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_DSSP.Size = new System.Drawing.Size(453, 469);
+            this.dgv_DSSP.TabIndex = 5;
             // 
             // panel4
             // 
@@ -162,6 +187,7 @@ namespace QLKFC
             // 
             // btnFind
             // 
+            this.btnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFind.Image = global::QLKFC.Properties.Resources.search;
             this.btnFind.Location = new System.Drawing.Point(400, 6);
@@ -172,6 +198,8 @@ namespace QLKFC
             // 
             // txtFind
             // 
+            this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFind.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFind.Location = new System.Drawing.Point(9, 6);
             this.txtFind.Name = "txtFind";
@@ -390,7 +418,7 @@ namespace QLKFC
             this.dgvDSOrder.Name = "dgvDSOrder";
             this.dgvDSOrder.RowHeadersWidth = 51;
             this.dgvDSOrder.RowTemplate.Height = 29;
-            this.dgvDSOrder.Size = new System.Drawing.Size(450, 390);
+            this.dgvDSOrder.Size = new System.Drawing.Size(456, 390);
             this.dgvDSOrder.TabIndex = 4;
             // 
             // Order
@@ -449,12 +477,12 @@ namespace QLKFC
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgv_DSSP;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Button btnChonDoUong;
         private System.Windows.Forms.Button btnChonMonLe;
         private System.Windows.Forms.Button btnChonComBo;
         private System.Windows.Forms.DataGridView dgvDSOrder;
+        private System.Windows.Forms.DataGridView dgv_DSSP;
     }
 }

@@ -42,14 +42,21 @@ namespace QLKFC
         }
         private void loadData()
         {
-            var query = from lsp in db.LoaiSanPhams
-                                    select new
-                                    {
-                                        lsp.MaLsp,
-                                        lsp.TenLsp
-                                    };
-            dgv_DSLoaiSPham.DataSource = query.ToList();
-            dgv_DSLoaiSPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            try
+            {
+                var query = from lsp in db.LoaiSanPhams
+                            select new
+                            {
+                                lsp.MaLsp,
+                                lsp.TenLsp
+                            };
+                dgv_DSLoaiSPham.DataSource = query.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Thông báo");
+            }
+           
         }
         #endregion
 
@@ -60,10 +67,16 @@ namespace QLKFC
             {
                 LoaiSanPham lsp = new LoaiSanPham();
                 lsp.TenLsp = txtTenLoaiMon.Text;
+                try {
                 db.LoaiSanPhams.Add(lsp);
                 db.SaveChanges();
                 loadData();
                 clearTextBox();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), "Thông báo");
+                }
             }
             else
             {
