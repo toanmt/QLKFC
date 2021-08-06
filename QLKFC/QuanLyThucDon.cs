@@ -38,29 +38,45 @@ namespace QLKFC
         }
         private void loadCmb()
         {
-            var query = from lsp in db.LoaiSanPhams
-                        select new
-                        {
-                            lsp.TenLsp
-                        };
-            foreach (var item in query)
+            try
             {
-                cmbLoai.Items.Add(item.TenLsp);
+                var query = from lsp in db.LoaiSanPhams
+                            select new
+                            {
+                                lsp.TenLsp
+                            };
+                foreach (var item in query)
+                {
+                    cmbLoai.Items.Add(item.TenLsp);
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), "Thông báo");
+            }
+            
         }
         private void loadDGV()
         {
-            var query = from sp in db.SanPhams
-                        select new
-                        {
-                            sp.MaSp,
-                            sp.TenSp,
-                            sp.DonGia,
-                            sp.Loai,
-                            sp.HinhAnh
-                        };
-            dgv_DSSP.DataSource = query.ToList();
-        }
+            try
+            {
+                var query = from sp in db.SanPhams
+                            select new
+                            {
+                                sp.MaSp,
+                                sp.TenSp,
+                                sp.DonGia,
+                                sp.Loai,
+                                sp.HinhAnh
+                            };
+                dgv_DSSP.DataSource = query.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Thông báo");
+            }
+}
 
         #endregion
 
@@ -76,32 +92,36 @@ namespace QLKFC
         }
         private void dgv_DSSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var sp = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(dgv_DSSP.Rows[e.RowIndex].Cells[0].Value.ToString()));
-            txtMaMon.Text = sp.MaSp + "";
-            txtGiaBan.Text = sp.DonGia + "";
-            txtLoai.Text = sp.Loai;
-            txtMoTa.Text = sp.Mota;
-            txtTenMon.Text = sp.TenSp;
-            cmbLoai.Text = db.LoaiSanPhams.SingleOrDefault(s => s.MaLsp.Equals(sp.MaLsp)).TenLsp;
-            try
+            if (e.RowIndex != - 1)
             {
-                MemoryStream mstr = new MemoryStream(sp.HinhAnh.ToArray());
-                Image img = Image.FromStream(mstr);
-                if (img == null)
+                var sp = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(dgv_DSSP.Rows[e.RowIndex].Cells[0].Value.ToString()));
+                txtMaMon.Text = sp.MaSp + "";
+                txtGiaBan.Text = sp.DonGia + "";
+                txtLoai.Text = sp.Loai;
+                txtMoTa.Text = sp.Mota;
+                txtTenMon.Text = sp.TenSp;
+                cmbLoai.Text = db.LoaiSanPhams.SingleOrDefault(s => s.MaLsp.Equals(sp.MaLsp)).TenLsp;
+                try
                 {
-                    return;
+                    MemoryStream mstr = new MemoryStream(sp.HinhAnh.ToArray());
+                    Image img = Image.FromStream(mstr);
+                    if (img == null)
+                    {
+                        return;
+                    }
+                    pcbMoTa.Image = img;
                 }
-                pcbMoTa.Image = img;
-            }
-            catch (Exception )  
-            {
-                pcbMoTa.Image = null;
+                catch (Exception)
+                {
+                    pcbMoTa.Image = null;
+                }
             }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if ((db.SanPhams.SingleOrDefault(lsp => lsp.TenSp == txtTenMon.Text)) == null)
+            var spt = db.SanPhams.SingleOrDefault(lsp => lsp.TenSp == txtTenMon.Text);
+            if (spt == null || (spt != null && spt.Loai!=txtLoai.Text))
             {
                 SanPham sp = new SanPham();
                 sp.TenSp = txtTenMon.Text;
@@ -112,10 +132,18 @@ namespace QLKFC
                 MemoryStream str = new MemoryStream();
                 pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Png);
                 sp.HinhAnh = str.ToArray();
-                db.SanPhams.Add(sp);
-                db.SaveChanges();
-                loadDGV();
-                clearTextBox();
+                try
+                {
+                    db.SanPhams.Add(sp);
+                    db.SaveChanges();
+                    loadDGV();
+                    clearTextBox();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message.ToString(), "Thông báo");
+                }
             }
             else
             {
@@ -126,25 +154,28 @@ namespace QLKFC
         private void btnSua_Click(object sender, EventArgs e)
         {
             var spSua = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(txtMaMon.Text));
-            if (spSua != null)
+            spSua.TenSp = txtTenMon.Text;
+            spSua.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
+            spSua.DonGia = int.Parse(txtGiaBan.Text);
+            spSua.Loai = txtLoai.Text;
+            spSua.Mota = txtMoTa.Text;
+            MemoryStream str = new MemoryStream();
+            pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Png);
+            spSua.HinhAnh = str.ToArray();
+            try
             {
-                spSua.TenSp = txtTenMon.Text;
-                spSua.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
-                spSua.DonGia = int.Parse(txtGiaBan.Text);
-                spSua.Loai = txtLoai.Text;
-                spSua.Mota = txtMoTa.Text;
-                MemoryStream str = new MemoryStream();
-                pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Png);
-                spSua.HinhAnh = str.ToArray();
+                db.SanPhams.Add(spSua);
                 db.SaveChanges();
                 loadDGV();
-                clearTextBox();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Không tồn tại loại sản phẩm này!", "Thông báo");
+
+                MessageBox.Show(ex.Message.ToString(), "Thông báo");
             }
+            clearTextBox();
         }
+
         private void btnHuyBo_Click(object sender, EventArgs e)
         {
             clearTextBox();
@@ -153,35 +184,29 @@ namespace QLKFC
         private void btnXoa_Click(object sender, EventArgs e)
         {
             var spXoa = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(txtMaMon.Text));
-            if (spXoa != null)
+            DialogResult dialog = MessageBox.Show("Bạn muốn đóng xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == DialogResult.Yes)
             {
-                DialogResult dialog = MessageBox.Show("Bạn muốn đóng xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialog == DialogResult.Yes)
+                try
                 {
-                    try
-                    {
-                        db.Remove(spXoa);
-                        db.SaveChanges();
-                        loadDGV();
-                        clearTextBox();
-                    }
-                    catch (Exception ex)
-                    {
-
-                        MessageBox.Show(ex.Message.ToString(),"Thông báo");
-                    }
-                    
+                    db.Remove(spXoa);
+                    db.SaveChanges();
+                    loadDGV();
+                    clearTextBox();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Không tồn tại sản phẩm này!", "Thông báo");
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message.ToString(), "Thông báo");
+                }
+
             }
         }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            var query = from sp in db.SanPhams where sp.MaSp== int.Parse(txtFind.Text)
+            var query = from sp in db.SanPhams 
+                        where sp.MaSp== int.Parse(txtFind.Text)
                         select new
                         {
                             sp.MaSp,
@@ -190,8 +215,16 @@ namespace QLKFC
                             sp.Loai,
                             sp.HinhAnh
                         };
-            dgv_DSSP.DataSource = query.ToList();
+            if (query.Count()==0)
+            {
+                 MessageBox.Show("Không tồn tại sản phẩm này!", "Thông báo");
+            }
+            else
+            {
+               dgv_DSSP.DataSource = query.ToList();
+            }
         }
+
         #endregion
     }
 }
