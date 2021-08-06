@@ -91,6 +91,7 @@ namespace QLKFC
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::QLKFC.Properties.Resources.menu;
             this.pictureBox2.Location = new System.Drawing.Point(815, 8);
             this.pictureBox2.Name = "pictureBox2";
@@ -109,6 +110,7 @@ namespace QLKFC
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -132,38 +134,38 @@ namespace QLKFC
             // 
             // dgv_DSSP
             // 
-            this.dgv_DSSP.AllowUserToResizeRows = false;
             this.dgv_DSSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_DSSP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_DSSP.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_DSSP.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_DSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_DSSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DSSP.EnableHeadersVisualStyles = false;
             this.dgv_DSSP.Location = new System.Drawing.Point(12, 49);
             this.dgv_DSSP.Name = "dgv_DSSP";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Khaki;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGreen;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_DSSP.RowHeadersVisible = false;
             this.dgv_DSSP.RowHeadersWidth = 51;
-            this.dgv_DSSP.RowTemplate.Height = 120;
+            this.dgv_DSSP.RowTemplate.Height = 150;
             this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DSSP.Size = new System.Drawing.Size(906, 186);
             this.dgv_DSSP.TabIndex = 4;
+            this.dgv_DSSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSSP_CellClick);
             // 
             // btnFind
             // 
@@ -175,6 +177,7 @@ namespace QLKFC
             this.btnFind.Size = new System.Drawing.Size(56, 37);
             this.btnFind.TabIndex = 3;
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // txtFind
             // 
@@ -203,7 +206,7 @@ namespace QLKFC
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(586, 355);
+            this.panel5.Size = new System.Drawing.Size(571, 355);
             this.panel5.TabIndex = 2;
             // 
             // panel9
@@ -213,7 +216,7 @@ namespace QLKFC
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 148);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(586, 207);
+            this.panel9.Size = new System.Drawing.Size(571, 207);
             this.panel9.TabIndex = 1;
             // 
             // txtMoTa
@@ -225,7 +228,7 @@ namespace QLKFC
             this.txtMoTa.Location = new System.Drawing.Point(95, 7);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(485, 188);
+            this.txtMoTa.Size = new System.Drawing.Size(470, 197);
             this.txtMoTa.TabIndex = 8;
             // 
             // label6
@@ -254,7 +257,7 @@ namespace QLKFC
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(586, 148);
+            this.panel6.Size = new System.Drawing.Size(571, 148);
             this.panel6.TabIndex = 0;
             // 
             // label7
@@ -280,7 +283,7 @@ namespace QLKFC
             // 
             // cmbLoai
             // 
-            this.cmbLoai.Enabled = false;
+            this.cmbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoai.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbLoai.FormattingEnabled = true;
             this.cmbLoai.Location = new System.Drawing.Point(223, 105);
@@ -327,7 +330,7 @@ namespace QLKFC
             this.txtGiaBan.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtGiaBan.Location = new System.Drawing.Point(382, 68);
             this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(198, 31);
+            this.txtGiaBan.Size = new System.Drawing.Size(183, 31);
             this.txtGiaBan.TabIndex = 10;
             // 
             // txtTenMon
@@ -338,7 +341,7 @@ namespace QLKFC
             this.txtTenMon.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtTenMon.Location = new System.Drawing.Point(382, 13);
             this.txtTenMon.Name = "txtTenMon";
-            this.txtTenMon.Size = new System.Drawing.Size(198, 31);
+            this.txtTenMon.Size = new System.Drawing.Size(183, 31);
             this.txtTenMon.TabIndex = 9;
             // 
             // label5
@@ -368,9 +371,9 @@ namespace QLKFC
             this.panel4.Controls.Add(this.btnChonAnh);
             this.panel4.Controls.Add(this.pcbMoTa);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(586, 0);
+            this.panel4.Location = new System.Drawing.Point(571, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(190, 355);
+            this.panel4.Size = new System.Drawing.Size(211, 355);
             this.panel4.TabIndex = 1;
             // 
             // btnChonAnh
@@ -378,18 +381,19 @@ namespace QLKFC
             this.btnChonAnh.BackColor = System.Drawing.Color.Red;
             this.btnChonAnh.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnChonAnh.ForeColor = System.Drawing.Color.White;
-            this.btnChonAnh.Location = new System.Drawing.Point(10, 214);
+            this.btnChonAnh.Location = new System.Drawing.Point(10, 277);
             this.btnChonAnh.Name = "btnChonAnh";
             this.btnChonAnh.Size = new System.Drawing.Size(174, 52);
             this.btnChonAnh.TabIndex = 7;
             this.btnChonAnh.Text = "Chọn ảnh";
             this.btnChonAnh.UseVisualStyleBackColor = false;
+            this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
             // 
             // pcbMoTa
             // 
             this.pcbMoTa.Location = new System.Drawing.Point(10, 14);
             this.pcbMoTa.Name = "pcbMoTa";
-            this.pcbMoTa.Size = new System.Drawing.Size(174, 183);
+            this.pcbMoTa.Size = new System.Drawing.Size(195, 232);
             this.pcbMoTa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbMoTa.TabIndex = 0;
             this.pcbMoTa.TabStop = false;
@@ -401,9 +405,9 @@ namespace QLKFC
             this.panel3.Controls.Add(this.btnSua);
             this.panel3.Controls.Add(this.btnThem);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(776, 0);
+            this.panel3.Location = new System.Drawing.Point(782, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(154, 355);
+            this.panel3.Size = new System.Drawing.Size(148, 355);
             this.panel3.TabIndex = 0;
             // 
             // btnHuyBo
@@ -417,6 +421,7 @@ namespace QLKFC
             this.btnHuyBo.TabIndex = 6;
             this.btnHuyBo.Text = "Hủy bỏ";
             this.btnHuyBo.UseVisualStyleBackColor = false;
+            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
             // 
             // btnXoa
             // 
@@ -429,6 +434,7 @@ namespace QLKFC
             this.btnXoa.TabIndex = 5;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -441,6 +447,7 @@ namespace QLKFC
             this.btnSua.TabIndex = 4;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -453,6 +460,7 @@ namespace QLKFC
             this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // QuanLyThucDon
             // 

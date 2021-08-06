@@ -93,7 +93,7 @@ namespace QLKFC
                 }
                 pcbMoTa.Image = img;
             }
-            catch (Exception )
+            catch (Exception )  
             {
                 pcbMoTa.Image = null;
             }
@@ -148,6 +148,49 @@ namespace QLKFC
         private void btnHuyBo_Click(object sender, EventArgs e)
         {
             clearTextBox();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            var spXoa = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(txtMaMon.Text));
+            if (spXoa != null)
+            {
+                DialogResult dialog = MessageBox.Show("Bạn muốn đóng xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialog == DialogResult.Yes)
+                {
+                    try
+                    {
+                        db.Remove(spXoa);
+                        db.SaveChanges();
+                        loadDGV();
+                        clearTextBox();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message.ToString(),"Thông báo");
+                    }
+                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không tồn tại sản phẩm này!", "Thông báo");
+            }
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            var query = from sp in db.SanPhams where sp.MaSp== int.Parse(txtFind.Text)
+                        select new
+                        {
+                            sp.MaSp,
+                            sp.TenSp,
+                            sp.DonGia,
+                            sp.Loai,
+                            sp.HinhAnh
+                        };
+            dgv_DSSP.DataSource = query.ToList();
         }
         #endregion
     }
