@@ -30,8 +30,11 @@ namespace QLKFC
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnNhapNL = new System.Windows.Forms.Button();
+            this.panel_submenu_Kho = new System.Windows.Forms.Panel();
+            this.btnNhapHang = new System.Windows.Forms.Button();
+            this.btnKhoHang = new System.Windows.Forms.Button();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnKho = new System.Windows.Forms.Button();
             this.panel_submenu_HD = new System.Windows.Forms.Panel();
             this.btnHDBanHang = new System.Windows.Forms.Button();
@@ -54,6 +57,7 @@ namespace QLKFC
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel_submenu_Kho.SuspendLayout();
             this.panel_submenu_HD.SuspendLayout();
             this.panel_submenu_NS.SuspendLayout();
             this.panel_submenu_SP.SuspendLayout();
@@ -64,8 +68,9 @@ namespace QLKFC
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Red;
-            this.panel1.Controls.Add(this.btnDangXuat);
             this.panel1.Controls.Add(this.btnNhapNL);
+            this.panel1.Controls.Add(this.panel_submenu_Kho);
+            this.panel1.Controls.Add(this.btnDangXuat);
             this.panel1.Controls.Add(this.btnKho);
             this.panel1.Controls.Add(this.panel_submenu_HD);
             this.panel1.Controls.Add(this.btnHoaDon);
@@ -79,22 +84,8 @@ namespace QLKFC
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(255, 680);
+            this.panel1.Size = new System.Drawing.Size(255, 673);
             this.panel1.TabIndex = 0;
-            // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangXuat.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 831);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(255, 44);
-            this.btnDangXuat.TabIndex = 11;
-            this.btnDangXuat.Text = "Đăng xuất";
-            this.btnDangXuat.UseVisualStyleBackColor = true;
-            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click_1);
             // 
             // btnNhapNL
             // 
@@ -102,13 +93,64 @@ namespace QLKFC
             this.btnNhapNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhapNL.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNhapNL.ForeColor = System.Drawing.Color.White;
-            this.btnNhapNL.Location = new System.Drawing.Point(0, 787);
+            this.btnNhapNL.Location = new System.Drawing.Point(0, 872);
             this.btnNhapNL.Name = "btnNhapNL";
             this.btnNhapNL.Size = new System.Drawing.Size(255, 44);
-            this.btnNhapNL.TabIndex = 10;
+            this.btnNhapNL.TabIndex = 15;
             this.btnNhapNL.Text = "Nhập nguyên liệu";
             this.btnNhapNL.UseVisualStyleBackColor = true;
-            this.btnNhapNL.Click += new System.EventHandler(this.btnNhapNL_Click);
+            // 
+            // panel_submenu_Kho
+            // 
+            this.panel_submenu_Kho.Controls.Add(this.btnNhapHang);
+            this.panel_submenu_Kho.Controls.Add(this.btnKhoHang);
+            this.panel_submenu_Kho.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_submenu_Kho.Location = new System.Drawing.Point(0, 787);
+            this.panel_submenu_Kho.Name = "panel_submenu_Kho";
+            this.panel_submenu_Kho.Size = new System.Drawing.Size(255, 85);
+            this.panel_submenu_Kho.TabIndex = 3;
+            // 
+            // btnNhapHang
+            // 
+            this.btnNhapHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNhapHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhapHang.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNhapHang.ForeColor = System.Drawing.Color.White;
+            this.btnNhapHang.Location = new System.Drawing.Point(0, 44);
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.Size = new System.Drawing.Size(255, 44);
+            this.btnNhapHang.TabIndex = 15;
+            this.btnNhapHang.Text = "Nhập/Xuất";
+            this.btnNhapHang.UseVisualStyleBackColor = true;
+            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
+            // 
+            // btnKhoHang
+            // 
+            this.btnKhoHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnKhoHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhoHang.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnKhoHang.ForeColor = System.Drawing.Color.White;
+            this.btnKhoHang.Location = new System.Drawing.Point(0, 0);
+            this.btnKhoHang.Name = "btnKhoHang";
+            this.btnKhoHang.Size = new System.Drawing.Size(255, 44);
+            this.btnKhoHang.TabIndex = 14;
+            this.btnKhoHang.Text = "Kho Hàng";
+            this.btnKhoHang.UseVisualStyleBackColor = true;
+            this.btnKhoHang.Click += new System.EventHandler(this.btnKhoHang_Click);
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangXuat.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 629);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(255, 44);
+            this.btnDangXuat.TabIndex = 11;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = true;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click_1);
             // 
             // btnKho
             // 
@@ -356,7 +398,7 @@ namespace QLKFC
             this.panel_control.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_control.Location = new System.Drawing.Point(255, 0);
             this.panel_control.Name = "panel_control";
-            this.panel_control.Size = new System.Drawing.Size(930, 680);
+            this.panel_control.Size = new System.Drawing.Size(930, 673);
             this.panel_control.TabIndex = 1;
             // 
             // label3
@@ -365,7 +407,7 @@ namespace QLKFC
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(759, 653);
+            this.label3.Location = new System.Drawing.Point(759, 646);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 18);
             this.label3.TabIndex = 2;
@@ -398,7 +440,7 @@ namespace QLKFC
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1185, 680);
+            this.ClientSize = new System.Drawing.Size(1185, 673);
             this.Controls.Add(this.panel_control);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -406,6 +448,7 @@ namespace QLKFC
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý KFC";
             this.panel1.ResumeLayout(false);
+            this.panel_submenu_Kho.ResumeLayout(false);
             this.panel_submenu_HD.ResumeLayout(false);
             this.panel_submenu_NS.ResumeLayout(false);
             this.panel_submenu_SP.ResumeLayout(false);
@@ -427,7 +470,6 @@ namespace QLKFC
         private System.Windows.Forms.Button btnSanPham;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnTrangChu;
-        private System.Windows.Forms.Button btnNhapNL;
         private System.Windows.Forms.Button btnKho;
         private System.Windows.Forms.Panel panel_submenu_HD;
         private System.Windows.Forms.Button btnHDBanHang;
@@ -442,6 +484,10 @@ namespace QLKFC
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDangXuat;
+        private System.Windows.Forms.Button btnNhapNL;
+        private System.Windows.Forms.Panel panel_submenu_Kho;
+        private System.Windows.Forms.Button btnNhapHang;
+        private System.Windows.Forms.Button btnKhoHang;
     }
 }
 

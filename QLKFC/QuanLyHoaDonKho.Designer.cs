@@ -29,80 +29,66 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnInHoaDon = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnThongKe = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvChiTietHoaDonKho = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvHoaDonKho = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel_header = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.lblMaHoaDon = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDonKho)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonKho)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_header.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button4
+            // btnInHoaDon
             // 
-            this.button4.BackColor = System.Drawing.Color.Red;
-            this.button4.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(272, 580);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(172, 47);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "Sửa";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(728, 580);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(172, 47);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "In Hóa Đơn";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnInHoaDon.BackColor = System.Drawing.Color.Red;
+            this.btnInHoaDon.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnInHoaDon.ForeColor = System.Drawing.Color.White;
+            this.btnInHoaDon.Location = new System.Drawing.Point(728, 580);
+            this.btnInHoaDon.Name = "btnInHoaDon";
+            this.btnInHoaDon.Size = new System.Drawing.Size(172, 47);
+            this.btnInHoaDon.TabIndex = 33;
+            this.btnInHoaDon.Text = "In Hóa Đơn";
+            this.btnInHoaDon.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(532, 120);
+            this.label2.Location = new System.Drawing.Point(509, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(305, 38);
+            this.label2.Size = new System.Drawing.Size(323, 38);
             this.label2.TabIndex = 32;
-            this.label2.Text = "Chi Tiết Hóa Đơn";
+            this.label2.Text = "Chi Tiết Hóa Đơn:";
             // 
-            // button1
+            // btnThongKe
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(168, 145);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 36);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Thống Kê";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnThongKe.BackColor = System.Drawing.Color.Red;
+            this.btnThongKe.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnThongKe.ForeColor = System.Drawing.Color.White;
+            this.btnThongKe.Location = new System.Drawing.Point(168, 145);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(125, 36);
+            this.btnThongKe.TabIndex = 31;
+            this.btnThongKe.Text = "Thống Kê";
+            this.btnThongKe.UseVisualStyleBackColor = false;
             // 
             // dateTimePicker2
             // 
@@ -140,39 +126,42 @@ namespace QLKFC
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
             // 
-            // dataGridView2
+            // dgvChiTietHoaDonKho
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(441, 380);
-            this.dataGridView2.TabIndex = 0;
+            this.dgvChiTietHoaDonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChiTietHoaDonKho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvChiTietHoaDonKho.Location = new System.Drawing.Point(0, 0);
+            this.dgvChiTietHoaDonKho.Name = "dgvChiTietHoaDonKho";
+            this.dgvChiTietHoaDonKho.RowHeadersWidth = 51;
+            this.dgvChiTietHoaDonKho.RowTemplate.Height = 29;
+            this.dgvChiTietHoaDonKho.Size = new System.Drawing.Size(441, 380);
+            this.dgvChiTietHoaDonKho.TabIndex = 0;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView2);
+            this.panel3.Controls.Add(this.dgvChiTietHoaDonKho);
             this.panel3.Location = new System.Drawing.Point(468, 183);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(441, 380);
             this.panel3.TabIndex = 27;
             // 
-            // dataGridView1
+            // dgvHoaDonKho
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(441, 380);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvHoaDonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHoaDonKho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHoaDonKho.Location = new System.Drawing.Point(0, 0);
+            this.dgvHoaDonKho.MultiSelect = false;
+            this.dgvHoaDonKho.Name = "dgvHoaDonKho";
+            this.dgvHoaDonKho.ReadOnly = true;
+            this.dgvHoaDonKho.RowHeadersWidth = 51;
+            this.dgvHoaDonKho.RowTemplate.Height = 29;
+            this.dgvHoaDonKho.Size = new System.Drawing.Size(441, 380);
+            this.dgvHoaDonKho.TabIndex = 0;
+            this.dgvHoaDonKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonKho_CellClick);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dgvHoaDonKho);
             this.panel2.Location = new System.Drawing.Point(3, 183);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(441, 380);
@@ -216,18 +205,6 @@ namespace QLKFC
             this.label1.TabIndex = 0;
             this.label1.Text = "Hóa Đơn Kho";
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 578);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(172, 46);
-            this.button3.TabIndex = 34;
-            this.button3.Text = "Chi Tiết";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // panel_header
             // 
             this.panel_header.BackColor = System.Drawing.Color.Red;
@@ -241,43 +218,39 @@ namespace QLKFC
             this.panel_header.Size = new System.Drawing.Size(912, 84);
             this.panel_header.TabIndex = 25;
             // 
-            // button5
+            // lblMaHoaDon
             // 
-            this.button5.BackColor = System.Drawing.Color.Red;
-            this.button5.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(477, 580);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(172, 47);
-            this.button5.TabIndex = 36;
-            this.button5.Text = "Thêm Mới";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.lblMaHoaDon.AutoSize = true;
+            this.lblMaHoaDon.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMaHoaDon.ForeColor = System.Drawing.Color.Red;
+            this.lblMaHoaDon.Location = new System.Drawing.Point(825, 126);
+            this.lblMaHoaDon.Name = "lblMaHoaDon";
+            this.lblMaHoaDon.Size = new System.Drawing.Size(35, 38);
+            this.lblMaHoaDon.TabIndex = 35;
+            this.lblMaHoaDon.Text = "X";
             // 
-            // Quản_lý_hóa_đơn_kho
+            // QuanLyHoaDonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 633);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.lblMaHoaDon);
+            this.Controls.Add(this.btnInHoaDon);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnThongKe);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel_header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Quản_lý_hóa_đơn_kho";
+            this.Name = "QuanLyHoaDonKho";
             this.Text = "Quản_lý_hóa_đơn_kho";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDonKho)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonKho)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -289,25 +262,22 @@ namespace QLKFC
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnInHoaDon;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvChiTietHoaDonKho;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvHoaDonKho;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel_header;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label lblMaHoaDon;
     }
 }

@@ -30,11 +30,14 @@ namespace QLKFC
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.datatimepick = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuiDi = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,10 +53,7 @@ namespace QLKFC
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,14 +66,6 @@ namespace QLKFC
             this.label1.Size = new System.Drawing.Size(161, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Đặt Hàng";
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDiaChi.Location = new System.Drawing.Point(392, 65);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(146, 31);
-            this.txtDiaChi.TabIndex = 16;
             // 
             // label2
             // 
@@ -88,7 +80,7 @@ namespace QLKFC
             // 
             // datatimepick
             // 
-            this.datatimepick.Location = new System.Drawing.Point(564, 71);
+            this.datatimepick.Location = new System.Drawing.Point(555, 68);
             this.datatimepick.Name = "datatimepick";
             this.datatimepick.Size = new System.Drawing.Size(224, 25);
             this.datatimepick.TabIndex = 17;
@@ -100,9 +92,9 @@ namespace QLKFC
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(299, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 23);
+            this.label3.Size = new System.Drawing.Size(120, 23);
             this.label3.TabIndex = 18;
-            this.label3.Text = "Địa Chỉ";
+            this.label3.Text = "Trạng thái";
             // 
             // dgvNhapHang
             // 
@@ -120,6 +112,33 @@ namespace QLKFC
             this.dgvNhapHang.Size = new System.Drawing.Size(767, 234);
             this.dgvNhapHang.TabIndex = 19;
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Mã nguyên liệu";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Tên nguyên liệu";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Đơn giá";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Số lượng";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            // 
             // btnGuiDi
             // 
             this.btnGuiDi.BackColor = System.Drawing.Color.Red;
@@ -131,6 +150,7 @@ namespace QLKFC
             this.btnGuiDi.TabIndex = 21;
             this.btnGuiDi.Text = "Gửi Đi";
             this.btnGuiDi.UseVisualStyleBackColor = false;
+            this.btnGuiDi.Click += new System.EventHandler(this.btnGuiDi_Click);
             // 
             // label4
             // 
@@ -266,38 +286,25 @@ namespace QLKFC
             this.Column4.Name = "Column4";
             this.Column4.Width = 125;
             // 
-            // Column5
+            // comboBox1
             // 
-            this.Column5.HeaderText = "Mã nguyên liệu";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Tên nguyên liệu";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Đơn giá";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Số lượng";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
+            this.comboBox1.Enabled = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Đag xử lý",
+            "Hoàn Thành"});
+            this.comboBox1.Location = new System.Drawing.Point(425, 65);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(94, 26);
+            this.comboBox1.TabIndex = 34;
+            this.comboBox1.Text = "Tạo mới";
             // 
             // NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 473);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtdongia);
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.txtMa);
@@ -312,7 +319,6 @@ namespace QLKFC
             this.Controls.Add(this.dgvNhapHang);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.datatimepick);
-            this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -329,7 +335,6 @@ namespace QLKFC
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker datatimepick;
         private System.Windows.Forms.Label label3;
@@ -353,5 +358,6 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

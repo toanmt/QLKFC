@@ -41,6 +41,7 @@ namespace QLKFC
             panel_submenu_HD.Visible = false;
             panel_submenu_NS.Visible = false;
             panel_submenu_SP.Visible = false;
+            panel_submenu_Kho.Visible = false;
         }
         private void showSubMenu(Panel submenu)
         {
@@ -61,7 +62,10 @@ namespace QLKFC
         {
             showSubMenu(panel_submenu_SP);
         }
-
+        private void btnKho_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panel_submenu_Kho);
+        }
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             showSubMenu(panel_submenu_NS);
@@ -129,10 +133,7 @@ namespace QLKFC
             hideSubMenu();
         }
 
-        private void btnKho_Click(object sender, EventArgs e)
-        {
-            openForm(new QuanLyKho());
-        }
+        
         #endregion
 
 
@@ -146,6 +147,18 @@ namespace QLKFC
         private void btnNhapNL_Click(object sender, EventArgs e)
         {
             openForm(new NhapNguyenLieu());
+        }
+
+        private void btnKhoHang_Click(object sender, EventArgs e)
+        {
+            openForm(new QuanLyKho());
+            hideSubMenu();
+        }
+
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            openForm(new QuanLyNhapXuat());
         }
     }
 }

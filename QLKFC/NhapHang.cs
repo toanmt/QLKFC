@@ -46,7 +46,7 @@ namespace QLKFC
                     return;
                 }
 
-                string[] row = { getma.ToString(), cbNguyenLieu.Text, txtSoLuong.Text, txtdongia.Text };
+                string[] row = { getma.ToString(), cbNguyenLieu.Text, txtdongia.Text, txtSoLuong.Text };
                 dgvNhapHang.Rows.Add(row); 
         }
 
@@ -59,6 +59,12 @@ namespace QLKFC
         {
             int index = dgvNhapHang.SelectedRows.Count;
             dgvNhapHang.Rows.RemoveAt(index);
+        }
+
+        private void btnGuiDi_Click(object sender, EventArgs e)
+        {
+            int check = dgvNhapHang.Rows.Count;
+
         }
     }
 }
