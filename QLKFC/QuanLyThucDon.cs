@@ -205,23 +205,34 @@ namespace QLKFC
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            var query = from sp in db.SanPhams 
-                        where sp.MaSp== int.Parse(txtFind.Text)
-                        select new
-                        {
-                            sp.MaSp,
-                            sp.TenSp,
-                            sp.DonGia,
-                            sp.Loai,
-                            sp.HinhAnh
-                        };
-            if (query.Count()==0)
+            int n = 0;
+            if (int.TryParse(txtFind.Text, out n))
             {
-                 MessageBox.Show("Không tồn tại sản phẩm này!", "Thông báo");
+                var query = from sp in db.SanPhams
+                            where sp.MaSp == int.Parse(txtFind.Text)
+                            select new
+                            {
+                                sp.MaSp,
+                                sp.TenSp,
+                                sp.DonGia,
+                                sp.Loai,
+                                sp.HinhAnh
+                            };
+                dgv_DSSP.DataSource = query.ToList();
             }
             else
             {
-               dgv_DSSP.DataSource = query.ToList();
+                var query = from sp in db.SanPhams
+                            where sp.TenSp.Contains(txtFind.Text)
+                            select new
+                            {
+                                sp.MaSp,
+                                sp.TenSp,
+                                sp.DonGia,
+                                sp.Loai,
+                                sp.HinhAnh
+                            };
+                dgv_DSSP.DataSource = query.ToList();
             }
         }
 

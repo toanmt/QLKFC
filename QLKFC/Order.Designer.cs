@@ -31,6 +31,7 @@ namespace QLKFC
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_header = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -217,6 +218,7 @@ namespace QLKFC
             this.btnFind.Size = new System.Drawing.Size(56, 37);
             this.btnFind.TabIndex = 1;
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // txtFind
             // 
@@ -250,6 +252,7 @@ namespace QLKFC
             this.btnChonDoUong.TabIndex = 2;
             this.btnChonDoUong.Text = "Đồ uống";
             this.btnChonDoUong.UseVisualStyleBackColor = true;
+            this.btnChonDoUong.Click += new System.EventHandler(this.btnChonDoUong_Click);
             // 
             // btnChonMonLe
             // 
@@ -260,8 +263,9 @@ namespace QLKFC
             this.btnChonMonLe.Name = "btnChonMonLe";
             this.btnChonMonLe.Size = new System.Drawing.Size(150, 58);
             this.btnChonMonLe.TabIndex = 1;
-            this.btnChonMonLe.Text = "Món lẻ";
+            this.btnChonMonLe.Text = "Món ăn";
             this.btnChonMonLe.UseVisualStyleBackColor = true;
+            this.btnChonMonLe.Click += new System.EventHandler(this.btnChonMonLe_Click);
             // 
             // btnChonComBo
             // 
@@ -274,6 +278,7 @@ namespace QLKFC
             this.btnChonComBo.TabIndex = 0;
             this.btnChonComBo.Text = "Combo";
             this.btnChonComBo.UseVisualStyleBackColor = true;
+            this.btnChonComBo.Click += new System.EventHandler(this.btnChonComBo_Click);
             // 
             // panel_Order
             // 
@@ -439,6 +444,14 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDSOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSOrder.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDSOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDSOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenMon,
@@ -446,6 +459,7 @@ namespace QLKFC
             this.SoLuong,
             this.ThanhTien,
             this.Xoa});
+            this.dgvDSOrder.EnableHeadersVisualStyles = false;
             this.dgvDSOrder.Location = new System.Drawing.Point(6, 6);
             this.dgvDSOrder.Name = "dgvDSOrder";
             this.dgvDSOrder.RowHeadersVisible = false;
@@ -488,7 +502,8 @@ namespace QLKFC
             this.Xoa.HeaderText = "Xóa";
             this.Xoa.MinimumWidth = 6;
             this.Xoa.Name = "Xoa";
-            this.Xoa.Text = "Xóa";
+            this.Xoa.Text = "X";
+            this.Xoa.UseColumnTextForButtonValue = true;
             // 
             // Order
             // 
@@ -553,11 +568,11 @@ namespace QLKFC
         private System.Windows.Forms.Button btnChonComBo;
         private System.Windows.Forms.DataGridView dgvDSOrder;
         private System.Windows.Forms.DataGridView dgv_DSSP;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMon;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGai;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
         private System.Windows.Forms.DataGridViewButtonColumn Xoa;
-        private System.Windows.Forms.Button button1;
     }
 }

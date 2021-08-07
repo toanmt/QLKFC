@@ -20,11 +20,11 @@ namespace QLKFC
         }
         QLBHKFCContext db = new QLBHKFCContext();
 
-        #region Lấy dữ liệu
+        #region Tương tác dữ liệu
         private void loadDGVSP()
         {
 
-            var query = from sp in db.SanPhams
+            var query = from sp in db.SanPhams 
                         select new
                         {
                             sp.TenSp,
@@ -33,6 +33,30 @@ namespace QLKFC
                             sp.HinhAnh
                         };
             dgv_DSSP.DataSource = query.ToList();
+        }
+
+        private void locDL(string loc)
+        {
+            var query = from sp in db.SanPhams
+                        where sp.MaLsp.Equals(db.LoaiSanPhams.SingleOrDefault(lsp => lsp.TenLsp ==loc).MaLsp)
+                        select new
+                        {
+                            sp.TenSp,
+                            sp.DonGia,
+                            sp.Loai,
+                            sp.HinhAnh
+                        };
+            dgv_DSSP.DataSource = query.ToList();
+        }
+        private void TinhTien()
+        {
+            float tt = 0;
+            for (int i = 0; i < dgvDSOrder.RowCount; i++)
+            {
+                tt += float.Parse(dgvDSOrder.Rows[i].Cells[3].Value.ToString());
+            }
+
+            lblThanhTien.Text = tt + "";
         }
         #endregion
 
@@ -67,6 +91,7 @@ namespace QLKFC
                     }
                 }
             }
+            TinhTien();
         }
 
         private void btnHuyBo_Click(object sender, EventArgs e)
@@ -82,14 +107,46 @@ namespace QLKFC
                     ==DialogResult.Yes)
                 {
                     dgvDSOrder.Rows.RemoveAt(e.RowIndex);
+                    TinhTien();
                 }    
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             loadDGVSP();
         }
+
+        private void btnChonComBo_Click(object sender, EventArgs e)
+        {
+            locDL("Combo");
+        }
+
+        private void btnChonMonLe_Click(object sender, EventArgs e)
+        {
+            locDL("Đồ ăn");
+        }
+
+        private void btnChonDoUong_Click(object sender, EventArgs e)
+        {
+            locDL("Đồ uống");
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            var query = from sp in db.SanPhams
+                        where sp.TenSp.Contains(txtFind.Text)
+                        select new
+                        {
+                            sp.TenSp,
+                            sp.DonGia,
+                            sp.Loai,
+                            sp.HinhAnh
+                        };
+            dgv_DSSP.DataSource = query.ToList();
+        }
+
         #endregion
     }
 }
