@@ -36,7 +36,7 @@ namespace QLKFC
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvKho = new System.Windows.Forms.DataGridView();
+            this.dgvNhapHang = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@ namespace QLKFC
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +102,7 @@ namespace QLKFC
             // panel2
             // 
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.dgvKho);
+            this.panel2.Controls.Add(this.dgvNhapHang);
             this.panel2.Location = new System.Drawing.Point(-4, 87);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(906, 358);
@@ -119,15 +119,15 @@ namespace QLKFC
             this.label2.TabIndex = 4;
             this.label2.Text = "Danh Sách Phiếu Nhập";
             // 
-            // dgvKho
+            // dgvNhapHang
             // 
-            this.dgvKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKho.Location = new System.Drawing.Point(13, 55);
-            this.dgvKho.Name = "dgvKho";
-            this.dgvKho.RowHeadersWidth = 51;
-            this.dgvKho.RowTemplate.Height = 29;
-            this.dgvKho.Size = new System.Drawing.Size(877, 300);
-            this.dgvKho.TabIndex = 8;
+            this.dgvNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhapHang.Location = new System.Drawing.Point(13, 55);
+            this.dgvNhapHang.Name = "dgvNhapHang";
+            this.dgvNhapHang.RowHeadersWidth = 51;
+            this.dgvNhapHang.RowTemplate.Height = 29;
+            this.dgvNhapHang.Size = new System.Drawing.Size(877, 300);
+            this.dgvNhapHang.TabIndex = 8;
             // 
             // panel3
             // 
@@ -180,7 +180,7 @@ namespace QLKFC
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -195,7 +195,7 @@ namespace QLKFC
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgvKho;
+        private System.Windows.Forms.DataGridView dgvNhapHang;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;

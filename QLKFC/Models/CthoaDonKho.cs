@@ -7,8 +7,8 @@ namespace QLKFC.Models
 {
     public partial class CthoaDonKho
     {
-        public int? MaHdk { get; set; }
-        public int? MaNl { get; set; }
+        public int MaHdk { get; set; }
+        public int MaNl { get; set; }
         public int? SoLuong { get; set; }
 
         public virtual HoaDonKho MaHdkNavigation { get; set; }

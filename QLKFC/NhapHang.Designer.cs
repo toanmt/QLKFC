@@ -30,7 +30,6 @@ namespace QLKFC
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.datatimepick = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
@@ -46,7 +45,6 @@ namespace QLKFC
             this.btnXoa = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.txtMa = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtdongia = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,17 +65,6 @@ namespace QLKFC
             this.label1.TabIndex = 0;
             this.label1.Text = "Đặt Hàng";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(12, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 23);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Mã Hóa Đơn";
-            // 
             // datatimepick
             // 
             this.datatimepick.Location = new System.Drawing.Point(555, 68);
@@ -90,7 +77,7 @@ namespace QLKFC
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(299, 68);
+            this.label3.Location = new System.Drawing.Point(12, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 23);
             this.label3.TabIndex = 18;
@@ -233,14 +220,6 @@ namespace QLKFC
             this.btnHuy.UseVisualStyleBackColor = false;
             this.btnHuy.Click += new System.EventHandler(this.button4_Click);
             // 
-            // txtMa
-            // 
-            this.txtMa.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMa.Location = new System.Drawing.Point(138, 65);
-            this.txtMa.Name = "txtMa";
-            this.txtMa.Size = new System.Drawing.Size(146, 31);
-            this.txtMa.TabIndex = 31;
-            // 
             // txtSoLuong
             // 
             this.txtSoLuong.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -293,7 +272,7 @@ namespace QLKFC
             this.comboBox1.Items.AddRange(new object[] {
             "Đag xử lý",
             "Hoàn Thành"});
-            this.comboBox1.Location = new System.Drawing.Point(425, 65);
+            this.comboBox1.Location = new System.Drawing.Point(138, 70);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(94, 26);
             this.comboBox1.TabIndex = 34;
@@ -307,7 +286,6 @@ namespace QLKFC
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtdongia);
             this.Controls.Add(this.txtSoLuong);
-            this.Controls.Add(this.txtMa);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnXoa);
@@ -319,7 +297,6 @@ namespace QLKFC
             this.Controls.Add(this.dgvNhapHang);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.datatimepick);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -335,7 +312,6 @@ namespace QLKFC
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker datatimepick;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGuiDi;
@@ -346,7 +322,6 @@ namespace QLKFC
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.TextBox txtdongia;
         public System.Windows.Forms.DataGridView dgvNhapHang;
