@@ -24,11 +24,10 @@ namespace QLKFC
         {
             int check = (int)this.Tag;
             var query = db.HoaDons.Where(x => x.MaHd == check).SingleOrDefault();
-            var nvtg = db.NhanViens.Where(x => x.SoCmt == query.SoCmt).SingleOrDefault();
+            var nvtg = db.NhanViens.Where(x => x.TenNv == query.TenNv).SingleOrDefault();
             lblTenNhanVien.Text = nvtg.TenNv;
             lblPos.Text = query.Pos;
             lblStoreID.Text = query.StoreId;
-
             var query2 = from s in db.CthoaDons
                          where s.MaHd == check
                          select new

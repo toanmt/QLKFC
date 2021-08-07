@@ -76,7 +76,12 @@ namespace QLKFC
             {
                 MessageBox.Show(ex.Message.ToString(), "Thông báo");
             }
-}
+            dgv_DSSP.Columns[0].HeaderText = "Mã sản phẩm";
+            dgv_DSSP.Columns[1].HeaderText = "Tên sản phẩm";
+            dgv_DSSP.Columns[2].HeaderText = "Đơn giá";
+            dgv_DSSP.Columns[3].HeaderText = "Loại";
+            dgv_DSSP.Columns[4].HeaderText = "Hình ảnh";
+        }
 
         #endregion
 

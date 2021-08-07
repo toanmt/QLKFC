@@ -56,6 +56,8 @@ namespace QLKFC
             {
                 MessageBox.Show(ex.Message.ToString(), "Thông báo");
             }
+            dgv_DSLoaiSPham.Columns[0].HeaderText = "Mã loại sản phẩm";
+            dgv_DSLoaiSPham.Columns[1].HeaderText = "Tên loại sản phẩm";
            
         }
         #endregion

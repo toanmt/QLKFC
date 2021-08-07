@@ -25,7 +25,7 @@ namespace QLKFC
                         select new
                         {
                             h.MaHd,
-                            h.SoCmtNavigation.TenNv,
+                            h.TenNv,
                             h.StoreId,
                             h.Pos,
                             h.NgayThang,         

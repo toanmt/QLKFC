@@ -88,7 +88,14 @@ namespace QLKFC
         #region Hiển thị form chức năng
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            openForm(new Order());
+            using (KiemTraNVOrder ktra = new KiemTraNVOrder())
+            {
+                if (ktra.ShowDialog() == DialogResult.OK)
+                {
+                    openForm(new Order(ktra.storeid, ktra.pos, ktra.tennv));
+                    hideSubMenu();
+                }
+            }
         }
 
         private void btnQLThucDon_Click(object sender, EventArgs e)
