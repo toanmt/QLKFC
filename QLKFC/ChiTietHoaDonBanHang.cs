@@ -24,7 +24,7 @@ namespace QLKFC
         {
             int check = (int)this.Tag;
             var query = db.HoaDons.Where(x => x.MaHd == check).SingleOrDefault();
-            var nvtg = db.NhanViens.Where(x => x.MaNv == query.MaNv).SingleOrDefault();
+            var nvtg = db.NhanViens.Where(x => x.SoCmt == query.SoCmt).SingleOrDefault();
             lblTenNhanVien.Text = nvtg.TenNv;
             lblPos.Text = query.Pos;
             lblStoreID.Text = query.StoreId;

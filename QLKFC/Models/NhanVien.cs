@@ -12,7 +12,7 @@ namespace QLKFC.Models
             HoaDons = new HashSet<HoaDon>();
         }
 
-        public int MaNv { get; set; }
+        public string SoCmt { get; set; }
         public int? MaCv { get; set; }
         public int? Id { get; set; }
         public string TenNv { get; set; }

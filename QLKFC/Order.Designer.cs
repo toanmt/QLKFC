@@ -39,6 +39,7 @@ namespace QLKFC
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_DSSP = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.panel_Loc = new System.Windows.Forms.Panel();
@@ -48,18 +49,23 @@ namespace QLKFC
             this.panel_Order = new System.Windows.Forms.Panel();
             this.panel_TinhTien = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblThanhTien = new System.Windows.Forms.Label();
             this.panel_button = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHuyBo = new System.Windows.Forms.Button();
+            this.btnInHD = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
-            this.label6 = new System.Windows.Forms.Label();
+            this.dudKM = new System.Windows.Forms.DomainUpDown();
+            this.lblVAT = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel_DSOrder = new System.Windows.Forms.Panel();
             this.dgvDSOrder = new System.Windows.Forms.DataGridView();
+            this.TenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Xoa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -174,9 +180,11 @@ namespace QLKFC
             this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DSSP.Size = new System.Drawing.Size(453, 469);
             this.dgv_DSSP.TabIndex = 5;
+            this.dgv_DSSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSSP_CellClick);
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.btnFind);
             this.panel4.Controls.Add(this.txtFind);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -184,6 +192,20 @@ namespace QLKFC
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(462, 48);
             this.panel4.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::QLKFC.Properties.Resources.refresh__1_;
+            this.button1.Location = new System.Drawing.Point(3, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 37);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnFind
             // 
@@ -201,9 +223,9 @@ namespace QLKFC
             this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFind.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFind.Location = new System.Drawing.Point(9, 6);
+            this.txtFind.Location = new System.Drawing.Point(65, 6);
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(385, 37);
+            this.txtFind.Size = new System.Drawing.Size(329, 37);
             this.txtFind.TabIndex = 0;
             // 
             // panel_Loc
@@ -274,10 +296,10 @@ namespace QLKFC
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.lblThanhTien);
             this.panel2.Controls.Add(this.panel_button);
-            this.panel2.Controls.Add(this.domainUpDown1);
-            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.dudKM);
+            this.panel2.Controls.Add(this.lblVAT);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
@@ -287,21 +309,21 @@ namespace QLKFC
             this.panel2.Size = new System.Drawing.Size(468, 192);
             this.panel2.TabIndex = 2;
             // 
-            // label5
+            // lblThanhTien
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(147, 157);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 25);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "0";
+            this.lblThanhTien.AutoSize = true;
+            this.lblThanhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblThanhTien.ForeColor = System.Drawing.Color.Red;
+            this.lblThanhTien.Location = new System.Drawing.Point(147, 157);
+            this.lblThanhTien.Name = "lblThanhTien";
+            this.lblThanhTien.Size = new System.Drawing.Size(23, 25);
+            this.lblThanhTien.TabIndex = 7;
+            this.lblThanhTien.Text = "0";
             // 
             // panel_button
             // 
-            this.panel_button.Controls.Add(this.button2);
-            this.panel_button.Controls.Add(this.button1);
+            this.panel_button.Controls.Add(this.btnHuyBo);
+            this.panel_button.Controls.Add(this.btnInHD);
             this.panel_button.Controls.Add(this.btnThanhToan);
             this.panel_button.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel_button.Location = new System.Drawing.Point(283, 0);
@@ -309,29 +331,30 @@ namespace QLKFC
             this.panel_button.Size = new System.Drawing.Size(185, 192);
             this.panel_button.TabIndex = 6;
             // 
-            // button2
+            // btnHuyBo
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(9, 129);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 52);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Hủy bỏ";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnHuyBo.BackColor = System.Drawing.Color.Red;
+            this.btnHuyBo.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHuyBo.ForeColor = System.Drawing.Color.White;
+            this.btnHuyBo.Location = new System.Drawing.Point(9, 129);
+            this.btnHuyBo.Name = "btnHuyBo";
+            this.btnHuyBo.Size = new System.Drawing.Size(170, 52);
+            this.btnHuyBo.TabIndex = 2;
+            this.btnHuyBo.Text = "Hủy bỏ";
+            this.btnHuyBo.UseVisualStyleBackColor = false;
+            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
             // 
-            // button1
+            // btnInHD
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.button1.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(9, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 52);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "In hóa đơn";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnInHD.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnInHD.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnInHD.ForeColor = System.Drawing.Color.White;
+            this.btnInHD.Location = new System.Drawing.Point(9, 71);
+            this.btnInHD.Name = "btnInHD";
+            this.btnInHD.Size = new System.Drawing.Size(170, 52);
+            this.btnInHD.TabIndex = 1;
+            this.btnInHD.Text = "In hóa đơn";
+            this.btnInHD.UseVisualStyleBackColor = false;
             // 
             // btnThanhToan
             // 
@@ -345,25 +368,25 @@ namespace QLKFC
             this.btnThanhToan.Text = "Thanh toán";
             this.btnThanhToan.UseVisualStyleBackColor = false;
             // 
-            // domainUpDown1
+            // dudKM
             // 
-            this.domainUpDown1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.domainUpDown1.Location = new System.Drawing.Point(147, 19);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(46, 31);
-            this.domainUpDown1.TabIndex = 5;
-            this.domainUpDown1.Text = "0";
+            this.dudKM.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dudKM.Location = new System.Drawing.Point(147, 19);
+            this.dudKM.Name = "dudKM";
+            this.dudKM.Size = new System.Drawing.Size(46, 31);
+            this.dudKM.TabIndex = 5;
+            this.dudKM.Text = "0";
             // 
-            // label6
+            // lblVAT
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(147, 88);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 25);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "0";
+            this.lblVAT.AutoSize = true;
+            this.lblVAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblVAT.ForeColor = System.Drawing.Color.Red;
+            this.lblVAT.Location = new System.Drawing.Point(147, 88);
+            this.lblVAT.Name = "lblVAT";
+            this.lblVAT.Size = new System.Drawing.Size(23, 25);
+            this.lblVAT.TabIndex = 4;
+            this.lblVAT.Text = "0";
             // 
             // label4
             // 
@@ -409,17 +432,63 @@ namespace QLKFC
             // 
             // dgvDSOrder
             // 
+            this.dgvDSOrder.AllowUserToAddRows = false;
+            this.dgvDSOrder.AllowUserToResizeRows = false;
             this.dgvDSOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDSOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSOrder.BackgroundColor = System.Drawing.Color.White;
             this.dgvDSOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TenMon,
+            this.DonGai,
+            this.SoLuong,
+            this.ThanhTien,
+            this.Xoa});
             this.dgvDSOrder.Location = new System.Drawing.Point(6, 6);
             this.dgvDSOrder.Name = "dgvDSOrder";
+            this.dgvDSOrder.RowHeadersVisible = false;
             this.dgvDSOrder.RowHeadersWidth = 51;
             this.dgvDSOrder.RowTemplate.Height = 29;
+            this.dgvDSOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDSOrder.Size = new System.Drawing.Size(456, 390);
             this.dgvDSOrder.TabIndex = 4;
+            this.dgvDSOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSOrder_CellContentClick);
+            // 
+            // TenMon
+            // 
+            this.TenMon.HeaderText = "Tên Món";
+            this.TenMon.MinimumWidth = 6;
+            this.TenMon.Name = "TenMon";
+            this.TenMon.ReadOnly = true;
+            // 
+            // DonGai
+            // 
+            this.DonGai.HeaderText = "Đơn giá";
+            this.DonGai.MinimumWidth = 6;
+            this.DonGai.Name = "DonGai";
+            this.DonGai.ReadOnly = true;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.MinimumWidth = 6;
+            this.SoLuong.Name = "SoLuong";
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.HeaderText = "Thành Tiền";
+            this.ThanhTien.MinimumWidth = 6;
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.ReadOnly = true;
+            // 
+            // Xoa
+            // 
+            this.Xoa.HeaderText = "Xóa";
+            this.Xoa.MinimumWidth = 6;
+            this.Xoa.Name = "Xoa";
+            this.Xoa.Text = "Xóa";
             // 
             // Order
             // 
@@ -467,13 +536,13 @@ namespace QLKFC
         private System.Windows.Forms.Panel panel_Loc;
         private System.Windows.Forms.Panel panel_TinhTien;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblThanhTien;
         private System.Windows.Forms.Panel panel_button;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHuyBo;
+        private System.Windows.Forms.Button btnInHD;
         private System.Windows.Forms.Button btnThanhToan;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DomainUpDown dudKM;
+        private System.Windows.Forms.Label lblVAT;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -484,5 +553,11 @@ namespace QLKFC
         private System.Windows.Forms.Button btnChonComBo;
         private System.Windows.Forms.DataGridView dgvDSOrder;
         private System.Windows.Forms.DataGridView dgv_DSSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenMon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
+        private System.Windows.Forms.DataGridViewButtonColumn Xoa;
+        private System.Windows.Forms.Button button1;
     }
 }
