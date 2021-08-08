@@ -65,37 +65,18 @@ namespace QLKFC
         }
         private void TinhTien()
         {
-            float tt = 0, km = 0;
+            float tt = 0;
             for (int i = 0; i < dgvDSOrder.RowCount; i++)
             {
                 tt += float.Parse(dgvDSOrder.Rows[i].Cells[4].Value.ToString());
             }
-
-            if (txtKM.Text == "" || float.Parse(txtKM.Text) < 0)
-            {
-                txtKM.Text = 0 + "";
-            }
-            else if (float.Parse(txtKM.Text) <= 100)
-            {
-                km = float.Parse(txtKM.Text) / 100 * tt;
-            }
-            else if (float.Parse(txtKM.Text) > tt)
-            {
-                errorProvider_KM.SetError(txtKM, "Không thể nhập tiền khuyến mại lớn hơn tổng tiền");
-                txtKM.Text = 0 + "";
-                txtKM.Focus();
-            }
-            else if (float.Parse(txtKM.Text) > 100)
-            {
-                km = float.Parse(txtKM.Text);
-            }
-            lblThanhTien.Text = (tt - km) + "";
+            lblThanhTien.Text = tt + "";
         }
         private void Don()
         {
             dgvDSOrder.Rows.Clear();
             lblThanhTien.Text = 0 + "";
-            txtKM.Text = 0 + "";
+            txtDua.Text = 0 + "";
         }
         #endregion
 
@@ -185,27 +166,27 @@ namespace QLKFC
         {
             try
             {
-                double.Parse(txtKM.Text);
-                if (double.Parse(txtKM.Text) < 0)
+                double.Parse(txtDua.Text);
+                if (double.Parse(txtDua.Text) < 0)
                 {
                     e.Cancel = true;
-                    errorProvider_KM.SetError(txtKM, "Bạn phải nhập đơn giá >0 !");
-                    txtKM.Focus();
-                    txtKM.SelectAll();
+                    errorProvider_KM.SetError(txtDua, "Bạn phải nhập đơn giá >0 !");
+                    txtDua.Focus();
+                    txtDua.SelectAll();
                 }
             }
             catch
             {
                 e.Cancel = true;
-                errorProvider_KM.SetError(txtKM, "Bạn phải nhập đơn giá là số !");
-                txtKM.Focus();
-                txtKM.SelectAll();
+                errorProvider_KM.SetError(txtDua, "Bạn phải nhập đơn giá là số !");
+                txtDua.Focus();
+                txtDua.SelectAll();
             }
         }
 
         private void txtKM_Validated(object sender, EventArgs e)
         {
-            errorProvider_KM.SetError(txtKM, "");
+            errorProvider_KM.SetError(txtDua, "");
         }
 
         private void txtKM_KeyUp(object sender, KeyEventArgs e)
