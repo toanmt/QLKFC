@@ -1,4 +1,5 @@
-﻿using QLKFC.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using QLKFC.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,13 +30,15 @@ namespace QLKFC
         }
         public void load()
         {
-            var query = db.HoaDonKhos.Where(x => x.TrangThai == "Đang xử lý");
-            dgvNhapHang.DataSource = query.ToList();
-            dgvNhapHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvNhapHang.Columns[0].HeaderText = "Mã hóa đơn";
-            dgvNhapHang.Columns[1].HeaderText = "Ngày tạo";
-            dgvNhapHang.Columns[2].HeaderText = "Trạng thái";
+            float tongtien = 0;
+            var querycthdk = db.CthoaDonKhos.Include(x=>x.MaHdkNavigation).Include(x=>x.MaNlNavigation).Where(x => x.MaHdkNavigation.TrangThai == "Đang xử lý");
 
+            foreach (var item in querycthdk.ToList())
+            {
+                tongtien += (float)item.SoLuong * (float)item.MaNlNavigation.DonGia;
+                string[] hd = { item.MaHdk.ToString(), item.MaHdkNavigation.NgayCc.ToString(), string.Format("{0:#,##0}", tongtien), item.MaHdkNavigation.TrangThai.ToString() };
+                dgvNhapHang.Rows.Add(hd);
+            }
         }
     }
 }

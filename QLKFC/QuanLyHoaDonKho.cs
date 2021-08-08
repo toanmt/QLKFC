@@ -1,4 +1,5 @@
-﻿using QLKFC.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using QLKFC.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,21 +28,15 @@ namespace QLKFC
         }
         public void load()
         {
-            var queryhd = from x in db.HoaDonKhos
-                          select new
-                          {
-                              x.MaHdk,
-                              x.NgayCc,
-                              x.TrangThai,
-                             
-                          };
-            dgvHoaDonKho.DataSource = queryhd.ToList();
-            dgvHoaDonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHoaDonKho.Columns[0].HeaderText = "Mã Hóa Đơn";
-            dgvHoaDonKho.Columns[1].HeaderText = "Ngày Tạo";
-            dgvHoaDonKho.Columns[2].HeaderText = "Trạng Thái";
+            float tongtien = 0;
+            var querycthdk = db.CthoaDonKhos.Include(x => x.MaHdkNavigation).Include(x => x.MaNlNavigation).Where(x => x.MaHdkNavigation.TrangThai == "Đang xử lý");
 
-             
+            foreach (var item in querycthdk.ToList())
+            {
+                tongtien += (float)item.SoLuong * (float)item.MaNlNavigation.DonGia;
+                string[] hd = { item.MaHdk.ToString(), item.MaHdkNavigation.NgayCc.ToString(), string.Format("{0:#,##0}", tongtien), item.MaHdkNavigation.TrangThai.ToString() };
+                dgvHoaDonKho.Rows.Add(hd);
+            }
 
         }
 
@@ -49,28 +44,36 @@ namespace QLKFC
 
         private void dgvHoaDonKho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dgvChiTietHoaDonKho.Rows.Clear();
             int index = e.RowIndex;
-            if (index > -1)
+            if (index > -1 && index < dgvHoaDonKho.Rows.Count - 1)
             {
                 int check = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
-                var querycthd = from k in db.CthoaDonKhos
-                                where k.MaHdk == check
-                                select new
-                                {
-                                    k.MaNlNavigation.TenNl,
-                                    k.MaNlNavigation.DonGia,
-                                    k.SoLuong,
-                                    
-                                };
-                lblMaHoaDon.Text = check.ToString();
-                dgvChiTietHoaDonKho.DataSource = querycthd.ToList();
-                dgvChiTietHoaDonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgvChiTietHoaDonKho.Columns[0].HeaderText = "Tên Nguyên liệu";
-                dgvChiTietHoaDonKho.Columns[1].HeaderText = "Số lượng";
-                dgvChiTietHoaDonKho.Columns[2].HeaderText = "Đơn giá";
-
+                var querycthd = db.CthoaDonKhos.Where(x => x.MaHdk == check);
+                foreach (var item in querycthd.ToList())
+                {
+                    string[] cthd = { item.MaNlNavigation.TenNl.ToString(), item.SoLuong.ToString(), item.MaNlNavigation.DonGia.ToString(), string.Format("{0:#,##0}", ((float)item.SoLuong * (float)item.MaNlNavigation.DonGia)) };
+                    dgvChiTietHoaDonKho.Rows.Add(cthd);
+                }
 
             }
+        }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            var query = from k in db.HoaDonKhos
+                        where k.NgayCc >= dtpick1.Value && k.NgayCc <= dtpick2.Value
+                        select new
+                         {
+                             k.MaHdk,
+                             k.NgayCc,
+                             k.TrangThai,
+                         };
+            dgvHoaDonKho.DataSource = query.ToList();
+            dgvHoaDonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHoaDonKho.Columns[0].HeaderText = "Mã Hóa Đơn";
+            dgvHoaDonKho.Columns[1].HeaderText = "Ngày Tạo";
+            dgvHoaDonKho.Columns[2].HeaderText = "Trạng Thái";
         }
     }
 }

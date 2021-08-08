@@ -32,13 +32,17 @@ namespace QLKFC
             this.btnInHoaDon = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnThongKe = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpick2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpick1 = new System.Windows.Forms.DateTimePicker();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dgvChiTietHoaDonKho = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvHoaDonKho = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -46,6 +50,10 @@ namespace QLKFC
             this.label1 = new System.Windows.Forms.Label();
             this.panel_header = new System.Windows.Forms.Panel();
             this.lblMaHoaDon = new System.Windows.Forms.Label();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDonKho)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonKho)).BeginInit();
@@ -89,23 +97,26 @@ namespace QLKFC
             this.btnThongKe.TabIndex = 31;
             this.btnThongKe.Text = "Thống Kê";
             this.btnThongKe.UseVisualStyleBackColor = false;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
-            // dateTimePicker2
+            // dtpick2
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(322, 150);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(122, 27);
-            this.dateTimePicker2.TabIndex = 30;
+            this.dtpick2.CustomFormat = "dd/MM/yyyy";
+            this.dtpick2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpick2.Location = new System.Drawing.Point(322, 150);
+            this.dtpick2.Name = "dtpick2";
+            this.dtpick2.Size = new System.Drawing.Size(122, 27);
+            this.dtpick2.TabIndex = 30;
             // 
-            // dateTimePicker1
+            // dtpick1
             // 
-            this.dateTimePicker1.CustomFormat = "";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 150);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(134, 27);
-            this.dateTimePicker1.TabIndex = 24;
+            this.dtpick1.CustomFormat = "dd/MM/yyyy";
+            this.dtpick1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpick1.Location = new System.Drawing.Point(3, 150);
+            this.dtpick1.Name = "dtpick1";
+            this.dtpick1.Size = new System.Drawing.Size(125, 27);
+            this.dtpick1.TabIndex = 24;
+            this.dtpick1.Value = new System.DateTime(2021, 8, 8, 0, 0, 0, 0);
             // 
             // txtTimKiem
             // 
@@ -128,7 +139,13 @@ namespace QLKFC
             // 
             // dgvChiTietHoaDonKho
             // 
+            this.dgvChiTietHoaDonKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChiTietHoaDonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChiTietHoaDonKho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8});
             this.dgvChiTietHoaDonKho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvChiTietHoaDonKho.Location = new System.Drawing.Point(0, 0);
             this.dgvChiTietHoaDonKho.Name = "dgvChiTietHoaDonKho";
@@ -147,7 +164,13 @@ namespace QLKFC
             // 
             // dgvHoaDonKho
             // 
+            this.dgvHoaDonKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoaDonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHoaDonKho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
             this.dgvHoaDonKho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHoaDonKho.Location = new System.Drawing.Point(0, 0);
             this.dgvHoaDonKho.MultiSelect = false;
@@ -158,6 +181,38 @@ namespace QLKFC
             this.dgvHoaDonKho.Size = new System.Drawing.Size(441, 380);
             this.dgvHoaDonKho.TabIndex = 0;
             this.dgvHoaDonKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonKho_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 42.78075F;
+            this.Column1.HeaderText = "Mã";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 119.0731F;
+            this.Column2.HeaderText = "Ngày cung cấp";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 119.0731F;
+            this.Column3.HeaderText = "Tổng tiền";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 119.0731F;
+            this.Column4.HeaderText = "Trạng thái";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // panel2
             // 
@@ -229,6 +284,37 @@ namespace QLKFC
             this.lblMaHoaDon.TabIndex = 35;
             this.lblMaHoaDon.Text = "X";
             // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 149.7326F;
+            this.Column5.HeaderText = "Tên";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.FillWeight = 60.81306F;
+            this.Column6.HeaderText = "Số lượng";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.FillWeight = 94.72713F;
+            this.Column7.HeaderText = "Đơn giá";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.FillWeight = 94.72713F;
+            this.Column8.HeaderText = "Thành tiền";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
             // QuanLyHoaDonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -238,8 +324,8 @@ namespace QLKFC
             this.Controls.Add(this.btnInHoaDon);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnThongKe);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpick2);
+            this.Controls.Add(this.dtpick1);
             this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.panel3);
@@ -265,8 +351,8 @@ namespace QLKFC
         private System.Windows.Forms.Button btnInHoaDon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnThongKe;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpick2;
+        private System.Windows.Forms.DateTimePicker dtpick1;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridView dgvChiTietHoaDonKho;
@@ -279,5 +365,13 @@ namespace QLKFC
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel_header;
         private System.Windows.Forms.Label lblMaHoaDon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }

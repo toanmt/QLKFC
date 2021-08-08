@@ -29,10 +29,6 @@ namespace QLKFC
             txtdongia.Text = cbNguyenLieu.SelectedValue.ToString();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -45,8 +41,9 @@ namespace QLKFC
                     MessageBox.Show("Trùng mã");
                     return;
                 }
+            float tongtien = (float.Parse(txtdongia.Text) * float.Parse(txtSoLuong.Text));
 
-            string[] row = { getma.ToString(), cbNguyenLieu.Text, txtdongia.Text, txtSoLuong.Text };
+            string[] row = { getma.ToString(), cbNguyenLieu.Text, txtdongia.Text, txtSoLuong.Text ,tongtien.ToString()};
             dgvNhapHang.Rows.Add(row);
         }
 
@@ -63,28 +60,40 @@ namespace QLKFC
 
         private void btnGuiDi_Click(object sender, EventArgs e)
         {
-            HoaDonKho hdk = new HoaDonKho();
-            hdk.NgayCc = datatimepick.Value;
-            hdk.TrangThai = "Đang xử lý";
-            db.HoaDonKhos.Add(hdk);
-
-            db.SaveChanges();
-
-            var query = db.HoaDonKhos.OrderBy(x => x.MaHdk).Last();
-                int MaHdk = query.MaHdk;
             int index = dgvNhapHang.Rows.Count;
-            for(int i =0;i<(index-1);i++)
-            {
-                int MaNL = int.Parse(dgvNhapHang.Rows[i].Cells[0].Value.ToString());
-                int SoLuong = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                CthoaDonKho cthdk = new CthoaDonKho();
-                cthdk.MaNl = MaNL;
-                cthdk.SoLuong = SoLuong;
-                cthdk.MaHdk = MaHdk;
-                db.CthoaDonKhos.Add(cthdk);
+            if (index == 1) {
+                MessageBox.Show("Chưa có nguyên liệu nào !!!");
+                    }
+            else {
+                HoaDonKho hdk = new HoaDonKho();
+                
+                hdk.NgayCc =DateTime.Parse(datatimepick.Value.ToShortDateString());
+                hdk.TrangThai = "Đang xử lý";
+                db.HoaDonKhos.Add(hdk);
+                db.SaveChanges();
+
+                var query = db.HoaDonKhos.OrderBy(x => x.MaHdk).Last();
+                int MaHdk = query.MaHdk;
+                for (int i = 0; i < (index - 1); i++)
+                {
+                    int MaNL = int.Parse(dgvNhapHang.Rows[i].Cells[0].Value.ToString());
+                    int SoLuong = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
+                    CthoaDonKho cthdk = new CthoaDonKho();
+                    cthdk.MaNl = MaNL;
+                    cthdk.SoLuong = SoLuong;
+                    cthdk.MaHdk = MaHdk;
+                    db.CthoaDonKhos.Add(cthdk);
+                }
+                db.SaveChanges();
+                this.Close();
+                MessageBox.Show("Đặt hàng thành công !");
             }
-            db.SaveChanges();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
 }
+    

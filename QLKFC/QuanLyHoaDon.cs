@@ -53,6 +53,25 @@ namespace QLKFC
             frm.Show();
         }
 
-        
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            var query = from h in db.HoaDons
+                        where h.NgayThang >= dtpick1.Value && h.NgayThang <= dtpick2.Value
+                        select new
+                        {
+                            h.MaHd,
+                            h.TenNv,
+                            h.StoreId,
+                            h.Pos,
+                            h.NgayThang,
+                        };
+            dgvHDBH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHDBH.Columns[0].HeaderText = "Mã Hóa Đơn";
+            dgvHDBH.Columns[1].HeaderText = "Nhân viên";
+            dgvHDBH.Columns[2].HeaderText = "Store ID";
+            dgvHDBH.Columns[3].HeaderText = "Pos";
+            dgvHDBH.Columns[4].HeaderText = "Ngày Tháng";
+            dgvHDBH.DataSource = query.ToList();
+        }
     }
 }

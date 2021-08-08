@@ -52,6 +52,7 @@ namespace QLKFC
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,9 +68,11 @@ namespace QLKFC
             // 
             // datatimepick
             // 
-            this.datatimepick.Location = new System.Drawing.Point(555, 68);
+            this.datatimepick.CustomFormat = "dd/MM/yyy";
+            this.datatimepick.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datatimepick.Location = new System.Drawing.Point(620, 68);
             this.datatimepick.Name = "datatimepick";
-            this.datatimepick.Size = new System.Drawing.Size(224, 25);
+            this.datatimepick.Size = new System.Drawing.Size(159, 25);
             this.datatimepick.TabIndex = 17;
             // 
             // label3
@@ -91,7 +94,8 @@ namespace QLKFC
             this.Column5,
             this.Column6,
             this.Column8,
-            this.Column7});
+            this.Column7,
+            this.Column9});
             this.dgvNhapHang.Location = new System.Drawing.Point(12, 102);
             this.dgvNhapHang.Name = "dgvNhapHang";
             this.dgvNhapHang.RowHeadersWidth = 51;
@@ -218,7 +222,7 @@ namespace QLKFC
             this.btnHuy.TabIndex = 30;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = false;
-            this.btnHuy.Click += new System.EventHandler(this.button4_Click);
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // txtSoLuong
             // 
@@ -278,6 +282,12 @@ namespace QLKFC
             this.comboBox1.TabIndex = 34;
             this.comboBox1.Text = "Tạo mới";
             // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Tổng tiền";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            // 
             // NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -334,5 +344,6 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }
