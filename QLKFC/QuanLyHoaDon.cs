@@ -14,10 +14,12 @@ namespace QLKFC
     public partial class QuanLyHoaDon : Form
     {
         QLBHKFCContext db = new QLBHKFCContext();
+        int index;
         public QuanLyHoaDon()
         {
             InitializeComponent();
             load();
+            
         }
         public void load()
         {
@@ -39,14 +41,18 @@ namespace QLKFC
             dgvHDBH.Columns[4].HeaderText = "Ngày Tháng";
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void dgvHDBH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = dgvHDBH.SelectedRows.Count;
+            index = e.RowIndex;
+        }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        { 
             ChiTietHoaDonBanHang frm = new ChiTietHoaDonBanHang();
             frm.Tag = (int)dgvHDBH.Rows[index].Cells[0].Value;
-
             frm.Show();
-
         }
+
+        
     }
 }

@@ -42,7 +42,7 @@ namespace QLKFC
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnChiTiet = new System.Windows.Forms.Button();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -119,6 +119,7 @@ namespace QLKFC
             this.dgvHDBH.RowTemplate.Height = 29;
             this.dgvHDBH.Size = new System.Drawing.Size(866, 319);
             this.dgvHDBH.TabIndex = 0;
+            this.dgvHDBH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDBH_CellClick);
             // 
             // txtTimKiem
             // 
@@ -180,25 +181,25 @@ namespace QLKFC
             this.button2.Text = "In Hóa Đơn";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnChiTiet
             // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(31, 554);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(172, 47);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Chi Tiết";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnChiTiet.BackColor = System.Drawing.Color.Red;
+            this.btnChiTiet.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnChiTiet.ForeColor = System.Drawing.Color.White;
+            this.btnChiTiet.Location = new System.Drawing.Point(31, 554);
+            this.btnChiTiet.Name = "btnChiTiet";
+            this.btnChiTiet.Size = new System.Drawing.Size(172, 47);
+            this.btnChiTiet.TabIndex = 22;
+            this.btnChiTiet.Text = "Chi Tiết";
+            this.btnChiTiet.UseVisualStyleBackColor = false;
+            this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
             // QuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 633);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker2);
@@ -236,6 +237,6 @@ namespace QLKFC
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnChiTiet;
     }
 }
