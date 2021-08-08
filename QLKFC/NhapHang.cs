@@ -37,8 +37,8 @@ namespace QLKFC
         private void btnThem_Click(object sender, EventArgs e)
         {
             var getma = (from s in db.NguyenLieus
-                        where s.TenNl == cbNguyenLieu.Text
-                        select s.MaNl).SingleOrDefault();
+                         where s.TenNl == cbNguyenLieu.Text
+                         select s.MaNl).SingleOrDefault();
             for (int i = 0; i < dgvNhapHang.Rows.Count - 1; i++)
                 if (getma.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
                 {
@@ -46,8 +46,8 @@ namespace QLKFC
                     return;
                 }
 
-                string[] row = { getma.ToString(), cbNguyenLieu.Text, txtdongia.Text, txtSoLuong.Text };
-                dgvNhapHang.Rows.Add(row); 
+            string[] row = { getma.ToString(), cbNguyenLieu.Text, txtdongia.Text, txtSoLuong.Text };
+            dgvNhapHang.Rows.Add(row);
         }
 
         private void cbNguyenLieu_SelectedValueChanged(object sender, EventArgs e)
@@ -63,8 +63,28 @@ namespace QLKFC
 
         private void btnGuiDi_Click(object sender, EventArgs e)
         {
-            int check = dgvNhapHang.Rows.Count;
+            HoaDonKho hdk = new HoaDonKho();
+            hdk.NgayCc = datatimepick.Value;
+            hdk.TrangThai = "Đang xử lý";
+            db.HoaDonKhos.Add(hdk);
 
+            db.SaveChanges();
+
+            var query = db.HoaDonKhos.OrderBy(x => x.MaHdk).Last();
+                int MaHdk = query.MaHdk;
+            int index = dgvNhapHang.Rows.Count;
+            for(int i =0;i<(index-1);i++)
+            {
+                int MaNL = int.Parse(dgvNhapHang.Rows[i].Cells[0].Value.ToString());
+                int SoLuong = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
+                CthoaDonKho cthdk = new CthoaDonKho();
+                cthdk.MaNl = MaNL;
+                cthdk.SoLuong = SoLuong;
+                cthdk.MaHdk = MaHdk;
+                db.CthoaDonKhos.Add(cthdk);
+            }
+            db.SaveChanges();
+            this.Close();
         }
     }
 }

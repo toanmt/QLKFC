@@ -18,6 +18,10 @@ namespace QLKFC.Models
         public string Pos { get; set; }
         public DateTime? NgayThang { get; set; }
 
+<<<<<<< HEAD
+=======
+        public virtual NhanVien MaNvNavigation { get; set; }
+>>>>>>> dc0e9e0c90873dcca5dd72ac9f26f1a03748ebd7
         public virtual ICollection<CthoaDon> CthoaDons { get; set; }
     }
 }

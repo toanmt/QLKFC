@@ -27,15 +27,22 @@ namespace QLKFC
         }
         public void load()
         {
-            var queryhd = db.HoaDonKhos.Select(x => x);
+            var queryhd = from x in db.HoaDonKhos
+                          select new
+                          {
+                              x.MaHdk,
+                              x.NgayCc,
+                              x.TrangThai,
+                             
+                          };
             dgvHoaDonKho.DataSource = queryhd.ToList();
             dgvHoaDonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHoaDonKho.Columns[0].HeaderText = "Mã Hóa Đơn";
             dgvHoaDonKho.Columns[1].HeaderText = "Ngày Tạo";
             dgvHoaDonKho.Columns[2].HeaderText = "Trạng Thái";
-            //dgvChiTietHoaDonKho.Columns[0].ReadOnly
 
-           
+             
+
         }
 
 
@@ -53,6 +60,7 @@ namespace QLKFC
                                     k.MaNlNavigation.TenNl,
                                     k.MaNlNavigation.DonGia,
                                     k.SoLuong,
+                                    
                                 };
                 lblMaHoaDon.Text = check.ToString();
                 dgvChiTietHoaDonKho.DataSource = querycthd.ToList();
@@ -60,6 +68,7 @@ namespace QLKFC
                 dgvChiTietHoaDonKho.Columns[0].HeaderText = "Tên Nguyên liệu";
                 dgvChiTietHoaDonKho.Columns[1].HeaderText = "Số lượng";
                 dgvChiTietHoaDonKho.Columns[2].HeaderText = "Đơn giá";
+
 
             }
         }
