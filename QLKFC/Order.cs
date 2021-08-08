@@ -161,8 +161,14 @@ namespace QLKFC
         }
         #endregion
 
-        #region Kiểm tra dữ liệu textbox Khuyến mãi
-        private void txtKM_Validating(object sender, CancelEventArgs e)
+        #region Kiểm tra dữ liệu textbox tiền đưa
+
+        private void txtTD_Validated(object sender, EventArgs e)
+        {
+            errorProvider_TD.SetError(txtDua, "");
+        }
+
+        private void txtDua_Validating(object sender, CancelEventArgs e)
         {
             try
             {
@@ -170,7 +176,7 @@ namespace QLKFC
                 if (double.Parse(txtDua.Text) < 0)
                 {
                     e.Cancel = true;
-                    errorProvider_KM.SetError(txtDua, "Bạn phải nhập đơn giá >0 !");
+                    errorProvider_TD.SetError(txtDua, "Bạn phải nhập dữ liệu >0 !");
                     txtDua.Focus();
                     txtDua.SelectAll();
                 }
@@ -178,20 +184,15 @@ namespace QLKFC
             catch
             {
                 e.Cancel = true;
-                errorProvider_KM.SetError(txtDua, "Bạn phải nhập đơn giá là số !");
+                errorProvider_TD.SetError(txtDua, "Bạn phải nhập dữ liệu là số !");
                 txtDua.Focus();
                 txtDua.SelectAll();
             }
         }
 
-        private void txtKM_Validated(object sender, EventArgs e)
+        private void txtDua_KeyUp(object sender, KeyEventArgs e)
         {
-            errorProvider_KM.SetError(txtDua, "");
-        }
-
-        private void txtKM_KeyUp(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 TinhTien();
             }
