@@ -28,7 +28,7 @@ namespace QLKFC
                             h.TenNv,
                             h.StoreId,
                             h.Pos,
-                            h.NgayThang,         
+                            h.NgayThang,
                         };
             dgvHDBH.DataSource = query.ToList();
             dgvHDBH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -44,9 +44,9 @@ namespace QLKFC
             int index = dgvHDBH.SelectedRows.Count;
             ChiTietHoaDonBanHang frm = new ChiTietHoaDonBanHang();
             frm.Tag = (int)dgvHDBH.Rows[index].Cells[0].Value;
-            
+
             frm.Show();
-            
+
         }
     }
 }
