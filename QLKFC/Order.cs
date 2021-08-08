@@ -65,23 +65,36 @@ namespace QLKFC
         }
         private void TinhTien()
         {
-            float tt = 0;
+            float tt = 0, km = 0;
             for (int i = 0; i < dgvDSOrder.RowCount; i++)
             {
                 tt += float.Parse(dgvDSOrder.Rows[i].Cells[4].Value.ToString());
             }
 
-            if(txtKM.Text=="")
+            if (txtKM.Text == "" || float.Parse(txtKM.Text) < 0)
             {
                 txtKM.Text = 0 + "";
-            }    
-            lblThanhTien.Text = tt * (100 - float.Parse(txtKM.Text)) / 100 + "";
+            }
+            else if (float.Parse(txtKM.Text) <= 100)
+            {
+                km = float.Parse(txtKM.Text) / 100 * tt;
+            }
+            else if (float.Parse(txtKM.Text) > tt)
+            {
+                errorProvider_KM.SetError(txtKM, "Không thể nhập tiền khuyến mại lớn hơn tổng tiền");
+                txtKM.Text = 0 + "";
+                txtKM.Focus();
+            }
+            else if (float.Parse(txtKM.Text) > 100)
+            {
+                km = float.Parse(txtKM.Text);
+            }
+            lblThanhTien.Text = (tt - km) + "";
         }
         private void Don()
         {
             dgvDSOrder.Rows.Clear();
             lblThanhTien.Text = 0 + "";
-            lblVAT.Text = 0 + "";
             txtKM.Text = 0 + "";
         }
         #endregion
@@ -167,7 +180,7 @@ namespace QLKFC
         }
         #endregion
 
-        #region Kiểm tra dữ liệu
+        #region Kiểm tra dữ liệu textbox Khuyến mãi
         private void txtKM_Validating(object sender, CancelEventArgs e)
         {
             try

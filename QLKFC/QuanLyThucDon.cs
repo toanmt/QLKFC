@@ -88,7 +88,7 @@ namespace QLKFC
         #region Tương tác
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
-            OpenFileDialog browse = new OpenFileDialog() { Filter = "All files|*.*|Png files(*.png)|*.png|Jpeg files(*.jpeg)|*.jpeg" };
+            OpenFileDialog browse = new OpenFileDialog() { Filter = "All files|*.*|Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|Png files(*.png)|*.png|Jpeg files(*.jpeg)|*.jpeg|Jpe files(*.jpe)|*.jpe|Jpg files(*.jpg)|*.jpg" };
             if (browse.ShowDialog() == DialogResult.OK)
             {
                 filename = browse.FileName;
@@ -135,7 +135,7 @@ namespace QLKFC
                 sp.Loai = txtLoai.Text;
                 sp.Mota = txtMoTa.Text;
                 MemoryStream str = new MemoryStream();
-                pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Png);
+                pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Jpeg);
                 sp.HinhAnh = str.ToArray();
                 try
                 {
@@ -165,7 +165,7 @@ namespace QLKFC
             spSua.Loai = txtLoai.Text;
             spSua.Mota = txtMoTa.Text;
             MemoryStream str = new MemoryStream();
-            pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Png);
+            pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Jpeg);
             spSua.HinhAnh = str.ToArray();
             try
             {
