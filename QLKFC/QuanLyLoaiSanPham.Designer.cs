@@ -288,7 +288,5 @@ namespace QLKFC
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridView dgv_DSLoaiSPham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

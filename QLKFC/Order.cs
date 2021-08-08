@@ -24,7 +24,7 @@ namespace QLKFC
         }
         QLBHKFCContext db = new QLBHKFCContext();
 
-        #region Tương tác dữ liệu
+        #region Phương thức
         private void loadDGVSP()
         {
             var query = from sp in db.SanPhams 
@@ -128,11 +128,6 @@ namespace QLKFC
             TinhTien();
         }
 
-        private void btnHuyBo_Click(object sender, EventArgs e)
-        {
-            dgvDSOrder.ClearSelection();
-        }
-
         private void dgvDSOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if(dgvDSOrder.Columns[e.ColumnIndex].Name=="Xoa")
@@ -144,14 +139,18 @@ namespace QLKFC
                     TinhTien();
                 }    
             }
+        }
 
+        private void btnHuyBo_Click(object sender, EventArgs e)
+        {
+            Don();
         }
         private void button1_Click(object sender, EventArgs e)
         {
             loadDGVSP();
         }
 
-        #region Lọc
+        #region Lọc bảng sản phẩm
         private void btnChonComBo_Click(object sender, EventArgs e)
         {
             locDL("Combo");
@@ -167,10 +166,43 @@ namespace QLKFC
             locDL("Đồ uống");
         }
         #endregion
-        private void txtKM_TextChanged(object sender, EventArgs e)
+
+        #region Kiểm tra dữ liệu
+        private void txtKM_Validating(object sender, CancelEventArgs e)
         {
-            TinhTien();
+            try
+            {
+                double.Parse(txtKM.Text);
+                if (double.Parse(txtKM.Text) < 0)
+                {
+                    e.Cancel = true;
+                    errorProvider_KM.SetError(txtKM, "Bạn phải nhập đơn giá >0 !");
+                    txtKM.Focus();
+                    txtKM.SelectAll();
+                }
+            }
+            catch
+            {
+                e.Cancel = true;
+                errorProvider_KM.SetError(txtKM, "Bạn phải nhập đơn giá là số !");
+                txtKM.Focus();
+                txtKM.SelectAll();
+            }
         }
+
+        private void txtKM_Validated(object sender, EventArgs e)
+        {
+            errorProvider_KM.SetError(txtKM, "");
+        }
+
+        private void txtKM_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                TinhTien();
+            }
+        }
+        #endregion
 
         private void btnFind_Click(object sender, EventArgs e)
         {

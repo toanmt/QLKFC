@@ -29,6 +29,7 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,6 +51,7 @@ namespace QLKFC
             this.panel_Order = new System.Windows.Forms.Panel();
             this.panel_TinhTien = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtKM = new System.Windows.Forms.TextBox();
             this.lblThanhTien = new System.Windows.Forms.Label();
             this.panel_button = new System.Windows.Forms.Panel();
             this.btnHuyBo = new System.Windows.Forms.Button();
@@ -67,7 +69,7 @@ namespace QLKFC
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Xoa = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtKM = new System.Windows.Forms.TextBox();
+            this.errorProvider_KM = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,6 +84,7 @@ namespace QLKFC
             this.panel_button.SuspendLayout();
             this.panel_DSOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_KM)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_header
@@ -315,6 +318,17 @@ namespace QLKFC
             this.panel2.Size = new System.Drawing.Size(468, 192);
             this.panel2.TabIndex = 2;
             // 
+            // txtKM
+            // 
+            this.txtKM.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtKM.Location = new System.Drawing.Point(135, 15);
+            this.txtKM.Name = "txtKM";
+            this.txtKM.Size = new System.Drawing.Size(35, 34);
+            this.txtKM.TabIndex = 8;
+            this.txtKM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtKM_KeyUp);
+            this.txtKM.Validating += new System.ComponentModel.CancelEventHandler(this.txtKM_Validating);
+            this.txtKM.Validated += new System.EventHandler(this.txtKM_Validated);
+            // 
             // lblThanhTien
             // 
             this.lblThanhTien.AutoSize = true;
@@ -506,14 +520,9 @@ namespace QLKFC
             this.Xoa.Text = "X";
             this.Xoa.UseColumnTextForButtonValue = true;
             // 
-            // txtKM
+            // errorProvider_KM
             // 
-            this.txtKM.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtKM.Location = new System.Drawing.Point(135, 15);
-            this.txtKM.Name = "txtKM";
-            this.txtKM.Size = new System.Drawing.Size(35, 34);
-            this.txtKM.TabIndex = 8;
-            this.txtKM.TextChanged += new System.EventHandler(this.txtKM_TextChanged);
+            this.errorProvider_KM.ContainerControl = this;
             // 
             // Order
             // 
@@ -543,6 +552,7 @@ namespace QLKFC
             this.panel_button.ResumeLayout(false);
             this.panel_DSOrder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_KM)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -585,5 +595,6 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
         private System.Windows.Forms.DataGridViewButtonColumn Xoa;
         private System.Windows.Forms.TextBox txtKM;
+        private System.Windows.Forms.ErrorProvider errorProvider_KM;
     }
 }
