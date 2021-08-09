@@ -70,19 +70,13 @@ namespace QLKFC
             {
                 tt += float.Parse(dgvDSOrder.Rows[i].Cells[4].Value.ToString());
             }
-
-            if(txtKM.Text=="")
-            {
-                txtKM.Text = 0 + "";
-            }    
-            lblThanhTien.Text = tt * (100 - float.Parse(txtKM.Text)) / 100 + "";
+            lblThanhTien.Text = tt + "";
         }
         private void Don()
         {
             dgvDSOrder.Rows.Clear();
             lblThanhTien.Text = 0 + "";
-            lblVAT.Text = 0 + "";
-            txtKM.Text = 0 + "";
+            txtDua.Text = 0 + "";
         }
         #endregion
 
@@ -167,37 +161,38 @@ namespace QLKFC
         }
         #endregion
 
-        #region Kiểm tra dữ liệu
-        private void txtKM_Validating(object sender, CancelEventArgs e)
+        #region Kiểm tra dữ liệu textbox tiền đưa
+
+        private void txtTD_Validated(object sender, EventArgs e)
+        {
+            errorProvider_TD.SetError(txtDua, "");
+        }
+
+        private void txtDua_Validating(object sender, CancelEventArgs e)
         {
             try
             {
-                double.Parse(txtKM.Text);
-                if (double.Parse(txtKM.Text) < 0)
+                double.Parse(txtDua.Text);
+                if (double.Parse(txtDua.Text) < 0)
                 {
                     e.Cancel = true;
-                    errorProvider_KM.SetError(txtKM, "Bạn phải nhập đơn giá >0 !");
-                    txtKM.Focus();
-                    txtKM.SelectAll();
+                    errorProvider_TD.SetError(txtDua, "Bạn phải nhập dữ liệu >0 !");
+                    txtDua.Focus();
+                    txtDua.SelectAll();
                 }
             }
             catch
             {
                 e.Cancel = true;
-                errorProvider_KM.SetError(txtKM, "Bạn phải nhập đơn giá là số !");
-                txtKM.Focus();
-                txtKM.SelectAll();
+                errorProvider_TD.SetError(txtDua, "Bạn phải nhập dữ liệu là số !");
+                txtDua.Focus();
+                txtDua.SelectAll();
             }
         }
 
-        private void txtKM_Validated(object sender, EventArgs e)
+        private void txtDua_KeyUp(object sender, KeyEventArgs e)
         {
-            errorProvider_KM.SetError(txtKM, "");
-        }
-
-        private void txtKM_KeyUp(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 TinhTien();
             }
