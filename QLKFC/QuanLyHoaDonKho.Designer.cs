@@ -37,12 +37,12 @@ namespace QLKFC
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dgvChiTietHoaDonKho = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvHoaDonKho = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -50,10 +50,9 @@ namespace QLKFC
             this.label1 = new System.Windows.Forms.Label();
             this.panel_header = new System.Windows.Forms.Panel();
             this.lblMaHoaDon = new System.Windows.Forms.Label();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDonKho)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonKho)).BeginInit();
@@ -154,6 +153,37 @@ namespace QLKFC
             this.dgvChiTietHoaDonKho.Size = new System.Drawing.Size(441, 380);
             this.dgvChiTietHoaDonKho.TabIndex = 0;
             // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 149.7326F;
+            this.Column5.HeaderText = "Tên";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.FillWeight = 60.81306F;
+            this.Column6.HeaderText = "Số lượng";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.FillWeight = 94.72713F;
+            this.Column7.HeaderText = "Đơn giá";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.FillWeight = 94.72713F;
+            this.Column8.HeaderText = "Thành tiền";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dgvChiTietHoaDonKho);
@@ -169,7 +199,6 @@ namespace QLKFC
             this.dgvHoaDonKho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3,
             this.Column4});
             this.dgvHoaDonKho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHoaDonKho.Location = new System.Drawing.Point(0, 0);
@@ -181,38 +210,6 @@ namespace QLKFC
             this.dgvHoaDonKho.Size = new System.Drawing.Size(441, 380);
             this.dgvHoaDonKho.TabIndex = 0;
             this.dgvHoaDonKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonKho_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 42.78075F;
-            this.Column1.HeaderText = "Mã";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 119.0731F;
-            this.Column2.HeaderText = "Ngày cung cấp";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 119.0731F;
-            this.Column3.HeaderText = "Tổng tiền";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 119.0731F;
-            this.Column4.HeaderText = "Trạng thái";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // panel2
             // 
@@ -284,36 +281,29 @@ namespace QLKFC
             this.lblMaHoaDon.TabIndex = 35;
             this.lblMaHoaDon.Text = "X";
             // 
-            // Column5
+            // Column1
             // 
-            this.Column5.FillWeight = 149.7326F;
-            this.Column5.HeaderText = "Tên";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
+            this.Column1.FillWeight = 42.78075F;
+            this.Column1.HeaderText = "Mã";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
-            // Column6
+            // Column2
             // 
-            this.Column6.FillWeight = 60.81306F;
-            this.Column6.HeaderText = "Số lượng";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
+            this.Column2.FillWeight = 119.0731F;
+            this.Column2.HeaderText = "Ngày cung cấp";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
-            // Column7
+            // Column4
             // 
-            this.Column7.FillWeight = 94.72713F;
-            this.Column7.HeaderText = "Đơn giá";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.FillWeight = 94.72713F;
-            this.Column8.HeaderText = "Thành tiền";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
+            this.Column4.FillWeight = 119.0731F;
+            this.Column4.HeaderText = "Trạng thái";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // QuanLyHoaDonKho
             // 
@@ -365,13 +355,12 @@ namespace QLKFC
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel_header;
         private System.Windows.Forms.Label lblMaHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

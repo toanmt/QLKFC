@@ -29,15 +29,20 @@ namespace QLKFC
         public void load()
         {
             float tongtien = 0;
-            var querycthdk = db.CthoaDonKhos.Include(x => x.MaHdkNavigation).Include(x => x.MaNlNavigation).Where(x => x.MaHdkNavigation.TrangThai == "Đang xử lý");
+            var query = db.HoaDonKhos.Select(x=>x);
 
-            foreach (var item in querycthdk.ToList())
+            foreach (var item in query.ToList())
             {
-                tongtien += (float)item.SoLuong * (float)item.MaNlNavigation.DonGia;
-                string[] hd = { item.MaHdk.ToString(), item.MaHdkNavigation.NgayCc.ToString(), string.Format("{0:#,##0}", tongtien), item.MaHdkNavigation.TrangThai.ToString() };
+                string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString() };
                 dgvHoaDonKho.Rows.Add(hd);
             }
-
+            //var querycthdk = db.CthoaDonKhos.Include(x => x.MaHdkNavigation).Include(x => x.MaNlNavigation).Where(x => x.MaHdk == );
+            //for (int i = 0; i < query.ToList().Count; i++)
+            //{
+            //    tongtien += (float)querycthdk.ToList()[i].SoLuong * (float)querycthdk.ToList()[i].MaNlNavigation.DonGia;
+            //    dgvHoaDonKho.Rows[i].Cells[2].Value = string.Format("{0:#,##0}", tongtien);
+            //    tongtien = 0;
+            //}
         }
 
 

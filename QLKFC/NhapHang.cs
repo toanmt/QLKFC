@@ -21,6 +21,7 @@ namespace QLKFC
         }
         public void load()
         {
+            
             var query = from x in db.NguyenLieus
                         select x;
             cbNguyenLieu.DataSource = query.ToList();
@@ -61,27 +62,26 @@ namespace QLKFC
         private void btnGuiDi_Click(object sender, EventArgs e)
         {
             int index = dgvNhapHang.Rows.Count;
-            if (index == 1) {
+            if (index == 1) 
+            {
                 MessageBox.Show("Chưa có nguyên liệu nào !!!");
-                    }
+            }
             else {
                 HoaDonKho hdk = new HoaDonKho();
                 
-                hdk.NgayCc =DateTime.Parse(datatimepick.Value.ToShortDateString());
+                hdk.NgayCc =datatimepick.Value;
                 hdk.TrangThai = "Đang xử lý";
                 db.HoaDonKhos.Add(hdk);
                 db.SaveChanges();
 
-                var query = db.HoaDonKhos.OrderBy(x => x.MaHdk).Last();
-                int MaHdk = query.MaHdk;
+                var query = db.HoaDonKhos.Where(x => x.NgayCc == datatimepick.Value).FirstOrDefault();
+                
                 for (int i = 0; i < (index - 1); i++)
                 {
-                    int MaNL = int.Parse(dgvNhapHang.Rows[i].Cells[0].Value.ToString());
-                    int SoLuong = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
                     CthoaDonKho cthdk = new CthoaDonKho();
-                    cthdk.MaNl = MaNL;
-                    cthdk.SoLuong = SoLuong;
-                    cthdk.MaHdk = MaHdk;
+                    cthdk.MaHdk = query.MaHdk;
+                    cthdk.MaNl = int.Parse(dgvNhapHang.Rows[i].Cells[0].Value.ToString());
+                    cthdk.SoLuong = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());    
                     db.CthoaDonKhos.Add(cthdk);
                 }
                 db.SaveChanges();

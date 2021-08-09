@@ -43,6 +43,12 @@ namespace QLKFC
             this.btnThongKe = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnChiTiet = new System.Windows.Forms.Button();
+            this.btnDau = new System.Windows.Forms.Button();
+            this.btncuoi = new System.Windows.Forms.Button();
+            this.btnTrangsau = new System.Windows.Forms.Button();
+            this.btnTrangtrc = new System.Windows.Forms.Button();
+            this.btnTrangHienTai = new System.Windows.Forms.Button();
+            this.btnHienThi = new System.Windows.Forms.Button();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -139,24 +145,27 @@ namespace QLKFC
             this.btnTimKiem.TabIndex = 8;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dtpick1
             // 
             this.dtpick1.CustomFormat = "dd/MM/yyy";
-            this.dtpick1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpick1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpick1.Location = new System.Drawing.Point(12, 144);
             this.dtpick1.Name = "dtpick1";
             this.dtpick1.Size = new System.Drawing.Size(134, 27);
             this.dtpick1.TabIndex = 1;
+            this.dtpick1.Value = new System.DateTime(2021, 8, 9, 0, 0, 0, 0);
             // 
             // dtpick2
             // 
             this.dtpick2.CustomFormat = "dd/MM/yyy";
-            this.dtpick2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpick2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpick2.Location = new System.Drawing.Point(756, 144);
             this.dtpick2.Name = "dtpick2";
             this.dtpick2.Size = new System.Drawing.Size(122, 27);
             this.dtpick2.TabIndex = 10;
+            this.dtpick2.Value = new System.DateTime(2021, 8, 9, 0, 0, 0, 0);
             // 
             // btnThongKe
             // 
@@ -196,11 +205,79 @@ namespace QLKFC
             this.btnChiTiet.UseVisualStyleBackColor = false;
             this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
+            // btnDau
+            // 
+            this.btnDau.Location = new System.Drawing.Point(166, 506);
+            this.btnDau.Name = "btnDau";
+            this.btnDau.Size = new System.Drawing.Size(94, 29);
+            this.btnDau.TabIndex = 23;
+            this.btnDau.Text = "Đầu";
+            this.btnDau.UseVisualStyleBackColor = true;
+            this.btnDau.Click += new System.EventHandler(this.btnDau_Click);
+            // 
+            // btncuoi
+            // 
+            this.btncuoi.Location = new System.Drawing.Point(645, 506);
+            this.btncuoi.Name = "btncuoi";
+            this.btncuoi.Size = new System.Drawing.Size(94, 29);
+            this.btncuoi.TabIndex = 24;
+            this.btncuoi.Text = "Cuối";
+            this.btncuoi.UseVisualStyleBackColor = true;
+            this.btncuoi.Click += new System.EventHandler(this.btncuoi_Click);
+            // 
+            // btnTrangsau
+            // 
+            this.btnTrangsau.Location = new System.Drawing.Point(521, 506);
+            this.btnTrangsau.Name = "btnTrangsau";
+            this.btnTrangsau.Size = new System.Drawing.Size(94, 29);
+            this.btnTrangsau.TabIndex = 26;
+            this.btnTrangsau.Text = "Trang sau";
+            this.btnTrangsau.UseVisualStyleBackColor = true;
+            this.btnTrangsau.Click += new System.EventHandler(this.btnTrangsau_Click);
+            // 
+            // btnTrangtrc
+            // 
+            this.btnTrangtrc.Location = new System.Drawing.Point(279, 506);
+            this.btnTrangtrc.Name = "btnTrangtrc";
+            this.btnTrangtrc.Size = new System.Drawing.Size(94, 29);
+            this.btnTrangtrc.TabIndex = 27;
+            this.btnTrangtrc.Text = "Trang trước";
+            this.btnTrangtrc.UseVisualStyleBackColor = true;
+            this.btnTrangtrc.Click += new System.EventHandler(this.btnTrangtrc_Click);
+            // 
+            // btnTrangHienTai
+            // 
+            this.btnTrangHienTai.Location = new System.Drawing.Point(424, 506);
+            this.btnTrangHienTai.Name = "btnTrangHienTai";
+            this.btnTrangHienTai.Size = new System.Drawing.Size(58, 29);
+            this.btnTrangHienTai.TabIndex = 28;
+            this.btnTrangHienTai.Text = "1";
+            this.btnTrangHienTai.UseVisualStyleBackColor = true;
+            // 
+            // btnHienThi
+            // 
+            this.btnHienThi.BackColor = System.Drawing.Color.Red;
+            this.btnHienThi.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHienThi.ForeColor = System.Drawing.Color.White;
+            this.btnHienThi.Location = new System.Drawing.Point(581, 87);
+            this.btnHienThi.Name = "btnHienThi";
+            this.btnHienThi.Size = new System.Drawing.Size(297, 47);
+            this.btnHienThi.TabIndex = 29;
+            this.btnHienThi.Text = "Hiển thị toàn bộ";
+            this.btnHienThi.UseVisualStyleBackColor = false;
+            this.btnHienThi.Click += new System.EventHandler(this.btnHienThi_Click);
+            // 
             // QuanLyHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 633);
+            this.Controls.Add(this.btnHienThi);
+            this.Controls.Add(this.btnTrangHienTai);
+            this.Controls.Add(this.btnTrangtrc);
+            this.Controls.Add(this.btnTrangsau);
+            this.Controls.Add(this.btncuoi);
+            this.Controls.Add(this.btnDau);
             this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnThongKe);
@@ -240,5 +317,11 @@ namespace QLKFC
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnChiTiet;
+        private System.Windows.Forms.Button btnDau;
+        private System.Windows.Forms.Button btncuoi;
+        private System.Windows.Forms.Button btnTrangsau;
+        private System.Windows.Forms.Button btnTrangtrc;
+        private System.Windows.Forms.Button btnTrangHienTai;
+        private System.Windows.Forms.Button btnHienThi;
     }
 }
