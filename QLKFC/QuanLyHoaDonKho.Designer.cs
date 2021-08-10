@@ -43,6 +43,9 @@ namespace QLKFC
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvHoaDonKho = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -50,9 +53,6 @@ namespace QLKFC
             this.label1 = new System.Windows.Forms.Label();
             this.panel_header = new System.Windows.Forms.Panel();
             this.lblMaHoaDon = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDonKho)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonKho)).BeginInit();
@@ -135,6 +135,7 @@ namespace QLKFC
             this.btnTimKiem.TabIndex = 28;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dgvChiTietHoaDonKho
             // 
@@ -211,6 +212,30 @@ namespace QLKFC
             this.dgvHoaDonKho.TabIndex = 0;
             this.dgvHoaDonKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonKho_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 42.78075F;
+            this.Column1.HeaderText = "Mã";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 119.0731F;
+            this.Column2.HeaderText = "Ngày cung cấp";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 119.0731F;
+            this.Column4.HeaderText = "Trạng thái";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvHoaDonKho);
@@ -280,30 +305,6 @@ namespace QLKFC
             this.lblMaHoaDon.Size = new System.Drawing.Size(35, 38);
             this.lblMaHoaDon.TabIndex = 35;
             this.lblMaHoaDon.Text = "X";
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 42.78075F;
-            this.Column1.HeaderText = "Mã";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 119.0731F;
-            this.Column2.HeaderText = "Ngày cung cấp";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 119.0731F;
-            this.Column4.HeaderText = "Trạng thái";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // QuanLyHoaDonKho
             // 

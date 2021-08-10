@@ -20,15 +20,15 @@ namespace QLKFC
             InitializeComponent();
             load();
         }
-
-        private void button5_Click(object sender, EventArgs e)
+        //Clear datagridview
+        public void clear()
         {
-            NhapHang frm = new NhapHang();
-            frm.ShowDialog();
+            dgvChiTietHoaDonKho.Rows.Clear();
+            dgvHoaDonKho.Rows.Clear();
         }
+        //Load dữ liệu
         public void load()
         {
-            float tongtien = 0;
             var query = db.HoaDonKhos.Select(x=>x);
 
             foreach (var item in query.ToList())
@@ -37,9 +37,7 @@ namespace QLKFC
                 dgvHoaDonKho.Rows.Add(hd);
             }
         }
-
-
-
+        //Tương tác với bảng hóa đơn kho
         private void dgvHoaDonKho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvChiTietHoaDonKho.Rows.Clear();
@@ -63,8 +61,11 @@ namespace QLKFC
             }
         }
 
+        //Thống kê theo ngày
         private void btnThongKe_Click(object sender, EventArgs e)
         {
+            if (dgvHoaDonKho.Rows.Count > 0)
+                clear();
             var query = from k in db.HoaDonKhos
                         where k.NgayCc >= dtpick1.Value && k.NgayCc <= dtpick2.Value
                         select new
@@ -73,11 +74,28 @@ namespace QLKFC
                              k.NgayCc,
                              k.TrangThai,
                          };
-            dgvHoaDonKho.DataSource = query.ToList();
-            dgvHoaDonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHoaDonKho.Columns[0].HeaderText = "Mã Hóa Đơn";
-            dgvHoaDonKho.Columns[1].HeaderText = "Ngày Tạo";
-            dgvHoaDonKho.Columns[2].HeaderText = "Trạng Thái";
+            foreach (var item in query.ToList())
+            {
+                string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString() };
+                dgvHoaDonKho.Rows.Add(hd);
+            }
+        }
+
+        //Tìm kiếm theo Mã hoặc Trạng thái của hóa đơn
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            if (dgvHoaDonKho.Rows.Count > 0)
+                clear();
+            var query = db.HoaDonKhos.Where(x => x.MaHdk.ToString().Contains(txtTimKiem.Text));
+            if (query.ToList().Count == 0)
+                query = db.HoaDonKhos.Where(x => x.TrangThai.Contains(txtTimKiem.Text));
+            foreach (var item in query.ToList())
+            {
+                string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString() };
+                dgvHoaDonKho.Rows.Add(hd);
+            }
+
+
         }
     }
 }

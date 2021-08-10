@@ -1,7 +1,7 @@
 ﻿
 namespace QLKFC
 {
-    partial class QuanLyNhapXuat
+    partial class QuanLyNhap
     {
         /// <summary>
         /// Required designer variable.
@@ -35,18 +35,16 @@ namespace QLKFC
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnNhapKho = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnChiTiet = new System.Windows.Forms.Button();
+            this.btnTaoPhieuNhap = new System.Windows.Forms.Button();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,35 +106,14 @@ namespace QLKFC
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.txtTimKiem);
             this.panel2.Controls.Add(this.btnTimKiem);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.dgvNhapHang);
             this.panel2.Location = new System.Drawing.Point(-4, 87);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(906, 358);
+            this.panel2.Size = new System.Drawing.Size(898, 358);
             this.panel2.TabIndex = 5;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(669, 53);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(194, 27);
-            this.dateTimePicker1.TabIndex = 15;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(538, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 36);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Thống Kê";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // txtTimKiem
             // 
@@ -180,44 +157,9 @@ namespace QLKFC
             this.dgvNhapHang.Name = "dgvNhapHang";
             this.dgvNhapHang.RowHeadersWidth = 51;
             this.dgvNhapHang.RowTemplate.Height = 29;
-            this.dgvNhapHang.Size = new System.Drawing.Size(877, 265);
+            this.dgvNhapHang.Size = new System.Drawing.Size(858, 265);
             this.dgvNhapHang.TabIndex = 8;
             this.dgvNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapHang_CellClick);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnNhapKho);
-            this.panel3.Controls.Add(this.btnSua);
-            this.panel3.Location = new System.Drawing.Point(9, 448);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(885, 137);
-            this.panel3.TabIndex = 7;
-            // 
-            // btnNhapKho
-            // 
-            this.btnNhapKho.BackColor = System.Drawing.Color.Red;
-            this.btnNhapKho.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnNhapKho.ForeColor = System.Drawing.Color.White;
-            this.btnNhapKho.Location = new System.Drawing.Point(700, 8);
-            this.btnNhapKho.Name = "btnNhapKho";
-            this.btnNhapKho.Size = new System.Drawing.Size(173, 118);
-            this.btnNhapKho.TabIndex = 23;
-            this.btnNhapKho.Text = "Đã Nhập Kho";
-            this.btnNhapKho.UseVisualStyleBackColor = false;
-            this.btnNhapKho.Click += new System.EventHandler(this.btnNhapKho_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.BackColor = System.Drawing.Color.Red;
-            this.btnSua.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(3, 8);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(263, 118);
-            this.btnSua.TabIndex = 9;
-            this.btnSua.Text = "Tạo phiếu nhập";
-            this.btnSua.UseVisualStyleBackColor = false;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // Column1
             // 
@@ -239,7 +181,42 @@ namespace QLKFC
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
-            // QuanLyNhapXuat
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnChiTiet);
+            this.panel3.Controls.Add(this.btnTaoPhieuNhap);
+            this.panel3.Location = new System.Drawing.Point(9, 448);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(885, 137);
+            this.panel3.TabIndex = 7;
+            // 
+            // btnChiTiet
+            // 
+            this.btnChiTiet.BackColor = System.Drawing.Color.Red;
+            this.btnChiTiet.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnChiTiet.ForeColor = System.Drawing.Color.White;
+            this.btnChiTiet.Location = new System.Drawing.Point(596, 8);
+            this.btnChiTiet.Name = "btnChiTiet";
+            this.btnChiTiet.Size = new System.Drawing.Size(262, 118);
+            this.btnChiTiet.TabIndex = 24;
+            this.btnChiTiet.Text = "Chi tiết";
+            this.btnChiTiet.UseVisualStyleBackColor = false;
+            this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
+            // 
+            // btnTaoPhieuNhap
+            // 
+            this.btnTaoPhieuNhap.BackColor = System.Drawing.Color.Red;
+            this.btnTaoPhieuNhap.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnTaoPhieuNhap.ForeColor = System.Drawing.Color.White;
+            this.btnTaoPhieuNhap.Location = new System.Drawing.Point(3, 8);
+            this.btnTaoPhieuNhap.Name = "btnTaoPhieuNhap";
+            this.btnTaoPhieuNhap.Size = new System.Drawing.Size(263, 118);
+            this.btnTaoPhieuNhap.TabIndex = 9;
+            this.btnTaoPhieuNhap.Text = "Tạo phiếu nhập";
+            this.btnTaoPhieuNhap.UseVisualStyleBackColor = false;
+            this.btnTaoPhieuNhap.Click += new System.EventHandler(this.btnTaoPhieuNhap_Click);
+            // 
+            // QuanLyNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -248,7 +225,7 @@ namespace QLKFC
             this.Controls.Add(this.panel_header);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "QuanLyNhapXuat";
+            this.Name = "QuanLyNhap";
             this.Text = "QuanLyNhapXuat";
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
@@ -273,14 +250,12 @@ namespace QLKFC
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvNhapHang;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTaoPhieuNhap;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button btnNhapKho;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnChiTiet;
     }
 }

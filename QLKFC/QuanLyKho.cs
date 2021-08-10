@@ -19,6 +19,7 @@ namespace QLKFC
             InitializeComponent();
             load();
         }
+        #region Tương tác dữ liệu
         public void load()
         {
             var query = from k in db.Khos
@@ -47,17 +48,78 @@ namespace QLKFC
                 txtDonGia.Text = dgvKho.Rows[index].Cells[2].Value.ToString();
                 txtSoLuong.Text = dgvKho.Rows[index].Cells[3].Value.ToString();
             }
-        }
+        } 
+        #endregion
 
+        //Sửa số lượng 
         private void btnSua_Click(object sender, EventArgs e)
         {
-                Kho NLSua = db.Khos.SingleOrDefault(k => k.MaNl == int.Parse(cbMaNL.Text));
-
+            try
+            {
+                int MaNL = int.Parse(cbMaNL.Text);
+                int check = int.Parse(txtSoLuong.Text);
+                if (check < 0)
+                {
+                   throw new Exception("Số lượng phải >= 0"); 
+                }
+                if (txtTenNL.Text == "")
+                    throw new Exception("Chưa chọn nguyên liệu để sửa");
+                Kho NLSua = db.Khos.SingleOrDefault(k => k.MaNl == MaNL);
                 NLSua.SoLuong = int.Parse(txtSoLuong.Text);
                 db.SaveChanges();
-
+                MessageBox.Show("Sửa thành công!");
                 load();
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("Số lương phải là số");
+                txtSoLuong.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                txtSoLuong.Focus();
+            }
+        }
 
+        //Tìm kiếm Theo 3 tiêu chí : Mã => Tên => Số lượng
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var query = from k in db.Khos
+                        where k.MaNl.ToString().Contains(txtTimKiem.Text)
+                        select new
+                        {
+                            k.MaNlNavigation.MaNl,
+                            k.MaNlNavigation.TenNl,
+                            k.MaNlNavigation.DonGia,
+                            k.SoLuong
+                        };
+            if (query.ToList().Count == 0)
+                query = from k in db.Khos
+                        where k.MaNlNavigation.TenNl.Contains(txtTimKiem.Text)
+                        select new
+                        {
+                            k.MaNlNavigation.MaNl,
+                            k.MaNlNavigation.TenNl,
+                            k.MaNlNavigation.DonGia,
+                            k.SoLuong
+                        };
+            if (query.ToList().Count == 0)
+                query = from k in db.Khos
+                        where k.SoLuong.Value.ToString().Contains(txtTimKiem.Text)
+                        select new
+                        {
+                            k.MaNlNavigation.MaNl,
+                            k.MaNlNavigation.TenNl,
+                            k.MaNlNavigation.DonGia,
+                            k.SoLuong
+                        };
+            dgvKho.DataSource = query.ToList();
+            dgvKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvKho.Columns[0].HeaderText = "Mã nguyên liệu";
+            dgvKho.Columns[1].HeaderText = "Tên nguyên liệu";
+            dgvKho.Columns[2].HeaderText = "Đơn giá";
+            dgvKho.Columns[3].HeaderText = "Số lượng";
 
         }
     }

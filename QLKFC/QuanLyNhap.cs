@@ -12,27 +12,18 @@ using System.Windows.Forms;
 
 namespace QLKFC
 {
-    public partial class QuanLyNhapXuat : Form
+    public partial class QuanLyNhap : Form
     {
         QLBHKFCContext db = new QLBHKFCContext();
         int index = 0;
-        public QuanLyNhapXuat()
+        public QuanLyNhap()
         {
             InitializeComponent();
             load();
         }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            NhapHang frm = new NhapHang();
-            frm.ShowDialog();
-            load();
-
-        }
         public void load()
         {
             dgvNhapHang.Rows.Clear();
-            float tongtien = 0;
             var query = db.HoaDonKhos.Where(x => x.TrangThai == "Đang xử lý");
            
             foreach (var item in query.ToList())
@@ -46,29 +37,25 @@ namespace QLKFC
             index = e.RowIndex;
         }
 
-        private void btnNhapKho_Click(object sender, EventArgs e)
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            string MaHDK = dgvNhapHang.Rows[index].Cells[0].Value.ToString();
-            var query = db.CthoaDonKhos.Where(x => x.MaHdk.ToString() == MaHDK);
-            List<CthoaDonKho> listhdk = new List<CthoaDonKho>();
-            listhdk = query.ToList();
-            var queryKho = db.Khos.Select(x => x);
-            foreach (var item in listhdk)
+
+            if (index > -1)
             {
-                foreach (var itemKho in queryKho)
-                {
-                    if (item.MaNl == itemKho.MaNl)
-                        itemKho.SoLuong += item.SoLuong;
-                }
+                ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
+                frm.Tag =int.Parse(dgvNhapHang.Rows[index].Cells[0].Value.ToString());
+                frm.Show();
             }
-
-            db.HoaDonKhos.Where(x => x.MaHdk.ToString() == MaHDK).FirstOrDefault().TrangThai = "Hoàn Thành";
-            db.SaveChanges();
-            load();
-
-
+            else
+                MessageBox.Show("Chưa chọn hóa đơn !");
         }
 
-       
+        private void btnTaoPhieuNhap_Click(object sender, EventArgs e)
+        {
+            NhapHang frm = new NhapHang();
+            frm.ShowDialog();
+            load();
+        }
     }
 }

@@ -43,18 +43,18 @@ namespace QLKFC
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvKho = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_header = new System.Windows.Forms.Panel();
-            this.dgvKho = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel_header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKho)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -189,6 +189,7 @@ namespace QLKFC
             this.btnTimKiem.TabIndex = 6;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtTimKiem
             // 
@@ -206,6 +207,17 @@ namespace QLKFC
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(906, 396);
             this.panel2.TabIndex = 2;
+            // 
+            // dgvKho
+            // 
+            this.dgvKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKho.Location = new System.Drawing.Point(9, 55);
+            this.dgvKho.Name = "dgvKho";
+            this.dgvKho.RowHeadersWidth = 51;
+            this.dgvKho.RowTemplate.Height = 29;
+            this.dgvKho.Size = new System.Drawing.Size(888, 328);
+            this.dgvKho.TabIndex = 8;
+            this.dgvKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKho_CellClick);
             // 
             // label1
             // 
@@ -258,17 +270,6 @@ namespace QLKFC
             this.panel_header.Size = new System.Drawing.Size(912, 84);
             this.panel_header.TabIndex = 1;
             // 
-            // dgvKho
-            // 
-            this.dgvKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKho.Location = new System.Drawing.Point(9, 55);
-            this.dgvKho.Name = "dgvKho";
-            this.dgvKho.RowHeadersWidth = 51;
-            this.dgvKho.RowTemplate.Height = 29;
-            this.dgvKho.Size = new System.Drawing.Size(888, 328);
-            this.dgvKho.TabIndex = 8;
-            this.dgvKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKho_CellClick);
-            // 
             // QuanLyKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -284,11 +285,11 @@ namespace QLKFC
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKho)).EndInit();
             this.ResumeLayout(false);
 
         }

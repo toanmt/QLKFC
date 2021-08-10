@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace QLKFC
 {
     /// <summary>
@@ -32,13 +31,19 @@ namespace QLKFC
         #region Xem chi tiết hóa đơn
         private void dgvHDBH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            index = 0;
             index = e.RowIndex;
         }
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            ChiTietHoaDonBanHang frm = new ChiTietHoaDonBanHang();
-            frm.Tag = (int)dgvHDBH.Rows[index].Cells[0].Value;
-            frm.Show();
+            if (index > -1)
+            {
+                ChiTietHoaDonBanHang frm = new ChiTietHoaDonBanHang();
+                frm.Tag = (int)dgvHDBH.Rows[index].Cells[0].Value;
+                frm.Show();
+            }
+            else
+                MessageBox.Show("Chưa chọn hóa đơn !");
         }
         #endregion
 
@@ -124,9 +129,9 @@ namespace QLKFC
         {
             int NumberItem = 0;
             if (check == 0)
-                NumberItem = db.CthoaDons.Count();
+                NumberItem = db.HoaDons.Count();
             else
-                NumberItem = db.CthoaDons.Where(x => x.MaHdNavigation.NgayThang.Value.Date >= dtpick1.Value && x.MaHdNavigation.NgayThang.Value.Date <= dtpick2.Value).Count();
+                NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date >= dtpick1.Value && x.NgayThang.Value.Date <= dtpick2.Value).Count();
 
             if (Pagenumber - 1 < NumberItem / 10)
             {
@@ -142,7 +147,7 @@ namespace QLKFC
         {
             if (check == 0)
             {
-                int NumberItem = db.CthoaDons.Count();
+                int NumberItem = db.HoaDons.Count();
                 if (NumberItem % 10 != 0)
                     Pagenumber = NumberItem / 10 + 1;
                 else Pagenumber = NumberItem / 10;
@@ -150,7 +155,7 @@ namespace QLKFC
             }
             else
             {
-                int NumberItem = db.CthoaDons.Where(x => x.MaHdNavigation.NgayThang.Value.Date >= dtpick1.Value && x.MaHdNavigation.NgayThang.Value.Date <= dtpick2.Value).Count();
+                int NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date >= dtpick1.Value && x.NgayThang.Value.Date <= dtpick2.Value).Count();
                 if (NumberItem % 10 == 1)
                     Pagenumber = NumberItem / 10 + 1;
                 else Pagenumber = NumberItem / 10;
@@ -168,17 +173,18 @@ namespace QLKFC
         }
         #endregion
 
+        //Tìm kiếm theo mã hóa đơn
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            var query = from h in db.HoaDons.Where(x => x.MaHd.ToString().Contains(txtTimKiem.Text))
-                    select new
-                        {
-                            h.MaHd,
-                            h.TenNv,
-                            h.StoreId,
-                            h.Pos,
-                            h.NgayThang,
-                        };
+            var query = from h in db.HoaDons
+                        where h.MaHd.ToString().Contains(txtTimKiem.Text)
+                        select new  {
+                                        h.MaHd,
+                                        h.TenNv,
+                                        h.StoreId,
+                                        h.Pos,
+                                        h.NgayThang,
+                                    };
             dgvHDBH.DataSource = query.ToList();
             dgvHDBH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHDBH.Columns[0].HeaderText = "Mã Hóa Đơn";

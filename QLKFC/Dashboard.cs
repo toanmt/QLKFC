@@ -166,7 +166,7 @@ namespace QLKFC
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            openForm(new QuanLyNhapXuat());
+            openForm(new QuanLyNhap());
         }
     }
 }

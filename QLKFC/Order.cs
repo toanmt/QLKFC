@@ -402,7 +402,7 @@ namespace QLKFC
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new PointF(0, vtdong));
-            e.Graphics.DrawString(string.Format("{0:N0}", double.Parse(txtDua.Text)),
+            e.Graphics.DrawString(string.Format("{0:N0}", Double.Parse(txtDua.Text)),
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new PointF(chieurong - 150, vtdong));
@@ -429,7 +429,7 @@ namespace QLKFC
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new PointF(0, vtdong));
-            e.Graphics.DrawString(string.Format("{0:N0}", double.Parse(txtDua.Text)),
+            e.Graphics.DrawString(string.Format("{0:N0}", Double.Parse(txtDua.Text)),
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new PointF(chieurong - 150, vtdong));
