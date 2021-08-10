@@ -17,7 +17,7 @@ namespace QLKFC
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuanLyNhanVien());
+            Application.Run(new DangNhap());
         }
     }
 }
