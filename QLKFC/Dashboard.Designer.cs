@@ -56,9 +56,6 @@ namespace QLKFC
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.trangChủToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel_submenu_Kho.SuspendLayout();
             this.panel_submenu_HD.SuspendLayout();
@@ -66,7 +63,6 @@ namespace QLKFC
             this.panel_submenu_SP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbTrangChu)).BeginInit();
             this.panel_control.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -103,6 +99,7 @@ namespace QLKFC
             this.btnNhapNL.TabIndex = 15;
             this.btnNhapNL.Text = "Nhập nguyên liệu";
             this.btnNhapNL.UseVisualStyleBackColor = true;
+            this.btnNhapNL.Click += new System.EventHandler(this.btnNhapNL_Click);
             // 
             // panel_submenu_Kho
             // 
@@ -399,7 +396,6 @@ namespace QLKFC
             this.panel_control.Controls.Add(this.label3);
             this.panel_control.Controls.Add(this.label2);
             this.panel_control.Controls.Add(this.label1);
-            this.panel_control.Controls.Add(this.menuStrip1);
             this.panel_control.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_control.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel_control.Location = new System.Drawing.Point(255, 0);
@@ -413,7 +409,7 @@ namespace QLKFC
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(759, 646);
+            this.label3.Location = new System.Drawing.Point(750, 646);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 18);
             this.label3.TabIndex = 2;
@@ -424,7 +420,7 @@ namespace QLKFC
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(17, 113);
+            this.label2.Location = new System.Drawing.Point(17, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(441, 27);
             this.label2.TabIndex = 1;
@@ -435,40 +431,11 @@ namespace QLKFC
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(17, 56);
+            this.label1.Location = new System.Drawing.Point(17, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(199, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chào mừng";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Red;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trangChủToolStripMenuItem,
-            this.đăngXuấtToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(930, 39);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // trangChủToolStripMenuItem
-            // 
-            this.trangChủToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.trangChủToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
-            this.trangChủToolStripMenuItem.Size = new System.Drawing.Size(136, 35);
-            this.trangChủToolStripMenuItem.Text = "Trang Chủ";
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.đăngXuấtToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(139, 35);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             // 
             // Dashboard
             // 
@@ -479,7 +446,6 @@ namespace QLKFC
             this.Controls.Add(this.panel_control);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý KFC";
@@ -491,8 +457,6 @@ namespace QLKFC
             ((System.ComponentModel.ISupportInitialize)(this.ptbTrangChu)).EndInit();
             this.panel_control.ResumeLayout(false);
             this.panel_control.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -526,9 +490,6 @@ namespace QLKFC
         private System.Windows.Forms.Panel panel_submenu_Kho;
         private System.Windows.Forms.Button btnNhapHang;
         private System.Windows.Forms.Button btnKhoHang;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem trangChủToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }
 
