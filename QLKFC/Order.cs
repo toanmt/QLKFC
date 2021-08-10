@@ -499,7 +499,15 @@ namespace QLKFC
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (dgvDSOrder.RowCount != 0)
+            if (dgvDSOrder.RowCount == 0)
+            {
+                MessageBox.Show("Hóa đơn trắng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txtDua.Text == "")
+            {
+                MessageBox.Show("Chưa nhập tiền đưa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
             {
                 HoaDon hd = new HoaDon();
                 hd.TenNv = tennv;
@@ -521,10 +529,6 @@ namespace QLKFC
                 }
                 ppdHoaDon.ShowDialog();
                 Don();
-            }
-            else
-            {
-                MessageBox.Show("Hóa đơn trắng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         #endregion
