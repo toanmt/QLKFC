@@ -16,6 +16,7 @@ namespace QLKFC.Models
         public string TenNl { get; set; }
         public double? DonGia { get; set; }
 
+        public virtual Kho Kho { get; set; }
         public virtual ICollection<CthoaDonKho> CthoaDonKhos { get; set; }
     }
 }

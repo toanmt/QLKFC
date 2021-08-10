@@ -42,7 +42,7 @@ namespace QLKFC
             this.label2 = new System.Windows.Forms.Label();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnNhapKho = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -182,27 +182,29 @@ namespace QLKFC
             this.dgvNhapHang.RowTemplate.Height = 29;
             this.dgvNhapHang.Size = new System.Drawing.Size(877, 265);
             this.dgvNhapHang.TabIndex = 8;
+            this.dgvNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapHang_CellClick);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnXoa);
+            this.panel3.Controls.Add(this.btnNhapKho);
             this.panel3.Controls.Add(this.btnSua);
             this.panel3.Location = new System.Drawing.Point(9, 448);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(885, 137);
             this.panel3.TabIndex = 7;
             // 
-            // btnXoa
+            // btnNhapKho
             // 
-            this.btnXoa.BackColor = System.Drawing.Color.Red;
-            this.btnXoa.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(591, 8);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(282, 118);
-            this.btnXoa.TabIndex = 22;
-            this.btnXoa.Text = "In hóa đơn";
-            this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnNhapKho.BackColor = System.Drawing.Color.Red;
+            this.btnNhapKho.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNhapKho.ForeColor = System.Drawing.Color.White;
+            this.btnNhapKho.Location = new System.Drawing.Point(700, 8);
+            this.btnNhapKho.Name = "btnNhapKho";
+            this.btnNhapKho.Size = new System.Drawing.Size(173, 118);
+            this.btnNhapKho.TabIndex = 23;
+            this.btnNhapKho.Text = "Đã Nhập Kho";
+            this.btnNhapKho.UseVisualStyleBackColor = false;
+            this.btnNhapKho.Click += new System.EventHandler(this.btnNhapKho_Click);
             // 
             // btnSua
             // 
@@ -271,12 +273,12 @@ namespace QLKFC
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvNhapHang;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnNhapKho;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;

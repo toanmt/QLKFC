@@ -36,13 +36,6 @@ namespace QLKFC
                 string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString() };
                 dgvHoaDonKho.Rows.Add(hd);
             }
-            //var querycthdk = db.CthoaDonKhos.Include(x => x.MaHdkNavigation).Include(x => x.MaNlNavigation).Where(x => x.MaHdk == );
-            //for (int i = 0; i < query.ToList().Count; i++)
-            //{
-            //    tongtien += (float)querycthdk.ToList()[i].SoLuong * (float)querycthdk.ToList()[i].MaNlNavigation.DonGia;
-            //    dgvHoaDonKho.Rows[i].Cells[2].Value = string.Format("{0:#,##0}", tongtien);
-            //    tongtien = 0;
-            //}
         }
 
 
@@ -53,13 +46,19 @@ namespace QLKFC
             int index = e.RowIndex;
             if (index > -1 && index < dgvHoaDonKho.Rows.Count - 1)
             {
+                float tg = 0;
                 int check = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
-                var querycthd = db.CthoaDonKhos.Where(x => x.MaHdk == check);
+                var querycthd = db.CthoaDonKhos.Include(x=>x.MaNlNavigation).Where(x => x.MaHdk == check);
                 foreach (var item in querycthd.ToList())
                 {
-                    string[] cthd = { item.MaNlNavigation.TenNl.ToString(), item.SoLuong.ToString(), item.MaNlNavigation.DonGia.ToString(), string.Format("{0:#,##0}", ((float)item.SoLuong * (float)item.MaNlNavigation.DonGia)) };
+                    string tongtien = string.Format("{0:#,##0}", ((float)item.SoLuong * (float)item.MaNlNavigation.DonGia));
+                    string[] cthd = { item.MaNlNavigation.TenNl.ToString(), item.SoLuong.ToString(), item.MaNlNavigation.DonGia.ToString(), tongtien};
                     dgvChiTietHoaDonKho.Rows.Add(cthd);
+                    tg += float.Parse(tongtien);
                 }
+                string[] row = { "", "", "Tổng tiền", string.Format("{0:#,##0}", tg) };
+                dgvChiTietHoaDonKho.Rows.Add(row);
+
 
             }
         }

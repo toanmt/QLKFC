@@ -45,7 +45,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<ChucVu>(entity =>
             {
                 entity.HasKey(e => e.MaCv)
-                    .HasName("PK__ChucVu__27258E76DA34A9BB");
+                    .HasName("PK__ChucVu__27258E76BA1694C7");
 
                 entity.ToTable("ChucVu");
 
@@ -66,7 +66,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<CthoaDon>(entity =>
             {
                 entity.HasKey(e => new { e.MaHd, e.MaSp })
-                    .HasName("PK__CTHoaDon__F557F66127CB8203");
+                    .HasName("PK__CTHoaDon__F557F661B16E32CA");
 
                 entity.ToTable("CTHoaDon");
 
@@ -90,7 +90,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<CthoaDonKho>(entity =>
             {
                 entity.HasKey(e => new { e.MaHdk, e.MaNl })
-                    .HasName("PK__CTHoaDon__EEE2B5B0FB687895");
+                    .HasName("PK__CTHoaDon__EEE2B5B0A7FE237D");
 
                 entity.ToTable("CTHoaDonKho");
 
@@ -114,7 +114,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<HoaDon>(entity =>
             {
                 entity.HasKey(e => e.MaHd)
-                    .HasName("PK__HoaDon__2725A6E015B4EBB1");
+                    .HasName("PK__HoaDon__2725A6E01AAFF1A3");
 
                 entity.ToTable("HoaDon");
 
@@ -139,7 +139,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<HoaDonKho>(entity =>
             {
                 entity.HasKey(e => e.MaHdk)
-                    .HasName("PK__HoaDonKh__3C90E8C333137369");
+                    .HasName("PK__HoaDonKh__3C90E8C333515C16");
 
                 entity.ToTable("HoaDonKho");
 
@@ -154,22 +154,26 @@ namespace QLKFC.Models
 
             modelBuilder.Entity<Kho>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.MaNl)
+                    .HasName("PK__Kho__2725D73C292271B7");
 
                 entity.ToTable("Kho");
 
-                entity.Property(e => e.MaNl).HasColumnName("MaNL");
+                entity.Property(e => e.MaNl)
+                    .ValueGeneratedNever()
+                    .HasColumnName("MaNL");
 
                 entity.HasOne(d => d.MaNlNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.MaNl)
+                    .WithOne(p => p.Kho)
+                    .HasForeignKey<Kho>(d => d.MaNl)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_K_SP");
             });
 
             modelBuilder.Entity<LoaiSanPham>(entity =>
             {
                 entity.HasKey(e => e.MaLsp)
-                    .HasName("PK__LoaiSanP__3B983FFEA78C20CC");
+                    .HasName("PK__LoaiSanP__3B983FFE3707C97F");
 
                 entity.ToTable("LoaiSanPham");
 
@@ -183,7 +187,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<NguyenLieu>(entity =>
             {
                 entity.HasKey(e => e.MaNl)
-                    .HasName("PK__NguyenLi__2725D73C94DB6127");
+                    .HasName("PK__NguyenLi__2725D73CE0A8E5BC");
 
                 entity.ToTable("NguyenLieu");
 
@@ -197,7 +201,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<NhanVien>(entity =>
             {
                 entity.HasKey(e => e.SoCmt)
-                    .HasName("PK__NhanVien__23AAFF3C5FDF9D6C");
+                    .HasName("PK__NhanVien__23AAFF3C1D3F38DE");
 
                 entity.ToTable("NhanVien");
 
@@ -239,7 +243,7 @@ namespace QLKFC.Models
             modelBuilder.Entity<SanPham>(entity =>
             {
                 entity.HasKey(e => e.MaSp)
-                    .HasName("PK__SanPham__2725081C416D14EA");
+                    .HasName("PK__SanPham__2725081C95FE758F");
 
                 entity.ToTable("SanPham");
 
