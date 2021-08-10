@@ -15,6 +15,7 @@ namespace QLKFC
     public partial class QuanLyNhapXuat : Form
     {
         QLBHKFCContext db = new QLBHKFCContext();
+        int index = 0;
         public QuanLyNhapXuat()
         {
             InitializeComponent();
@@ -36,17 +37,38 @@ namespace QLKFC
            
             foreach (var item in query.ToList())
             {
-                string[] hd = { item.MaHdk.ToString(),item.NgayCc.ToString(), item.TrangThai.ToString() };
+                string[] hd = { item.MaHdk.ToString(),item.NgayCc.ToString(), item.TrangThai.ToString(),""};
                             dgvNhapHang.Rows.Add(hd);
             }
-            //var querycthdk = db.CthoaDonKhos.Include(x => x.MaHdkNavigation).Include(x => x.MaNlNavigation).Where(x => x.MaHdkNavigation.TrangThai == "Đang xử lý");
-
-            //for (int i = 0; i < query.ToList().Count; i++)
-            //{
-            //    tongtien += (float)querycthdk.ToList()[i].SoLuong * (float)querycthdk.ToList()[i].MaNlNavigation.DonGia;
-            //    dgvNhapHang.Rows[i].Cells[2].Value = string.Format("{0:#,##0}", tongtien);
-            //    tongtien = 0;
-            //}
         }
+        private void dgvNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+        }
+
+        private void btnNhapKho_Click(object sender, EventArgs e)
+        {
+            string MaHDK = dgvNhapHang.Rows[index].Cells[0].Value.ToString();
+            var query = db.CthoaDonKhos.Where(x => x.MaHdk.ToString() == MaHDK);
+            List<CthoaDonKho> listhdk = new List<CthoaDonKho>();
+            listhdk = query.ToList();
+            var queryKho = db.Khos.Select(x => x);
+            foreach (var item in listhdk)
+            {
+                foreach (var itemKho in queryKho)
+                {
+                    if (item.MaNl == itemKho.MaNl)
+                        itemKho.SoLuong += item.SoLuong;
+                }
+            }
+
+            db.HoaDonKhos.Where(x => x.MaHdk.ToString() == MaHDK).FirstOrDefault().TrangThai = "Hoàn Thành";
+            db.SaveChanges();
+            load();
+
+
+        }
+
+       
     }
 }
