@@ -23,8 +23,7 @@ namespace QLKFC
 
         QLBHKFCContext db = new QLBHKFCContext();
         string filename;
-
-        #region điều khiển
+        //Dọn dữ liệu nhập
         private void clearTextBox()
         {
             txtFind.Clear();
@@ -36,6 +35,7 @@ namespace QLKFC
             cmbLoai.SelectedItem = null;
             pcbMoTa.Image = null;
         }
+        //Lấy danh sách loại sản phẩm
         private void loadCmb()
         {
             try
@@ -57,38 +57,58 @@ namespace QLKFC
             }
             
         }
+        //Định dạng bảng
+        private void dinhDangBang()
+        {
+            //Đặt tiêu đề cột
+            dgv_DSSP.Columns["MaSp"].HeaderText = "Mã sản phẩm";
+            dgv_DSSP.Columns["TenSp"].HeaderText = "Tên sản phẩm";
+            dgv_DSSP.Columns["DonGia"].HeaderText = "Đơn giá";
+            dgv_DSSP.Columns["TenLsp"].HeaderText = "Tên loại sản phẩm";
+            dgv_DSSP.Columns["Loai"].HeaderText = "Loại";
+            dgv_DSSP.Columns["HinhAnh"].HeaderText = "Hình ảnh";
+
+            //Đặt kích thước cột
+            dgv_DSSP.Columns["MaSp"].Width = 70;
+            dgv_DSSP.Columns["TenSp"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_DSSP.Columns["DonGia"].Width = 100;
+            dgv_DSSP.Columns["TenLsp"].Width = 150;
+            dgv_DSSP.Columns["Loai"].Width = 120;
+            dgv_DSSP.Columns["HinhAnh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            dgv_DSSP.Columns["DonGia"].DefaultCellStyle.Format = "N0";
+        }
+        //Lấy danh sách sản phẩm
         private void loadDGV()
         {
-            try
+            var query = from sp in db.SanPhams
+                        join lsp in db.LoaiSanPhams on sp.MaLsp equals lsp.MaLsp
+                        select new
+                        {
+                            sp.MaSp,
+                            sp.TenSp,
+                            sp.DonGia,
+                            lsp.TenLsp,
+                            sp.Loai,
+                            sp.HinhAnh
+                        };
+            dgv_DSSP.DataSource = query.ToList();
+            dinhDangBang();
+        }
+        // Check lỗi bỏ trống dữ liệu
+        private bool checkBoTrong()
+        {
+            if (txtGiaBan.Text == "" || txtLoai.Text == "" || txtTenMon.Text == "" || cmbLoai.SelectedItem == null)
             {
-                var query = from sp in db.SanPhams
-                            select new
-                            {
-                                sp.MaSp,
-                                sp.TenSp,
-                                sp.DonGia,
-                                sp.Loai,
-                                sp.HinhAnh
-                            };
-                dgv_DSSP.DataSource = query.ToList();
+                return false;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString(), "Thông báo");
-            }
-            dgv_DSSP.Columns[0].HeaderText = "Mã sản phẩm";
-            dgv_DSSP.Columns[1].HeaderText = "Tên sản phẩm";
-            dgv_DSSP.Columns[2].HeaderText = "Đơn giá";
-            dgv_DSSP.Columns[3].HeaderText = "Loại";
-            dgv_DSSP.Columns[4].HeaderText = "Hình ảnh";
+            return true;
         }
 
-        #endregion
-
-        #region Tương tác
+        #region Tương tác người dùng
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
-            OpenFileDialog browse = new OpenFileDialog() { Filter = "All files|*.*|Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|Png files(*.png)|*.png|Jpeg files(*.jpeg)|*.jpeg|Jpe files(*.jpe)|*.jpe|Jpg files(*.jpg)|*.jpg" };
+            OpenFileDialog browse = new OpenFileDialog() { Filter = "All files|*.*|Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png|Png files(*.png)|*.png|Jpeg files(*.jpeg)|*.jpeg|Jpe files(*.jpe)|*.jpe|Jpg files(*.jpg)|*.jpg" };
             if (browse.ShowDialog() == DialogResult.OK)
             {
                 filename = browse.FileName;
@@ -126,28 +146,35 @@ namespace QLKFC
         private void btnThem_Click(object sender, EventArgs e)
         {
             var spt = db.SanPhams.SingleOrDefault(lsp => lsp.TenSp == txtTenMon.Text);
-            if (spt == null || (spt != null && spt.Loai!=txtLoai.Text))
+            if (spt == null || (spt != null && spt.Loai != txtLoai.Text))
             {
-                SanPham sp = new SanPham();
-                sp.TenSp = txtTenMon.Text;
-                sp.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
-                sp.DonGia = int.Parse(txtGiaBan.Text);
-                sp.Loai = txtLoai.Text;
-                sp.Mota = txtMoTa.Text;
-                MemoryStream str = new MemoryStream();
-                pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Jpeg);
-                sp.HinhAnh = str.ToArray();
-                try
+                if (checkBoTrong())
                 {
-                    db.SanPhams.Add(sp);
-                    db.SaveChanges();
-                    loadDGV();
-                    clearTextBox();
-                }
-                catch (Exception ex)
-                {
+                    SanPham sp = new SanPham();
+                    sp.TenSp = txtTenMon.Text;
+                    sp.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
+                    sp.DonGia = int.Parse(txtGiaBan.Text);
+                    sp.Loai = txtLoai.Text;
+                    sp.Mota = txtMoTa.Text;
+                    MemoryStream str = new MemoryStream();
+                    pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    sp.HinhAnh = str.ToArray();
+                    try
+                    {
+                        db.SanPhams.Add(sp);
+                        db.SaveChanges();
+                        loadDGV();
+                        clearTextBox();
+                    }
+                    catch (Exception ex)
+                    {
 
-                    MessageBox.Show(ex.Message.ToString(), "Thông báo");
+                        MessageBox.Show(ex.Message.ToString(), "Thông báo");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không được bỏ trống dữ liêu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -167,17 +194,8 @@ namespace QLKFC
             MemoryStream str = new MemoryStream();
             pcbMoTa.Image.Save(str, System.Drawing.Imaging.ImageFormat.Jpeg);
             spSua.HinhAnh = str.ToArray();
-            try
-            {
-                db.SanPhams.Add(spSua);
-                db.SaveChanges();
-                loadDGV();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message.ToString(), "Thông báo");
-            }
+            db.SaveChanges();
+            loadDGV();
             clearTextBox();
         }
 
@@ -204,7 +222,6 @@ namespace QLKFC
 
                     MessageBox.Show(ex.Message.ToString(), "Thông báo");
                 }
-
             }
         }
 
@@ -214,12 +231,14 @@ namespace QLKFC
             if (int.TryParse(txtFind.Text, out n))
             {
                 var query = from sp in db.SanPhams
+                            join lsp in db.LoaiSanPhams on sp.MaLsp equals lsp.MaLsp
                             where sp.MaSp == int.Parse(txtFind.Text)
                             select new
                             {
                                 sp.MaSp,
                                 sp.TenSp,
                                 sp.DonGia,
+                                lsp.TenLsp,
                                 sp.Loai,
                                 sp.HinhAnh
                             };
@@ -228,19 +247,21 @@ namespace QLKFC
             else
             {
                 var query = from sp in db.SanPhams
+                            join lsp in db.LoaiSanPhams on sp.MaLsp equals lsp.MaLsp
                             where sp.TenSp.Contains(txtFind.Text)
                             select new
                             {
                                 sp.MaSp,
                                 sp.TenSp,
                                 sp.DonGia,
+                                lsp.TenLsp,
                                 sp.Loai,
                                 sp.HinhAnh
                             };
                 dgv_DSSP.DataSource = query.ToList();
             }
+            dinhDangBang();
         }
-
         #endregion
     }
 }

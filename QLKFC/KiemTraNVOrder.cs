@@ -33,7 +33,7 @@ namespace QLKFC
             else
             {
                 btnVao.DialogResult = DialogResult.OK;
-                storeid = cmbStoreID.SelectedItem.ToString();
+                storeid = txtStoreID.Text;
                 pos = cmbPOS.SelectedItem.ToString();
                 tennv = txtTenNV.Text;
             }

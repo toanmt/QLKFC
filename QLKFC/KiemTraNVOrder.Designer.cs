@@ -31,12 +31,12 @@ namespace QLKFC
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbStoreID = new System.Windows.Forms.ComboBox();
             this.txtTenNV = new System.Windows.Forms.TextBox();
             this.btnVao = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.cmbPOS = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtStoreID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -58,20 +58,6 @@ namespace QLKFC
             this.label2.Size = new System.Drawing.Size(225, 33);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên nhân viên:";
-            // 
-            // cmbStoreID
-            // 
-            this.cmbStoreID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStoreID.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbStoreID.FormattingEnabled = true;
-            this.cmbStoreID.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.cmbStoreID.Location = new System.Drawing.Point(38, 75);
-            this.cmbStoreID.Name = "cmbStoreID";
-            this.cmbStoreID.Size = new System.Drawing.Size(346, 40);
-            this.cmbStoreID.TabIndex = 2;
             // 
             // txtTenNV
             // 
@@ -130,18 +116,26 @@ namespace QLKFC
             this.label3.TabIndex = 6;
             this.label3.Text = "POS:";
             // 
+            // txtStoreID
+            // 
+            this.txtStoreID.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtStoreID.Location = new System.Drawing.Point(38, 68);
+            this.txtStoreID.Name = "txtStoreID";
+            this.txtStoreID.Size = new System.Drawing.Size(346, 39);
+            this.txtStoreID.TabIndex = 8;
+            // 
             // KiemTraNVOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(439, 432);
+            this.Controls.Add(this.txtStoreID);
             this.Controls.Add(this.cmbPOS);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnVao);
             this.Controls.Add(this.txtTenNV);
-            this.Controls.Add(this.cmbStoreID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -157,11 +151,11 @@ namespace QLKFC
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbStoreID;
         private System.Windows.Forms.TextBox txtTenNV;
         private System.Windows.Forms.Button btnVao;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.ComboBox cmbPOS;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtStoreID;
     }
 }

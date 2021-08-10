@@ -28,7 +28,6 @@ namespace QLKFC
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtTenLoaiMon, "Bạn phải nhập tên loại sản phẩm!");
-                txtTenLoaiMon.Focus();
             }
         }
         #endregion
@@ -38,7 +37,6 @@ namespace QLKFC
         {
             txtMaMon.Clear();
             txtTenLoaiMon.Clear();
-            txtTenLoaiMon.Focus();
         }
         private void loadData()
         {
