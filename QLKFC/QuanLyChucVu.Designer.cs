@@ -38,6 +38,8 @@ namespace QLKFC
             this.dgvChucVu = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cbQuyen = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnTim = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -69,6 +71,7 @@ namespace QLKFC
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -80,6 +83,7 @@ namespace QLKFC
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(636, 5);
             this.pictureBox2.Name = "pictureBox2";
@@ -90,6 +94,7 @@ namespace QLKFC
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(63, 5);
             this.pictureBox1.Name = "pictureBox1";
@@ -117,6 +122,7 @@ namespace QLKFC
             this.dgvChucVu.RowTemplate.Height = 25;
             this.dgvChucVu.Size = new System.Drawing.Size(798, 447);
             this.dgvChucVu.TabIndex = 0;
+            this.dgvChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChucVu_CellClick);
             // 
             // panel3
             // 
@@ -132,6 +138,8 @@ namespace QLKFC
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel4.Controls.Add(this.cbQuyen);
+            this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.btnTim);
             this.panel4.Controls.Add(this.btnXoa);
             this.panel4.Controls.Add(this.btnSua);
@@ -145,6 +153,27 @@ namespace QLKFC
             this.panel4.Size = new System.Drawing.Size(798, 203);
             this.panel4.TabIndex = 0;
             // 
+            // cbQuyen
+            // 
+            this.cbQuyen.FormattingEnabled = true;
+            this.cbQuyen.Items.AddRange(new object[] {
+            "Quản lý",
+            "Nhân Viên"});
+            this.cbQuyen.Location = new System.Drawing.Point(228, 133);
+            this.cbQuyen.Name = "cbQuyen";
+            this.cbQuyen.Size = new System.Drawing.Size(171, 27);
+            this.cbQuyen.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(54, 138);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(153, 19);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Quyền tài khoản:";
+            // 
             // btnTim
             // 
             this.btnTim.BackColor = System.Drawing.Color.Red;
@@ -155,6 +184,7 @@ namespace QLKFC
             this.btnTim.TabIndex = 15;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = false;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // btnXoa
             // 
@@ -166,6 +196,7 @@ namespace QLKFC
             this.btnXoa.TabIndex = 14;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -177,6 +208,7 @@ namespace QLKFC
             this.btnSua.TabIndex = 13;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -188,17 +220,19 @@ namespace QLKFC
             this.btnThem.TabIndex = 12;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txtTenCV
             // 
-            this.txtTenCV.Location = new System.Drawing.Point(220, 113);
+            this.txtTenCV.Location = new System.Drawing.Point(228, 84);
             this.txtTenCV.Name = "txtTenCV";
             this.txtTenCV.Size = new System.Drawing.Size(171, 26);
             this.txtTenCV.TabIndex = 11;
             // 
             // txtMaCV
             // 
-            this.txtMaCV.Location = new System.Drawing.Point(220, 62);
+            this.txtMaCV.Enabled = false;
+            this.txtMaCV.Location = new System.Drawing.Point(228, 33);
             this.txtMaCV.Name = "txtMaCV";
             this.txtMaCV.Size = new System.Drawing.Size(171, 26);
             this.txtMaCV.TabIndex = 10;
@@ -207,7 +241,7 @@ namespace QLKFC
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(82, 113);
+            this.label3.Location = new System.Drawing.Point(90, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 19);
             this.label3.TabIndex = 9;
@@ -217,7 +251,7 @@ namespace QLKFC
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(91, 62);
+            this.label2.Location = new System.Drawing.Point(99, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 19);
             this.label2.TabIndex = 8;
@@ -234,6 +268,7 @@ namespace QLKFC
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "QuanLyChucVu";
             this.Text = "QuanLyChucVu";
+            this.Load += new System.EventHandler(this.QuanLyChucVu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -265,5 +300,7 @@ namespace QLKFC
         private System.Windows.Forms.TextBox txtMaCV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbQuyen;
+        private System.Windows.Forms.Label label4;
     }
 }

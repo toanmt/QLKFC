@@ -12,10 +12,17 @@ namespace QLKFC
 {
     public partial class Dashboard : Form
     {
+        bool Quyen;
         public Dashboard()
         {
             InitializeComponent();
             hideSubMenu();
+        }
+        public Dashboard(bool Quyen)
+        {
+            InitializeComponent();
+            hideSubMenu();
+            this.Quyen = Quyen;
         }
         #region Hiển thị chức năng
         private Form activeForm = null;

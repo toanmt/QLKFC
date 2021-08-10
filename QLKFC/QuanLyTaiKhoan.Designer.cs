@@ -36,20 +36,17 @@ namespace QLKFC
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cbQuyen = new System.Windows.Forms.ComboBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnTim = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
+            this.btnCapNhat = new System.Windows.Forms.Button();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvTaiKhoan = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.cbQuyen = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -73,6 +70,7 @@ namespace QLKFC
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(647, 5);
             this.pictureBox2.Name = "pictureBox2";
@@ -83,6 +81,7 @@ namespace QLKFC
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -94,6 +93,7 @@ namespace QLKFC
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(63, 5);
             this.pictureBox1.Name = "pictureBox1";
@@ -120,10 +120,7 @@ namespace QLKFC
             this.panel4.Controls.Add(this.txtMatKhau);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.btnTim);
-            this.panel4.Controls.Add(this.btnXoa);
-            this.panel4.Controls.Add(this.btnSua);
-            this.panel4.Controls.Add(this.btnThem);
+            this.panel4.Controls.Add(this.btnCapNhat);
             this.panel4.Controls.Add(this.txtTaiKhoan);
             this.panel4.Controls.Add(this.txtID);
             this.panel4.Controls.Add(this.label3);
@@ -132,6 +129,17 @@ namespace QLKFC
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(798, 203);
             this.panel4.TabIndex = 0;
+            // 
+            // cbQuyen
+            // 
+            this.cbQuyen.FormattingEnabled = true;
+            this.cbQuyen.Items.AddRange(new object[] {
+            "Quản lý",
+            "Nhân viên"});
+            this.cbQuyen.Location = new System.Drawing.Point(260, 153);
+            this.cbQuyen.Name = "cbQuyen";
+            this.cbQuyen.Size = new System.Drawing.Size(171, 27);
+            this.cbQuyen.TabIndex = 27;
             // 
             // txtMatKhau
             // 
@@ -160,49 +168,17 @@ namespace QLKFC
             this.label4.TabIndex = 22;
             this.label4.Text = "Mật Khẩu:";
             // 
-            // btnTim
+            // btnCapNhat
             // 
-            this.btnTim.BackColor = System.Drawing.Color.Red;
-            this.btnTim.ForeColor = System.Drawing.Color.White;
-            this.btnTim.Location = new System.Drawing.Point(659, 109);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(96, 46);
-            this.btnTim.TabIndex = 21;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = false;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.Red;
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(510, 109);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(96, 46);
-            this.btnXoa.TabIndex = 20;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = false;
-            // 
-            // btnSua
-            // 
-            this.btnSua.BackColor = System.Drawing.Color.Red;
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(659, 47);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(96, 46);
-            this.btnSua.TabIndex = 19;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = false;
-            // 
-            // btnThem
-            // 
-            this.btnThem.BackColor = System.Drawing.Color.Red;
-            this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(510, 46);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(96, 46);
-            this.btnThem.TabIndex = 18;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = false;
+            this.btnCapNhat.BackColor = System.Drawing.Color.Red;
+            this.btnCapNhat.ForeColor = System.Drawing.Color.White;
+            this.btnCapNhat.Location = new System.Drawing.Point(555, 61);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(146, 93);
+            this.btnCapNhat.TabIndex = 18;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = false;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // txtTaiKhoan
             // 
@@ -210,6 +186,14 @@ namespace QLKFC
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(171, 26);
             this.txtTaiKhoan.TabIndex = 17;
+            // 
+            // txtID
+            // 
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(260, 33);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(171, 26);
+            this.txtID.TabIndex = 16;
             // 
             // label3
             // 
@@ -220,6 +204,16 @@ namespace QLKFC
             this.label3.Size = new System.Drawing.Size(99, 19);
             this.label3.TabIndex = 15;
             this.label3.Text = "Tài Khoản:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(178, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 19);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "ID:";
             // 
             // panel2
             // 
@@ -240,31 +234,7 @@ namespace QLKFC
             this.dgvTaiKhoan.RowTemplate.Height = 25;
             this.dgvTaiKhoan.Size = new System.Drawing.Size(814, 244);
             this.dgvTaiKhoan.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(178, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 19);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "ID:";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(260, 33);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(171, 26);
-            this.txtID.TabIndex = 16;
-            // 
-            // cbQuyen
-            // 
-            this.cbQuyen.FormattingEnabled = true;
-            this.cbQuyen.Location = new System.Drawing.Point(260, 153);
-            this.cbQuyen.Name = "cbQuyen";
-            this.cbQuyen.Size = new System.Drawing.Size(171, 27);
-            this.cbQuyen.TabIndex = 27;
+            this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
             // 
             // QuanLyTaiKhoan
             // 
@@ -277,6 +247,7 @@ namespace QLKFC
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "QuanLyTaiKhoan";
             this.Text = "QuanLyTaiKhoan";
+            this.Load += new System.EventHandler(this.QuanLyTaiKhoan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -303,10 +274,7 @@ namespace QLKFC
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbQuyen;
