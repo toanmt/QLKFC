@@ -50,7 +50,7 @@ namespace QLKFC
         #region Phân trang + load dữ liệu
         public void load2(int Pagenumber, int ItemNumber)
         {
-            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * 10).Take(ItemNumber)
+            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * 10).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
                         where h.NgayThang.Value.Date >= dtpick1.Value && h.NgayThang.Value.Date <= dtpick2.Value
                         select new
                         {
@@ -135,11 +135,16 @@ namespace QLKFC
 
             if (Pagenumber - 1 < NumberItem / 10)
             {
-                Pagenumber++;
+                if (NumberItem % 10 == 0)
+                    Pagenumber = NumberItem / 10;
+                else { 
+                    Pagenumber++;
                 if (check == 0)
                     load(Pagenumber, ItemNumber);
                 else
-                    load2(Pagenumber, ItemNumber);
+                    load2(Pagenumber, ItemNumber);} 
+                    
+                
             }
         }
 
@@ -173,7 +178,7 @@ namespace QLKFC
         }
         #endregion
 
-        //Tìm kiếm theo mã hóa đơn
+        //Tìm kiếm theo mã hóa đơn +Tên nhân viên
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var query = from h in db.HoaDons
@@ -185,13 +190,29 @@ namespace QLKFC
                                         h.Pos,
                                         h.NgayThang,
                                     };
-            dgvHDBH.DataSource = query.ToList();
-            dgvHDBH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHDBH.Columns[0].HeaderText = "Mã Hóa Đơn";
-            dgvHDBH.Columns[1].HeaderText = "Nhân viên";
-            dgvHDBH.Columns[2].HeaderText = "Store ID";
-            dgvHDBH.Columns[3].HeaderText = "Pos";
-            dgvHDBH.Columns[4].HeaderText = "Ngày Tháng";
+            if(query.ToList().Count == 0)
+                query = from h in db.HoaDons
+                            where h.TenNv.Contains(txtTimKiem.Text)
+                            select new
+                            {
+                                h.MaHd,
+                                h.TenNv,
+                                h.StoreId,
+                                h.Pos,
+                                h.NgayThang,
+                            };
+            if (query.ToList().Count == 0)
+                MessageBox.Show("Không có hóa đơn nào !");
+            else
+            {
+                dgvHDBH.DataSource = query.ToList();
+                dgvHDBH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvHDBH.Columns[0].HeaderText = "Mã Hóa Đơn";
+                dgvHDBH.Columns[1].HeaderText = "Nhân viên";
+                dgvHDBH.Columns[2].HeaderText = "Store ID";
+                dgvHDBH.Columns[3].HeaderText = "Pos";
+                dgvHDBH.Columns[4].HeaderText = "Ngày Tháng";
+            }
         }
     }
 }

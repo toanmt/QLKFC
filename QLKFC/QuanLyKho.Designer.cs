@@ -38,8 +38,8 @@ namespace QLKFC
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.cbMaNL = new System.Windows.Forms.ComboBox();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnXuatKho = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -138,32 +138,20 @@ namespace QLKFC
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.Color.Red;
+            this.btnSua.BackColor = System.Drawing.Color.Lime;
             this.btnSua.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(520, 19);
+            this.btnSua.Location = new System.Drawing.Point(422, 38);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(125, 118);
+            this.btnSua.Size = new System.Drawing.Size(102, 94);
             this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.Red;
-            this.btnXoa.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(715, 19);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(125, 118);
-            this.btnXoa.TabIndex = 22;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = false;
-            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnXoa);
+            this.panel3.Controls.Add(this.btnXuatKho);
             this.panel3.Controls.Add(this.btnSua);
             this.panel3.Controls.Add(this.cbMaNL);
             this.panel3.Controls.Add(this.txtDonGia);
@@ -177,6 +165,19 @@ namespace QLKFC
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(906, 161);
             this.panel3.TabIndex = 3;
+            // 
+            // btnXuatKho
+            // 
+            this.btnXuatKho.BackColor = System.Drawing.Color.Red;
+            this.btnXuatKho.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnXuatKho.ForeColor = System.Drawing.Color.White;
+            this.btnXuatKho.Location = new System.Drawing.Point(752, 19);
+            this.btnXuatKho.Name = "btnXuatKho";
+            this.btnXuatKho.Size = new System.Drawing.Size(125, 118);
+            this.btnXuatKho.TabIndex = 23;
+            this.btnXuatKho.Text = "Xuất kho";
+            this.btnXuatKho.UseVisualStyleBackColor = false;
+            this.btnXuatKho.Click += new System.EventHandler(this.btnXuatKho_Click);
             // 
             // btnTimKiem
             // 
@@ -305,7 +306,6 @@ namespace QLKFC
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.ComboBox cbMaNL;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.TextBox txtTimKiem;
@@ -316,5 +316,6 @@ namespace QLKFC
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel_header;
+        private System.Windows.Forms.Button btnXuatKho;
     }
 }

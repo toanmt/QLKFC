@@ -15,6 +15,7 @@ namespace QLKFC
     public partial class QuanLyHoaDonKho : Form
     {
         QLBHKFCContext db = new QLBHKFCContext();
+        int index = 0;
         public QuanLyHoaDonKho()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace QLKFC
         //Load dữ liệu
         public void load()
         {
-            var query = db.HoaDonKhos.Select(x=>x);
+            var query = db.HoaDonKhos.Select(x=>x).OrderByDescending(x=>x.NgayCc);
 
             foreach (var item in query.ToList())
             {
@@ -41,7 +42,7 @@ namespace QLKFC
         private void dgvHoaDonKho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvChiTietHoaDonKho.Rows.Clear();
-            int index = e.RowIndex;
+            index = e.RowIndex;
             if (index > -1 && index < dgvHoaDonKho.Rows.Count - 1)
             {
                 float tg = 0;
@@ -50,14 +51,13 @@ namespace QLKFC
                 foreach (var item in querycthd.ToList())
                 {
                     string tongtien = string.Format("{0:#,##0}", ((float)item.SoLuong * (float)item.MaNlNavigation.DonGia));
-                    string[] cthd = { item.MaNlNavigation.TenNl.ToString(), item.SoLuong.ToString(), item.MaNlNavigation.DonGia.ToString(), tongtien};
+                    string[] cthd = { item.MaNlNavigation.TenNl.ToString(), item.SoLuong.ToString(), string.Format("{0:#,##0}", item.MaNlNavigation.DonGia), tongtien};
                     dgvChiTietHoaDonKho.Rows.Add(cthd);
                     tg += float.Parse(tongtien);
                 }
                 string[] row = { "", "", "Tổng tiền", string.Format("{0:#,##0}", tg) };
                 dgvChiTietHoaDonKho.Rows.Add(row);
-
-
+                lblMaHoaDon.Text = check.ToString() ;
             }
         }
 
@@ -96,6 +96,20 @@ namespace QLKFC
             }
 
 
+        }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            if (index > -1)
+            {
+                ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
+                frm.Tag = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
+                frm.ShowDialog();
+                dgvHoaDonKho.Rows.Clear();
+                load();
+            }
+            else
+                MessageBox.Show("Chưa chọn hóa đơn !");
         }
     }
 }

@@ -37,6 +37,7 @@ namespace QLKFC
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuiDi = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,7 +53,8 @@ namespace QLKFC
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,9 +72,9 @@ namespace QLKFC
             // 
             this.datatimepick.CustomFormat = "dd/MM/yyy";
             this.datatimepick.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datatimepick.Location = new System.Drawing.Point(620, 68);
+            this.datatimepick.Location = new System.Drawing.Point(625, 68);
             this.datatimepick.Name = "datatimepick";
-            this.datatimepick.Size = new System.Drawing.Size(159, 25);
+            this.datatimepick.Size = new System.Drawing.Size(154, 25);
             this.datatimepick.TabIndex = 17;
             // 
             // label3
@@ -102,6 +104,7 @@ namespace QLKFC
             this.dgvNhapHang.RowTemplate.Height = 29;
             this.dgvNhapHang.Size = new System.Drawing.Size(767, 234);
             this.dgvNhapHang.TabIndex = 19;
+            this.dgvNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapHang_CellClick);
             // 
             // Column5
             // 
@@ -130,15 +133,21 @@ namespace QLKFC
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Tổng tiền";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            // 
             // btnGuiDi
             // 
             this.btnGuiDi.BackColor = System.Drawing.Color.Red;
             this.btnGuiDi.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGuiDi.ForeColor = System.Drawing.Color.White;
-            this.btnGuiDi.Location = new System.Drawing.Point(620, 384);
+            this.btnGuiDi.Location = new System.Drawing.Point(650, 388);
             this.btnGuiDi.Name = "btnGuiDi";
             this.btnGuiDi.Size = new System.Drawing.Size(129, 66);
-            this.btnGuiDi.TabIndex = 21;
+            this.btnGuiDi.TabIndex = 4;
             this.btnGuiDi.Text = "Gửi Đi";
             this.btnGuiDi.UseVisualStyleBackColor = false;
             this.btnGuiDi.Click += new System.EventHandler(this.btnGuiDi_Click);
@@ -179,10 +188,10 @@ namespace QLKFC
             this.btnThem.BackColor = System.Drawing.Color.Lime;
             this.btnThem.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(366, 365);
+            this.btnThem.Location = new System.Drawing.Point(366, 368);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(83, 66);
-            this.btnThem.TabIndex = 26;
+            this.btnThem.TabIndex = 1;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -192,10 +201,10 @@ namespace QLKFC
             this.btnXoa.BackColor = System.Drawing.Color.Lime;
             this.btnXoa.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(474, 365);
+            this.btnXoa.Location = new System.Drawing.Point(544, 368);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(83, 66);
-            this.btnXoa.TabIndex = 27;
+            this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -213,13 +222,13 @@ namespace QLKFC
             // 
             // btnHuy
             // 
-            this.btnHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnHuy.BackColor = System.Drawing.Color.Red;
             this.btnHuy.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnHuy.ForeColor = System.Drawing.Color.White;
             this.btnHuy.Location = new System.Drawing.Point(696, 7);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(83, 49);
-            this.btnHuy.TabIndex = 30;
+            this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -230,7 +239,7 @@ namespace QLKFC
             this.txtSoLuong.Location = new System.Drawing.Point(202, 388);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(146, 31);
-            this.txtSoLuong.TabIndex = 32;
+            this.txtSoLuong.TabIndex = 0;
             // 
             // txtdongia
             // 
@@ -276,23 +285,43 @@ namespace QLKFC
             this.comboBox1.Items.AddRange(new object[] {
             "Đag xử lý",
             "Hoàn Thành"});
-            this.comboBox1.Location = new System.Drawing.Point(138, 70);
+            this.comboBox1.Location = new System.Drawing.Point(147, 69);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(94, 26);
             this.comboBox1.TabIndex = 34;
             this.comboBox1.Text = "Tạo mới";
             // 
-            // Column9
+            // btnSua
             // 
-            this.Column9.HeaderText = "Tổng tiền";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
+            this.btnSua.BackColor = System.Drawing.Color.Lime;
+            this.btnSua.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.Location = new System.Drawing.Point(455, 368);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(83, 66);
+            this.btnSua.TabIndex = 2;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(487, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 23);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Ngày đặt :";
             // 
             // NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 473);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnSua);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtdongia);
             this.Controls.Add(this.txtSoLuong);
@@ -339,11 +368,13 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -122,5 +122,12 @@ namespace QLKFC
             dgvKho.Columns[3].HeaderText = "Số lượng";
 
         }
+
+        private void btnXuatKho_Click(object sender, EventArgs e)
+        {
+            QuanLyKho_XuatKho frm = new QuanLyKho_XuatKho();
+            frm.ShowDialog();
+            load();
+        }
     }
 }

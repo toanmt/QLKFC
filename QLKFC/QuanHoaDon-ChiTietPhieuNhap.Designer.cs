@@ -29,7 +29,7 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTrangThai = new System.Windows.Forms.ComboBox();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,22 +46,24 @@ namespace QLKFC
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMaHd = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHuyDonDatHang = new System.Windows.Forms.Button();
+            this.btnCapNhap = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblNote = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbTrangThai
             // 
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbTrangThai.FormattingEnabled = true;
+            this.cbTrangThai.Items.AddRange(new object[] {
             "Đag xử lý",
-            "Hoàn Thành"});
-            this.comboBox1.Location = new System.Drawing.Point(143, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(109, 28);
-            this.comboBox1.TabIndex = 49;
-            this.comboBox1.Text = "Đang xử lý";
+            "Đang giao hàng"});
+            this.cbTrangThai.Location = new System.Drawing.Point(143, 60);
+            this.cbTrangThai.Name = "cbTrangThai";
+            this.cbTrangThai.Size = new System.Drawing.Size(109, 28);
+            this.cbTrangThai.TabIndex = 49;
+            this.cbTrangThai.Text = "Đang xử lý";
             // 
             // Column3
             // 
@@ -173,11 +175,12 @@ namespace QLKFC
             // 
             // datatimepick
             // 
-            this.datatimepick.CustomFormat = "dd/MM/yyy";
+            this.datatimepick.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.datatimepick.Enabled = false;
             this.datatimepick.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datatimepick.Location = new System.Drawing.Point(625, 58);
+            this.datatimepick.Location = new System.Drawing.Point(601, 58);
             this.datatimepick.Name = "datatimepick";
-            this.datatimepick.Size = new System.Drawing.Size(159, 27);
+            this.datatimepick.Size = new System.Drawing.Size(183, 27);
             this.datatimepick.TabIndex = 36;
             // 
             // Column4
@@ -207,26 +210,65 @@ namespace QLKFC
             this.lblMaHd.TabIndex = 50;
             this.lblMaHd.Text = "x";
             // 
-            // button1
+            // btnHuyDonDatHang
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(17, 347);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 82);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "Hủy đơn đặt hàng";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnHuyDonDatHang.BackColor = System.Drawing.Color.Red;
+            this.btnHuyDonDatHang.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHuyDonDatHang.ForeColor = System.Drawing.Color.White;
+            this.btnHuyDonDatHang.Location = new System.Drawing.Point(17, 347);
+            this.btnHuyDonDatHang.Name = "btnHuyDonDatHang";
+            this.btnHuyDonDatHang.Size = new System.Drawing.Size(235, 82);
+            this.btnHuyDonDatHang.TabIndex = 51;
+            this.btnHuyDonDatHang.Text = "Hủy đơn đặt hàng";
+            this.btnHuyDonDatHang.UseVisualStyleBackColor = false;
+            this.btnHuyDonDatHang.Click += new System.EventHandler(this.btnHuyDonDatHang_Click);
+            // 
+            // btnCapNhap
+            // 
+            this.btnCapNhap.BackColor = System.Drawing.Color.Red;
+            this.btnCapNhap.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCapNhap.ForeColor = System.Drawing.Color.White;
+            this.btnCapNhap.Location = new System.Drawing.Point(429, 347);
+            this.btnCapNhap.Name = "btnCapNhap";
+            this.btnCapNhap.Size = new System.Drawing.Size(180, 82);
+            this.btnCapNhap.TabIndex = 52;
+            this.btnCapNhap.Text = "Cập nhập";
+            this.btnCapNhap.UseVisualStyleBackColor = false;
+            this.btnCapNhap.Click += new System.EventHandler(this.btnCapNhap_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(453, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 22);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "Ngày đặt hàng";
+            // 
+            // lblNote
+            // 
+            this.lblNote.AutoSize = true;
+            this.lblNote.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNote.ForeColor = System.Drawing.Color.Red;
+            this.lblNote.Location = new System.Drawing.Point(17, 366);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(89, 38);
+            this.lblNote.TabIndex = 54;
+            this.lblNote.Text = "Note";
             // 
             // ChiTietPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblNote);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnCapNhap);
+            this.Controls.Add(this.btnHuyDonDatHang);
             this.Controls.Add(this.lblMaHd);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbTrangThai);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnNhapKho);
             this.Controls.Add(this.dgvNhapHang);
@@ -234,7 +276,8 @@ namespace QLKFC
             this.Controls.Add(this.datatimepick);
             this.Controls.Add(this.label1);
             this.Name = "ChiTietPhieuNhap";
-            this.Text = "ChiTietPhieuNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Chi tiết hóa đơn";
             this.Load += new System.EventHandler(this.ChiTietPhieuNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).EndInit();
             this.ResumeLayout(false);
@@ -244,7 +287,7 @@ namespace QLKFC
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -261,6 +304,9 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblMaHd;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHuyDonDatHang;
+        private System.Windows.Forms.Button btnCapNhap;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNote;
     }
 }

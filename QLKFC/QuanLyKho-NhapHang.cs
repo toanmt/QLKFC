@@ -24,7 +24,7 @@ namespace QLKFC
         public void load()
         {
             dgvNhapHang.Rows.Clear();
-            var query = db.HoaDonKhos.Where(x => x.TrangThai == "Đang xử lý");
+            var query = db.HoaDonKhos.Where(x => x.TrangThai == "Đang xử lý" || x.TrangThai == "Đang giao hàng");
            
             foreach (var item in query.ToList())
             {
@@ -45,7 +45,8 @@ namespace QLKFC
             {
                 ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
                 frm.Tag =int.Parse(dgvNhapHang.Rows[index].Cells[0].Value.ToString());
-                frm.Show();
+                frm.ShowDialog();
+                load();
             }
             else
                 MessageBox.Show("Chưa chọn hóa đơn !");

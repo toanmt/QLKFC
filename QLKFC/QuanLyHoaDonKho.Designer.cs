@@ -53,6 +53,7 @@ namespace QLKFC
             this.label1 = new System.Windows.Forms.Label();
             this.panel_header = new System.Windows.Forms.Panel();
             this.lblMaHoaDon = new System.Windows.Forms.Label();
+            this.btnChiTiet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDonKho)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonKho)).BeginInit();
@@ -77,13 +78,13 @@ namespace QLKFC
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Consolas", 15.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(509, 126);
+            this.label2.Location = new System.Drawing.Point(498, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(323, 38);
+            this.label2.Size = new System.Drawing.Size(359, 32);
             this.label2.TabIndex = 32;
-            this.label2.Text = "Chi Tiết Hóa Đơn:";
+            this.label2.Text = "Danh sách sản phẩm HD :";
             // 
             // btnThongKe
             // 
@@ -300,17 +301,31 @@ namespace QLKFC
             this.lblMaHoaDon.AutoSize = true;
             this.lblMaHoaDon.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMaHoaDon.ForeColor = System.Drawing.Color.Red;
-            this.lblMaHoaDon.Location = new System.Drawing.Point(825, 126);
+            this.lblMaHoaDon.Location = new System.Drawing.Point(851, 141);
             this.lblMaHoaDon.Name = "lblMaHoaDon";
             this.lblMaHoaDon.Size = new System.Drawing.Size(35, 38);
             this.lblMaHoaDon.TabIndex = 35;
             this.lblMaHoaDon.Text = "X";
+            // 
+            // btnChiTiet
+            // 
+            this.btnChiTiet.BackColor = System.Drawing.Color.Red;
+            this.btnChiTiet.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnChiTiet.ForeColor = System.Drawing.Color.White;
+            this.btnChiTiet.Location = new System.Drawing.Point(3, 580);
+            this.btnChiTiet.Name = "btnChiTiet";
+            this.btnChiTiet.Size = new System.Drawing.Size(125, 47);
+            this.btnChiTiet.TabIndex = 36;
+            this.btnChiTiet.Text = "Chi Tiết";
+            this.btnChiTiet.UseVisualStyleBackColor = false;
+            this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
             // QuanLyHoaDonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 633);
+            this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.lblMaHoaDon);
             this.Controls.Add(this.btnInHoaDon);
             this.Controls.Add(this.label2);
@@ -363,5 +378,6 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnChiTiet;
     }
 }

@@ -120,9 +120,12 @@ namespace QLKFC
             this.dgvHDBH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHDBH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHDBH.Location = new System.Drawing.Point(0, 0);
+            this.dgvHDBH.MultiSelect = false;
             this.dgvHDBH.Name = "dgvHDBH";
+            this.dgvHDBH.ReadOnly = true;
             this.dgvHDBH.RowHeadersWidth = 51;
             this.dgvHDBH.RowTemplate.Height = 29;
+            this.dgvHDBH.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvHDBH.Size = new System.Drawing.Size(866, 319);
             this.dgvHDBH.TabIndex = 0;
             this.dgvHDBH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDBH_CellClick);
@@ -155,7 +158,7 @@ namespace QLKFC
             this.dtpick1.Name = "dtpick1";
             this.dtpick1.Size = new System.Drawing.Size(134, 27);
             this.dtpick1.TabIndex = 1;
-            this.dtpick1.Value = new System.DateTime(2021, 8, 9, 0, 0, 0, 0);
+            this.dtpick1.Value = new System.DateTime(2021, 8, 12, 14, 46, 6, 0);
             // 
             // dtpick2
             // 
@@ -165,7 +168,7 @@ namespace QLKFC
             this.dtpick2.Name = "dtpick2";
             this.dtpick2.Size = new System.Drawing.Size(122, 27);
             this.dtpick2.TabIndex = 10;
-            this.dtpick2.Value = new System.DateTime(2021, 8, 9, 0, 0, 0, 0);
+            this.dtpick2.Value = new System.DateTime(2021, 8, 12, 14, 45, 58, 0);
             // 
             // btnThongKe
             // 
