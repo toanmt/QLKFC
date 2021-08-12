@@ -42,7 +42,6 @@ namespace QLKFC
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.datatimepick = new System.Windows.Forms.DateTimePicker();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMaHd = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@ namespace QLKFC
             this.btnCapNhap = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNote = new System.Windows.Forms.Label();
+            this.datetimpick = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,16 +173,6 @@ namespace QLKFC
             this.label3.TabIndex = 37;
             this.label3.Text = "Trạng thái";
             // 
-            // datatimepick
-            // 
-            this.datatimepick.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-            this.datatimepick.Enabled = false;
-            this.datatimepick.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datatimepick.Location = new System.Drawing.Point(601, 58);
-            this.datatimepick.Name = "datatimepick";
-            this.datatimepick.Size = new System.Drawing.Size(183, 27);
-            this.datatimepick.TabIndex = 36;
-            // 
             // Column4
             // 
             this.Column4.HeaderText = "Số lượng";
@@ -241,11 +231,11 @@ namespace QLKFC
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(453, 60);
+            this.label2.Location = new System.Drawing.Point(469, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 22);
+            this.label2.Size = new System.Drawing.Size(160, 22);
             this.label2.TabIndex = 53;
-            this.label2.Text = "Ngày đặt hàng";
+            this.label2.Text = "Ngày đặt hàng :";
             // 
             // lblNote
             // 
@@ -258,11 +248,21 @@ namespace QLKFC
             this.lblNote.TabIndex = 54;
             this.lblNote.Text = "Note";
             // 
+            // datetimpick
+            // 
+            this.datetimpick.Enabled = false;
+            this.datetimpick.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datetimpick.Location = new System.Drawing.Point(639, 61);
+            this.datetimpick.Name = "datetimpick";
+            this.datetimpick.Size = new System.Drawing.Size(145, 27);
+            this.datetimpick.TabIndex = 56;
+            // 
             // ChiTietPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.datetimpick);
             this.Controls.Add(this.lblNote);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCapNhap);
@@ -273,7 +273,6 @@ namespace QLKFC
             this.Controls.Add(this.btnNhapKho);
             this.Controls.Add(this.dgvNhapHang);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.datatimepick);
             this.Controls.Add(this.label1);
             this.Name = "ChiTietPhieuNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -300,7 +299,6 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         public System.Windows.Forms.DataGridView dgvNhapHang;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker datatimepick;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblMaHd;
@@ -308,5 +306,6 @@ namespace QLKFC
         private System.Windows.Forms.Button btnCapNhap;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblNote;
+        private System.Windows.Forms.DateTimePicker datetimpick;
     }
 }

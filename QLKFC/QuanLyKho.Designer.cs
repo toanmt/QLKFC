@@ -47,7 +47,6 @@ namespace QLKFC
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_header = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,7 +61,7 @@ namespace QLKFC
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(20, 19);
+            this.label2.Location = new System.Drawing.Point(20, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 23);
             this.label2.TabIndex = 9;
@@ -112,7 +111,7 @@ namespace QLKFC
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(20, 123);
+            this.label5.Location = new System.Drawing.Point(20, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 23);
             this.label5.TabIndex = 15;
@@ -141,7 +140,7 @@ namespace QLKFC
             this.btnSua.BackColor = System.Drawing.Color.Lime;
             this.btnSua.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(422, 38);
+            this.btnSua.Location = new System.Drawing.Point(453, 33);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(102, 94);
             this.btnSua.TabIndex = 9;
@@ -161,19 +160,21 @@ namespace QLKFC
             this.panel3.Controls.Add(this.txtTenNL);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(3, 478);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 472);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(906, 161);
+            this.panel3.Size = new System.Drawing.Size(912, 161);
             this.panel3.TabIndex = 3;
             // 
             // btnXuatKho
             // 
             this.btnXuatKho.BackColor = System.Drawing.Color.Red;
+            this.btnXuatKho.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnXuatKho.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnXuatKho.ForeColor = System.Drawing.Color.White;
-            this.btnXuatKho.Location = new System.Drawing.Point(752, 19);
+            this.btnXuatKho.Location = new System.Drawing.Point(744, 0);
             this.btnXuatKho.Name = "btnXuatKho";
-            this.btnXuatKho.Size = new System.Drawing.Size(125, 118);
+            this.btnXuatKho.Size = new System.Drawing.Size(168, 161);
             this.btnXuatKho.TabIndex = 23;
             this.btnXuatKho.Text = "Xuất kho";
             this.btnXuatKho.UseVisualStyleBackColor = false;
@@ -184,7 +185,7 @@ namespace QLKFC
             this.btnTimKiem.BackColor = System.Drawing.Color.Red;
             this.btnTimKiem.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.Location = new System.Drawing.Point(9, 13);
+            this.btnTimKiem.Location = new System.Drawing.Point(15, 11);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(125, 36);
             this.btnTimKiem.TabIndex = 6;
@@ -194,9 +195,9 @@ namespace QLKFC
             // 
             // txtTimKiem
             // 
-            this.txtTimKiem.Location = new System.Drawing.Point(140, 20);
+            this.txtTimKiem.Location = new System.Drawing.Point(151, 18);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(193, 27);
+            this.txtTimKiem.Size = new System.Drawing.Size(226, 27);
             this.txtTimKiem.TabIndex = 7;
             // 
             // panel2
@@ -204,24 +205,29 @@ namespace QLKFC
             this.panel2.Controls.Add(this.dgvKho);
             this.panel2.Controls.Add(this.txtTimKiem);
             this.panel2.Controls.Add(this.btnTimKiem);
-            this.panel2.Location = new System.Drawing.Point(3, 84);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 84);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(906, 396);
+            this.panel2.Size = new System.Drawing.Size(912, 549);
             this.panel2.TabIndex = 2;
             // 
             // dgvKho
             // 
+            this.dgvKho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKho.Location = new System.Drawing.Point(9, 55);
+            this.dgvKho.Location = new System.Drawing.Point(15, 53);
             this.dgvKho.Name = "dgvKho";
             this.dgvKho.RowHeadersWidth = 51;
             this.dgvKho.RowTemplate.Height = 29;
-            this.dgvKho.Size = new System.Drawing.Size(888, 328);
+            this.dgvKho.Size = new System.Drawing.Size(877, 309);
             this.dgvKho.TabIndex = 8;
             this.dgvKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKho_CellClick);
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -233,6 +239,7 @@ namespace QLKFC
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::QLKFC.Properties.Resources.iconTrinhquanlyNhaKho;
             this.pictureBox1.Location = new System.Drawing.Point(200, 0);
             this.pictureBox1.Name = "pictureBox1";
@@ -243,6 +250,7 @@ namespace QLKFC
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox2.Image = global::QLKFC.Properties.Resources.iconTrinhquanlyNhaKho;
             this.pictureBox2.Location = new System.Drawing.Point(663, 3);
             this.pictureBox2.Name = "pictureBox2";
@@ -251,17 +259,9 @@ namespace QLKFC
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(0, 87);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(912, 358);
-            this.panel1.TabIndex = 3;
-            // 
             // panel_header
             // 
             this.panel_header.BackColor = System.Drawing.Color.Red;
-            this.panel_header.Controls.Add(this.panel1);
             this.panel_header.Controls.Add(this.pictureBox2);
             this.panel_header.Controls.Add(this.pictureBox1);
             this.panel_header.Controls.Add(this.label1);
@@ -314,7 +314,6 @@ namespace QLKFC
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel_header;
         private System.Windows.Forms.Button btnXuatKho;
     }

@@ -57,11 +57,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAdoAAAHaCAYAAACn5IivAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw8AAAsPAZL5A6UAAP+WSURBVHhe7L11fFTX3r7d5zy/
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw4AAAsOAUC+4UEAAP+WSURBVHhe7L11fFTX3r7d5zy/
         uhe3IHF3Gfd4IGiAuHsI7u7u7u5upRRKoUApHiBosCTE3fV+v3sNobSdnvYces7hPO/+4/rsPWtmkslk
         73Wte+2113oHAA8PDw8PD8+/CJ2FPDw8PDw8PH8NOgt5eHh4eHh4/hp0FvLw8PDw8PD8Negs5OHh4eHh
         4flr0FnIw8PDw8PD89egs5CHh4eHh4fnr0FnIQ8PDw8PD89fg85CHh4eHh4enr8GnYU8PDw8PDw8fw06
@@ -4717,10 +4717,10 @@
         KIraGZxFiqIoiqJ2BmeRoiiKoqidgD/7T5NArfP7xBoXAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAdoAAAHaCAYAAACn5IivAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw8AAAsPAZL5A6UAAP+WSURBVHhe7L11fFTX3r7d5zy/
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw4AAAsOAUC+4UEAAP+WSURBVHhe7L11fFTX3r7d5zy/
         uhe3IHF3Gfd4IGiAuHsI7u7u7u5upRRKoUApHiBosCTE3fV+v3sNobSdnvYces7hPO/+4/rsPWtmkslk
         73Wte+2113oHAA8PDw8PD8+/CJ2FPDw8PDw8PH8NOgt5eHh4eHh4/hp0FvLw8PDw8PD8Negs5OHh4eHh
         4flr0FnIw8PDw8PD89egs5CHh4eHh4fnr0FnIQ8PDw8PD89fg85CHh4eHh4enr8GnYU8PDw8PDw8fw06

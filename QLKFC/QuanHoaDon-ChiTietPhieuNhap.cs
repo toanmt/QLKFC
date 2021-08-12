@@ -32,9 +32,9 @@ namespace QLKFC
             int check = (int)this.Tag;
             Mahdk = check;
             lblMaHd.Text = check.ToString();
-            datatimepick.Value = db.HoaDons.Where(x => x.MaHd == check).SingleOrDefault().NgayThang.Value;
-
-            TrangThai = db.HoaDonKhos.Where(x => x.MaHdk == check).SingleOrDefault().TrangThai.ToString();
+            var getHDK = db.HoaDonKhos.Where(x => x.MaHdk == check).SingleOrDefault();
+            datetimpick.Value = getHDK.NgayCc.Value;
+            TrangThai = getHDK.TrangThai;
             cbTrangThai.Text = TrangThai;
             if (TrangThai.Trim().Equals("Hoàn Thành"))
             {

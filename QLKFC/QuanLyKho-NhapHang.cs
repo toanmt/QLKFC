@@ -40,7 +40,6 @@ namespace QLKFC
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-
             if (index > -1)
             {
                 ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
