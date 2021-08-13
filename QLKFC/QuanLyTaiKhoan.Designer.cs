@@ -228,6 +228,7 @@ namespace QLKFC
             // dgvTaiKhoan
             // 
             this.dgvTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dgvTaiKhoan.BackgroundColor = System.Drawing.Color.White;
             this.dgvTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaiKhoan.Location = new System.Drawing.Point(0, 0);
             this.dgvTaiKhoan.Name = "dgvTaiKhoan";

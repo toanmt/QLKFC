@@ -35,12 +35,14 @@ namespace QLKFC
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnHienThi = new System.Windows.Forms.Button();
+            this.btnTim = new System.Windows.Forms.Button();
+            this.txtTim = new System.Windows.Forms.TextBox();
             this.dgvChucVu = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbQuyen = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnTim = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -106,6 +108,9 @@ namespace QLKFC
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnHienThi);
+            this.panel2.Controls.Add(this.btnTim);
+            this.panel2.Controls.Add(this.txtTim);
             this.panel2.Controls.Add(this.dgvChucVu);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 63);
@@ -113,14 +118,45 @@ namespace QLKFC
             this.panel2.Size = new System.Drawing.Size(814, 447);
             this.panel2.TabIndex = 4;
             // 
+            // btnHienThi
+            // 
+            this.btnHienThi.Image = ((System.Drawing.Image)(resources.GetObject("btnHienThi.Image")));
+            this.btnHienThi.Location = new System.Drawing.Point(5, 1);
+            this.btnHienThi.Name = "btnHienThi";
+            this.btnHienThi.Size = new System.Drawing.Size(39, 34);
+            this.btnHienThi.TabIndex = 13;
+            this.btnHienThi.UseVisualStyleBackColor = true;
+            // 
+            // btnTim
+            // 
+            this.btnTim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTim.Image = ((System.Drawing.Image)(resources.GetObject("btnTim.Image")));
+            this.btnTim.Location = new System.Drawing.Point(760, 5);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(42, 26);
+            this.btnTim.TabIndex = 12;
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // txtTim
+            // 
+            this.txtTim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTim.Location = new System.Drawing.Point(572, 8);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(163, 23);
+            this.txtTim.TabIndex = 11;
+            // 
             // dgvChucVu
             // 
-            this.dgvChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dgvChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvChucVu.BackgroundColor = System.Drawing.Color.White;
             this.dgvChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChucVu.Location = new System.Drawing.Point(8, 0);
+            this.dgvChucVu.Location = new System.Drawing.Point(5, 37);
             this.dgvChucVu.Name = "dgvChucVu";
             this.dgvChucVu.RowTemplate.Height = 25;
-            this.dgvChucVu.Size = new System.Drawing.Size(798, 447);
+            this.dgvChucVu.Size = new System.Drawing.Size(801, 201);
             this.dgvChucVu.TabIndex = 0;
             this.dgvChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChucVu_CellClick);
             // 
@@ -140,7 +176,6 @@ namespace QLKFC
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel4.Controls.Add(this.cbQuyen);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.btnTim);
             this.panel4.Controls.Add(this.btnXoa);
             this.panel4.Controls.Add(this.btnSua);
             this.panel4.Controls.Add(this.btnThem);
@@ -174,27 +209,15 @@ namespace QLKFC
             this.label4.TabIndex = 16;
             this.label4.Text = "Quyền tài khoản:";
             // 
-            // btnTim
-            // 
-            this.btnTim.BackColor = System.Drawing.Color.Red;
-            this.btnTim.ForeColor = System.Drawing.Color.White;
-            this.btnTim.Location = new System.Drawing.Point(620, 110);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(96, 46);
-            this.btnTim.TabIndex = 15;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = false;
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.Red;
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(471, 110);
+            this.btnXoa.Location = new System.Drawing.Point(500, 145);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(96, 46);
+            this.btnXoa.Size = new System.Drawing.Size(227, 46);
             this.btnXoa.TabIndex = 14;
-            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Text = "Xóa chức vụ";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
@@ -202,11 +225,11 @@ namespace QLKFC
             // 
             this.btnSua.BackColor = System.Drawing.Color.Red;
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(620, 48);
+            this.btnSua.Location = new System.Drawing.Point(500, 84);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(96, 46);
+            this.btnSua.Size = new System.Drawing.Size(227, 46);
             this.btnSua.TabIndex = 13;
-            this.btnSua.Text = "Sửa";
+            this.btnSua.Text = "Sửa chức vụ";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
@@ -214,11 +237,11 @@ namespace QLKFC
             // 
             this.btnThem.BackColor = System.Drawing.Color.Red;
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(471, 47);
+            this.btnThem.Location = new System.Drawing.Point(500, 22);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(96, 46);
+            this.btnThem.Size = new System.Drawing.Size(227, 46);
             this.btnThem.TabIndex = 12;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "Thêm chức vụ mới";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -274,6 +297,7 @@ namespace QLKFC
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChucVu)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -292,7 +316,6 @@ namespace QLKFC
         private System.Windows.Forms.DataGridView dgvChucVu;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
@@ -302,5 +325,8 @@ namespace QLKFC
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbQuyen;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnHienThi;
+        private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.TextBox txtTim;
     }
 }

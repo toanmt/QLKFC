@@ -1,9 +1,11 @@
-﻿using QLKFC.Models;
+﻿using OfficeOpenXml;
+using QLKFC.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -235,6 +237,7 @@ namespace QLKFC
             dgvNhanVien.Columns[6].Width = 300;
             dgvNhanVien.Columns[7].Width = 100;
             dgvNhanVien.Columns[8].Width = 100;
+
         }
 
         public void ChonChucVu()
@@ -400,50 +403,44 @@ namespace QLKFC
             }
         }
 
-        /*public void XuatFileExcel(DataGridView dataGridView1, string filename)
+        
+        private void btnIn_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel.Application excel;
-            Microsoft.Office.Interop.Excel.Workbook workbook;
-            Microsoft.Office.Interop.Excel.Worksheet worksheet;
-
             try
             {
-                excel = new Microsoft.Office.Interop.Excel.Application();
-                excel.Visible = false;
-                excel.DisplayAlerts = false;
 
-                workbook = excel.Workbooks.Add(Type.Missing);
+                ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
-                worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
-                worksheet.Name = "Nhân Viên";
-
-                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                using (var p = new ExcelPackage())
                 {
-                    worksheet.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
-                }
+                    var ws = p.Workbook.Worksheets.Add("Nhân Viên");
 
-                for (int i = 0; i < dataGridView1.RowCount; i++)
-                {
-                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    for (int i = 0; i < dgvNhanVien.ColumnCount; i++)
                     {
-                        worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        ws.Cells[1, i + 1].Value = dgvNhanVien.Columns[i].HeaderText;
                     }
-                }
 
-                workbook.SaveAs(filename);
-                workbook.Close();
-                excel.Quit();
+                    for (int i = 0; i < dgvNhanVien.RowCount; i++)
+                    {
+                        for (int j = 0; j < dgvNhanVien.ColumnCount; j++)
+                        {
+                            ws.Cells[i + 2, j + 1].Value = dgvNhanVien.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    ws.Cells["1:1"].Style.Font.Bold = true;
+                    ws.Cells.Style.Font.Name = "Arial";
+
+                    p.SaveAs(new FileInfo(@"\Nhân viên.xlsx"));
+                }
                 MessageBox.Show("Thành công!");
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }*/
-        private void btnIn_Click(object sender, EventArgs e)
-        {
-            /*XuatFileExcel(dgvNhanVien, saveFileDialog1.FileName);*/
         }
+
 
         private void btnXoaTrang_Click(object sender, EventArgs e)
         {
@@ -478,6 +475,5 @@ namespace QLKFC
             }
         }
         #endregion
-
     }
 }

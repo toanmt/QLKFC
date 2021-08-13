@@ -159,6 +159,8 @@ namespace QLKFC
             {
                 if (txtTenCV.Text == "")
                     throw new Exception("Hãy nhập tên chức vụ mà bạn muốn tìm");
+                if (db.ChucVus.Where(cv => cv.TenCv == txtTenCV.Text).FirstOrDefault() == null)
+                    throw new Exception("Chức vụ không tồn tại");
                 var query1 = from cv in db.ChucVus
                              where cv.TenCv == txtTenCV.Text
                              select new
@@ -169,13 +171,11 @@ namespace QLKFC
                              };
                 dgvChucVu.DataSource = query1.ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
         #endregion
-
     }
 }

@@ -63,7 +63,6 @@ namespace QLKFC
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHienThi = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
@@ -448,10 +447,6 @@ namespace QLKFC
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Filter = "Excel document(*.xlsx)|.xlsx";
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
@@ -499,6 +494,7 @@ namespace QLKFC
             this.dgvNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvNhanVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.Location = new System.Drawing.Point(0, 32);
             this.dgvNhanVien.Name = "dgvNhanVien";
@@ -571,7 +567,6 @@ namespace QLKFC
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radNu;
         private System.Windows.Forms.RadioButton radNam;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.TextBox txtTim;
