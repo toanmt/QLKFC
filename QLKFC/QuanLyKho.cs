@@ -54,6 +54,12 @@ namespace QLKFC
         //Sửa số lượng 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (txtTenNL.Text.Trim() == "")
+            {
+                MessageBox.Show("Chưa chọn nguyên liệu để sửa");
+                return;
+            }
+                
             try
             {
                 int MaNL = int.Parse(cbMaNL.Text);
@@ -61,10 +67,7 @@ namespace QLKFC
                 if (check < 0)
                 {
                    throw new Exception("Số lượng phải >= 0"); 
-                }
-                if (txtTenNL.Text == "")
-                    throw new Exception("Chưa chọn nguyên liệu để sửa");
-                Kho NLSua = db.Khos.SingleOrDefault(k => k.MaNl == MaNL);
+                }                Kho NLSua = db.Khos.SingleOrDefault(k => k.MaNl == MaNL);
                 NLSua.SoLuong = int.Parse(txtSoLuong.Text);
                 db.SaveChanges();
                 MessageBox.Show("Sửa thành công!");
@@ -72,7 +75,7 @@ namespace QLKFC
             }
             catch (System.FormatException)
             {
-                MessageBox.Show("Số lương phải là số");
+                MessageBox.Show("Số lượng phải là số");
                 txtSoLuong.Focus();
             }
             catch (Exception ex)
@@ -80,6 +83,7 @@ namespace QLKFC
                 MessageBox.Show(ex.Message);
                 txtSoLuong.Focus();
             }
+            
         }
 
         //Tìm kiếm Theo 3 tiêu chí : Mã => Tên => Số lượng
@@ -127,6 +131,11 @@ namespace QLKFC
         {
             QuanLyKho_XuatKho frm = new QuanLyKho_XuatKho();
             frm.ShowDialog();
+            load();
+        }
+
+        private void btnHienThi_Click(object sender, EventArgs e)
+        {
             load();
         }
     }

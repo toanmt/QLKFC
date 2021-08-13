@@ -46,6 +46,7 @@ namespace QLKFC
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.btnTaoPhieuNhap = new System.Windows.Forms.Button();
+            this.btnHienThi = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -122,6 +123,7 @@ namespace QLKFC
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnHienThi);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.dgvNhapHang);
             this.panel3.Controls.Add(this.txtTimKiem);
@@ -161,6 +163,7 @@ namespace QLKFC
             this.dgvNhapHang.RowTemplate.Height = 29;
             this.dgvNhapHang.Size = new System.Drawing.Size(870, 255);
             this.dgvNhapHang.TabIndex = 8;
+            this.dgvNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapHang_CellClick);
             // 
             // Column1
             // 
@@ -200,6 +203,7 @@ namespace QLKFC
             this.btnTimKiem.TabIndex = 12;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // panel4
             // 
@@ -238,6 +242,19 @@ namespace QLKFC
             this.btnTaoPhieuNhap.Text = "Tạo phiếu nhập";
             this.btnTaoPhieuNhap.UseVisualStyleBackColor = false;
             this.btnTaoPhieuNhap.Click += new System.EventHandler(this.btnTaoPhieuNhap_Click);
+            // 
+            // btnHienThi
+            // 
+            this.btnHienThi.BackColor = System.Drawing.Color.Red;
+            this.btnHienThi.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHienThi.ForeColor = System.Drawing.Color.White;
+            this.btnHienThi.Location = new System.Drawing.Point(757, 145);
+            this.btnHienThi.Name = "btnHienThi";
+            this.btnHienThi.Size = new System.Drawing.Size(125, 36);
+            this.btnHienThi.TabIndex = 14;
+            this.btnHienThi.Text = "Hiển thị toàn bộ";
+            this.btnHienThi.UseVisualStyleBackColor = false;
+            this.btnHienThi.Click += new System.EventHandler(this.btnHienThi_Click);
             // 
             // QuanLyNhap
             // 
@@ -280,5 +297,6 @@ namespace QLKFC
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnChiTiet;
         private System.Windows.Forms.Button btnTaoPhieuNhap;
+        private System.Windows.Forms.Button btnHienThi;
     }
 }

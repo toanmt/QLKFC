@@ -29,7 +29,7 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnInHoaDon = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.dtpick2 = new System.Windows.Forms.DateTimePicker();
@@ -52,6 +52,7 @@ namespace QLKFC
             this.lblMaHoaDon = new System.Windows.Forms.Label();
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnHienThi = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDonKho)).BeginInit();
@@ -63,19 +64,6 @@ namespace QLKFC
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnInHoaDon
-            // 
-            this.btnInHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInHoaDon.BackColor = System.Drawing.Color.Red;
-            this.btnInHoaDon.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnInHoaDon.ForeColor = System.Drawing.Color.White;
-            this.btnInHoaDon.Location = new System.Drawing.Point(728, 3);
-            this.btnInHoaDon.Name = "btnInHoaDon";
-            this.btnInHoaDon.Size = new System.Drawing.Size(172, 47);
-            this.btnInHoaDon.TabIndex = 33;
-            this.btnInHoaDon.Text = "In Hóa Đơn";
-            this.btnInHoaDon.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -123,9 +111,9 @@ namespace QLKFC
             // 
             // txtTimKiem
             // 
-            this.txtTimKiem.Location = new System.Drawing.Point(162, 21);
+            this.txtTimKiem.Location = new System.Drawing.Point(141, 19);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(172, 27);
+            this.txtTimKiem.Size = new System.Drawing.Size(139, 27);
             this.txtTimKiem.TabIndex = 29;
             // 
             // btnTimKiem
@@ -214,6 +202,8 @@ namespace QLKFC
             // 
             // Column1
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column1.FillWeight = 42.78075F;
             this.Column1.HeaderText = "Mã";
             this.Column1.MinimumWidth = 6;
@@ -300,7 +290,7 @@ namespace QLKFC
             this.btnChiTiet.BackColor = System.Drawing.Color.Red;
             this.btnChiTiet.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnChiTiet.ForeColor = System.Drawing.Color.White;
-            this.btnChiTiet.Location = new System.Drawing.Point(6, 3);
+            this.btnChiTiet.Location = new System.Drawing.Point(332, 6);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(125, 47);
             this.btnChiTiet.TabIndex = 36;
@@ -310,13 +300,27 @@ namespace QLKFC
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnHienThi);
             this.panel5.Controls.Add(this.btnChiTiet);
-            this.panel5.Controls.Add(this.btnInHoaDon);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 571);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(912, 62);
             this.panel5.TabIndex = 38;
+            // 
+            // btnHienThi
+            // 
+            this.btnHienThi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnHienThi.BackColor = System.Drawing.Color.Red;
+            this.btnHienThi.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHienThi.ForeColor = System.Drawing.Color.White;
+            this.btnHienThi.Location = new System.Drawing.Point(12, 6);
+            this.btnHienThi.Name = "btnHienThi";
+            this.btnHienThi.Size = new System.Drawing.Size(232, 47);
+            this.btnHienThi.TabIndex = 37;
+            this.btnHienThi.Text = "Hiển thị toàn bộ";
+            this.btnHienThi.UseVisualStyleBackColor = false;
+            this.btnHienThi.Click += new System.EventHandler(this.btnHienThi_Click);
             // 
             // panel1
             // 
@@ -371,7 +375,6 @@ namespace QLKFC
         }
 
         #endregion
-        private System.Windows.Forms.Button btnInHoaDon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.DateTimePicker dtpick2;
@@ -389,12 +392,13 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Button btnChiTiet;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnHienThi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

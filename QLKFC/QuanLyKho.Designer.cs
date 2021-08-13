@@ -43,6 +43,7 @@ namespace QLKFC
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnHienThi = new System.Windows.Forms.Button();
             this.dgvKho = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -168,13 +169,13 @@ namespace QLKFC
             // 
             // btnXuatKho
             // 
+            this.btnXuatKho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXuatKho.BackColor = System.Drawing.Color.Red;
-            this.btnXuatKho.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnXuatKho.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnXuatKho.ForeColor = System.Drawing.Color.White;
-            this.btnXuatKho.Location = new System.Drawing.Point(744, 0);
+            this.btnXuatKho.Location = new System.Drawing.Point(729, 13);
             this.btnXuatKho.Name = "btnXuatKho";
-            this.btnXuatKho.Size = new System.Drawing.Size(168, 161);
+            this.btnXuatKho.Size = new System.Drawing.Size(138, 127);
             this.btnXuatKho.TabIndex = 23;
             this.btnXuatKho.Text = "Xuất kho";
             this.btnXuatKho.UseVisualStyleBackColor = false;
@@ -202,6 +203,7 @@ namespace QLKFC
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnHienThi);
             this.panel2.Controls.Add(this.dgvKho);
             this.panel2.Controls.Add(this.txtTimKiem);
             this.panel2.Controls.Add(this.btnTimKiem);
@@ -210,6 +212,19 @@ namespace QLKFC
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(912, 549);
             this.panel2.TabIndex = 2;
+            // 
+            // btnHienThi
+            // 
+            this.btnHienThi.BackColor = System.Drawing.Color.Red;
+            this.btnHienThi.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHienThi.ForeColor = System.Drawing.Color.White;
+            this.btnHienThi.Location = new System.Drawing.Point(767, 11);
+            this.btnHienThi.Name = "btnHienThi";
+            this.btnHienThi.Size = new System.Drawing.Size(125, 36);
+            this.btnHienThi.TabIndex = 9;
+            this.btnHienThi.Text = "Hiển thị";
+            this.btnHienThi.UseVisualStyleBackColor = false;
+            this.btnHienThi.Click += new System.EventHandler(this.btnHienThi_Click);
             // 
             // dgvKho
             // 
@@ -316,5 +331,6 @@ namespace QLKFC
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel_header;
         private System.Windows.Forms.Button btnXuatKho;
+        private System.Windows.Forms.Button btnHienThi;
     }
 }

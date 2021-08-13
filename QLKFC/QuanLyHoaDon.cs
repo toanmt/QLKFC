@@ -23,6 +23,8 @@ namespace QLKFC
         public QuanLyHoaDon()
         {
             InitializeComponent();
+            dtpick1.Value = DateTime.Now;
+            dtpick2.Value = DateTime.Now;
             load(Pagenumber, ItemNumber);
 
         }

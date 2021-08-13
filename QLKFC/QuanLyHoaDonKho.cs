@@ -30,14 +30,29 @@ namespace QLKFC
         //Load dữ liệu
         public void load()
         {
-            var query = db.HoaDonKhos.Select(x=>x).OrderByDescending(x=>x.NgayCc);
+            var query = db.HoaDonKhos.Select(x => x).OrderByDescending(x => x.NgayCc);
 
             foreach (var item in query.ToList())
             {
                 string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString() };
                 dgvHoaDonKho.Rows.Add(hd);
             }
+
+            for (int i = 0; i < dgvHoaDonKho.Rows.Count - 1; i++)
+            {
+                if (dgvHoaDonKho.Rows[i].Cells[2].Value.Equals("Đã hủy"))
+                    dgvHoaDonKho.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+            }
+            checkDonHuy();
         }
+            public void checkDonHuy()
+            {
+                for (int i = 0; i < dgvHoaDonKho.Rows.Count - 1; i++)
+                {
+                    if (dgvHoaDonKho.Rows[i].Cells[2].Value.Equals("Đã hủy"))
+                        dgvHoaDonKho.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
         //Tương tác với bảng hóa đơn kho
         private void dgvHoaDonKho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -79,6 +94,8 @@ namespace QLKFC
                 string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString() };
                 dgvHoaDonKho.Rows.Add(hd);
             }
+            checkDonHuy();
+
         }
 
         //Tìm kiếm theo Mã hoặc Trạng thái của hóa đơn
@@ -94,7 +111,7 @@ namespace QLKFC
                 string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString() };
                 dgvHoaDonKho.Rows.Add(hd);
             }
-
+            checkDonHuy();
 
         }
 
@@ -110,6 +127,11 @@ namespace QLKFC
             }
             else
                 MessageBox.Show("Chưa chọn hóa đơn !");
+        }
+
+        private void btnHienThi_Click(object sender, EventArgs e)
+        {
+            load();
         }
     }
 }
