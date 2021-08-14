@@ -86,7 +86,7 @@ namespace QLKFC
                 TaiKhoan tk = db.TaiKhoans.Where(tk => tk.Id == int.Parse(txtID.Text)).FirstOrDefault();
                 tk.TaiKhoan1 = txtTaiKhoan.Text;
                 tk.MatKhau = txtMatKhau.Text;
-                if (cbQuyen.Text == "Admin")
+                if (cbQuyen.Text == "Quản lý")
                     tk.Quyen = true;
                 else
                     tk.Quyen = false;

@@ -29,6 +29,7 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyChucVu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@ namespace QLKFC
             this.txtMaCV = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,6 +59,7 @@ namespace QLKFC
             ((System.ComponentModel.ISupportInitialize)(this.dgvChucVu)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -198,6 +201,8 @@ namespace QLKFC
             this.cbQuyen.Name = "cbQuyen";
             this.cbQuyen.Size = new System.Drawing.Size(171, 27);
             this.cbQuyen.TabIndex = 17;
+            this.cbQuyen.Validating += new System.ComponentModel.CancelEventHandler(this.cbQuyen_Validating);
+            this.cbQuyen.Validated += new System.EventHandler(this.cbQuyen_Validated);
             // 
             // label4
             // 
@@ -251,6 +256,8 @@ namespace QLKFC
             this.txtTenCV.Name = "txtTenCV";
             this.txtTenCV.Size = new System.Drawing.Size(171, 26);
             this.txtTenCV.TabIndex = 11;
+            this.txtTenCV.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenCV_Validating);
+            this.txtTenCV.Validated += new System.EventHandler(this.txtTenCV_Validated);
             // 
             // txtMaCV
             // 
@@ -280,6 +287,10 @@ namespace QLKFC
             this.label2.TabIndex = 8;
             this.label2.Text = "Mã Chức Vụ:";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // QuanLyChucVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -302,6 +313,7 @@ namespace QLKFC
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,5 +340,6 @@ namespace QLKFC
         private System.Windows.Forms.Button btnHienThi;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.TextBox txtTim;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

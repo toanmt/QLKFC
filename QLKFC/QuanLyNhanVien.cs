@@ -56,12 +56,13 @@ namespace QLKFC
                 {
                     int tuoi = DateTime.Now.Year - txtNgaySinh.Value.Year;
                     if (tuoi < 18)
-                        throw new Exception("Nhân viên phải từ 18 tuổi trở lơn!");
+                        throw new Exception("Nhân viên phải từ 18 tuổi trở lên!");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+                txtNgaySinh.Focus();
             }
         }
 

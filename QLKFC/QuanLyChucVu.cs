@@ -177,5 +177,37 @@ namespace QLKFC
             }
         }
         #endregion
+
+        #region bắt lỗi
+        private void txtTenCV_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtMaCV.Text == "")
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtTenCV, "Bạn cần phải nhập tên chức vụ");
+                txtTenCV.Focus();
+            }
+        }
+
+        private void cbQuyen_Validating(object sender, CancelEventArgs e)
+        {
+            if(cbQuyen.Text == "")
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(cbQuyen, "Bạn hãy chọn quyền tài khoản của chức vụ");
+                cbQuyen.Focus();
+            }
+        }
+
+        private void txtTenCV_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(txtTenCV, "");
+        }
+
+        private void cbQuyen_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(cbQuyen, "");
+        }
+        #endregion
     }
 }
