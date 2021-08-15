@@ -16,32 +16,45 @@ namespace QLKFC
         public KiemTraNVOrder()
         {
             InitializeComponent();
+            cmbPOS.Focus();
         }
         QLBHKFCContext db = new QLBHKFCContext();
-        public string storeid{get;set;}
-        public string tennv{get;set;}
-        public string pos{get;set;}
-        private void btnVao_Click(object sender, EventArgs e)
-        {
-            var query = from nv in db.NhanViens
-                        where nv.TenNv.Equals(txtTenNV.Text)
-                        select nv;
-            if(query.Count()==0)
-            {
-                MessageBox.Show("Bạn đã nhập sai tên!","Thông báo");
-            }
-            else
-            {
-                btnVao.DialogResult = DialogResult.OK;
-                storeid = txtStoreID.Text;
-                pos = cmbPOS.SelectedItem.ToString();
-                tennv = txtTenNV.Text;
-            }
-        }
+        public string storeid{ get; set; }
+        public string tennv{ get; set; }
+        public string pos{ get; set; }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtTenNV_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider1.Dispose();
+            var query = from nv in db.NhanViens
+                        where nv.TenNv.Equals(txtTenNV.Text)
+                        select nv;
+            if (query.Count() == 0)
+            {
+                errorProvider1.SetError(txtTenNV, "Bạn đã nhập sai tên!");
+            }
+            else
+            {
+                errorProvider1.Dispose();
+                btnVao.DialogResult = DialogResult.OK;
+                storeid = txtStoreID.Text;
+                tennv = txtTenNV.Text;
+                pos = cmbPOS.SelectedItem.ToString();
+            }
+        }
+
+        private void txtTenNV_Click(object sender, EventArgs e)
+        {
+            if (cmbPOS.SelectedItem == null)
+            {
+                errorProvider1.SetError(cmbPOS, "Bạn chưa nhập máy POS!");
+                cmbPOS.Focus();
+            }
         }
     }
 }

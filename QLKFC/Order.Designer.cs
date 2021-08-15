@@ -47,9 +47,13 @@ namespace QLKFC
             this.panel_control = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_DSSP = new System.Windows.Forms.DataGridView();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnFind = new System.Windows.Forms.Button();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.panel_Loc = new System.Windows.Forms.Panel();
             this.btnChonDoUong = new System.Windows.Forms.Button();
@@ -161,6 +165,7 @@ namespace QLKFC
             // 
             // dgv_DSSP
             // 
+            this.dgv_DSSP.AllowUserToAddRows = false;
             this.dgv_DSSP.AllowUserToResizeRows = false;
             this.dgv_DSSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -175,8 +180,14 @@ namespace QLKFC
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_DSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_DSSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DSSP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSP,
+            this.TenSP,
+            this.dg,
+            this.Loai,
+            this.ImageMota});
             this.dgv_DSSP.EnableHeadersVisualStyles = false;
-            this.dgv_DSSP.Location = new System.Drawing.Point(3, 124);
+            this.dgv_DSSP.Location = new System.Drawing.Point(9, 119);
             this.dgv_DSSP.Name = "dgv_DSSP";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
@@ -190,14 +201,51 @@ namespace QLKFC
             this.dgv_DSSP.RowHeadersWidth = 51;
             this.dgv_DSSP.RowTemplate.Height = 150;
             this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_DSSP.Size = new System.Drawing.Size(453, 469);
+            this.dgv_DSSP.Size = new System.Drawing.Size(447, 472);
             this.dgv_DSSP.TabIndex = 5;
             this.dgv_DSSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSSP_CellClick);
+            // 
+            // MaSP
+            // 
+            this.MaSP.HeaderText = "Mã sản phẩm";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.Width = 60;
+            // 
+            // TenSP
+            // 
+            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSP.HeaderText = "Tên Sản phẩm";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            // 
+            // dg
+            // 
+            this.dg.HeaderText = "Đơn giá";
+            this.dg.MinimumWidth = 6;
+            this.dg.Name = "dg";
+            this.dg.ReadOnly = true;
+            this.dg.Width = 80;
+            // 
+            // Loai
+            // 
+            this.Loai.HeaderText = "Loại";
+            this.Loai.MinimumWidth = 6;
+            this.Loai.Name = "Loai";
+            this.Loai.ReadOnly = true;
+            this.Loai.Width = 80;
+            // 
+            // ImageMota
+            // 
+            this.ImageMota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ImageMota.HeaderText = "Hình ảnh";
+            this.ImageMota.MinimumWidth = 6;
+            this.ImageMota.Name = "ImageMota";
+            this.ImageMota.ReadOnly = true;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.btnFind);
             this.panel4.Controls.Add(this.txtFind);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 70);
@@ -219,18 +267,6 @@ namespace QLKFC
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnFind
-            // 
-            this.btnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Image = global::QLKFC.Properties.Resources.search;
-            this.btnFind.Location = new System.Drawing.Point(400, 6);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(56, 37);
-            this.btnFind.TabIndex = 1;
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
             // txtFind
             // 
             this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -238,8 +274,9 @@ namespace QLKFC
             this.txtFind.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFind.Location = new System.Drawing.Point(65, 6);
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(329, 37);
+            this.txtFind.Size = new System.Drawing.Size(391, 37);
             this.txtFind.TabIndex = 0;
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // panel_Loc
             // 
@@ -355,8 +392,6 @@ namespace QLKFC
             this.txtDua.Size = new System.Drawing.Size(252, 31);
             this.txtDua.TabIndex = 8;
             this.txtDua.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDua_KeyUp);
-            this.txtDua.Validating += new System.ComponentModel.CancelEventHandler(this.txtDua_Validating);
-            this.txtDua.Validated += new System.EventHandler(this.txtTD_Validated);
             // 
             // lblThanhTien
             // 
@@ -608,13 +643,11 @@ namespace QLKFC
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Button btnChonDoUong;
         private System.Windows.Forms.Button btnChonMonLe;
         private System.Windows.Forms.Button btnChonComBo;
         private System.Windows.Forms.DataGridView dgvDSOrder;
-        private System.Windows.Forms.DataGridView dgv_DSSP;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtDua;
         private System.Windows.Forms.ErrorProvider errorProvider_TD;
@@ -628,5 +661,11 @@ namespace QLKFC
         private System.Windows.Forms.Label label5;
         private System.Drawing.Printing.PrintDocument pdHoaDon;
         private System.Windows.Forms.PrintPreviewDialog ppdHoaDon;
+        private System.Windows.Forms.DataGridView dgv_DSSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Loai;
+        private System.Windows.Forms.DataGridViewImageColumn ImageMota;
     }
 }

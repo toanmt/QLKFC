@@ -93,7 +93,7 @@ namespace QLKFC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(492, 240);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnThem);

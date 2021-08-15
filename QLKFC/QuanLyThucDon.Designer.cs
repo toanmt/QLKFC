@@ -29,15 +29,24 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_header = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.dgv_DSSP = new System.Windows.Forms.DataGridView();
-            this.btnFind = new System.Windows.Forms.Button();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Xoa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -60,9 +69,9 @@ namespace QLKFC
             this.pcbMoTa = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnHuyBo = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,6 +84,7 @@ namespace QLKFC
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMoTa)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_header
@@ -122,8 +132,8 @@ namespace QLKFC
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Controls.Add(this.dgv_DSSP);
-            this.panel1.Controls.Add(this.btnFind);
             this.panel1.Controls.Add(this.txtFind);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -132,8 +142,21 @@ namespace QLKFC
             this.panel1.Size = new System.Drawing.Size(930, 596);
             this.panel1.TabIndex = 2;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Image = global::QLKFC.Properties.Resources.refresh__1_;
+            this.btnRefresh.Location = new System.Drawing.Point(415, 6);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(56, 37);
+            this.btnRefresh.TabIndex = 5;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // dgv_DSSP
             // 
+            this.dgv_DSSP.AllowUserToAddRows = false;
             this.dgv_DSSP.AllowUserToResizeRows = false;
             this.dgv_DSSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -148,36 +171,95 @@ namespace QLKFC
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_DSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_DSSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DSSP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSP,
+            this.TenSP,
+            this.TenLSP,
+            this.Loai,
+            this.DonGia,
+            this.ImageMota,
+            this.Xoa});
             this.dgv_DSSP.EnableHeadersVisualStyles = false;
-            this.dgv_DSSP.Location = new System.Drawing.Point(12, 49);
+            this.dgv_DSSP.Location = new System.Drawing.Point(3, 49);
             this.dgv_DSSP.Name = "dgv_DSSP";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Khaki;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Khaki;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_DSSP.RowHeadersVisible = false;
             this.dgv_DSSP.RowHeadersWidth = 51;
             this.dgv_DSSP.RowTemplate.Height = 150;
             this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_DSSP.Size = new System.Drawing.Size(906, 186);
+            this.dgv_DSSP.Size = new System.Drawing.Size(924, 253);
             this.dgv_DSSP.TabIndex = 4;
             this.dgv_DSSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSSP_CellClick);
+            this.dgv_DSSP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSSP_CellContentClick);
             // 
-            // btnFind
+            // MaSP
             // 
-            this.btnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Image = global::QLKFC.Properties.Resources.search;
-            this.btnFind.Location = new System.Drawing.Point(868, 6);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(56, 37);
-            this.btnFind.TabIndex = 3;
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            this.MaSP.HeaderText = "Mã sản phẩm";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.Width = 60;
+            // 
+            // TenSP
+            // 
+            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSP.HeaderText = "Tên Sản phẩm";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            // 
+            // TenLSP
+            // 
+            this.TenLSP.HeaderText = "Tên loại SP";
+            this.TenLSP.MinimumWidth = 6;
+            this.TenLSP.Name = "TenLSP";
+            this.TenLSP.ReadOnly = true;
+            this.TenLSP.Width = 125;
+            // 
+            // Loai
+            // 
+            this.Loai.HeaderText = "Loại";
+            this.Loai.MinimumWidth = 6;
+            this.Loai.Name = "Loai";
+            this.Loai.ReadOnly = true;
+            this.Loai.Width = 120;
+            // 
+            // DonGia
+            // 
+            this.DonGia.HeaderText = "Đơn giá";
+            this.DonGia.MinimumWidth = 6;
+            this.DonGia.Name = "DonGia";
+            this.DonGia.ReadOnly = true;
+            this.DonGia.Width = 125;
+            // 
+            // ImageMota
+            // 
+            this.ImageMota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ImageMota.HeaderText = "Hình ảnh";
+            this.ImageMota.MinimumWidth = 6;
+            this.ImageMota.Name = "ImageMota";
+            this.ImageMota.ReadOnly = true;
+            // 
+            // Xoa
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.Xoa.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Xoa.HeaderText = "Xóa";
+            this.Xoa.MinimumWidth = 6;
+            this.Xoa.Name = "Xoa";
+            this.Xoa.Text = "X";
+            this.Xoa.UseColumnTextForButtonValue = true;
+            this.Xoa.Width = 50;
             // 
             // txtFind
             // 
@@ -185,8 +267,9 @@ namespace QLKFC
             this.txtFind.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFind.Location = new System.Drawing.Point(477, 6);
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(385, 37);
+            this.txtFind.Size = new System.Drawing.Size(441, 37);
             this.txtFind.TabIndex = 2;
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // panel2
             // 
@@ -194,9 +277,9 @@ namespace QLKFC
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 241);
+            this.panel2.Location = new System.Drawing.Point(0, 308);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(930, 355);
+            this.panel2.Size = new System.Drawing.Size(930, 288);
             this.panel2.TabIndex = 0;
             // 
             // panel5
@@ -206,7 +289,7 @@ namespace QLKFC
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(571, 355);
+            this.panel5.Size = new System.Drawing.Size(577, 288);
             this.panel5.TabIndex = 2;
             // 
             // panel9
@@ -214,9 +297,9 @@ namespace QLKFC
             this.panel9.Controls.Add(this.txtMoTa);
             this.panel9.Controls.Add(this.label6);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 148);
+            this.panel9.Location = new System.Drawing.Point(0, 149);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(571, 207);
+            this.panel9.Size = new System.Drawing.Size(577, 139);
             this.panel9.TabIndex = 1;
             // 
             // txtMoTa
@@ -228,8 +311,8 @@ namespace QLKFC
             this.txtMoTa.Location = new System.Drawing.Point(95, 7);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(470, 197);
-            this.txtMoTa.TabIndex = 8;
+            this.txtMoTa.Size = new System.Drawing.Size(476, 128);
+            this.txtMoTa.TabIndex = 13;
             // 
             // label6
             // 
@@ -257,7 +340,7 @@ namespace QLKFC
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(571, 148);
+            this.panel6.Size = new System.Drawing.Size(577, 149);
             this.panel6.TabIndex = 0;
             // 
             // label7
@@ -279,7 +362,7 @@ namespace QLKFC
             this.txtLoai.Location = new System.Drawing.Point(98, 65);
             this.txtLoai.Name = "txtLoai";
             this.txtLoai.Size = new System.Drawing.Size(180, 31);
-            this.txtLoai.TabIndex = 15;
+            this.txtLoai.TabIndex = 10;
             // 
             // cmbLoai
             // 
@@ -289,7 +372,7 @@ namespace QLKFC
             this.cmbLoai.Location = new System.Drawing.Point(223, 105);
             this.cmbLoai.Name = "cmbLoai";
             this.cmbLoai.Size = new System.Drawing.Size(230, 31);
-            this.cmbLoai.TabIndex = 14;
+            this.cmbLoai.TabIndex = 12;
             // 
             // txtMaMon
             // 
@@ -330,8 +413,8 @@ namespace QLKFC
             this.txtGiaBan.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtGiaBan.Location = new System.Drawing.Point(382, 68);
             this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(183, 31);
-            this.txtGiaBan.TabIndex = 10;
+            this.txtGiaBan.Size = new System.Drawing.Size(174, 31);
+            this.txtGiaBan.TabIndex = 11;
             // 
             // txtTenMon
             // 
@@ -341,7 +424,7 @@ namespace QLKFC
             this.txtTenMon.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtTenMon.Location = new System.Drawing.Point(382, 13);
             this.txtTenMon.Name = "txtTenMon";
-            this.txtTenMon.Size = new System.Drawing.Size(183, 31);
+            this.txtTenMon.Size = new System.Drawing.Size(174, 31);
             this.txtTenMon.TabIndex = 9;
             // 
             // label5
@@ -371,9 +454,9 @@ namespace QLKFC
             this.panel4.Controls.Add(this.btnChonAnh);
             this.panel4.Controls.Add(this.pcbMoTa);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(571, 0);
+            this.panel4.Location = new System.Drawing.Point(577, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(211, 355);
+            this.panel4.Size = new System.Drawing.Size(205, 288);
             this.panel4.TabIndex = 1;
             // 
             // btnChonAnh
@@ -381,10 +464,10 @@ namespace QLKFC
             this.btnChonAnh.BackColor = System.Drawing.Color.Red;
             this.btnChonAnh.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnChonAnh.ForeColor = System.Drawing.Color.White;
-            this.btnChonAnh.Location = new System.Drawing.Point(10, 275);
+            this.btnChonAnh.Location = new System.Drawing.Point(6, 222);
             this.btnChonAnh.Name = "btnChonAnh";
-            this.btnChonAnh.Size = new System.Drawing.Size(195, 52);
-            this.btnChonAnh.TabIndex = 7;
+            this.btnChonAnh.Size = new System.Drawing.Size(193, 52);
+            this.btnChonAnh.TabIndex = 14;
             this.btnChonAnh.Text = "Chọn ảnh";
             this.btnChonAnh.UseVisualStyleBackColor = false;
             this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
@@ -392,9 +475,9 @@ namespace QLKFC
             // pcbMoTa
             // 
             this.pcbMoTa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcbMoTa.Location = new System.Drawing.Point(10, 14);
+            this.pcbMoTa.Location = new System.Drawing.Point(6, 8);
             this.pcbMoTa.Name = "pcbMoTa";
-            this.pcbMoTa.Size = new System.Drawing.Size(195, 232);
+            this.pcbMoTa.Size = new System.Drawing.Size(193, 199);
             this.pcbMoTa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbMoTa.TabIndex = 0;
             this.pcbMoTa.TabStop = false;
@@ -402,13 +485,12 @@ namespace QLKFC
             // panel3
             // 
             this.panel3.Controls.Add(this.btnHuyBo);
-            this.panel3.Controls.Add(this.btnXoa);
             this.panel3.Controls.Add(this.btnSua);
             this.panel3.Controls.Add(this.btnThem);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(782, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(148, 355);
+            this.panel3.Size = new System.Drawing.Size(148, 288);
             this.panel3.TabIndex = 0;
             // 
             // btnHuyBo
@@ -416,35 +498,22 @@ namespace QLKFC
             this.btnHuyBo.BackColor = System.Drawing.Color.Red;
             this.btnHuyBo.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnHuyBo.ForeColor = System.Drawing.Color.White;
-            this.btnHuyBo.Location = new System.Drawing.Point(13, 209);
+            this.btnHuyBo.Location = new System.Drawing.Point(13, 202);
             this.btnHuyBo.Name = "btnHuyBo";
-            this.btnHuyBo.Size = new System.Drawing.Size(129, 52);
+            this.btnHuyBo.Size = new System.Drawing.Size(129, 82);
             this.btnHuyBo.TabIndex = 6;
             this.btnHuyBo.Text = "Hủy bỏ";
             this.btnHuyBo.UseVisualStyleBackColor = false;
             this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.Red;
-            this.btnXoa.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(13, 148);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(129, 52);
-            this.btnXoa.TabIndex = 5;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = false;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
             this.btnSua.BackColor = System.Drawing.Color.Red;
             this.btnSua.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(13, 87);
+            this.btnSua.Location = new System.Drawing.Point(13, 105);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(129, 52);
+            this.btnSua.Size = new System.Drawing.Size(129, 82);
             this.btnSua.TabIndex = 4;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
@@ -455,13 +524,17 @@ namespace QLKFC
             this.btnThem.BackColor = System.Drawing.Color.Red;
             this.btnThem.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(13, 26);
+            this.btnThem.Location = new System.Drawing.Point(13, 8);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(129, 52);
-            this.btnThem.TabIndex = 3;
+            this.btnThem.Size = new System.Drawing.Size(129, 82);
+            this.btnThem.TabIndex = 15;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // QuanLyThucDon
             // 
@@ -490,6 +563,7 @@ namespace QLKFC
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcbMoTa)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -505,12 +579,10 @@ namespace QLKFC
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pcbMoTa;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgv_DSSP;
         private System.Windows.Forms.Button btnChonAnh;
         private System.Windows.Forms.Button btnHuyBo;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Panel panel5;
@@ -528,5 +600,14 @@ namespace QLKFC
         private System.Windows.Forms.TextBox txtTenMon;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Loai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
+        private System.Windows.Forms.DataGridViewImageColumn ImageMota;
+        private System.Windows.Forms.DataGridViewButtonColumn Xoa;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

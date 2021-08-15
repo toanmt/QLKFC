@@ -114,6 +114,7 @@ namespace QLKFC
         }
         #endregion
 
+        #region Hiển thị form chức năng
         private void ptbTrangChu_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
@@ -122,7 +123,6 @@ namespace QLKFC
             }
         }
 
-        #region Hiển thị form chức năng
         private void btnOrder_Click(object sender, EventArgs e)
         {
             using (KiemTraNVOrder ktra = new KiemTraNVOrder())

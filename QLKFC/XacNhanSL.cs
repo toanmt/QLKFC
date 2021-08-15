@@ -22,12 +22,19 @@ namespace QLKFC
         {
             if (txtSL.Text != "")
             {
-                soluong = int.Parse(txtSL.Text);
-                this.Close();
+                try
+                {
+                    soluong = int.Parse(txtSL.Text);
+                    this.Close();
+                }
+                catch
+                {
+                    errorProvider1.SetError(txtSL, "Bạn phải nhập số lượng là số!");
+                }
             }
             else
             {
-                errorProvider1.SetError(txtSL, "Bạn phải nhập tên số lượng!");
+                errorProvider1.SetError(txtSL, "Bạn phải nhập số lượng!");
                 txtSL.Focus();
             }
         }

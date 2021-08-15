@@ -42,20 +42,22 @@ namespace QLKFC
         {
             try
             {
+                dgv_DSLoaiSPham.Rows.Clear();
                 var query = from lsp in db.LoaiSanPhams
                             select new
                             {
                                 lsp.MaLsp,
                                 lsp.TenLsp
                             };
-                dgv_DSLoaiSPham.DataSource = query.ToList();
+                foreach (var item in query)
+                {
+                    dgv_DSLoaiSPham.Rows.Add(item.MaLsp, item.TenLsp);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Thông báo");
             }
-            dgv_DSLoaiSPham.Columns[0].HeaderText = "Mã loại sản phẩm";
-            dgv_DSLoaiSPham.Columns[1].HeaderText = "Tên loại sản phẩm";
            
         }
         #endregion
@@ -63,20 +65,22 @@ namespace QLKFC
         #region Tương tác
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if ((db.LoaiSanPhams.SingleOrDefault(lsp => lsp.TenLsp == txtTenLoaiMon.Text))==null)
+            if ((db.LoaiSanPhams.SingleOrDefault(lsp => lsp.TenLsp == txtTenLoaiMon.Text)) == null)
             {
                 LoaiSanPham lsp = new LoaiSanPham();
                 lsp.TenLsp = txtTenLoaiMon.Text;
-                try {
-                db.LoaiSanPhams.Add(lsp);
-                db.SaveChanges();
-                loadData();
-                clearTextBox();
+                try
+                {
+                    db.LoaiSanPhams.Add(lsp);
+                    db.SaveChanges();
+                    MessageBox.Show("Đã được thêm!");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString(), "Thông báo");
                 }
+                loadData();
+                clearTextBox();
             }
             else
             {
@@ -89,30 +93,19 @@ namespace QLKFC
             var spSua = db.LoaiSanPhams.SingleOrDefault(lsp => lsp.MaLsp == int.Parse(txtMaMon.Text));
             if (spSua != null)
             {
-                spSua.TenLsp = txtTenLoaiMon.Text;
-                db.SaveChanges();
-                loadData();
-                clearTextBox();
-            }
-            else
-            {
-                MessageBox.Show("Không tồn tại loại sản phẩm này!", "Thông báo");
-            }
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            var lspXoa = db.LoaiSanPhams.SingleOrDefault(lsp => lsp.MaLsp == int.Parse(txtMaMon.Text));
-            if (lspXoa != null)
-            {
-                DialogResult dialog = MessageBox.Show("Bạn muốn đóng xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialog == DialogResult.Yes)
+                try
                 {
-                    db.Remove(lspXoa);
+                    spSua.TenLsp = txtTenLoaiMon.Text;
                     db.SaveChanges();
+                    MessageBox.Show("Đã được sửa!");
                     loadData();
                     clearTextBox();
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
             else
             {
@@ -132,6 +125,38 @@ namespace QLKFC
             {
                 txtMaMon.Text = dgv_DSLoaiSPham.Rows[index].Cells[0].Value.ToString();
                 txtTenLoaiMon.Text = dgv_DSLoaiSPham.Rows[index].Cells[1].Value.ToString();
+            }
+        }
+
+        private void dgv_DSLoaiSPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_DSLoaiSPham.Columns[e.ColumnIndex].Name == "Xoa")
+            {
+                var lspXoa = db.LoaiSanPhams.SingleOrDefault(lsp => lsp.MaLsp == int.Parse(txtMaMon.Text));
+                if (lspXoa != null)
+                {
+                    DialogResult dialog = MessageBox.Show("Bạn muốn đóng xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            db.Remove(lspXoa);
+                            db.SaveChanges();
+                            MessageBox.Show("Đã được xóa!");
+                            loadData();
+                            clearTextBox();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tồn tại loại sản phẩm này!", "Thông báo");
+                }
             }
         }
         #endregion

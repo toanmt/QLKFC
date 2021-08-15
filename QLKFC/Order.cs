@@ -15,39 +15,30 @@ namespace QLKFC
     {
         //Khai báo biến
         QLBHKFCContext db = new QLBHKFCContext();
-        string pos, storeid, tennv;
+        string Pos, Storeid, Tennv;
         int maHD;
-
+        public Order()
+        {
+            InitializeComponent();
+        }
         public Order(string storeid, string pos, string tennv)
         {
             InitializeComponent();
-            this.pos = pos;
-            this.storeid = storeid;
-            this.tennv = tennv;
+            this.Pos = pos;
+            this.Storeid = storeid;
+            this.Tennv = tennv;
             loadDGVSP();
         }
 
         #region Khai báo hàm
-        //Định dạng bảng
-        private void dinhDangBang()
+        private string pathImage()
         {
-            //Đặt tiêu đề cột
-            dgv_DSSP.Columns["MaSp"].HeaderText = "Mã sản phẩm";
-            dgv_DSSP.Columns["TenSp"].HeaderText = "Tên sản phẩm";
-            dgv_DSSP.Columns["DonGia"].HeaderText = "Đơn giá";
-            dgv_DSSP.Columns["Loai"].HeaderText = "Loại";
-            dgv_DSSP.Columns["HinhAnh"].HeaderText = "Hình ảnh";
-
-            //Đặt kích thước cột
-            dgv_DSSP.Columns["MaSp"].Width = 70;
-            dgv_DSSP.Columns["TenSp"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv_DSSP.Columns["DonGia"].Width = 100;
-            dgv_DSSP.Columns["Loai"].Width = 120;
-            dgv_DSSP.Columns["HinhAnh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-            dgv_DSSP.Columns["DonGia"].DefaultCellStyle.Format = "N0";
+            //Lấy đường dẫn thư mục lưu ảnh
+            string pathProject = Application.StartupPath;
+            string newPath = pathProject.Substring(0, pathProject.Length - 25) + "Image" + '\\';
+            return newPath;
         }
-        //Đổ dữ liệu vào bảng sản phẩm
+
         private void loadDGVSP()
         {
             var query = from sp in db.SanPhams 
@@ -59,10 +50,16 @@ namespace QLKFC
                             sp.Loai,
                             sp.HinhAnh
                         };
-            dgv_DSSP.DataSource = query.ToList();
-            dinhDangBang();
+            foreach (var item in query)
+            {
+                if (item.HinhAnh != null)
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai, new Bitmap(pathImage() + item.HinhAnh));
+                else
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai);
+            }
+            dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
         }
-        //Lọc dữ liệu
+
         private void locDL(string loc)
         {
             var query = from sp in db.SanPhams
@@ -77,9 +74,8 @@ namespace QLKFC
                             sp.HinhAnh
                         };
             dgv_DSSP.DataSource = query.ToList();
-            dinhDangBang();
         }
-        //Tính tổng tiền
+
         private void TinhTien()
         {
             float tt = 0;
@@ -89,7 +85,7 @@ namespace QLKFC
             }
             lblThanhTien.Text = string.Format("{0:N0}", tt);
         }
-        //Đặt về mạc định 
+
         private void Don()
         {
             dgvDSOrder.Rows.Clear();
@@ -160,7 +156,6 @@ namespace QLKFC
             }
         }
 
-
         #region Lọc bảng sản phẩm
         private void btnChonComBo_Click(object sender, EventArgs e)
         {
@@ -176,70 +171,36 @@ namespace QLKFC
         {
             locDL("Đồ uống");
         }
-        #endregion
 
-        #region Kiểm tra dữ liệu textbox tiền đưa
-
-        private void txtTD_Validated(object sender, EventArgs e)
+        private void txtFind_TextChanged(object sender, EventArgs e)
         {
-            errorProvider_TD.SetError(txtDua, "");
-        }
-
-        private void txtDua_Validating(object sender, CancelEventArgs e)
-        {
-            try
-            {
-                if (double.Parse(txtDua.Text) < 0)
-                {
-                    e.Cancel = true;
-                    errorProvider_TD.SetError(txtDua, "Bạn phải nhập dữ liệu >0 !");
-                    txtDua.Focus();
-                    txtDua.SelectAll();
-                }
-            }
-            catch
-            {
-                e.Cancel = true;
-                errorProvider_TD.SetError(txtDua, "Bạn phải nhập dữ liệu là số !");
-                txtDua.Focus();
-                txtDua.SelectAll();
-            }
-        }
-
-        private void txtDua_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter|| double.Parse(txtDua.Text) > double.Parse(lblThanhTien.Text))
-            {
-                lblTienThua.Text = string.Format("{0:N0}", (float.Parse(txtDua.Text) - float.Parse(lblThanhTien.Text)));
-            }
-            if (double.Parse(lblTienThua.Text)<0)
-            {
-                errorProvider_TD.SetError(txtDua, "Tiền đưa phải lớn hơn tổng tiền!");
-                txtDua.Focus();
-                txtDua.SelectAll();
-                lblTienThua.Text = 0 + "";
-            }
-        }
-        #endregion
-
-        private void btnFind_Click(object sender, EventArgs e)
-        {
+            dgv_DSSP.Rows.Clear();
             var query = from sp in db.SanPhams
                         where sp.TenSp.Contains(txtFind.Text)
                         select new
                         {
+                            sp.MaSp,
                             sp.TenSp,
                             sp.DonGia,
                             sp.Loai,
                             sp.HinhAnh
                         };
-            dgv_DSSP.DataSource = query.ToList();
+            foreach (var item in query)
+            {
+                if (item.HinhAnh != null)
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai, new Bitmap(pathImage() + item.HinhAnh));
+                else
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai);
+            }
+            dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
         }
-        //Lấy lại dữ liệu bảng sản phẩm
+
         private void button1_Click(object sender, EventArgs e)
         {
             loadDGVSP();
+            txtFind.Clear();
         }
+        #endregion
 
         #region Sự kiện khi nhấn nút Thanh toán
         private void pdHoaDon_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -510,9 +471,9 @@ namespace QLKFC
             else
             {
                 HoaDon hd = new HoaDon();
-                hd.TenNv = tennv;
-                hd.StoreId = storeid;
-                hd.Pos = pos;
+                hd.TenNv = Tennv;
+                hd.StoreId = Storeid;
+                hd.Pos = Pos;
                 DateTime tg = DateTime.Now;
                 hd.NgayThang = tg;
                 db.HoaDons.Add(hd);
@@ -529,6 +490,28 @@ namespace QLKFC
                 }
                 ppdHoaDon.ShowDialog();
                 Don();
+            }
+        }
+
+        private void txtDua_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter || double.Parse(txtDua.Text) > double.Parse(lblThanhTien.Text))
+                {
+                    lblTienThua.Text = string.Format("{0:N0}", (float.Parse(txtDua.Text) - float.Parse(lblThanhTien.Text)));
+                }
+                if (double.Parse(lblTienThua.Text) < 0)
+                {
+                    errorProvider_TD.SetError(txtDua, "Tiền đưa phải lớn hơn tổng tiền!");
+                    txtDua.Focus();
+                    txtDua.SelectAll();
+                    lblTienThua.Text = 0 + "";
+                }
+            }
+            catch (Exception)
+            {
+                errorProvider_TD.SetError(txtDua, "Bạn phải nhập đơn giá là số !");
             }
         }
         #endregion

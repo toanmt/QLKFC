@@ -18,7 +18,7 @@ namespace QLKFC.Models
         public string Loai { get; set; }
         public double? DonGia { get; set; }
         public string Mota { get; set; }
-        public byte[] HinhAnh { get; set; }
+        public string HinhAnh { get; set; }
 
         public virtual LoaiSanPham MaLspNavigation { get; set; }
         public virtual ICollection<CthoaDon> CthoaDons { get; set; }

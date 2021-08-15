@@ -29,6 +29,7 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenNV = new System.Windows.Forms.TextBox();
@@ -37,6 +38,8 @@ namespace QLKFC
             this.cmbPOS = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtStoreID = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,6 +69,8 @@ namespace QLKFC
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.Size = new System.Drawing.Size(346, 39);
             this.txtTenNV.TabIndex = 3;
+            this.txtTenNV.Click += new System.EventHandler(this.txtTenNV_Click);
+            this.txtTenNV.TextChanged += new System.EventHandler(this.txtTenNV_TextChanged);
             // 
             // btnVao
             // 
@@ -77,7 +82,6 @@ namespace QLKFC
             this.btnVao.TabIndex = 4;
             this.btnVao.Text = "Vào order";
             this.btnVao.UseVisualStyleBackColor = false;
-            this.btnVao.Click += new System.EventHandler(this.btnVao_Click);
             // 
             // btnThoat
             // 
@@ -118,11 +122,17 @@ namespace QLKFC
             // 
             // txtStoreID
             // 
+            this.txtStoreID.Enabled = false;
             this.txtStoreID.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtStoreID.Location = new System.Drawing.Point(38, 68);
             this.txtStoreID.Name = "txtStoreID";
             this.txtStoreID.Size = new System.Drawing.Size(346, 39);
             this.txtStoreID.TabIndex = 8;
+            this.txtStoreID.Text = "044";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // KiemTraNVOrder
             // 
@@ -142,6 +152,7 @@ namespace QLKFC
             this.Name = "KiemTraNVOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập thông tin";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +168,6 @@ namespace QLKFC
         private System.Windows.Forms.ComboBox cmbPOS;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtStoreID;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
