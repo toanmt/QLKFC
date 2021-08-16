@@ -30,6 +30,8 @@ namespace QLKFC
         //Load dữ liệu
         public void load()
         {
+            db = new QLBHKFCContext();
+            dgvHoaDonKho.Rows.Clear();
             var query = db.HoaDonKhos.Select(x => x).OrderByDescending(x => x.NgayCc);
 
             foreach (var item in query.ToList())
@@ -72,7 +74,15 @@ namespace QLKFC
                 }
                 string[] row = { "", "", "Tổng tiền", string.Format("{0:#,##0}", tg) };
                 dgvChiTietHoaDonKho.Rows.Add(row);
-                lblMaHoaDon.Text = check.ToString() ;
+                if(dgvHoaDonKho.Rows[index].Cells[3].Selected)
+                {
+                        ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
+                        frm.Tag = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
+                        frm.ShowDialog();
+                    
+                    dgvHoaDonKho.Rows.Clear();
+                    load();
+                }
             }
         }
 
@@ -115,19 +125,6 @@ namespace QLKFC
 
         }
 
-        private void btnChiTiet_Click(object sender, EventArgs e)
-        {
-            if (index > -1)
-            {
-                ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
-                frm.Tag = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
-                frm.ShowDialog();
-                dgvHoaDonKho.Rows.Clear();
-                load();
-            }
-            else
-                MessageBox.Show("Chưa chọn hóa đơn !");
-        }
 
         private void btnHienThi_Click(object sender, EventArgs e)
         {

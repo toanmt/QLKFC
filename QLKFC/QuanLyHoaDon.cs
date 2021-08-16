@@ -216,5 +216,7 @@ namespace QLKFC
                 dgvHDBH.Columns[4].HeaderText = "Ngày Tháng";
             }
         }
+
+        
     }
 }

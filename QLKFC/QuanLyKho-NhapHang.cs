@@ -24,6 +24,7 @@ namespace QLKFC
         #region Hiển thị và tương tác vs bảng
         public void load()
         {
+            db = new QLBHKFCContext();
             var query = db.HoaDonKhos.Where(x => x.TrangThai == "Đang xử lý" || x.TrangThai == "Đang giao hàng");
             dgvNhapHang.Rows.Clear();
             foreach (var item in query.ToList())
@@ -53,9 +54,7 @@ namespace QLKFC
                 frm.ShowDialog();
                 this.Refresh();
                 load();
-                    
-               
-                
+
             }
             else
                 MessageBox.Show("Chưa chọn hóa đơn !");
