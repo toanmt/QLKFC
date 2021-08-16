@@ -203,6 +203,7 @@ SET IDENTITY_INSERT [dbo].[HoaDonKho] ON
 
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (1, CAST(N'2021-08-03 00:00:00.000' AS DateTime), N'Đang Xử Lý')
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (2, CAST(N'2021-07-31 00:00:00.000' AS DateTime), N'Hoàn Thành')
+INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (3, CAST(N'2021-08-03 00:00:00.000' AS DateTime), N'Đã hủy')
 SET IDENTITY_INSERT [dbo].[HoaDonKho] OFF
 
 -------------------CTHoa Don-----------------------

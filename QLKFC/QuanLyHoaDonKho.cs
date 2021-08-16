@@ -19,6 +19,8 @@ namespace QLKFC
         public QuanLyHoaDonKho()
         {
             InitializeComponent();
+            dtpick1.Value = DateTime.Now.Date;
+            dtpick2.Value = DateTime.Now.Date;
             load();
         }
         //Clear datagridview
@@ -47,14 +49,14 @@ namespace QLKFC
             }
             checkDonHuy();
         }
-            public void checkDonHuy()
+        public void checkDonHuy()
+        {
+            for (int i = 0; i < dgvHoaDonKho.Rows.Count - 1; i++)
             {
-                for (int i = 0; i < dgvHoaDonKho.Rows.Count - 1; i++)
-                {
-                    if (dgvHoaDonKho.Rows[i].Cells[2].Value.Equals("Đã hủy"))
-                        dgvHoaDonKho.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                }
+                if (dgvHoaDonKho.Rows[i].Cells[2].Value.Equals("Đã hủy"))
+                    dgvHoaDonKho.Rows[i].DefaultCellStyle.BackColor = Color.Red;
             }
+        }
         //Tương tác với bảng hóa đơn kho
         private void dgvHoaDonKho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -64,24 +66,26 @@ namespace QLKFC
             {
                 float tg = 0;
                 int check = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
-                var querycthd = db.CthoaDonKhos.Include(x=>x.MaNlNavigation).Where(x => x.MaHdk == check);
+                var querycthd = db.CthoaDonKhos.Include(x => x.MaNlNavigation).Where(x => x.MaHdk == check);
                 foreach (var item in querycthd.ToList())
                 {
                     string tongtien = string.Format("{0:#,##0}", ((float)item.SoLuong * (float)item.MaNlNavigation.DonGia));
-                    string[] cthd = { item.MaNlNavigation.TenNl.ToString(), item.SoLuong.ToString(), string.Format("{0:#,##0}", item.MaNlNavigation.DonGia), tongtien};
+                    string[] cthd = { item.MaNlNavigation.TenNl.ToString(), item.SoLuong.ToString(), string.Format("{0:#,##0}", item.MaNlNavigation.DonGia), tongtien };
                     dgvChiTietHoaDonKho.Rows.Add(cthd);
                     tg += float.Parse(tongtien);
                 }
                 string[] row = { "", "", "Tổng tiền", string.Format("{0:#,##0}", tg) };
                 dgvChiTietHoaDonKho.Rows.Add(row);
-                if(dgvHoaDonKho.Rows[index].Cells[3].Selected)
+                if (dgvHoaDonKho.Rows[index].Cells[3].Selected)
                 {
-                        ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
-                        frm.Tag = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
-                        frm.ShowDialog();
-                    
-                    dgvHoaDonKho.Rows.Clear();
-                    load();
+                    ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
+                    frm.Tag = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
+                    frm.ShowDialog();
+                    if (frm.Message != null)
+                    {
+                        dgvHoaDonKho.Rows.Clear();
+                        load();
+                    }
                 }
             }
         }
@@ -92,13 +96,13 @@ namespace QLKFC
             if (dgvHoaDonKho.Rows.Count > 0)
                 clear();
             var query = from k in db.HoaDonKhos
-                        where k.NgayCc >= dtpick1.Value && k.NgayCc <= dtpick2.Value
+                        where k.NgayCc.Value.Date >= dtpick1.Value && k.NgayCc.Value.Date <= dtpick2.Value
                         select new
-                         {
-                             k.MaHdk,
-                             k.NgayCc,
-                             k.TrangThai,
-                         };
+                        {
+                            k.MaHdk,
+                            k.NgayCc,
+                            k.TrangThai,
+                        };
             foreach (var item in query.ToList())
             {
                 string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString() };

@@ -16,6 +16,8 @@ namespace QLKFC
         QLBHKFCContext db = new QLBHKFCContext();
         int Mahdk = 0;
         string TrangThai = "";
+        public string Message { get; set; }
+
         public ChiTietPhieuNhap()
         {
             InitializeComponent();
@@ -100,6 +102,7 @@ namespace QLKFC
             {
                 this.Close();
                 MessageBox.Show("Nhập hàng thành công. Kiểm tra kho hàng của bạn");
+                this.Message = "Change";
             }
         }
 
@@ -111,11 +114,17 @@ namespace QLKFC
         //Cập nhập trạng thái
         private void btnCapNhap_Click(object sender, EventArgs e)
         {
-            db.HoaDonKhos.Where(x => x.MaHdk == Mahdk).SingleOrDefault().TrangThai = cbTrangThai.Text;
-            db.SaveChanges();
-            MessageBox.Show("Cập nhập trạng thái thành công !");
-            dgvNhapHang.Rows.Clear();
-            load();
+            if (cbTrangThai.Text == "Đang giao hàng")
+            {
+                db.HoaDonKhos.Where(x => x.MaHdk == Mahdk).SingleOrDefault().TrangThai = cbTrangThai.Text;
+                db.SaveChanges();
+                MessageBox.Show("Cập nhập trạng thái thành công !");
+                this.Message = "Change";
+                dgvNhapHang.Rows.Clear();
+                load();
+            }
+            else
+                MessageBox.Show("Không có gì thay đổi !!!");
         }
 
         //Hủy đơn hàng
@@ -137,5 +146,8 @@ namespace QLKFC
                 }
             }    
         }
+
+
+
     }
 }
