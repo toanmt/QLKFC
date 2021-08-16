@@ -56,7 +56,7 @@ namespace QLKFC
 
                 MessageBox.Show(ex.Message.ToString(), "Thông báo");
             }
-            
+
         }
 
         private void loadDGV()
@@ -80,12 +80,23 @@ namespace QLKFC
                 else
                     dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia);
             }
+            dgv_DSSP.Columns["DonGia"].DefaultCellStyle.Format = "N0";
         }
 
-        private bool checkBoTrong()
+        private bool checkLoiNhapLieu()
         {
             if (txtGiaBan.Text == "" || txtLoai.Text == "" || txtTenMon.Text == "" || cmbLoai.SelectedItem == null)
             {
+                MessageBox.Show("Không được bỏ trống dữ liêu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            try
+            {
+                int.Parse(txtGiaBan.Text);
+            }
+            catch
+            {
+                errorProvider1.SetError(txtGiaBan, "Phải nhập giá tiền là số!");
                 return false;
             }
             return true;
@@ -124,7 +135,7 @@ namespace QLKFC
         }
         private void dgv_DSSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != - 1)
+            if (e.RowIndex != -1)
             {
                 var sp = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(dgv_DSSP.Rows[e.RowIndex].Cells[0].Value.ToString()));
                 txtMaMon.Text = sp.MaSp + "";
@@ -149,55 +160,44 @@ namespace QLKFC
             var spt = db.SanPhams.SingleOrDefault(lsp => lsp.TenSp == txtTenMon.Text);
             if (spt == null || (spt != null && spt.Loai != txtLoai.Text))
             {
-                if (checkBoTrong())
+                if (checkLoiNhapLieu())
                 {
                     SanPham sp = new SanPham();
                     sp.TenSp = txtTenMon.Text;
                     sp.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
-                    try
+                    if (int.Parse(txtGiaBan.Text) < 1)
                     {
-                        if (int.Parse(txtGiaBan.Text)<1)
-                        {
-                            errorProvider1.SetError(txtGiaBan, "Giá bán bải là số dương!");
-                            txtGiaBan.Focus();
-                            txtGiaBan.SelectAll();
-                        }
-                        else
-                        {
-                            sp.DonGia = int.Parse(txtGiaBan.Text);
-                            sp.Loai = txtLoai.Text;
-                            sp.Mota = txtMoTa.Text;
-                            if (iname != null)
-                            {
-                                sp.HinhAnh = iname;
-                                if (!File.Exists(pathImage() + iname))
-                                {
-                                    File.Copy(filename, pathImage() + iname);
-                                }
-                            }
-                            try
-                            {
-                                db.SanPhams.Add(sp);
-                                db.SaveChanges();
-                                iname = null;
-                                MessageBox.Show("Đã thêm sản phẩm");
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message.ToString(), "Thông báo");
-                            }
-                            loadDGV();
-                            clearTextBox();
-                        }
+                        errorProvider1.SetError(txtGiaBan, "Giá bán bải là số dương!");
+                        txtGiaBan.Focus();
+                        txtGiaBan.SelectAll();
                     }
-                    catch
+                    else
                     {
-                        errorProvider1.SetError(txtGiaBan, "Phải nhập giá tiền là số!");
+                        sp.DonGia = int.Parse(txtGiaBan.Text);
+                        sp.Loai = txtLoai.Text;
+                        sp.Mota = txtMoTa.Text;
+                        if (iname != null)
+                        {
+                            sp.HinhAnh = iname;
+                            if (!File.Exists(pathImage() + iname))
+                            {
+                                File.Copy(filename, pathImage() + iname);
+                            }
+                        }
+                        try
+                        {
+                            db.SanPhams.Add(sp);
+                            db.SaveChanges();
+                            iname = null;
+                            MessageBox.Show("Đã thêm sản phẩm");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message.ToString(), "Thông báo");
+                        }
+                        loadDGV();
+                        clearTextBox();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Không được bỏ trống dữ liêu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -208,13 +208,13 @@ namespace QLKFC
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (checkBoTrong())
+            if (checkLoiNhapLieu())
             {
-                var spSua = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(txtMaMon.Text));
-                spSua.TenSp = txtTenMon.Text;
-                spSua.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
                 try
                 {
+                    var spSua = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(txtMaMon.Text));
+                    spSua.TenSp = txtTenMon.Text;
+                    spSua.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
                     if (int.Parse(txtGiaBan.Text) < 1)
                     {
                         errorProvider1.SetError(txtGiaBan, "Giá bán bải là số dương!");
@@ -234,23 +234,16 @@ namespace QLKFC
                                 File.Copy(filename, pathImage() + iname);
                             }
                         }
-                        try
-                        {
-                            db.SaveChanges();
-                            loadDGV();
-                            clearTextBox();
-                            iname = null;
-                            MessageBox.Show("Đã được sửa");
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message.ToString(), "Thông báo");
-                        }
+                        db.SaveChanges();
+                        loadDGV();
+                        clearTextBox();
+                        iname = null;
+                        MessageBox.Show("Đã được sửa");
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    errorProvider1.SetError(txtGiaBan, "Phải nhập giá tiền là số!");
+                    MessageBox.Show(ex.Message.ToString(), "Thông báo");
                 }
             }
             else
@@ -268,22 +261,22 @@ namespace QLKFC
         {
             if (dgv_DSSP.Columns[e.ColumnIndex].Name == "Xoa")
             {
-                var spXoa = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(txtMaMon.Text));
-                clearTextBox();
-                DialogResult dialog = MessageBox.Show("Bạn muốn đóng xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialog == DialogResult.Yes)
+                try
                 {
-                    try
+                    var spXoa = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(txtMaMon.Text));
+                    clearTextBox();
+                    DialogResult dialog = MessageBox.Show("Bạn muốn đóng xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialog == DialogResult.Yes)
                     {
                         db.Remove(spXoa);
                         db.SaveChanges();
                         MessageBox.Show("Đã được xóa!");
                         loadDGV();
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message.ToString(), "Thông báo");
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

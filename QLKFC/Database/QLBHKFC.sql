@@ -130,7 +130,7 @@ SET IDENTITY_INSERT [dbo].[LoaiSanPham] OFF
 -------------------Sản Phẩm-----------------------
 SET IDENTITY_INSERT [dbo].[SanPham] ON 
 
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (1, 1, N'Gà rán', N'Miếng', 36000, N'1  Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay / 1 Miếng Gà Truyền Thống', N'Gà rán.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (1, 1, N'Gà rán(1 Miếng)', N'Miếng', 36000, N'1  Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay / 1 Miếng Gà Truyền Thống', N'Gà rán.jpg')
 INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (2, 1, N'Cơm Gà Truyền Thống', N'Phần', 41000, N'Cơm Gà Truyền Thống (1 Phần)', N'Cơm gà truyền thống.jpg')
 INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (3, 1, N'Cơm Gà Giòn Cay ', N'Phần', 41000, N'Cơm Gà Giòn Cay (1 Phần)', N'Cơm gà giòn cay.jpg')
 INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (4, 1, N'Popcorn ', N'Vừa', 57000, N'', N'popcorn vừa.jpg')
@@ -149,6 +149,23 @@ INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [Hin
 INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (13, 3, N'COMBO GIA ĐÌNH A', N'Combo', 359000, N'8 Miếng Gà Giòn Cay / 8 Miếng Gà Giòn Không Cay / 8 Miếng Gà Truyền Thống
 2 Khoai Tây Chiên (Lớn)
 4 Pepsi Lon', N'combo gia đình A.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (14, 3, N'COMBO GÀ RÁN A', N'Combo', 79000, N'2 Miếng Gà Giòn Cay / 2 Miếng Gà Giòn Không Cay
+1 Pepsi Lon', N'Combo gà rán A.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (15, 3, N'COMBO GÀ RÁN B', N'Combo', 79000, N'1 Phần Hot Wings 3 Miếng
+1 Khoai Tây Chiên (Lớn)
+1 Pepsi Lon', N'Combo gà rán B.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (16, 3, N'COMBO GÀ RÁN C', N'Combo', 85000, N'1 Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay
+1 Burger Tôm
+1 Pepsi Lon', N'Combo gà rán C.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (17, 3, N'COMBO GÀ RÁN D', N'Combo', 89000, N'1 Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay
+1 Burger Zinger
+1 Pepsi Lon', N'Combo gà rán D.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (18, 3, N'COMBO CƠM B', N'Combo', 89000, N'1 Cơm Gà Giòn Cay / 1 Cơm Gà Giòn Không Cay / 1 Cơm Gà Truyền Thống / 1 Cơm Phi-lê Gà Giòn / 1 Cơm Gà Xiên Que
+1 Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay
+1 Pepsi Lon', N'Combo Cơm B.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (19, 3, N'COMBO CƠM C', N'Combo', 95000, N'1 Cơm Gà Giòn Cay / 1 Cơm Gà Giòn Không Cay / 1 Cơm Gà Truyền Thống / 1 Cơm Phi-lê Gà Giòn / 1 Cơm Gà Xiên Que
+1 Burger Zinger
+1 Pepsi Lon', N'Combo Cơm C.jpg')
 
 SET IDENTITY_INSERT [dbo].[SanPham] OFF
 

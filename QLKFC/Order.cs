@@ -62,6 +62,7 @@ namespace QLKFC
 
         private void locDL(string loc)
         {
+            dgv_DSSP.Rows.Clear();
             var query = from sp in db.SanPhams
                         join lsp in db.LoaiSanPhams on sp.MaLsp equals lsp.MaLsp
                         where lsp.TenLsp.Contains(loc)
@@ -73,7 +74,14 @@ namespace QLKFC
                             sp.Loai,
                             sp.HinhAnh
                         };
-            dgv_DSSP.DataSource = query.ToList();
+            foreach (var item in query)
+            {
+                if (item.HinhAnh != null)
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai, new Bitmap(pathImage() + item.HinhAnh));
+                else
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai);
+            }
+            dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
         }
 
         private void TinhTien()
@@ -133,7 +141,11 @@ namespace QLKFC
                                 }
                             }
                         }
-                        if (check == 0)
+                        else if (xn.soluong < 0)
+                        {
+                            MessageBox.Show("Chưa tồn tại sản phẩm này chưa không được nhập số lượng âm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else if (check == 0)
                         {
                             dgvDSOrder.Rows.Add(masp, tensp, dongia, xn.soluong, float.Parse(dongia) * xn.soluong);
                         }
@@ -477,7 +489,14 @@ namespace QLKFC
                 DateTime tg = DateTime.Now;
                 hd.NgayThang = tg;
                 db.HoaDons.Add(hd);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 CthoaDon cthd = new CthoaDon();
                 maHD = db.HoaDons.SingleOrDefault(hdm => hdm.NgayThang == tg).MaHd;
                 cthd.MaHd = maHD;
@@ -486,7 +505,14 @@ namespace QLKFC
                     cthd.MaSp = int.Parse(dgvDSOrder.Rows[i].Cells[0].Value.ToString());
                     cthd.SoLuong = int.Parse(dgvDSOrder.Rows[i].Cells[3].Value.ToString());
                     db.CthoaDons.Add(cthd);
-                    db.SaveChanges();
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 ppdHoaDon.ShowDialog();
                 Don();
@@ -499,6 +525,7 @@ namespace QLKFC
             {
                 if (e.KeyCode == Keys.Enter || double.Parse(txtDua.Text) > double.Parse(lblThanhTien.Text))
                 {
+                    errorProvider_TD.Clear();
                     lblTienThua.Text = string.Format("{0:N0}", (float.Parse(txtDua.Text) - float.Parse(lblThanhTien.Text)));
                 }
                 if (double.Parse(lblTienThua.Text) < 0)

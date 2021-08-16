@@ -23,6 +23,14 @@ namespace QLKFC
             InitializeComponent();
             hideSubMenu();
             this.Quyen = Quyen;
+            //if(!Quyen)
+            //{
+            //    btnSanPham.Visible = false;
+            //    btnHoaDon.Visible = false;
+            //    btnNhanVien.Visible = false;
+            //    btnKho.Visible = false;
+            //    btnNhapNL.Visible = false;
+            //}    
         }
 
         #region Hiển thị chức năng
@@ -121,10 +129,12 @@ namespace QLKFC
             {
                 activeForm.Close();
             }
+            hideSubMenu();
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            hideSubMenu();
             using (KiemTraNVOrder ktra = new KiemTraNVOrder())
             {
                 if (ktra.ShowDialog() == DialogResult.OK)
@@ -134,6 +144,7 @@ namespace QLKFC
                 }
             }
         }
+
         private void btnQLThucDon_Click(object sender, EventArgs e)
         {
             openForm(new QuanLyThucDon());
@@ -176,7 +187,6 @@ namespace QLKFC
             hideSubMenu();
         }
 
-
         private void btnDangXuat_Click_1(object sender, EventArgs e)
         {
             this.Hide();
@@ -187,6 +197,7 @@ namespace QLKFC
 
         private void btnNhapNL_Click(object sender, EventArgs e)
         {
+            hideSubMenu();
             if (Quyen)
             {
                 openForm(new NhapNguyenLieu());

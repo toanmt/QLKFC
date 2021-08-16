@@ -34,7 +34,12 @@ namespace QLKFC
             var query = from nv in db.NhanViens
                         where nv.TenNv.Equals(txtTenNV.Text)
                         select nv;
-            if (query.Count() == 0)
+            if (cmbPOS.SelectedItem == null)
+            {
+                errorProvider1.SetError(cmbPOS, "Bạn chưa nhập máy POS!");
+                cmbPOS.Focus();
+            }
+            else if (query.Count() == 0)
             {
                 errorProvider1.SetError(txtTenNV, "Bạn đã nhập sai tên!");
             }
