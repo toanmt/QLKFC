@@ -85,9 +85,28 @@ namespace QLKFC
 
         private bool checkLoiNhapLieu()
         {
-            if (txtGiaBan.Text == "" || txtLoai.Text == "" || txtTenMon.Text == "" || cmbLoai.SelectedItem == null)
+            if (txtTenMon.Text.Trim() == "")
             {
-                MessageBox.Show("Không được bỏ trống dữ liêu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider1.SetError(txtTenMon, "Phải nhập tên món!");
+                txtTenMon.Focus();
+                return false;
+            }
+            else if (txtGiaBan.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtGiaBan, "Phải nhập giá bán!");
+                txtGiaBan.Focus();
+                return false;
+            }
+            else if (txtLoai.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtLoai, "Phải nhập loại!");
+                txtLoai.Focus();
+                return false;
+            }
+            else if (cmbLoai.SelectedItem == null)
+            {
+                errorProvider1.SetError(cmbLoai, "Phải chọn loại sản phẩm!");
+                cmbLoai.Focus();
                 return false;
             }
             try
@@ -109,6 +128,41 @@ namespace QLKFC
             string newPath = pathProject.Substring(0, pathProject.Length - 25) + "Image" + '\\';
             return newPath;
         }
+        #endregion
+
+        #region Tắt thông báo khi nhập đúng
+        private void txtTenMon_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTenMon.Text != null)
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtLoai_TextChanged(object sender, EventArgs e)
+        {
+
+            if (txtLoai.Text != null)
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtGiaBan_TextChanged(object sender, EventArgs e)
+        {
+
+            if (txtGiaBan.Text != null)
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void cmbLoai_TextChanged(object sender, EventArgs e)
+        {
+            if (cmbLoai.SelectedItem != null)
+                errorProvider1.Clear();
+        }
+
         #endregion
 
         #region Tương tác người dùng
@@ -133,6 +187,7 @@ namespace QLKFC
                 MessageBox.Show(ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void dgv_DSSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -151,6 +206,30 @@ namespace QLKFC
                 catch (Exception)
                 {
                     pcbMoTa.Image = null;
+                }
+            }
+        }
+
+        private void dgv_DSSP_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_DSSP.Columns[e.ColumnIndex].Name == "Xoa")
+            {
+                try
+                {
+                    var spXoa = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(txtMaMon.Text));
+                    clearTextBox();
+                    DialogResult dialog = MessageBox.Show("Bạn muốn đóng xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        db.Remove(spXoa);
+                        db.SaveChanges();
+                        MessageBox.Show("Đã được xóa!");
+                        loadDGV();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -255,30 +334,6 @@ namespace QLKFC
         private void btnHuyBo_Click(object sender, EventArgs e)
         {
             clearTextBox();
-        }
-
-        private void dgv_DSSP_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgv_DSSP.Columns[e.ColumnIndex].Name == "Xoa")
-            {
-                try
-                {
-                    var spXoa = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(txtMaMon.Text));
-                    clearTextBox();
-                    DialogResult dialog = MessageBox.Show("Bạn muốn đóng xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (dialog == DialogResult.Yes)
-                    {
-                        db.Remove(spXoa);
-                        db.SaveChanges();
-                        MessageBox.Show("Đã được xóa!");
-                        loadDGV();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

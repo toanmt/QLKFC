@@ -17,22 +17,21 @@ namespace QLKFC
         {
             InitializeComponent();
             loadData();
+            txtTenLoaiMon.Focus();
         }
 
         QLBHKFCContext db = new QLBHKFCContext();
 
-        #region Kiểm tra dữ liệu người nhập
-        private void txtTenLoaiMon_Validating(object sender, CancelEventArgs e)
+        #region Lệnh điều khiển
+        private bool kiemTraDuLieuNhap()
         {
             if (txtTenLoaiMon.Text == "")
             {
-                e.Cancel = true;
                 errorProvider1.SetError(txtTenLoaiMon, "Bạn phải nhập tên loại sản phẩm!");
+                return false;
             }
+            return true;
         }
-        #endregion
-
-        #region Lệnh điều khiển
         private void clearTextBox()
         {
             txtMaMon.Clear();
@@ -65,51 +64,58 @@ namespace QLKFC
         #region Tương tác
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if ((db.LoaiSanPhams.SingleOrDefault(lsp => lsp.TenLsp == txtTenLoaiMon.Text)) == null)
+            if (kiemTraDuLieuNhap())
             {
-                LoaiSanPham lsp = new LoaiSanPham();
-                lsp.TenLsp = txtTenLoaiMon.Text;
-                try
+                if ((db.LoaiSanPhams.SingleOrDefault(lsp => lsp.TenLsp == txtTenLoaiMon.Text)) == null)
                 {
-                    db.LoaiSanPhams.Add(lsp);
-                    db.SaveChanges();
-                    MessageBox.Show("Đã được thêm!");
+                    LoaiSanPham lsp = new LoaiSanPham();
+                    lsp.TenLsp = txtTenLoaiMon.Text;
+                    try
+                    {
+                        db.LoaiSanPhams.Add(lsp);
+                        db.SaveChanges();
+                        MessageBox.Show("Đã được thêm!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString(), "Thông báo");
+                    }
+                    loadData();
+                    clearTextBox();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message.ToString(), "Thông báo");
+                    MessageBox.Show("Đã tồn tại loại sản phẩm này!", "Thông báo");
                 }
-                loadData();
-                clearTextBox();
-            }
-            else
-            {
-                MessageBox.Show("Đã tồn tại loại sản phẩm này!", "Thông báo");
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            var spSua = db.LoaiSanPhams.SingleOrDefault(lsp => lsp.MaLsp == int.Parse(txtMaMon.Text));
-            if (spSua != null)
+
+            if (kiemTraDuLieuNhap())
             {
-                try
+                var spSua = db.LoaiSanPhams.SingleOrDefault(lsp => lsp.MaLsp == int.Parse(txtMaMon.Text));
+                if (spSua != null)
                 {
-                    spSua.TenLsp = txtTenLoaiMon.Text;
-                    db.SaveChanges();
-                    MessageBox.Show("Đã được sửa!");
-                    loadData();
-                    clearTextBox();
+                    try
+                    {
+                        spSua.TenLsp = txtTenLoaiMon.Text;
+                        db.SaveChanges();
+                        MessageBox.Show("Đã được sửa!");
+                        loadData();
+                        clearTextBox();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không tồn tại loại sản phẩm này!", "Thông báo");
                 }
-                
-            }
-            else
-            {
-                MessageBox.Show("Không tồn tại loại sản phẩm này!", "Thông báo");
             }
         }
 
@@ -159,6 +165,19 @@ namespace QLKFC
                 }
             }
         }
+
+        private void txtTenLoaiMon_TextChanged(object sender, EventArgs e)
+        {
+            if(txtTenLoaiMon.Text!=null)
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtTenLoaiMon, "Bạn phải nhập tên loại sản phẩm!");
+            }
+        }
         #endregion
+
     }
 }

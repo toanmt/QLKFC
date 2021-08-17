@@ -171,7 +171,7 @@ namespace QLKFC
             this.txtTenLoaiMon.Name = "txtTenLoaiMon";
             this.txtTenLoaiMon.Size = new System.Drawing.Size(427, 31);
             this.txtTenLoaiMon.TabIndex = 8;
-            this.txtTenLoaiMon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenLoaiMon_Validating);
+            this.txtTenLoaiMon.TextChanged += new System.EventHandler(this.txtTenLoaiMon_TextChanged);
             // 
             // label3
             // 

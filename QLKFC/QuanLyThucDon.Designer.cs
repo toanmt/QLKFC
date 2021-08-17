@@ -363,6 +363,7 @@ namespace QLKFC
             this.txtLoai.Name = "txtLoai";
             this.txtLoai.Size = new System.Drawing.Size(180, 31);
             this.txtLoai.TabIndex = 10;
+            this.txtLoai.TextChanged += new System.EventHandler(this.txtLoai_TextChanged);
             // 
             // cmbLoai
             // 
@@ -373,6 +374,7 @@ namespace QLKFC
             this.cmbLoai.Name = "cmbLoai";
             this.cmbLoai.Size = new System.Drawing.Size(230, 31);
             this.cmbLoai.TabIndex = 12;
+            this.cmbLoai.TextChanged += new System.EventHandler(this.cmbLoai_TextChanged);
             // 
             // txtMaMon
             // 
@@ -415,6 +417,7 @@ namespace QLKFC
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(174, 31);
             this.txtGiaBan.TabIndex = 11;
+            this.txtGiaBan.TextChanged += new System.EventHandler(this.txtGiaBan_TextChanged);
             // 
             // txtTenMon
             // 
@@ -426,6 +429,7 @@ namespace QLKFC
             this.txtTenMon.Name = "txtTenMon";
             this.txtTenMon.Size = new System.Drawing.Size(174, 31);
             this.txtTenMon.TabIndex = 9;
+            this.txtTenMon.TextChanged += new System.EventHandler(this.txtTenMon_TextChanged);
             // 
             // label5
             // 
