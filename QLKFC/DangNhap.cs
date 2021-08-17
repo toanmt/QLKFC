@@ -86,5 +86,23 @@ namespace QLKFC
         {
             errorProvider1.SetError(txtTaiKhoan, "");
         }
+
+        private void btnGiauMK_Click(object sender, EventArgs e)
+        {
+            if (txtMatKhau.PasswordChar == '\0')
+            {
+                btnXemMK.BringToFront();
+                txtMatKhau.PasswordChar = '*';
+            }
+        }
+
+        private void btnXemMK_Click_1(object sender, EventArgs e)
+        {
+            if (txtMatKhau.PasswordChar == '*')
+            {
+                btnGiauMK.BringToFront();
+                txtMatKhau.PasswordChar = '\0';
+            }
+        }
     }
 }

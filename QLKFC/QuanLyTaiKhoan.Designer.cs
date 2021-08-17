@@ -230,10 +230,10 @@ namespace QLKFC
             this.dgvTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dgvTaiKhoan.BackgroundColor = System.Drawing.Color.White;
             this.dgvTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTaiKhoan.Location = new System.Drawing.Point(0, 0);
+            this.dgvTaiKhoan.Location = new System.Drawing.Point(0, 6);
             this.dgvTaiKhoan.Name = "dgvTaiKhoan";
             this.dgvTaiKhoan.RowTemplate.Height = 25;
-            this.dgvTaiKhoan.Size = new System.Drawing.Size(814, 244);
+            this.dgvTaiKhoan.Size = new System.Drawing.Size(814, 238);
             this.dgvTaiKhoan.TabIndex = 0;
             this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
             // 

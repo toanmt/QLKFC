@@ -62,7 +62,7 @@ namespace QLKFC
                 {
                     MessageBox.Show(ex.Message);
                 }
-                txtNgaySinh.Focus();
+                
             }
         }
 
