@@ -37,7 +37,6 @@ namespace QLKFC
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnXoaTrang = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radNam = new System.Windows.Forms.RadioButton();
@@ -139,7 +138,6 @@ namespace QLKFC
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panel4.Controls.Add(this.btnXoaTrang);
             this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Controls.Add(this.cbChucVu);
             this.panel4.Controls.Add(this.txtNgayBD);
@@ -166,19 +164,6 @@ namespace QLKFC
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(798, 203);
             this.panel4.TabIndex = 0;
-            // 
-            // btnXoaTrang
-            // 
-            this.btnXoaTrang.BackColor = System.Drawing.Color.Red;
-            this.btnXoaTrang.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnXoaTrang.ForeColor = System.Drawing.Color.White;
-            this.btnXoaTrang.Location = new System.Drawing.Point(570, 132);
-            this.btnXoaTrang.Name = "btnXoaTrang";
-            this.btnXoaTrang.Size = new System.Drawing.Size(110, 41);
-            this.btnXoaTrang.TabIndex = 49;
-            this.btnXoaTrang.Text = "Xóa trắng";
-            this.btnXoaTrang.UseVisualStyleBackColor = false;
-            this.btnXoaTrang.Click += new System.EventHandler(this.btnXoaTrang_Click);
             // 
             // groupBox1
             // 
@@ -302,9 +287,9 @@ namespace QLKFC
             this.btnSua.BackColor = System.Drawing.Color.Red;
             this.btnSua.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(625, 72);
+            this.btnSua.Location = new System.Drawing.Point(699, 71);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(80, 41);
+            this.btnSua.Size = new System.Drawing.Size(92, 55);
             this.btnSua.TabIndex = 36;
             this.btnSua.Text = "Sửa ";
             this.btnSua.UseVisualStyleBackColor = false;
@@ -315,9 +300,9 @@ namespace QLKFC
             this.btnXoa.BackColor = System.Drawing.Color.Red;
             this.btnXoa.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(711, 72);
+            this.btnXoa.Location = new System.Drawing.Point(590, 132);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(80, 41);
+            this.btnXoa.Size = new System.Drawing.Size(93, 59);
             this.btnXoa.TabIndex = 35;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -328,9 +313,9 @@ namespace QLKFC
             this.btnIn.BackColor = System.Drawing.Color.Red;
             this.btnIn.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIn.ForeColor = System.Drawing.Color.White;
-            this.btnIn.Location = new System.Drawing.Point(711, 134);
+            this.btnIn.Location = new System.Drawing.Point(696, 132);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(80, 41);
+            this.btnIn.Size = new System.Drawing.Size(95, 59);
             this.btnIn.TabIndex = 34;
             this.btnIn.Text = "Excel";
             this.btnIn.UseVisualStyleBackColor = false;
@@ -341,9 +326,9 @@ namespace QLKFC
             this.btnThem.BackColor = System.Drawing.Color.Red;
             this.btnThem.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(539, 72);
+            this.btnThem.Location = new System.Drawing.Point(590, 72);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(80, 41);
+            this.btnThem.Size = new System.Drawing.Size(93, 54);
             this.btnThem.TabIndex = 33;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -503,7 +488,6 @@ namespace QLKFC
             this.dgvNhanVien.TabIndex = 0;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             this.dgvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
-            this.dgvNhanVien.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
             // QuanLyNhanVien
             // 
@@ -571,7 +555,6 @@ namespace QLKFC
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.DataGridView dgvNhanVien;
-        private System.Windows.Forms.Button btnXoaTrang;
         private System.Windows.Forms.Button btnHienThi;
     }
 }
