@@ -278,17 +278,18 @@ namespace QLKFC
             this.dgvHDBH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvHDBH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHDBH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHDBH.ColumnHeadersHeight = 70;
             this.dgvHDBH.Location = new System.Drawing.Point(24, 108);
             this.dgvHDBH.MultiSelect = false;
             this.dgvHDBH.Name = "dgvHDBH";
             this.dgvHDBH.ReadOnly = true;
             this.dgvHDBH.RowHeadersWidth = 51;
             this.dgvHDBH.RowTemplate.Height = 29;
-            this.dgvHDBH.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvHDBH.Size = new System.Drawing.Size(866, 273);
             this.dgvHDBH.TabIndex = 0;
             this.dgvHDBH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDBH_CellClick);
+            this.dgvHDBH.SizeChanged += new System.EventHandler(this.dgvHDBH_SizeChanged);
             // 
             // QuanLyHoaDon
             // 

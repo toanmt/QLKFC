@@ -299,6 +299,7 @@ namespace QLKFC
         private void btnHienThi_Click(object sender, EventArgs e)
         {
             HienThi();
+            XoaTrang();
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -440,12 +441,6 @@ namespace QLKFC
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-
-        private void btnXoaTrang_Click(object sender, EventArgs e)
-        {
-            XoaTrang();
         }
 
         private void btnTim_Click(object sender, EventArgs e)

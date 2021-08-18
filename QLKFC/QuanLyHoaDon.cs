@@ -18,14 +18,13 @@ namespace QLKFC
         QLBHKFCContext db = new QLBHKFCContext();
         int index;
         int Pagenumber = 1;
-        int ItemNumber = 10;
         int check = 0;
         public QuanLyHoaDon()
         {
             InitializeComponent();
             dtpick1.Value = DateTime.Now.Date;
             dtpick2.Value = DateTime.Now.Date;
-            load(Pagenumber, ItemNumber);
+            load(Pagenumber, Program.ItemNumber);
 
         }
         //Lấy danh sách hóa đơn theo ngày đã chọn
@@ -52,7 +51,7 @@ namespace QLKFC
         #region Phân trang + load dữ liệu
         public void load2(int Pagenumber, int ItemNumber)
         {
-            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * 10).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
+            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * Program.SkipItem).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
                         where h.NgayThang.Value.Date >= dtpick1.Value && h.NgayThang.Value.Date <= dtpick2.Value
                         select new
                         {
@@ -79,7 +78,7 @@ namespace QLKFC
         public void load(int Pagenumber, int ItemNumber)
         {
 
-            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * 10).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
+            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * Program.SkipItem).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
                         select new
                         {
                             h.MaHd,
@@ -100,7 +99,7 @@ namespace QLKFC
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             Pagenumber = 1;
-            load2(Pagenumber, ItemNumber);
+            load2(Pagenumber, Program.ItemNumber);
             check = 1;
         }
         private void btnDau_Click(object sender, EventArgs e)
@@ -108,9 +107,9 @@ namespace QLKFC
 
             Pagenumber = 1;
             if (check == 0)
-                load(Pagenumber, ItemNumber);
+                load(Pagenumber, Program.ItemNumber);
             else
-                load2(Pagenumber, ItemNumber);
+                load2(Pagenumber, Program.ItemNumber);
         }
 
         private void btnTrangtrc_Click(object sender, EventArgs e)
@@ -119,10 +118,10 @@ namespace QLKFC
             {
                 Pagenumber--;
                 if (check == 0)
-                    load(Pagenumber, ItemNumber);
+                    load(Pagenumber, Program.ItemNumber);
 
                 else
-                    load2(Pagenumber, ItemNumber);
+                    load2(Pagenumber, Program.ItemNumber);
 
             }
         }
@@ -135,16 +134,16 @@ namespace QLKFC
             else
                 NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date >= dtpick1.Value && x.NgayThang.Value.Date <= dtpick2.Value).Count();
 
-            if (Pagenumber - 1 < NumberItem / 10)
+            if (Pagenumber - 1 < NumberItem / Program.SkipItem)
             {
-                if (NumberItem % 10 == 0)
-                    Pagenumber = NumberItem / 10;
+                if (NumberItem % Program.SkipItem == 0)
+                    Pagenumber = NumberItem / Program.SkipItem;
                 else { 
                     Pagenumber++;
                 if (check == 0)
-                    load(Pagenumber, ItemNumber);
+                    load(Pagenumber, Program.ItemNumber);
                 else
-                    load2(Pagenumber, ItemNumber);} 
+                    load2(Pagenumber, Program.ItemNumber);} 
                     
                 
             }
@@ -155,27 +154,27 @@ namespace QLKFC
             if (check == 0)
             {
                 int NumberItem = db.HoaDons.Count();
-                if (NumberItem % 10 != 0)
-                    Pagenumber = NumberItem / 10 + 1;
-                else Pagenumber = NumberItem / 10;
-                load(Pagenumber, ItemNumber);
+                if (NumberItem % Program.SkipItem != 0)
+                    Pagenumber = NumberItem / Program.SkipItem + 1;
+                else Pagenumber = NumberItem / Program.SkipItem;
+                load(Pagenumber, Program.ItemNumber);
             }
             else
             {
                 int NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date >= dtpick1.Value && x.NgayThang.Value.Date <= dtpick2.Value).Count();
-                if (NumberItem % 10 == 1)
-                    Pagenumber = NumberItem / 10 + 1;
-                else Pagenumber = NumberItem / 10;
+                if (NumberItem % Program.SkipItem == 1)
+                    Pagenumber = NumberItem / Program.SkipItem + 1;
+                else Pagenumber = NumberItem / Program.SkipItem;
                 if (Pagenumber == 0)
                     Pagenumber = 1;
-                load2(Pagenumber, ItemNumber);
+                load2(Pagenumber, Program.ItemNumber);
             }
 
         }
         private void btnHienThi_Click(object sender, EventArgs e)
         {
             Pagenumber = 1;
-            load(Pagenumber, ItemNumber);
+            load(Pagenumber, Program.ItemNumber);
             check = 0;
         }
         #endregion
@@ -217,6 +216,24 @@ namespace QLKFC
             }
         }
 
-        
+
+        private void dgvHDBH_SizeChanged(object sender, EventArgs e)
+        {
+            if (Program.checksize  == 2)
+            {
+                Program.ItemNumber = 20;
+                Program.SkipItem = 20;
+                load(Pagenumber, Program.ItemNumber);
+                Program.checksize--;
+            }
+            else
+            {
+                Program.ItemNumber = 10;
+                Program.SkipItem = 10;
+                load(Pagenumber, Program.ItemNumber);
+                Program.checksize++;
+            } 
+                
+        }
     }
 }

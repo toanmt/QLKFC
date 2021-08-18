@@ -247,5 +247,15 @@ namespace QLKFC
         }
 
         #endregion
+
+        private void Dashboard_SizeChanged(object sender, EventArgs e)
+        {
+            if (Program.checksize == 1)
+            {
+                Program.checksize++;
+            }
+            else
+                Program.checksize--;
+        }
     }
 }
