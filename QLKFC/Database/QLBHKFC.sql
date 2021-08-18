@@ -198,8 +198,8 @@ INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [TenNV], [GioiTinh], [NgaySinh], [DiaC
 
 -------------------Hóa Đơn-----------------------
 SET IDENTITY_INSERT [dbo].[HoaDon] ON 
-INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (1, N'Mai Thế Toàn', N'1', N'1', CAST(N'2021-08-01 00:00:00.000' AS DateTime))
-INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (2, N'Mai Thế Toàn', N'1', N'2', CAST(N'2021-08-02 00:00:00.000' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (1, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-01 00:00:00.000' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (2, N'Mai Thế Toàn', N'044', N'2', CAST(N'2021-08-02 00:00:00.000' AS DateTime))
 INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (3, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:39:07.703' AS DateTime))
 INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (4, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:39:29.353' AS DateTime))
 INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (5, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:39:45.940' AS DateTime))
