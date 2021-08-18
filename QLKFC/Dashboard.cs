@@ -86,6 +86,7 @@ namespace QLKFC
                 MessageBox.Show("Bạn không có quyền vào chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
         private void btnKho_Click(object sender, EventArgs e)
         {
             if (Quyen)
@@ -97,6 +98,7 @@ namespace QLKFC
                 MessageBox.Show("Bạn không có quyền vào chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             if (Quyen)
@@ -122,6 +124,8 @@ namespace QLKFC
         }
         #endregion
 
+        string sid, pid, ten;
+
         #region Hiển thị form chức năng
         private void ptbTrangChu_Click(object sender, EventArgs e)
         {
@@ -134,14 +138,22 @@ namespace QLKFC
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            hideSubMenu();
-            using (KiemTraNVOrder ktra = new KiemTraNVOrder())
-            {
-                if (ktra.ShowDialog() == DialogResult.OK)
+            if (sid == null)
+                using (KiemTraNVOrder ktra = new KiemTraNVOrder())
                 {
-                    openForm(new Order(ktra.storeid, ktra.pos, ktra.tennv));
-                    hideSubMenu();
+                    if (ktra.ShowDialog() == DialogResult.OK)
+                    {
+                        sid = ktra.storeid;
+                        pid = ktra.pos;
+                        ten = ktra.tennv;
+                        openForm(new Order(ktra.storeid, ktra.pos, ktra.tennv));
+                        hideSubMenu();
+                    }
                 }
+            else
+            {
+                openForm(new Order(sid, pid, ten));
+                hideSubMenu();
             }
         }
 
