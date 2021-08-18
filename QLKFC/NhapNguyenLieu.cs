@@ -19,7 +19,7 @@ namespace QLKFC
         {
             InitializeComponent();
         }
-
+        #region check lỗi
         private void txtTenNL_Validating(object sender, CancelEventArgs e)
         {
             if(txtTenNL.Text == "")
@@ -49,7 +49,7 @@ namespace QLKFC
         {
             errorProvider1.SetError(txtDonGia, "");
         }
-
+        
         public void LoiThieuTT()
         {
             try
@@ -64,11 +64,13 @@ namespace QLKFC
                 MessageBox.Show("Lỗi nhập thông tin nguyên liệu");
             }
         }
-
+        #endregion
+        #region hiển thị
         public void HienThi()
         {
             try
             {
+                dgvNguyenLieu.Rows.Clear();
                 var query = from nl in db.NguyenLieus
                             select new
                             {
@@ -76,20 +78,15 @@ namespace QLKFC
                                 nl.TenNl,
                                 nl.DonGia
                             };
-                dgvNguyenLieu.DataSource = query.ToList();
+                foreach (var item in query)
+                {
+                    dgvNguyenLieu.Rows.Add(item.MaNl, item.TenNl, item.DonGia);
+                }
             }
             catch(Exception)
             {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu");
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-
-            dgvNguyenLieu.Columns[0].HeaderText = "Mã nguyên liệu";
-            dgvNguyenLieu.Columns[1].HeaderText = "Tên nguyên liệu";
-            dgvNguyenLieu.Columns[2].HeaderText = "Đơn giá";
-
-            dgvNguyenLieu.Columns[0].Width = 200;
-            dgvNguyenLieu.Columns[1].Width = 400;
-            dgvNguyenLieu.Columns[2].Width = 200;
         }
 
         public void XoaTrang()
@@ -106,12 +103,20 @@ namespace QLKFC
 
         private void dgvNguyenLieu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            txtMaNL.Text = dgvNguyenLieu.Rows[index].Cells[0].Value.ToString();
-            txtTenNL.Text = dgvNguyenLieu.Rows[index].Cells[1].Value.ToString();
-            txtDonGia.Text = dgvNguyenLieu.Rows[index].Cells[2].Value.ToString();
+            try
+            {
+                int index = e.RowIndex;
+                txtMaNL.Text = dgvNguyenLieu.Rows[index].Cells[0].Value.ToString();
+                txtTenNL.Text = dgvNguyenLieu.Rows[index].Cells[1].Value.ToString();
+                txtDonGia.Text = dgvNguyenLieu.Rows[index].Cells[2].Value.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi chọn thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
+        #endregion
+        #region các nút
         private void btnThem_Click(object sender, EventArgs e)
         {
             LoiThieuTT();
@@ -130,9 +135,9 @@ namespace QLKFC
 
                 MessageBox.Show("Đã thêm nguyên liệu mới");
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi thêm nguyên liệu mới", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -153,9 +158,9 @@ namespace QLKFC
 
                 MessageBox.Show("Sửa thành công");
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi sửa thông tin nguyên liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -173,6 +178,7 @@ namespace QLKFC
                     throw new Exception("Hãy nhập tên nguyên liệu muốn tìm");
                 if (db.NguyenLieus.Where(nl => nl.TenNl == txtTim.Text).FirstOrDefault() == null)
                     throw new Exception("Không có nguyên liệu này trong kế hoạch nhập");
+                dgvNguyenLieu.Rows.Clear();
                 var query1 = from nl in db.NguyenLieus
                              where nl.TenNl == txtTim.Text
                              select new
@@ -181,11 +187,14 @@ namespace QLKFC
                                  nl.TenNl,
                                  nl.DonGia
                              };
-                dgvNguyenLieu.DataSource = query1.ToList();
+                foreach (var item in query1)
+                {
+                    dgvNguyenLieu.Rows.Add(item.MaNl, item.TenNl, item.DonGia);
+                }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi tìm nguyên liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -202,10 +211,11 @@ namespace QLKFC
                 HienThi();
                 XoaTrang();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi xóa nguyên liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
     }
 }

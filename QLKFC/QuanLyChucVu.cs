@@ -24,6 +24,7 @@ namespace QLKFC
         {
             try
             {
+                dgvChucVu.Rows.Clear();
                 var query = from cv in db.ChucVus
                             select new
                             {
@@ -31,18 +32,14 @@ namespace QLKFC
                                cv.TenCv,
                                cv.Id
                             };
-                dgvChucVu.DataSource = query.ToList();
-                dgvChucVu.Columns[0].HeaderText = "Mã chức vụ";
-                dgvChucVu.Columns[1].HeaderText = "Tên chức vụ";
-                dgvChucVu.Columns[2].HeaderText = "Id tài khoản";
-
-                dgvChucVu.Columns[0].Width = 300;
-                dgvChucVu.Columns[1].Width = 300;
-                dgvChucVu.Columns[2].Width = 155;
+                foreach (var item in query)
+                {
+                    dgvChucVu.Rows.Add(item.MaCv, item.TenCv, item.Id);
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -58,22 +55,30 @@ namespace QLKFC
             HienThi();
         }
 
-        private void dgvChucVu_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvChucVu_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            txtMaCV.Text = dgvChucVu.Rows[index].Cells[0].Value.ToString();
-            txtTenCV.Text = dgvChucVu.Rows[index].Cells[1].Value.ToString();
-            string id = dgvChucVu.Rows[index].Cells[2].Value.ToString();
-            if (id == "1")
-                cbQuyen.Text = "Quản lý";
-            if (id == "2")
-                cbQuyen.Text = "Nhân Viên";
+            try
+            {
+                int index = e.RowIndex;
+                txtMaCV.Text = dgvChucVu.Rows[index].Cells[0].Value.ToString();
+                txtTenCV.Text = dgvChucVu.Rows[index].Cells[1].Value.ToString();
+                string id = dgvChucVu.Rows[index].Cells[2].Value.ToString();
+                if (id == "1")
+                    cbQuyen.Text = "Quản lý";
+                if (id == "2")
+                    cbQuyen.Text = "Nhân Viên";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi chọn thông tin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion
 
         #region Các nút
-        private void btnThem_Click(object sender, EventArgs e)
+
+        private void btnThem_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -98,13 +103,13 @@ namespace QLKFC
 
                 MessageBox.Show("Thêm thành công!");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi thêm chức vụ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btnSua_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -124,13 +129,13 @@ namespace QLKFC
 
                 MessageBox.Show("Sửa thành công!");
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi sửa thông tin chức vụ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnXoa_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -147,12 +152,16 @@ namespace QLKFC
                     XoaTrang();
                 }
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi xóa chức vụ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private void btnHienThi_Click(object sender, EventArgs e)
+        {
+            HienThi();
+            XoaTrang();
+        }
         private void btnTim_Click(object sender, EventArgs e)
         {
             try
@@ -161,6 +170,7 @@ namespace QLKFC
                     throw new Exception("Hãy nhập tên chức vụ mà bạn muốn tìm");
                 if (db.ChucVus.Where(cv => cv.TenCv == txtTenCV.Text).FirstOrDefault() == null)
                     throw new Exception("Chức vụ không tồn tại");
+                dgvChucVu.Rows.Clear();
                 var query1 = from cv in db.ChucVus
                              where cv.TenCv == txtTenCV.Text
                              select new
@@ -169,11 +179,14 @@ namespace QLKFC
                                  cv.TenCv,
                                  cv.Id
                              };
-                dgvChucVu.DataSource = query1.ToList();
+                foreach (var item in query1)
+                {
+                    dgvChucVu.Rows.Add(item.MaCv, item.TenCv, item.Id);
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi tìm chức vụ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion
@@ -208,6 +221,9 @@ namespace QLKFC
         {
             errorProvider1.SetError(cbQuyen, "");
         }
+
         #endregion
+
+        
     }
 }

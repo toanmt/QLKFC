@@ -23,6 +23,7 @@ namespace QLKFC
         {
             try
             {
+                dgvTaiKhoan.Rows.Clear();
                 var query = from tk in db.TaiKhoans
                             select new
                             {
@@ -30,20 +31,16 @@ namespace QLKFC
                                 tk.TaiKhoan1,
                                 tk.MatKhau,
                             };
-                dgvTaiKhoan.DataSource = query.ToList();
+                foreach (var item in query)
+                {
+                    dgvTaiKhoan.Rows.Add(item.Id, item.TaiKhoan1, item.MatKhau);
+                }
+                
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-
-            dgvTaiKhoan.Columns[0].HeaderText = "ID";
-            dgvTaiKhoan.Columns[1].HeaderText = "Tài khoản";
-            dgvTaiKhoan.Columns[2].HeaderText = "Mật khẩu";
-
-            dgvTaiKhoan.Columns[0].Width = 160;
-            dgvTaiKhoan.Columns[1].Width = 300;
-            dgvTaiKhoan.Columns[2].Width = 300;
         }
 
         public void XoaTrang()
@@ -60,14 +57,22 @@ namespace QLKFC
 
         private void dgvTaiKhoan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            txtID.Text = dgvTaiKhoan.Rows[index].Cells[0].Value.ToString();
-            txtTaiKhoan.Text = dgvTaiKhoan.Rows[index].Cells[1].Value.ToString();
-            txtMatKhau.Text = dgvTaiKhoan.Rows[index].Cells[2].Value.ToString();
-            if (txtID.Text == "1")
-                cbQuyen.Text = "Quản lý";
-            else
-                cbQuyen.Text = "Nhân Viên";
+            try
+            {
+                int index = e.RowIndex;
+                txtID.Text = dgvTaiKhoan.Rows[index].Cells[0].Value.ToString();
+                txtTaiKhoan.Text = dgvTaiKhoan.Rows[index].Cells[1].Value.ToString();
+                txtMatKhau.Text = dgvTaiKhoan.Rows[index].Cells[2].Value.ToString();
+                if (txtID.Text == "1")
+                    cbQuyen.Text = "Quản lý";
+                else
+                    cbQuyen.Text = "Nhân Viên";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi chọn dữ liệu từ bảng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -95,9 +100,9 @@ namespace QLKFC
                 HienThi();
                 XoaTrang();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi thêm dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

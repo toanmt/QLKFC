@@ -200,6 +200,7 @@ namespace QLKFC
         {
             try
             {
+                dgvNhanVien.Rows.Clear();
                 var query = from nv in db.NhanViens
                             select new
                             {
@@ -211,34 +212,17 @@ namespace QLKFC
                                 nv.SoDienThoai,
                                 nv.Email,
                                 nv.NgayBatDau,
-                                nv.MaCvNavigation.TenCv
+                                cv = nv.MaCvNavigation.TenCv
                             };
-                dgvNhanVien.DataSource = query.ToList();
+                foreach (var item in query)
+                {
+                    dgvNhanVien.Rows.Add(item.SoCmt, item.TenNv, item.GioiTinh, item.NgaySinh, item.DiaChi, item.SoDienThoai, item.Email, item.NgayBatDau, item.cv);
+                }
             }
             catch(Exception)
             {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            dgvNhanVien.Columns[0].HeaderText = "Số CMND";
-            dgvNhanVien.Columns[1].HeaderText = "Tên Nhân Viên";
-            dgvNhanVien.Columns[2].HeaderText = "Giới tính";
-            dgvNhanVien.Columns[3].HeaderText = "Ngày sinh";
-            dgvNhanVien.Columns[4].HeaderText = "Địa chỉ";
-            dgvNhanVien.Columns[5].HeaderText = "SĐT";
-            dgvNhanVien.Columns[6].HeaderText = "Email";
-            dgvNhanVien.Columns[7].HeaderText = "Ngày bắt đầu";
-            dgvNhanVien.Columns[8].HeaderText = "Chức vụ";
-
-            dgvNhanVien.Columns[0].Width = 100;
-            dgvNhanVien.Columns[1].Width = 150;
-            dgvNhanVien.Columns[2].Width = 50;
-            dgvNhanVien.Columns[3].Width = 100;
-            dgvNhanVien.Columns[4].Width = 100;
-            dgvNhanVien.Columns[5].Width = 100;
-            dgvNhanVien.Columns[6].Width = 300;
-            dgvNhanVien.Columns[7].Width = 100;
-            dgvNhanVien.Columns[8].Width = 100;
-
         }
 
         public void ChonChucVu()
@@ -252,7 +236,7 @@ namespace QLKFC
             }
             catch(Exception)
             {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -277,20 +261,27 @@ namespace QLKFC
 
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            txtCMND.Text = dgvNhanVien.Rows[index].Cells[0].Value.ToString();
-            txtTenNV.Text = dgvNhanVien.Rows[index].Cells[1].Value.ToString();
-            string gt = dgvNhanVien.Rows[index].Cells[2].Value.ToString();
-            if (gt == "Nam")
-                radNam.Checked = true;
-            if (gt == "Nữ")
-                radNu.Checked = true;
-            txtNgaySinh.Text = dgvNhanVien.Rows[index].Cells[3].Value.ToString();
-            txtDiaChi.Text = dgvNhanVien.Rows[index].Cells[4].Value.ToString();
-            txtSDT.Text = dgvNhanVien.Rows[index].Cells[5].Value.ToString();
-            txtEmail.Text = dgvNhanVien.Rows[index].Cells[6].Value.ToString();
-            txtNgayBD.Text = dgvNhanVien.Rows[index].Cells[7].Value.ToString();
-            cbChucVu.Text = dgvNhanVien.Rows[index].Cells[8].Value.ToString();
+            try
+            {
+                int index = e.RowIndex;
+                txtCMND.Text = dgvNhanVien.Rows[index].Cells[0].Value.ToString();
+                txtTenNV.Text = dgvNhanVien.Rows[index].Cells[1].Value.ToString();
+                string gt = dgvNhanVien.Rows[index].Cells[2].Value.ToString();
+                if (gt == "Nam")
+                    radNam.Checked = true;
+                if (gt == "Nữ")
+                    radNu.Checked = true;
+                txtNgaySinh.Text = dgvNhanVien.Rows[index].Cells[3].Value.ToString();
+                txtDiaChi.Text = dgvNhanVien.Rows[index].Cells[4].Value.ToString();
+                txtSDT.Text = dgvNhanVien.Rows[index].Cells[5].Value.ToString();
+                txtEmail.Text = dgvNhanVien.Rows[index].Cells[6].Value.ToString();
+                txtNgayBD.Text = dgvNhanVien.Rows[index].Cells[7].Value.ToString();
+                cbChucVu.Text = dgvNhanVien.Rows[index].Cells[8].Value.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi chọn thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
 
@@ -336,9 +327,9 @@ namespace QLKFC
 
                 MessageBox.Show("Thêm thành công!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi thêm nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -375,9 +366,9 @@ namespace QLKFC
 
                 MessageBox.Show("Sửa thành công!", "Sửa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi sửa thông tin nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -399,9 +390,9 @@ namespace QLKFC
                     XoaTrang();
                 }    
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi xóa nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -437,9 +428,9 @@ namespace QLKFC
                 }
                 MessageBox.Show("Thành công!");
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi xuất file Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -449,6 +440,7 @@ namespace QLKFC
             {
                 if (txtTim.Text == "")
                     throw new Exception("Bạn hãy nhập Số CMND của nhân viên cần tìm");
+                dgvNhanVien.Rows.Clear();
                 var query1 = from nv in db.NhanViens
                              where nv.SoCmt == txtTim.Text
                              select new
@@ -461,13 +453,16 @@ namespace QLKFC
                                  nv.SoDienThoai,
                                  nv.Email,
                                  nv.NgayBatDau,
-                                 nv.MaCvNavigation.TenCv
+                                 cv = nv.MaCvNavigation.TenCv
                              };
-                dgvNhanVien.DataSource = query1.ToList();
+                foreach (var item in query1)
+                {
+                    dgvNhanVien.Rows.Add(item.SoCmt, item.TenNv, item.GioiTinh, item.NgaySinh, item.DiaChi, item.SoDienThoai, item.Email, item.NgayBatDau, item.cv);
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi tìm nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion

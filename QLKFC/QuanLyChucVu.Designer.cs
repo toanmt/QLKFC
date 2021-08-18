@@ -31,12 +31,16 @@ namespace QLKFC
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyChucVu));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvChucVu = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnHienThi = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
@@ -116,6 +120,7 @@ namespace QLKFC
             this.panel2.Controls.Add(this.btnHienThi);
             this.panel2.Controls.Add(this.btnTim);
             this.panel2.Controls.Add(this.txtTim);
+            this.panel2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panel2.Location = new System.Drawing.Point(0, 63);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(814, 247);
@@ -123,14 +128,53 @@ namespace QLKFC
             // 
             // dgvChucVu
             // 
-            this.dgvChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dgvChucVu.AllowUserToAddRows = false;
+            this.dgvChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvChucVu.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvChucVu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChucVu.Location = new System.Drawing.Point(8, 41);
+            this.dgvChucVu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dgvChucVu.EnableHeadersVisualStyles = false;
+            this.dgvChucVu.Location = new System.Drawing.Point(0, 39);
+            this.dgvChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvChucVu.Name = "dgvChucVu";
+            this.dgvChucVu.RowHeadersVisible = false;
+            this.dgvChucVu.RowHeadersWidth = 50;
             this.dgvChucVu.RowTemplate.Height = 25;
-            this.dgvChucVu.Size = new System.Drawing.Size(801, 201);
+            this.dgvChucVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvChucVu.Size = new System.Drawing.Size(811, 200);
             this.dgvChucVu.TabIndex = 14;
+            this.dgvChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChucVu_CellClick_1);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã chức vụ";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 200;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Tên chức vụ";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Quyền tài khoản";
+            this.Column3.Name = "Column3";
             // 
             // btnHienThi
             // 
@@ -140,6 +184,7 @@ namespace QLKFC
             this.btnHienThi.Size = new System.Drawing.Size(39, 34);
             this.btnHienThi.TabIndex = 13;
             this.btnHienThi.UseVisualStyleBackColor = true;
+            this.btnHienThi.Click += new System.EventHandler(this.btnHienThi_Click);
             // 
             // btnTim
             // 
@@ -157,7 +202,7 @@ namespace QLKFC
             this.txtTim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTim.Location = new System.Drawing.Point(572, 8);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(163, 23);
+            this.txtTim.Size = new System.Drawing.Size(163, 26);
             this.txtTim.TabIndex = 11;
             // 
             // errorProvider1
@@ -177,6 +222,7 @@ namespace QLKFC
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panel4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel4.Location = new System.Drawing.Point(0, 307);
             this.panel4.Name = "panel4";
@@ -192,7 +238,7 @@ namespace QLKFC
             "Nhân Viên"});
             this.cbQuyen.Location = new System.Drawing.Point(228, 133);
             this.cbQuyen.Name = "cbQuyen";
-            this.cbQuyen.Size = new System.Drawing.Size(171, 23);
+            this.cbQuyen.Size = new System.Drawing.Size(171, 27);
             this.cbQuyen.TabIndex = 17;
             // 
             // label4
@@ -200,9 +246,9 @@ namespace QLKFC
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(78, 141);
+            this.label4.Location = new System.Drawing.Point(55, 141);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 15);
+            this.label4.Size = new System.Drawing.Size(153, 19);
             this.label4.TabIndex = 16;
             this.label4.Text = "Quyền tài khoản:";
             // 
@@ -217,6 +263,7 @@ namespace QLKFC
             this.btnXoa.TabIndex = 14;
             this.btnXoa.Text = "Xóa chức vụ";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click_1);
             // 
             // btnSua
             // 
@@ -229,6 +276,7 @@ namespace QLKFC
             this.btnSua.TabIndex = 13;
             this.btnSua.Text = "Sửa chức vụ";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click_1);
             // 
             // btnThem
             // 
@@ -241,13 +289,14 @@ namespace QLKFC
             this.btnThem.TabIndex = 12;
             this.btnThem.Text = "Thêm chức vụ mới";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // txtTenCV
             // 
             this.txtTenCV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtTenCV.Location = new System.Drawing.Point(228, 84);
             this.txtTenCV.Name = "txtTenCV";
-            this.txtTenCV.Size = new System.Drawing.Size(171, 23);
+            this.txtTenCV.Size = new System.Drawing.Size(171, 26);
             this.txtTenCV.TabIndex = 11;
             // 
             // txtMaCV
@@ -256,7 +305,7 @@ namespace QLKFC
             this.txtMaCV.Enabled = false;
             this.txtMaCV.Location = new System.Drawing.Point(228, 33);
             this.txtMaCV.Name = "txtMaCV";
-            this.txtMaCV.Size = new System.Drawing.Size(171, 23);
+            this.txtMaCV.Size = new System.Drawing.Size(171, 26);
             this.txtMaCV.TabIndex = 10;
             // 
             // label3
@@ -264,9 +313,9 @@ namespace QLKFC
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(99, 87);
+            this.label3.Location = new System.Drawing.Point(91, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 15);
+            this.label3.Size = new System.Drawing.Size(117, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "Tên Chức Vụ:";
             // 
@@ -277,7 +326,7 @@ namespace QLKFC
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(100, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 15);
+            this.label2.Size = new System.Drawing.Size(108, 19);
             this.label2.TabIndex = 8;
             this.label2.Text = "Mã Chức Vụ:";
             // 
@@ -329,5 +378,8 @@ namespace QLKFC
         private System.Windows.Forms.TextBox txtMaCV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

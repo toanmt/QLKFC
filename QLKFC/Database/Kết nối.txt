@@ -1,1 +1,1 @@
-Scaffold-DbContext "Data Source=.\SQLEXPRESS;Initial Catalog=QLBHKFC;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Scaffold-DbContext "Data Source=.\\SQLEXPRESS;Initial Catalog=QLBHKFC;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
