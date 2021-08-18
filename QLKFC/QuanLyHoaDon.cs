@@ -20,6 +20,7 @@ namespace QLKFC
         int Pagenumber = 1;
         int ItemNumber = 10;
         int check = 0;
+        int checksize = 2;
         public QuanLyHoaDon()
         {
             InitializeComponent();
@@ -217,6 +218,22 @@ namespace QLKFC
             }
         }
 
-        
+
+        private void dgvHDBH_SizeChanged(object sender, EventArgs e)
+        {
+            if (checksize % 2 == 1)
+            {
+                ItemNumber = 20;
+                load(Pagenumber, ItemNumber);
+                checksize++;
+            }
+            else
+            {
+                ItemNumber = 10;
+                load(Pagenumber, ItemNumber);
+                checksize--;
+            } 
+                
+        }
     }
 }
