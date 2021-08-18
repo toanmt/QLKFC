@@ -145,10 +145,11 @@ namespace QLKFC
                         {
                             MessageBox.Show("Chưa tồn tại sản phẩm này chưa không được nhập số lượng âm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                        else if (check == 0)
+                        if (check == 0)
                         {
                             dgvDSOrder.Rows.Add(masp, tensp, dongia, xn.soluong, float.Parse(dongia) * xn.soluong);
                         }
+
                     }
                 }
             }
