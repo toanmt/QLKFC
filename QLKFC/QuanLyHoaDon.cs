@@ -21,6 +21,7 @@ namespace QLKFC
         int ItemNumber = 10;
         int check = 0;
         int checksize = 2;
+        int ItemSkip = 10;
         public QuanLyHoaDon()
         {
             InitializeComponent();
@@ -53,7 +54,7 @@ namespace QLKFC
         #region Phân trang + load dữ liệu
         public void load2(int Pagenumber, int ItemNumber)
         {
-            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * 10).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
+            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * ItemSkip).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
                         where h.NgayThang.Value.Date >= dtpick1.Value && h.NgayThang.Value.Date <= dtpick2.Value
                         select new
                         {
@@ -80,7 +81,7 @@ namespace QLKFC
         public void load(int Pagenumber, int ItemNumber)
         {
 
-            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * 10).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
+            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * ItemSkip).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
                         select new
                         {
                             h.MaHd,
@@ -136,10 +137,10 @@ namespace QLKFC
             else
                 NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date >= dtpick1.Value && x.NgayThang.Value.Date <= dtpick2.Value).Count();
 
-            if (Pagenumber - 1 < NumberItem / 10)
+            if (Pagenumber - 1 < NumberItem / ItemSkip)
             {
                 if (NumberItem % 10 == 0)
-                    Pagenumber = NumberItem / 10;
+                    Pagenumber = NumberItem / ItemSkip;
                 else { 
                     Pagenumber++;
                 if (check == 0)
@@ -156,17 +157,17 @@ namespace QLKFC
             if (check == 0)
             {
                 int NumberItem = db.HoaDons.Count();
-                if (NumberItem % 10 != 0)
-                    Pagenumber = NumberItem / 10 + 1;
-                else Pagenumber = NumberItem / 10;
+                if (NumberItem % ItemSkip != 0)
+                    Pagenumber = NumberItem / ItemSkip + 1;
+                else Pagenumber = NumberItem / ItemSkip;
                 load(Pagenumber, ItemNumber);
             }
             else
             {
                 int NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date >= dtpick1.Value && x.NgayThang.Value.Date <= dtpick2.Value).Count();
-                if (NumberItem % 10 == 1)
-                    Pagenumber = NumberItem / 10 + 1;
-                else Pagenumber = NumberItem / 10;
+                if (NumberItem % ItemSkip == 1)
+                    Pagenumber = NumberItem / ItemSkip + 1;
+                else Pagenumber = NumberItem / ItemSkip;
                 if (Pagenumber == 0)
                     Pagenumber = 1;
                 load2(Pagenumber, ItemNumber);
@@ -224,12 +225,14 @@ namespace QLKFC
             if (checksize % 2 == 1)
             {
                 ItemNumber = 20;
+                ItemSkip = 20;
                 load(Pagenumber, ItemNumber);
                 checksize++;
             }
             else
             {
                 ItemNumber = 10;
+                ItemSkip = 10;
                 load(Pagenumber, ItemNumber);
                 checksize--;
             } 
