@@ -113,10 +113,15 @@ CONSTRAINT fk_K_SP FOREIGN KEY (MaNL) REFERENCES NguyenLieu(MaNL)
 -------------------Nguyên Liệu-----------------------
 SET IDENTITY_INSERT [dbo].[NguyenLieu] ON 
 INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (1, N'Bột Mỳ', 10000)
-INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (2, N'Cánh Gà', 50000)
+INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (2, N'Cánh Gà', 60000)
 INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (3 , N'Gạo', 30000)
 INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (4 , N'Chân Gà', 40000)
 INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (5 , N'Lườn gà', 70000)
+INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (6 , N'Dasani', 2500)
+INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (7 , N'Cocacola', 5000)
+INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (8 , N'Ức gà', 56000)
+INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (9 , N'Xà lách', 49000)
+INSERT [dbo].[NguyenLieu] ([MaNL], [TenNL], [DonGia]) VALUES (10 , N'Cà chua', 19000)
 SET IDENTITY_INSERT [dbo].[NguyenLieu] OFF
 
 -------------------Loại Sản Phẩm-----------------------
@@ -193,33 +198,76 @@ INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [TenNV], [GioiTinh], [NgaySinh], [DiaC
 
 -------------------Hóa Đơn-----------------------
 SET IDENTITY_INSERT [dbo].[HoaDon] ON 
-
 INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (1, N'Mai Thế Toàn', N'1', N'1', CAST(N'2021-08-01 00:00:00.000' AS DateTime))
 INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (2, N'Mai Thế Toàn', N'1', N'2', CAST(N'2021-08-02 00:00:00.000' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (3, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:39:07.703' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (4, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:39:29.353' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (5, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:39:45.940' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (6, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:40:00.680' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (7, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:40:10.737' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (8, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:40:22.490' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (9, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:40:32.987' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (10, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:40:47.020' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (11, N'Mai Thế Toàn', N'044', N'1', CAST(N'2021-08-18 15:40:55.450' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (12, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:43:30.217' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (13, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:43:47.780' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (14, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:43:56.133' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (15, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:44:05.830' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (16, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:44:15.640' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (17, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:44:23.883' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (18, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:44:32.050' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (19, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:44:45.137' AS DateTime))
 SET IDENTITY_INSERT [dbo].[HoaDon] OFF
 
 -------------------Hóa Đơn Kho-----------------------
 SET IDENTITY_INSERT [dbo].[HoaDonKho] ON 
-
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (1, CAST(N'2021-08-03 00:00:00.000' AS DateTime), N'Đang Xử Lý')
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (2, CAST(N'2021-07-31 00:00:00.000' AS DateTime), N'Hoàn Thành')
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (3, CAST(N'2021-08-03 00:00:00.000' AS DateTime), N'Đã hủy')
+INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (4, CAST(N'2021-08-18 15:44:54.330' AS DateTime), N'Đang xử lý')
+INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (5, CAST(N'2021-08-18 15:45:11.550' AS DateTime), N'Đã hủy')
+INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (6, CAST(N'2021-08-18 15:45:24.913' AS DateTime), N'Hoàn Thành')
+INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (7, CAST(N'2021-08-18 15:45:34.683' AS DateTime), N'Đang giao hàng')
 SET IDENTITY_INSERT [dbo].[HoaDonKho] OFF
 
 -------------------CTHoa Don-----------------------
 
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (1, 2, 6)
 INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (1, 3, 4)
 INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (1, 4, 8)
-INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (1, 2, 6)
 INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (2, 5, 3)
-INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (2, 10, 3)
 INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (2, 6, 4)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (2, 10, 3)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (3, 1, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (4, 13, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (5, 1, 3)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (6, 2, 4)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (7, 3, 8)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (8, 7, 1212)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (9, 8, 2322323)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (10, 15, 32)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (11, 16, 21)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (12, 2, 32)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (13, 2, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (14, 1, 33)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (15, 18, 221)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (16, 19, 2334234)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (17, 17, 12)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (18, 18, 322)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (19, 17, 43)
 
 -------------------CTHoa Đơn Kho-----------------------
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (1, 3, 4)
 INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (2, 1, 10)
 INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (2, 2, 6)
 INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (2, 5, 8)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (1, 3, 4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (4, 4, 23)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (4, 10, 2)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (5, 2, 6)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (5, 7, 6)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (6, 8, 4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (7, 1, 2)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (7, 6, 23)
 
 
 -------------------Kho-----------------------

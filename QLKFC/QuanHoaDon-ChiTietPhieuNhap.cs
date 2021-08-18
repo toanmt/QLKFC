@@ -21,12 +21,12 @@ namespace QLKFC
         public ChiTietPhieuNhap()
         {
             InitializeComponent();
-            
+
         }
         //Load dữ liệu
         private void ChiTietPhieuNhap_Load(object sender, EventArgs e)
         {
-            load();  
+            load();
         }
         public void load()
         {
@@ -74,7 +74,7 @@ namespace QLKFC
             foreach (var item in query)
             {
                 var tongtien = item.DonGia.Value * item.SoLuong.Value;
-                string[] row = { item.MaNl.ToString(), item.MaNl.ToString(), string.Format("{0:#,##0}",int.Parse(item.DonGia.ToString())), item.SoLuong.ToString(), string.Format("{0:#,##0}", int.Parse(tongtien.ToString())) };
+                string[] row = { item.MaNl.ToString(), item.TenNl.ToString(), string.Format("{0:#,##0}", int.Parse(item.DonGia.ToString())), item.SoLuong.ToString(), string.Format("{0:#,##0}", int.Parse(tongtien.ToString())) };
                 dgvNhapHang.Rows.Add(row);
             }
         }
@@ -82,28 +82,48 @@ namespace QLKFC
         private void btnNhapKho_Click(object sender, EventArgs e)
         {
             int check = (int)this.Tag;
+            int checkNew = 1;
             var query = db.CthoaDonKhos.Where(x => x.MaHdk == check);
             List<CthoaDonKho> listhdk = new List<CthoaDonKho>();
+            List<Kho> listnlMoi = new List<Kho>();
             listhdk = query.ToList();
             var queryKho = db.Khos.Select(x => x);
             foreach (var item in listhdk)
             {
+                checkNew = 1;
                 foreach (var itemKho in queryKho)
                 {
                     if (item.MaNl == itemKho.MaNl)
+                    {
                         itemKho.SoLuong += item.SoLuong;
+                        checkNew = 0;
+                    }
                 }
-            }
+                if (checkNew == 1)
+                {
+                    Kho nl = new Kho();
+                    nl.MaNl = item.MaNl;
+                    nl.SoLuong = item.SoLuong;
+                    listnlMoi.Add(nl);
+                }
 
+            }
+            if (listnlMoi.Count > 0)
+                foreach (var item in listnlMoi)
+                {
+                    db.Khos.Add(item);
+                }
             db.HoaDonKhos.Where(x => x.MaHdk == check).FirstOrDefault().TrangThai = "Hoàn Thành";
-            db.SaveChanges();
-            DialogResult dl = MessageBox.Show("Nhập hàng vào kho","Xác nhận đã giao hàng",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+
+            DialogResult dl = MessageBox.Show("Nhập hàng vào kho", "Xác nhận đã giao hàng", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dl == DialogResult.OK)
             {
                 this.Close();
                 MessageBox.Show("Nhập hàng thành công. Kiểm tra kho hàng của bạn");
                 this.Message = "Change";
+                db.SaveChanges();
             }
+
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -134,8 +154,8 @@ namespace QLKFC
                 MessageBox.Show("Đơn hàng đang được giao. Vui lòng liên hệ bếp trung tâm!");
             else
             {
-                
-                DialogResult dl =  MessageBox.Show("Bạn có muổn hủy đơn hàng hiện tại", "Hủy đơn hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                DialogResult dl = MessageBox.Show("Bạn có muổn hủy đơn hàng hiện tại", "Hủy đơn hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dl == DialogResult.Yes)
                 {
                     var check = db.HoaDonKhos.Where(x => x.MaHdk == Mahdk).SingleOrDefault();
@@ -144,7 +164,7 @@ namespace QLKFC
                     db.SaveChanges();
                     this.Close();
                 }
-            }    
+            }
         }
 
 

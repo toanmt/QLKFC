@@ -137,19 +137,25 @@ namespace QLKFC
         //Sửa 1 dòng
         private void btnSua_Click(object sender, EventArgs e)
         {
-            var query = (from s in db.NguyenLieus
-                         where s.TenNl == cbNguyenLieu.Text
-                         select s).SingleOrDefault();
-            for (int i = 0; i < dgvNhapHang.Rows.Count - 1; i++)
-                if (query.MaNl.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
-                {
-                    int SLCu = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                    int SLMoi = int.Parse(txtSoLuong.Text);
-
-                    dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
-                    dgvNhapHang.Rows[i].Cells[4].Value = string.Format("{0:#,##0}", SLMoi * query.DonGia);
-                    return;
-                }
+            try
+            {
+                var query = (from s in db.NguyenLieus
+                             where s.TenNl == cbNguyenLieu.Text
+                             select s).SingleOrDefault();
+                for (int i = 0; i < dgvNhapHang.Rows.Count - 1; i++)
+                    if (query.MaNl.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
+                    {
+                        int SLCu = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
+                        int SLMoi = int.Parse(txtSoLuong.Text);
+                        dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
+                        dgvNhapHang.Rows[i].Cells[4].Value = string.Format("{0:#,##0}", SLMoi * query.DonGia);
+                        return;
+                    }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }

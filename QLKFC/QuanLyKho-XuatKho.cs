@@ -71,13 +71,17 @@ namespace QLKFC
                     if (query.MaNl.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
                     {
                         int SLCu = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                        int SLMoi = int.Parse(txtSoLuong.Text);
+                        if (SLCu == int.Parse(txtSoLuongTon.Text))
+                            throw new Exception("Số lượng thêm vào đã đạt tối đa. Không thể thêm nữa!!!");
+                            int SLMoi = int.Parse(txtSoLuong.Text);
                         if ((SLCu + SLMoi) <= int.Parse(txtSoLuongTon.Text))
                         {
+                            
                             dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", (SLCu + SLMoi));
                         }
                         else
                             throw new Exception("Không thể xuất nhiều hơn số lượng trong kho !!!");
+                        
                         return;
                     }
                 string[] row = { query.MaNl.ToString(), cbNguyenLieu.Text, string.Format("{0:#,##0}", int.Parse(txtdongia.Text)), txtSoLuong.Text };
@@ -121,10 +125,12 @@ namespace QLKFC
             for (int i = 0; i < dgvNhapHang.Rows.Count - 1; i++)
                 if (query.MaNl.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
                 {
-                    int SLCu = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
+                    int SLCu = int.Parse(txtSoLuongTon.Text);
                     int SLMoi = int.Parse(txtSoLuong.Text);
-
-                    dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
+                    if (SLMoi <= SLCu)
+                        dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
+                    else
+                        MessageBox.Show("Số lượng không đủ để cập nhập!!!");
                     return;
                 }
         }

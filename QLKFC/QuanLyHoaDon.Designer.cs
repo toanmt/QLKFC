@@ -187,7 +187,7 @@ namespace QLKFC
             // btnDau
             // 
             this.btnDau.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDau.Location = new System.Drawing.Point(178, 446);
+            this.btnDau.Location = new System.Drawing.Point(163, 428);
             this.btnDau.Name = "btnDau";
             this.btnDau.Size = new System.Drawing.Size(94, 29);
             this.btnDau.TabIndex = 23;
@@ -198,7 +198,7 @@ namespace QLKFC
             // btncuoi
             // 
             this.btncuoi.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btncuoi.Location = new System.Drawing.Point(657, 446);
+            this.btncuoi.Location = new System.Drawing.Point(642, 428);
             this.btncuoi.Name = "btncuoi";
             this.btncuoi.Size = new System.Drawing.Size(94, 29);
             this.btncuoi.TabIndex = 24;
@@ -209,7 +209,7 @@ namespace QLKFC
             // btnTrangsau
             // 
             this.btnTrangsau.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrangsau.Location = new System.Drawing.Point(533, 446);
+            this.btnTrangsau.Location = new System.Drawing.Point(518, 428);
             this.btnTrangsau.Name = "btnTrangsau";
             this.btnTrangsau.Size = new System.Drawing.Size(94, 29);
             this.btnTrangsau.TabIndex = 26;
@@ -220,7 +220,7 @@ namespace QLKFC
             // btnTrangtrc
             // 
             this.btnTrangtrc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrangtrc.Location = new System.Drawing.Point(291, 446);
+            this.btnTrangtrc.Location = new System.Drawing.Point(276, 428);
             this.btnTrangtrc.Name = "btnTrangtrc";
             this.btnTrangtrc.Size = new System.Drawing.Size(94, 29);
             this.btnTrangtrc.TabIndex = 27;
@@ -231,7 +231,7 @@ namespace QLKFC
             // btnTrangHienTai
             // 
             this.btnTrangHienTai.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrangHienTai.Location = new System.Drawing.Point(436, 446);
+            this.btnTrangHienTai.Location = new System.Drawing.Point(421, 428);
             this.btnTrangHienTai.Name = "btnTrangHienTai";
             this.btnTrangHienTai.Size = new System.Drawing.Size(58, 29);
             this.btnTrangHienTai.TabIndex = 28;
@@ -286,7 +286,7 @@ namespace QLKFC
             this.dgvHDBH.RowHeadersWidth = 51;
             this.dgvHDBH.RowTemplate.Height = 29;
             this.dgvHDBH.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvHDBH.Size = new System.Drawing.Size(866, 319);
+            this.dgvHDBH.Size = new System.Drawing.Size(866, 273);
             this.dgvHDBH.TabIndex = 0;
             this.dgvHDBH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDBH_CellClick);
             // 
