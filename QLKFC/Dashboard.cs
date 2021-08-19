@@ -23,6 +23,10 @@ namespace QLKFC
             InitializeComponent();
             hideSubMenu();
             this.Quyen = Quyen;
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
             if (!Quyen)
             {
                 btnSanPham.Visible = false;
@@ -159,7 +163,7 @@ namespace QLKFC
 
         private void btnQLThucDon_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLyThucDon());
+            openForm(new QuanLySanPham());
             hideSubMenu();
         }
 
@@ -222,28 +226,15 @@ namespace QLKFC
 
         private void btnKhoHang_Click(object sender, EventArgs e)
         {
-            if (Quyen)
-            {
-                openForm(new QuanLyKho());
-                hideSubMenu();
-            }
-            else
-            {
-                MessageBox.Show("Bạn không có quyền vào chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            openForm(new QuanLyKho());
+            hideSubMenu();
+
         }
 
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
-            if (Quyen)
-            {
-                hideSubMenu();
-                openForm(new QuanLyNhap());
-            }
-            else
-            {
-                MessageBox.Show("Bạn không có quyền vào chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            hideSubMenu();
+            openForm(new QuanLyNhap());
         }
 
         #endregion

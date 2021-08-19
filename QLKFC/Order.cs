@@ -17,6 +17,7 @@ namespace QLKFC
         QLBHKFCContext db = new QLBHKFCContext();
         string Pos, Storeid, Tennv;
         int maHD;
+
         public Order()
         {
             InitializeComponent();
@@ -47,15 +48,15 @@ namespace QLKFC
                             sp.MaSp,
                             sp.TenSp,
                             sp.DonGia,
-                            sp.Loai,
+                            sp.DonVi,
                             sp.HinhAnh
                         };
             foreach (var item in query)
             {
                 if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai, new Bitmap(pathImage() + item.HinhAnh));
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
                 else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai);
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi);
             }
             dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
         }
@@ -71,15 +72,15 @@ namespace QLKFC
                             sp.MaSp,
                             sp.TenSp,
                             sp.DonGia,
-                            sp.Loai,
+                            sp.DonVi,
                             sp.HinhAnh
                         };
             foreach (var item in query)
             {
                 if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai, new Bitmap(pathImage() + item.HinhAnh));
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
                 else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai);
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi);
             }
             dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
         }
@@ -127,24 +128,13 @@ namespace QLKFC
                                 if (rowss.Cells[1].Value.ToString() == tensp
                                     && rowss.Cells[2].Value.ToString() == dongia)
                                 {
-                                    int sl = xn.soluong + int.Parse(rowss.Cells[3].Value.ToString());
-                                    if (sl < 1)
-                                    {
-                                        dgvDSOrder.Rows.RemoveAt(i);
-                                    }
-                                    else
-                                    {
-                                        rowss.Cells[3].Value = sl;
-                                        rowss.Cells[4].Value = sl * float.Parse(dongia);
-                                    }
+                                    rowss.Cells[3].Value = xn.soluong + int.Parse(rowss.Cells[3].Value.ToString());
+                                    rowss.Cells[4].Value = int.Parse(rowss.Cells[3].Value.ToString()) * double.Parse(dongia);
                                     check++;
                                 }
                             }
                         }
-                        else if (xn.soluong < 0)
-                        {
-                            MessageBox.Show("Chưa tồn tại sản phẩm này chưa không được nhập số lượng âm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+
                         if (check == 0)
                         {
                             dgvDSOrder.Rows.Add(masp, tensp, dongia, xn.soluong, float.Parse(dongia) * xn.soluong);
@@ -195,15 +185,15 @@ namespace QLKFC
                             sp.MaSp,
                             sp.TenSp,
                             sp.DonGia,
-                            sp.Loai,
+                            sp.DonVi,
                             sp.HinhAnh
                         };
             foreach (var item in query)
             {
                 if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai, new Bitmap(pathImage() + item.HinhAnh));
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
                 else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.Loai);
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi);
             }
             dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
         }

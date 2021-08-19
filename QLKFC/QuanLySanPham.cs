@@ -12,9 +12,9 @@ using QLKFC.Models;
 
 namespace QLKFC
 {
-    public partial class QuanLyThucDon : Form
+    public partial class QuanLySanPham : Form
     {
-        public QuanLyThucDon()
+        public QuanLySanPham()
         {
             InitializeComponent();
             loadCmb();
@@ -70,15 +70,15 @@ namespace QLKFC
                             sp.TenSp,
                             sp.DonGia,
                             lsp.TenLsp,
-                            sp.Loai,
+                            sp.DonVi,
                             sp.HinhAnh
                         };
             foreach (var item in query)
             {
                 if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
                 else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia);
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
             }
             dgv_DSSP.Columns["DonGia"].DefaultCellStyle.Format = "N0";
         }
@@ -195,7 +195,7 @@ namespace QLKFC
                 var sp = db.SanPhams.SingleOrDefault(sp => sp.MaSp == int.Parse(dgv_DSSP.Rows[e.RowIndex].Cells[0].Value.ToString()));
                 txtMaMon.Text = sp.MaSp + "";
                 txtGiaBan.Text = sp.DonGia + "";
-                txtLoai.Text = sp.Loai;
+                txtLoai.Text = sp.DonVi;
                 txtMoTa.Text = sp.Mota;
                 txtTenMon.Text = sp.TenSp;
                 cmbLoai.Text = db.LoaiSanPhams.SingleOrDefault(s => s.MaLsp.Equals(sp.MaLsp)).TenLsp;
@@ -237,7 +237,7 @@ namespace QLKFC
         private void btnThem_Click(object sender, EventArgs e)
         {
             var spt = db.SanPhams.SingleOrDefault(lsp => lsp.TenSp == txtTenMon.Text);
-            if (spt == null || (spt != null && spt.Loai != txtLoai.Text))
+            if (spt == null || (spt != null && spt.DonVi != txtLoai.Text))
             {
                 if (checkLoiNhapLieu())
                 {
@@ -253,7 +253,7 @@ namespace QLKFC
                     else
                     {
                         sp.DonGia = int.Parse(txtGiaBan.Text);
-                        sp.Loai = txtLoai.Text;
+                        sp.DonVi = txtLoai.Text;
                         sp.Mota = txtMoTa.Text;
                         if (iname != null)
                         {
@@ -303,7 +303,7 @@ namespace QLKFC
                     else
                     {
                         spSua.DonGia = int.Parse(txtGiaBan.Text);
-                        spSua.Loai = txtLoai.Text;
+                        spSua.DonVi = txtLoai.Text;
                         spSua.Mota = txtMoTa.Text;
                         if (iname != null)
                         {
@@ -356,15 +356,15 @@ namespace QLKFC
                                 sp.TenSp,
                                 sp.DonGia,
                                 lsp.TenLsp,
-                                sp.Loai,
+                                sp.DonVi,
                                 sp.HinhAnh
                             };
                 foreach (var item in query)
                 {
                     if (item.HinhAnh != null)
-                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
                     else
-                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia);
+                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
                 }
             }
             catch
@@ -378,15 +378,15 @@ namespace QLKFC
                                 sp.TenSp,
                                 sp.DonGia,
                                 lsp.TenLsp,
-                                sp.Loai,
+                                sp.DonVi,
                                 sp.HinhAnh
                             };
                 foreach (var item in query)
                 {
                     if (item.HinhAnh != null)
-                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
                     else
-                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia);
+                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
                 }
             }
         }
@@ -405,15 +405,15 @@ namespace QLKFC
                                 sp.TenSp,
                                 sp.DonGia,
                                 lsp.TenLsp,
-                                sp.Loai,
+                                sp.DonVi,
                                 sp.HinhAnh
                             };
                 foreach (var item in query)
                 {
                     if (item.HinhAnh != null)
-                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
                     else
-                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia);
+                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
                 }
             }
             catch
@@ -427,15 +427,15 @@ namespace QLKFC
                                 sp.TenSp,
                                 sp.DonGia,
                                 lsp.TenLsp,
-                                sp.Loai,
+                                sp.DonVi,
                                 sp.HinhAnh
                             };
                 foreach (var item in query)
                 {
                     if (item.HinhAnh != null)
-                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
                     else
-                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.Loai, item.DonGia);
+                        dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
                 }
             }
         }

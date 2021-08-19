@@ -372,7 +372,6 @@ namespace QLKFC
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.DateTimePicker dtpick2;
         private System.Windows.Forms.DateTimePicker dtpick1;
@@ -384,7 +383,6 @@ namespace QLKFC
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel_header;
-        private System.Windows.Forms.Label lblMaHoaDon;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnHienThi;

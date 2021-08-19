@@ -334,7 +334,7 @@ namespace QLKFC
             this.btnQLThucDon.Name = "btnQLThucDon";
             this.btnQLThucDon.Size = new System.Drawing.Size(255, 44);
             this.btnQLThucDon.TabIndex = 5;
-            this.btnQLThucDon.Text = "Quản lý thực đơn";
+            this.btnQLThucDon.Text = "Quản lý sản phẩm";
             this.btnQLThucDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLThucDon.UseVisualStyleBackColor = true;
             this.btnQLThucDon.Click += new System.EventHandler(this.btnQLThucDon_Click);
@@ -451,6 +451,7 @@ namespace QLKFC
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý KFC";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.SizeChanged += new System.EventHandler(this.Dashboard_SizeChanged);
             this.panel1.ResumeLayout(false);
             this.panel_submenu_Kho.ResumeLayout(false);

@@ -55,6 +55,7 @@ namespace QLKFC
             this.txtSL.Name = "txtSL";
             this.txtSL.Size = new System.Drawing.Size(271, 39);
             this.txtSL.TabIndex = 1;
+            this.txtSL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSL_KeyDown);
             // 
             // btnThem
             // 

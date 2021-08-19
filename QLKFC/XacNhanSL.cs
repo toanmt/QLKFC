@@ -18,14 +18,23 @@ namespace QLKFC
         }
 
         public int soluong { get; set; }
-        private void btnThem_Click(object sender, EventArgs e)
+
+        private void thucThi()
         {
             if (txtSL.Text != "")
             {
                 try
                 {
-                    soluong = int.Parse(txtSL.Text);
-                    this.Close();
+                    if (int.Parse(txtSL.Text) < 1)
+                    {
+                        MessageBox.Show("Không được nhập số lượng âm!");
+                    }
+                    else
+                    {
+                        soluong = int.Parse(txtSL.Text);
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
                 }
                 catch
                 {
@@ -39,9 +48,20 @@ namespace QLKFC
             }
         }
 
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            thucThi();
+        }
+
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtSL_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+                thucThi();
         }
     }
 }
