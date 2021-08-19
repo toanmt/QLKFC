@@ -23,14 +23,14 @@ namespace QLKFC
             InitializeComponent();
             hideSubMenu();
             this.Quyen = Quyen;
-            //if(!Quyen)
-            //{
-            //    btnSanPham.Visible = false;
-            //    btnHoaDon.Visible = false;
-            //    btnNhanVien.Visible = false;
-            //    btnKho.Visible = false;
-            //    btnNhapNL.Visible = false;
-            //}    
+            if (!Quyen)
+            {
+                btnSanPham.Visible = false;
+                btnHoaDon.Visible = false;
+                btnNhanVien.Visible = false;
+                btnKho.Visible = false;
+                btnNhapNL.Visible = false;
+            }
         }
 
         #region Hiển thị chức năng

@@ -91,16 +91,16 @@ namespace QLKFC
                 txtTenMon.Focus();
                 return false;
             }
-            else if (txtGiaBan.Text.Trim() == "")
-            {
-                errorProvider1.SetError(txtGiaBan, "Phải nhập giá bán!");
-                txtGiaBan.Focus();
-                return false;
-            }
             else if (txtLoai.Text.Trim() == "")
             {
                 errorProvider1.SetError(txtLoai, "Phải nhập loại!");
                 txtLoai.Focus();
+                return false;
+            }
+            else if (txtGiaBan.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtGiaBan, "Phải nhập giá bán!");
+                txtGiaBan.Focus();
                 return false;
             }
             else if (cmbLoai.SelectedItem == null)
@@ -244,9 +244,9 @@ namespace QLKFC
                     SanPham sp = new SanPham();
                     sp.TenSp = txtTenMon.Text;
                     sp.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
-                    if (int.Parse(txtGiaBan.Text) < 1)
+                    if (int.Parse(txtGiaBan.Text) < 1000)
                     {
-                        errorProvider1.SetError(txtGiaBan, "Giá bán bải là số dương!");
+                        errorProvider1.SetError(txtGiaBan, "Giá bán phải lớn hơn 1000");
                         txtGiaBan.Focus();
                         txtGiaBan.SelectAll();
                     }
