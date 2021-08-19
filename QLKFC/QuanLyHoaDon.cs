@@ -138,15 +138,17 @@ namespace QLKFC
             {
                 if (NumberItem % Program.SkipItem == 0)
                     Pagenumber = NumberItem / Program.SkipItem;
-                else { 
+                else
+                {
                     Pagenumber++;
+                }
                 if (check == 0)
                     load(Pagenumber, Program.ItemNumber);
                 else
                     load2(Pagenumber, Program.ItemNumber);} 
                     
                 
-            }
+            
         }
 
         private void btncuoi_Click(object sender, EventArgs e)
