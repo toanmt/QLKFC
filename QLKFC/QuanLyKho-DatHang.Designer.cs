@@ -33,11 +33,6 @@ namespace QLKFC
             this.datatimepick = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuiDi = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,6 +50,11 @@ namespace QLKFC
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnSua = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,45 +99,13 @@ namespace QLKFC
             this.Column7,
             this.Column9});
             this.dgvNhapHang.Location = new System.Drawing.Point(12, 102);
+            this.dgvNhapHang.MultiSelect = false;
             this.dgvNhapHang.Name = "dgvNhapHang";
             this.dgvNhapHang.RowHeadersWidth = 51;
             this.dgvNhapHang.RowTemplate.Height = 29;
             this.dgvNhapHang.Size = new System.Drawing.Size(767, 234);
             this.dgvNhapHang.TabIndex = 19;
             this.dgvNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapHang_CellClick);
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Mã nguyên liệu";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Tên nguyên liệu";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Đơn giá";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Số lượng";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Tổng tiền";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
             // 
             // btnGuiDi
             // 
@@ -315,6 +283,40 @@ namespace QLKFC
             this.label2.TabIndex = 35;
             this.label2.Text = "Ngày đặt :";
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Mã nguyên liệu";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Tên nguyên liệu";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Đơn giá";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Số lượng";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Tổng tiền";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
             // NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -370,11 +372,11 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Label label2;
     }
 }

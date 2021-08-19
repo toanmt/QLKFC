@@ -106,9 +106,12 @@ namespace QLKFC
             try
             {
                 int index = e.RowIndex;
-                txtMaNL.Text = dgvNguyenLieu.Rows[index].Cells[0].Value.ToString();
-                txtTenNL.Text = dgvNguyenLieu.Rows[index].Cells[1].Value.ToString();
-                txtDonGia.Text = dgvNguyenLieu.Rows[index].Cells[2].Value.ToString();
+                if (index > -1)
+                {
+                    txtMaNL.Text = dgvNguyenLieu.Rows[index].Cells[0].Value.ToString();
+                    txtTenNL.Text = dgvNguyenLieu.Rows[index].Cells[1].Value.ToString();
+                    txtDonGia.Text = dgvNguyenLieu.Rows[index].Cells[2].Value.ToString();
+                }
             }
             catch (Exception)
             {
