@@ -92,10 +92,11 @@ namespace QLKFC
                 tk.TaiKhoan1 = txtTaiKhoan.Text;
                 tk.MatKhau = txtMatKhau.Text;
                 if (cbQuyen.Text == "Quản lý")
-                    tk.Quyen = true;
+                    tk.Quyen = 1;
+                else if (cbQuyen.Text == "Đầu Bếp")
+                    tk.Quyen = 3;
                 else
-                    tk.Quyen = false;
-
+                    tk.Quyen = 2;
                 db.SaveChanges();
                 HienThi();
                 XoaTrang();

@@ -12,13 +12,13 @@ namespace QLKFC
 {
     public partial class Dashboard : Form
     {
-        bool Quyen;
+        int Quyen;
         public Dashboard()
         {
             InitializeComponent();
             hideSubMenu();
         }
-        public Dashboard(bool Quyen)
+        public Dashboard(int Quyen)
         {
             InitializeComponent();
             hideSubMenu();
@@ -27,13 +27,20 @@ namespace QLKFC
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            if (!Quyen)
+            if (Quyen == 2)
+            {
+                btnSanPham.Visible = false;
+                btnNhanVien.Visible = false;
+                btnKho.Visible = false;
+                btnNhapNL.Visible = false;
+            }
+            else if (Quyen == 3)
             {
                 btnSanPham.Visible = false;
                 btnHoaDon.Visible = false;
                 btnNhanVien.Visible = false;
-                btnKho.Visible = false;
                 btnNhapNL.Visible = false;
+                btnOrder.Visible = false;
             }
         }
 
@@ -80,51 +87,22 @@ namespace QLKFC
         #region Hiển thị menu con
         private void btnSanPham_Click(object sender, EventArgs e)
         {
-
-            if (Quyen)
-            {
-                showSubMenu(panel_submenu_SP);
-            }
-            else
-            {
-                MessageBox.Show("Bạn không có quyền vào chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            showSubMenu(panel_submenu_SP);
         }
 
         private void btnKho_Click(object sender, EventArgs e)
         {
-            if (Quyen)
-            {
-                showSubMenu(panel_submenu_Kho);
-            }
-            else
-            {
-                MessageBox.Show("Bạn không có quyền vào chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            showSubMenu(panel_submenu_Kho);
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            if (Quyen)
-            {
-                showSubMenu(panel_submenu_NS);
-            }
-            else
-            {
-                MessageBox.Show("Bạn không có quyền vào chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            showSubMenu(panel_submenu_NS);
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            if (Quyen)
-            {
-                showSubMenu(panel_submenu_HD);
-            }
-            else
-            {
-                MessageBox.Show("Bạn không có quyền vào chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            showSubMenu(panel_submenu_HD);
         }
         #endregion
 
@@ -214,14 +192,7 @@ namespace QLKFC
         private void btnNhapNL_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            if (Quyen)
-            {
-                openForm(new NhapNguyenLieu());
-            }
-            else
-            {
-                MessageBox.Show("Bạn không có quyền vào chức năng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            openForm(new NhapNguyenLieu());
         }
 
         private void btnKhoHang_Click(object sender, EventArgs e)

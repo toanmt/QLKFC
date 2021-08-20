@@ -14,9 +14,7 @@ namespace QLKFC.Models
 
         public int MaCv { get; set; }
         public string TenCv { get; set; }
-        public int? Id { get; set; }
 
-        public virtual TaiKhoan IdNavigation { get; set; }
         public virtual ICollection<NhanVien> NhanViens { get; set; }
     }
 }

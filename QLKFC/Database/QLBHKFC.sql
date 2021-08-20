@@ -26,7 +26,7 @@ CREATE TABLE SanPham
 MaSP int IDENTITY(1,1) Primary key,
 MaLSP int,
 TenSP nvarchar(100),
-DonVi nvarchar(20),
+Loai nvarchar(20),
 DonGia float,
 Mota nvarchar(200),
 HinhAnh nvarchar(150),
@@ -57,21 +57,20 @@ CREATE TABLE TaiKhoan
 ID INT IDENTITY(1,1) PRIMARY KEY,
 TaiKhoan varchar(20),
 MatKhau varchar(20),
-Quyen BIT
+Quyen int
 )
 GO
 CREATE TABLE ChucVu
 (
 MaCV int IDENTITY(1,1) primary key,
 TenCV nvarchar(20),
-ID int,
-FOREIGN KEY (ID) REFERENCES TaiKhoan(ID)
 )
 GO
 Create TABLE NhanVien
 (
 SoCMT char(12) primary key,
 MaCV int,
+ID int,
 TenNV nvarchar(20),
 GioiTinh nvarchar(10),
 NgaySinh DateTime,
@@ -79,6 +78,8 @@ DiaChi nvarchar(200),
 SoDienThoai char(10),
 Email varchar(50),
 NgayBatDau datetime,
+HinhAnh nvarchar(150),
+FOREIGN KEY (ID) REFERENCES TaiKhoan(ID),
 CONSTRAINT fk_CV_NV FOREIGN KEY (MaCV) REFERENCES ChucVu(MaCV)
 )
 GO
@@ -135,40 +136,40 @@ SET IDENTITY_INSERT [dbo].[LoaiSanPham] OFF
 -------------------Sản Phẩm-----------------------
 SET IDENTITY_INSERT [dbo].[SanPham] ON 
 
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (1, 1, N'Gà rán(1 Miếng)', N'Miếng', 36000, N'1  Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay / 1 Miếng Gà Truyền Thống', N'Gà rán.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (2, 1, N'Cơm Gà Truyền Thống', N'Phần', 41000, N'Cơm Gà Truyền Thống (1 Phần)', N'Cơm gà truyền thống.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (3, 1, N'Cơm Gà Giòn Cay ', N'Phần', 41000, N'Cơm Gà Giòn Cay (1 Phần)', N'Cơm gà giòn cay.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (4, 1, N'Popcorn ', N'Vừa', 57000, N'', N'popcorn vừa.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (5, 1, N'Popcorn ', N'Lớn', 57000, N'', N'popcorn lớn.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (6, 1, N'Khoai Tây Chiên', N'Vừa', 14000, N'', N'khoai tây chiên(vừa).jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (7, 1, N'Khoai Tây Chiên', N'Lớn', 27000, N'', N'Khoai tây chiên Lớn.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (8, 2, N'Pepsi Lon', N'Lon', 17000, N'', N'pepsi lon.png')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (9, 2, N'Mocktail Ổi Hạt Chia', N'Cốc', 29000, N'', N'Mocktail Ổi Hạt Chia.png')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (10, 2, N'Trà đào', N'Cốc', 24000, N'', N'trà đào.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (11, 3, N'COMBO NHÓM A', N'Combo', 129000, N'2 Miếng Gà Giòn Cay / 2 Miếng Gà Giòn Không Cay / 2 Miếng Gà Truyền thống
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (1, 1, N'Gà rán(1 Miếng)', N'Miếng', 36000, N'1  Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay / 1 Miếng Gà Truyền Thống', N'Gà rán.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (2, 1, N'Cơm Gà Truyền Thống', N'Phần', 41000, N'Cơm Gà Truyền Thống (1 Phần)', N'Cơm gà truyền thống.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (3, 1, N'Cơm Gà Giòn Cay ', N'Phần', 41000, N'Cơm Gà Giòn Cay (1 Phần)', N'Cơm gà giòn cay.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (4, 1, N'Popcorn ', N'Vừa', 57000, N'', N'popcorn vừa.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (5, 1, N'Popcorn ', N'Lớn', 57000, N'', N'popcorn lớn.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (6, 1, N'Khoai Tây Chiên', N'Vừa', 14000, N'', N'khoai tây chiên(vừa).jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (7, 1, N'Khoai Tây Chiên', N'Lớn', 27000, N'', N'Khoai tây chiên Lớn.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (8, 2, N'Pepsi Lon', N'Lon', 17000, N'', N'pepsi lon.png')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (9, 2, N'Mocktail Ổi Hạt Chia', N'Cốc', 29000, N'', N'Mocktail Ổi Hạt Chia.png')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (10, 2, N'Trà đào', N'Cốc', 24000, N'', N'trà đào.jpg')
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (11, 3, N'COMBO NHÓM A', N'Combo', 129000, N'2 Miếng Gà Giòn Cay / 2 Miếng Gà Giòn Không Cay / 2 Miếng Gà Truyền thống
 1 Burger Tôm
 2 Pepsi Lon', N'combo nhóm A.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (12, 3, N'COMBO NHÓM B', N'Combo', 149000, N'3 Miếng Gà Giòn Cay / 3 Miếng Gà Giòn Không Cay / 3 Miếng Gà Truyền Thống
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (12, 3, N'COMBO NHÓM B', N'Combo', 149000, N'3 Miếng Gà Giòn Cay / 3 Miếng Gà Giòn Không Cay / 3 Miếng Gà Truyền Thống
 1 Khoai Tây Chiên (Lớn)
 2 Pepsi Lon', N'combo nhóm B.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (13, 3, N'COMBO GIA ĐÌNH A', N'Combo', 359000, N'8 Miếng Gà Giòn Cay / 8 Miếng Gà Giòn Không Cay / 8 Miếng Gà Truyền Thống
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (13, 3, N'COMBO GIA ĐÌNH A', N'Combo', 359000, N'8 Miếng Gà Giòn Cay / 8 Miếng Gà Giòn Không Cay / 8 Miếng Gà Truyền Thống
 2 Khoai Tây Chiên (Lớn)
 4 Pepsi Lon', N'combo gia đình A.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (14, 3, N'COMBO GÀ RÁN A', N'Combo', 79000, N'2 Miếng Gà Giòn Cay / 2 Miếng Gà Giòn Không Cay
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (14, 3, N'COMBO GÀ RÁN A', N'Combo', 79000, N'2 Miếng Gà Giòn Cay / 2 Miếng Gà Giòn Không Cay
 1 Pepsi Lon', N'Combo gà rán A.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (15, 3, N'COMBO GÀ RÁN B', N'Combo', 79000, N'1 Phần Hot Wings 3 Miếng
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (15, 3, N'COMBO GÀ RÁN B', N'Combo', 79000, N'1 Phần Hot Wings 3 Miếng
 1 Khoai Tây Chiên (Lớn)
 1 Pepsi Lon', N'Combo gà rán B.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (16, 3, N'COMBO GÀ RÁN C', N'Combo', 85000, N'1 Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (16, 3, N'COMBO GÀ RÁN C', N'Combo', 85000, N'1 Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay
 1 Burger Tôm
 1 Pepsi Lon', N'Combo gà rán C.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (17, 3, N'COMBO GÀ RÁN D', N'Combo', 89000, N'1 Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (17, 3, N'COMBO GÀ RÁN D', N'Combo', 89000, N'1 Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay
 1 Burger Zinger
 1 Pepsi Lon', N'Combo gà rán D.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (18, 3, N'COMBO CƠM B', N'Combo', 89000, N'1 Cơm Gà Giòn Cay / 1 Cơm Gà Giòn Không Cay / 1 Cơm Gà Truyền Thống / 1 Cơm Phi-lê Gà Giòn / 1 Cơm Gà Xiên Que
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (18, 3, N'COMBO CƠM B', N'Combo', 89000, N'1 Cơm Gà Giòn Cay / 1 Cơm Gà Giòn Không Cay / 1 Cơm Gà Truyền Thống / 1 Cơm Phi-lê Gà Giòn / 1 Cơm Gà Xiên Que
 1 Miếng Gà Giòn Cay / 1 Miếng Gà Giòn Không Cay
 1 Pepsi Lon', N'Combo Cơm B.jpg')
-INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [DonVi], [DonGia], [Mota], [HinhAnh]) VALUES (19, 3, N'COMBO CƠM C', N'Combo', 95000, N'1 Cơm Gà Giòn Cay / 1 Cơm Gà Giòn Không Cay / 1 Cơm Gà Truyền Thống / 1 Cơm Phi-lê Gà Giòn / 1 Cơm Gà Xiên Que
+INSERT [dbo].[SanPham] ([MaSP], [MaLSP], [TenSP], [Loai], [DonGia], [Mota], [HinhAnh]) VALUES (19, 3, N'COMBO CƠM C', N'Combo', 95000, N'1 Cơm Gà Giòn Cay / 1 Cơm Gà Giòn Không Cay / 1 Cơm Gà Truyền Thống / 1 Cơm Phi-lê Gà Giòn / 1 Cơm Gà Xiên Que
 1 Burger Zinger
 1 Pepsi Lon', N'Combo Cơm C.jpg')
 
@@ -177,24 +178,26 @@ SET IDENTITY_INSERT [dbo].[SanPham] OFF
 -------------------Tài Khoản-----------------------
 SET IDENTITY_INSERT [dbo].[TaiKhoan] ON 
 
-INSERT [dbo].[TaiKhoan] ([ID], [TaiKhoan], [MatKhau], [Quyen]) VALUES (1, N'admin', N'123', 1)
-INSERT [dbo].[TaiKhoan] ([ID], [TaiKhoan], [MatKhau], [Quyen]) VALUES (2, N'nhanvien', N'123', 0)
+INSERT [dbo].[TaiKhoan] ([ID], [TaiKhoan], [MatKhau], [Quyen]) VALUES (1, N'thang', N'123456', 1)
+INSERT [dbo].[TaiKhoan] ([ID], [TaiKhoan], [MatKhau], [Quyen]) VALUES (2, N'toan', N'123456', 2)
+INSERT [dbo].[TaiKhoan] ([ID], [TaiKhoan], [MatKhau], [Quyen]) VALUES (3, N'manh', N'123456', 3)
 SET IDENTITY_INSERT [dbo].[TaiKhoan] OFF
 
 -------------------Chức Vụ-----------------------
 SET IDENTITY_INSERT [dbo].[ChucVu] ON 
 
-INSERT [dbo].[ChucVu] ([MaCV], [TenCV], [ID]) VALUES (1, N'Quản lý',1)
-INSERT [dbo].[ChucVu] ([MaCV], [TenCV], [ID]) VALUES (2, N'Bán Hàng',2)
-INSERT [dbo].[ChucVu] ([MaCV], [TenCV], [ID]) VALUES (3, N'Phục Vụ',2)
-INSERT [dbo].[ChucVu] ([MaCV], [TenCV], [ID]) VALUES (4, N'Đầu Bếp',2)
+INSERT [dbo].[ChucVu] ([MaCV], [TenCV]) VALUES (1, N'Quản lý')
+INSERT [dbo].[ChucVu] ([MaCV], [TenCV]) VALUES (2, N'Bán Hàng')
+INSERT [dbo].[ChucVu] ([MaCV], [TenCV]) VALUES (3, N'Phục Vụ')
+INSERT [dbo].[ChucVu] ([MaCV], [TenCV]) VALUES (4, N'Đầu Bếp')
 SET IDENTITY_INSERT [dbo].[ChucVu] OFF
 
 
 -------------------Nhân Viên-----------------------
 
-INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau]) VALUES ('001200012423', 1, N'Đỗ Thắng', N'Nam', CAST(N'2000-05-10 00:00:00.000' AS DateTime), N'Vạn Phúc', N'0398299428', N'ddooxthawsng@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime))
-INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau]) VALUES ('001703015435', 1, N'Mai Thế Toàn', N'Nam', CAST(N'2000-06-06 00:00:00.000' AS DateTime), N'Thanh Hóa', N'0932606905', N'maithe.toan2k@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime))
+INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [ID], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau],[HinhAnh]) VALUES ('001200012423', 1,1, N'Đỗ Thắng', N'Nam', CAST(N'2000-05-10 00:00:00.000' AS DateTime), N'Vạn Phúc', N'0398299428', N'ddooxthawsng@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime), null)
+INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [ID], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau],[HinhAnh]) VALUES ('001703015435', 1,2, N'Mai Thế Toàn', N'Nam', CAST(N'2000-06-06 00:00:00.000' AS DateTime), N'Thanh Hóa', N'0932606905', N'maithe.toan2k@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime),null)
+INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [ID], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau],[HinhAnh]) VALUES ('001200012345', 1,3, N'Kim Anh Mạnh', N'Nam', CAST(N'2000-01-01 00:00:00.000' AS DateTime), N'Hà Nội', N'0123456789', N'Manh@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime),null)
 
 -------------------Hóa Đơn-----------------------
 SET IDENTITY_INSERT [dbo].[HoaDon] ON 

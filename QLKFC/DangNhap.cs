@@ -20,29 +20,18 @@ namespace QLKFC
             InitializeComponent();
         }
 
-        public bool Quyen { get; set; }
+        public int Quyen { get; set; }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             TaiKhoan tk = db.TaiKhoans.Where(tk => tk.TaiKhoan1 == txtTaiKhoan.Text && tk.MatKhau == txtMatKhau.Text).FirstOrDefault();
             if(tk != null)
             {
-                if(tk.Quyen == true)
-                {
-                    Quyen = true;
+                    Quyen = tk.Quyen.Value;
                     this.Hide();
                     Dashboard frm = new Dashboard(Quyen);
                     frm.ShowDialog();
                     this.Close();
-                }
-                else
-                {
-                    Quyen = false;
-                    this.Hide();
-                    Dashboard frm = new Dashboard(Quyen);
-                    frm.ShowDialog();
-                    this.Close();
-                }
             }
             else
             {

@@ -30,11 +30,11 @@ namespace QLKFC
                             {
                                cv.MaCv,
                                cv.TenCv,
-                               cv.Id
+                               //cv.Id
                             };
                 foreach (var item in query)
                 {
-                    dgvChucVu.Rows.Add(item.MaCv, item.TenCv, item.Id);
+                    //dgvChucVu.Rows.Add(item.MaCv, item.TenCv, item.Id);
                 }
             }
             catch (Exception)
@@ -92,9 +92,9 @@ namespace QLKFC
                 ChucVu cvMoi = new ChucVu();
                 cvMoi.TenCv = txtTenCV.Text;
                 if (cbQuyen.Text == "Quản lý")
-                    cvMoi.Id = 1;
+                    //cvMoi.Id = 1;
                 if (cbQuyen.Text == "Nhân Viên")
-                    cvMoi.Id = 2;
+                    //cvMoi.Id = 2;
 
                 db.ChucVus.Add(cvMoi);
                 db.SaveChanges();
@@ -119,9 +119,9 @@ namespace QLKFC
                 ChucVu cvSua = db.ChucVus.Where(cv => cv.MaCv == int.Parse(txtMaCV.Text)).FirstOrDefault();
                 cvSua.TenCv = txtTenCV.Text;
                 if (cbQuyen.Text == "Quản lý")
-                    cvSua.Id = 1;
+                    //cvSua.Id = 1;
                 if (cbQuyen.Text == "Nhân Viên")
-                    cvSua.Id = 2;
+                    //cvSua.Id = 2;
 
                 db.SaveChanges();
                 HienThi();
@@ -177,11 +177,11 @@ namespace QLKFC
                              {
                                  cv.MaCv,
                                  cv.TenCv,
-                                 cv.Id
+                                 //cv.Id
                              };
                 foreach (var item in query1)
                 {
-                    dgvChucVu.Rows.Add(item.MaCv, item.TenCv, item.Id);
+                    //dgvChucVu.Rows.Add(item.MaCv, item.TenCv, item.Id);
                 }
             }
             catch (Exception)

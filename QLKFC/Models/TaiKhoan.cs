@@ -9,14 +9,14 @@ namespace QLKFC.Models
     {
         public TaiKhoan()
         {
-            ChucVus = new HashSet<ChucVu>();
+            NhanViens = new HashSet<NhanVien>();
         }
 
         public int Id { get; set; }
         public string TaiKhoan1 { get; set; }
         public string MatKhau { get; set; }
-        public bool? Quyen { get; set; }
+        public int? Quyen { get; set; }
 
-        public virtual ICollection<ChucVu> ChucVus { get; set; }
+        public virtual ICollection<NhanVien> NhanViens { get; set; }
     }
 }
