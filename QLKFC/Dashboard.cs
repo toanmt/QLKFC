@@ -92,6 +92,26 @@ namespace QLKFC
         }
         #endregion
 
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            lblTenNV.Text = tenNV;
+            if (Quyen == 2)
+            {
+                btnSanPham.Visible = false;
+                btnNhanVien.Visible = false;
+                btnKho.Visible = false;
+                btnNhapNL.Visible = false;
+            }
+            else if (Quyen == 3)
+            {
+                btnHoaDon.Visible = false;
+                btnSanPham.Visible = false;
+                btnNhanVien.Visible = false;
+                btnOrder.Visible = false;
+                btnNhapNL.Visible = false;
+            }
+        }
+
         #region Hiển thị form chức năng
         private void ptbTrangChu_Click(object sender, EventArgs e)
         {
@@ -164,13 +184,6 @@ namespace QLKFC
             hideSubMenu();
         }
 
-        private void btnDangXuat_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            DangNhap dn = new DangNhap();
-            dn.ShowDialog();
-            this.Close();
-        }
 
         private void btnNhapNL_Click(object sender, EventArgs e)
         {
@@ -191,6 +204,16 @@ namespace QLKFC
             openForm(new QuanLyNhap());
         }
 
+        private void btnDangXuat_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Hide();
+                DangNhap dn = new DangNhap();
+                dn.ShowDialog();
+                this.Close();
+            }
+        }
         #endregion
         
     }

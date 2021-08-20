@@ -14,15 +14,17 @@ namespace QLKFC
 {
     public partial class QuanLySanPham : Form
     {
+
+        QLBHKFCContext db = new QLBHKFCContext();
+        string filename, iname;
+        int pageNu = 1, numberRe = 3;
+
         public QuanLySanPham()
         {
             InitializeComponent();
             loadCmb();
-            loadDGV();
+            loadDGV(pageNu, numberRe);
         }
-
-        QLBHKFCContext db = new QLBHKFCContext();
-        string filename, iname;
 
         #region Hàm khai báo
         private void clearTextBox()
@@ -49,6 +51,7 @@ namespace QLKFC
                 foreach (var item in query)
                 {
                     cmbLoai.Items.Add(item.TenLsp);
+                    cmbLoc.Items.Add(item.TenLsp);
                 }
             }
             catch (Exception ex)
@@ -59,11 +62,36 @@ namespace QLKFC
 
         }
 
-        private void loadDGV()
+        private void loadDGV(int page, int recordNum)
+        {
+            dgv_DSSP.Rows.Clear();
+            var query = from sp in db.SanPhams.Skip((page - 1) * recordNum).Take(recordNum)
+                        join lsp in db.LoaiSanPhams on sp.MaLsp equals lsp.MaLsp
+                        select new
+                        {
+                            sp.MaSp,
+                            sp.TenSp,
+                            sp.DonGia,
+                            lsp.TenLsp,
+                            sp.DonVi,
+                            sp.HinhAnh
+                        };
+            foreach (var item in query)
+            {
+                if (item.HinhAnh != null)
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                else
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
+            }
+            dgv_DSSP.Columns["DonGia"].DefaultCellStyle.Format = "N0";
+        }
+
+        private void locDL(string loc)
         {
             dgv_DSSP.Rows.Clear();
             var query = from sp in db.SanPhams
                         join lsp in db.LoaiSanPhams on sp.MaLsp equals lsp.MaLsp
+                        where lsp.TenLsp.Contains(loc)
                         select new
                         {
                             sp.MaSp,
@@ -224,7 +252,7 @@ namespace QLKFC
                         db.Remove(spXoa);
                         db.SaveChanges();
                         MessageBox.Show("Đã được xóa!");
-                        loadDGV();
+                        loadDGV(pageNu, numberRe);
                     }
                 }
                 catch (Exception ex)
@@ -274,7 +302,7 @@ namespace QLKFC
                         {
                             MessageBox.Show(ex.Message.ToString(), "Thông báo");
                         }
-                        loadDGV();
+                        loadDGV(pageNu, numberRe);
                         clearTextBox();
                     }
                 }
@@ -314,7 +342,7 @@ namespace QLKFC
                             }
                         }
                         db.SaveChanges();
-                        loadDGV();
+                        loadDGV(pageNu, numberRe);
                         clearTextBox();
                         iname = null;
                         MessageBox.Show("Đã được sửa");
@@ -338,7 +366,8 @@ namespace QLKFC
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            loadDGV();
+            pageNu = 1;
+            loadDGV(pageNu, numberRe);
             txtFind.Clear();
         }
 
@@ -391,6 +420,11 @@ namespace QLKFC
             }
         }
 
+        private void cmbLoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            locDL(cmbLoc.Text.ToString());
+        }
+
         private void btnFind_Click(object sender, EventArgs e)
         {
             dgv_DSSP.Rows.Clear();
@@ -439,6 +473,48 @@ namespace QLKFC
                 }
             }
         }
+
+        #region Phân trang
+        private void btnTrangTruoc_Click(object sender, EventArgs e)
+        {
+            if (pageNu - 1 > 0)
+            {
+                pageNu--;
+                txtSoTrang.Text = pageNu + "";
+            }
+        }
+
+        private void btnTrangSau_Click(object sender, EventArgs e)
+        {
+            if (pageNu - 1 < db.SanPhams.Count() / numberRe)
+            {
+                pageNu++;
+                txtSoTrang.Text = pageNu + "";
+            }
+        }
+
+        private void txtSoTrang_TextChanged(object sender, EventArgs e)
+        {
+            loadDGV(pageNu, numberRe);
+            if (pageNu < db.SanPhams.Count() / numberRe + 1)
+            {
+                btnTrangSau.Visible = true;
+            }
+            else
+            {
+                btnTrangSau.Visible = false;
+            }
+
+            if (pageNu == 1)
+            {
+                btnTrangTruoc.Visible = false;
+            }
+            else
+            {
+                btnTrangTruoc.Visible = true;
+            }
+        }
         #endregion
     }
+    #endregion
 }

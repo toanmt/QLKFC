@@ -17,6 +17,7 @@ namespace QLKFC
         QLBHKFCContext db = new QLBHKFCContext();
         string Pos, Storeid, Tennv;
         int maHD;
+        int pageNu = 1, numberRe = 5;
 
         public Order()
         {
@@ -28,7 +29,7 @@ namespace QLKFC
             this.Pos = pos;
             this.Storeid = storeid;
             this.Tennv = tennv;
-            loadDGVSP();
+            loadDGVSP(pageNu, numberRe);
         }
 
         #region Khai báo hàm
@@ -40,9 +41,10 @@ namespace QLKFC
             return newPath;
         }
 
-        private void loadDGVSP()
+        private void loadDGVSP(int page, int recordNum)
         {
-            var query = from sp in db.SanPhams 
+            dgv_DSSP.Rows.Clear();
+            var query = from sp in db.SanPhams.Skip((page - 1) * recordNum).Take(recordNum)
                         select new
                         {
                             sp.MaSp,
@@ -63,6 +65,9 @@ namespace QLKFC
 
         private void locDL(string loc)
         {
+            btnTrangSau.Visible = false;
+            btnTrangTruoc.Visible = false;
+            txtSoTrang.Visible = false;
             dgv_DSSP.Rows.Clear();
             var query = from sp in db.SanPhams
                         join lsp in db.LoaiSanPhams on sp.MaLsp equals lsp.MaLsp
@@ -170,6 +175,8 @@ namespace QLKFC
             TinhTien();
         }
 
+
+
         #region Lọc bảng sản phẩm
         private void btnChonComBo_Click(object sender, EventArgs e)
         {
@@ -211,7 +218,11 @@ namespace QLKFC
 
         private void button1_Click(object sender, EventArgs e)
         {
-            loadDGVSP();
+            btnTrangSau.Visible = true;
+            btnTrangTruoc.Visible = true;
+            txtSoTrang.Visible = true;
+            pageNu = 1;
+            loadDGVSP(pageNu, numberRe);
             txtFind.Clear();
         }
         #endregion
@@ -580,6 +591,49 @@ namespace QLKFC
         {
             Don();
         }
+
+        #region Phân trang
+        private void btnTrangTruoc_Click(object sender, EventArgs e)
+        {
+            if (pageNu - 1 > 0)
+            {
+                pageNu--;
+                txtSoTrang.Text = pageNu + "";
+            }
+        }
+
+        private void btnTrangSau_Click(object sender, EventArgs e)
+        {
+            if (pageNu - 1 < db.SanPhams.Count() / numberRe)
+            {
+                pageNu++;
+                txtSoTrang.Text = pageNu + "";
+            }
+        }
+
+        private void txtSoTrang_TextChanged(object sender, EventArgs e)
+        {
+            loadDGVSP(pageNu, numberRe);
+            if (pageNu < db.SanPhams.Count() / numberRe + 1)
+            {
+                btnTrangSau.Visible = true;
+            }
+            else
+            {
+                btnTrangSau.Visible = false;
+            }
+
+            if (pageNu == 1)
+            {
+                btnTrangTruoc.Visible = false;
+            }
+            else
+            {
+                btnTrangTruoc.Visible = true;
+            }
+        }
+        #endregion
+
         #endregion
     }
 }

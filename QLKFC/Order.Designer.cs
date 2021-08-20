@@ -53,7 +53,10 @@ namespace QLKFC
             this.Loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtSoTrang = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnTrangSau = new System.Windows.Forms.Button();
+            this.btnTrangTruoc = new System.Windows.Forms.Button();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.panel_Loc = new System.Windows.Forms.Panel();
             this.btnChonDoUong = new System.Windows.Forms.Button();
@@ -187,7 +190,7 @@ namespace QLKFC
             this.Loai,
             this.ImageMota});
             this.dgv_DSSP.EnableHeadersVisualStyles = false;
-            this.dgv_DSSP.Location = new System.Drawing.Point(9, 119);
+            this.dgv_DSSP.Location = new System.Drawing.Point(9, 159);
             this.dgv_DSSP.Name = "dgv_DSSP";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
@@ -199,9 +202,9 @@ namespace QLKFC
             this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_DSSP.RowHeadersVisible = false;
             this.dgv_DSSP.RowHeadersWidth = 51;
-            this.dgv_DSSP.RowTemplate.Height = 150;
+            this.dgv_DSSP.RowTemplate.Height = 145;
             this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_DSSP.Size = new System.Drawing.Size(447, 472);
+            this.dgv_DSSP.Size = new System.Drawing.Size(447, 432);
             this.dgv_DSSP.TabIndex = 5;
             this.dgv_DSSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSSP_CellClick);
             // 
@@ -248,13 +251,29 @@ namespace QLKFC
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.txtSoTrang);
             this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.btnTrangSau);
+            this.panel4.Controls.Add(this.btnTrangTruoc);
             this.panel4.Controls.Add(this.txtFind);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 70);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(462, 48);
+            this.panel4.Size = new System.Drawing.Size(462, 83);
             this.panel4.TabIndex = 2;
+            // 
+            // txtSoTrang
+            // 
+            this.txtSoTrang.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtSoTrang.Enabled = false;
+            this.txtSoTrang.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSoTrang.Location = new System.Drawing.Point(211, 49);
+            this.txtSoTrang.Name = "txtSoTrang";
+            this.txtSoTrang.Size = new System.Drawing.Size(38, 31);
+            this.txtSoTrang.TabIndex = 20;
+            this.txtSoTrang.Text = "1";
+            this.txtSoTrang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSoTrang.TextChanged += new System.EventHandler(this.txtSoTrang_TextChanged);
             // 
             // button1
             // 
@@ -269,6 +288,35 @@ namespace QLKFC
             this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnTrangSau
+            // 
+            this.btnTrangSau.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTrangSau.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnTrangSau.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnTrangSau.ForeColor = System.Drawing.Color.White;
+            this.btnTrangSau.Location = new System.Drawing.Point(272, 46);
+            this.btnTrangSau.Name = "btnTrangSau";
+            this.btnTrangSau.Size = new System.Drawing.Size(146, 34);
+            this.btnTrangSau.TabIndex = 19;
+            this.btnTrangSau.Text = "Trang sau";
+            this.btnTrangSau.UseVisualStyleBackColor = false;
+            this.btnTrangSau.Click += new System.EventHandler(this.btnTrangSau_Click);
+            // 
+            // btnTrangTruoc
+            // 
+            this.btnTrangTruoc.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTrangTruoc.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnTrangTruoc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnTrangTruoc.ForeColor = System.Drawing.Color.White;
+            this.btnTrangTruoc.Location = new System.Drawing.Point(42, 46);
+            this.btnTrangTruoc.Name = "btnTrangTruoc";
+            this.btnTrangTruoc.Size = new System.Drawing.Size(146, 34);
+            this.btnTrangTruoc.TabIndex = 18;
+            this.btnTrangTruoc.Text = "Trang trước";
+            this.btnTrangTruoc.UseVisualStyleBackColor = false;
+            this.btnTrangTruoc.Visible = false;
+            this.btnTrangTruoc.Click += new System.EventHandler(this.btnTrangTruoc_Click);
             // 
             // txtFind
             // 
@@ -546,6 +594,7 @@ namespace QLKFC
             this.SoLuong.HeaderText = "SL";
             this.SoLuong.MinimumWidth = 6;
             this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
             this.SoLuong.Width = 40;
             // 
             // ThanhTien
@@ -654,12 +703,6 @@ namespace QLKFC
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtDua;
         private System.Windows.Forms.ErrorProvider errorProvider_TD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mamon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenMon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
-        private System.Windows.Forms.DataGridViewButtonColumn Xoa;
         private System.Windows.Forms.Label lblTienThua;
         private System.Windows.Forms.Label label5;
         private System.Drawing.Printing.PrintDocument pdHoaDon;
@@ -670,5 +713,14 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn dg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Loai;
         private System.Windows.Forms.DataGridViewImageColumn ImageMota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mamon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenMon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
+        private System.Windows.Forms.DataGridViewButtonColumn Xoa;
+        private System.Windows.Forms.TextBox txtSoTrang;
+        private System.Windows.Forms.Button btnTrangSau;
+        private System.Windows.Forms.Button btnTrangTruoc;
     }
 }
