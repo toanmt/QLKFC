@@ -21,19 +21,19 @@ namespace QLKFC
         }
 
         public int Quyen { get; set; }
-        public int Tennv { get; set; }
+        public string Tennv { get; set; }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             TaiKhoan tk = db.TaiKhoans.Where(tk => tk.TaiKhoan1 == txtTaiKhoan.Text && tk.MatKhau == txtMatKhau.Text).FirstOrDefault();
-            if(tk != null)
+            if (tk != null)
             {
-                    Quyen = tk.Quyen.Value;
-                    Tennv = tk.Quyen.Value;
-                    this.Hide();
-                    Dashboard frm = new Dashboard(Quyen);
-                    frm.ShowDialog();
-                    this.Close();
+                Quyen = tk.Quyen.Value;
+                Tennv = db.NhanViens.Where(nv => nv.Id == tk.Id).FirstOrDefault().TenNv;
+                this.Hide();
+                Dashboard frm = new Dashboard(Quyen, Tennv);
+                frm.ShowDialog();
+                this.Close();
             }
             else
             {

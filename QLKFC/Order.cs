@@ -364,7 +364,7 @@ namespace QLKFC
                                     new Font("Courier New", 16, FontStyle.Regular),
                                     Brushes.Black,
                                     new PointF(55, vtdong));
-                e.Graphics.DrawString(string.Format("{0:N0}", item.DonGia),
+                e.Graphics.DrawString(string.Format("{0:N0}", item.DonGia * item.SoLuong),
                                     new Font("Courier New", 16, FontStyle.Regular),
                                     Brushes.Black,
                                     new PointF(chieurong - 150, vtdong));
@@ -428,7 +428,13 @@ namespace QLKFC
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Tham gia khao sat va nhan qua tai:\nwww.talk2kfcvietnam.com",
+            e.Graphics.DrawString("Tham gia khao sat va nhan qua tai:",
+                                new Font("Courier New", 16, FontStyle.Regular),
+                                Brushes.Black,
+                                new RectangleF(new PointF(0, vtdong), layoutSize),
+                                formatCenter);
+            vtdong += 30;
+            e.Graphics.DrawString("www.talk2kfcvietnam.com",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
@@ -440,25 +446,49 @@ namespace QLKFC
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Thoi gian tham gia doi thuong la\n 7 ngay ke tu ngay mua hang.",
+            e.Graphics.DrawString("Thoi gian tham gia doi thuong la",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Co gia tri doi thuong trong vong\n 15 ngay ke tu ngay mua hang.",
+            e.Graphics.DrawString("7 ngay ke tu ngay mua hang.",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Khao sat chi ap dung cho hoa don co gia tri \ntu 70.000 tro len.",
+            e.Graphics.DrawString("Co gia tri doi thuong trong vong",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Quy khach can hoa don tai chinh de nghi \nlay ngay khi mua hang.",
+            e.Graphics.DrawString("15 ngay ke tu ngay mua hang.",
+                                new Font("Courier New", 16, FontStyle.Regular),
+                                Brushes.Black,
+                                new RectangleF(new PointF(0, vtdong), layoutSize),
+                                formatCenter);
+            vtdong += 30;
+            e.Graphics.DrawString("Khao sat chi ap dung cho hoa don co gia tri",
+                                new Font("Courier New", 16, FontStyle.Regular),
+                                Brushes.Black,
+                                new RectangleF(new PointF(0, vtdong), layoutSize),
+                                formatCenter);
+            vtdong += 30;
+            e.Graphics.DrawString("tu 70.000 tro len.",
+                                new Font("Courier New", 16, FontStyle.Regular),
+                                Brushes.Black,
+                                new RectangleF(new PointF(0, vtdong), layoutSize),
+                                formatCenter);
+            vtdong += 30;
+            e.Graphics.DrawString("Quy khach can hoa don tai chinh de nghi",
+                                new Font("Courier New", 16, FontStyle.Regular),
+                                Brushes.Black,
+                                new RectangleF(new PointF(0, vtdong), layoutSize),
+                                formatCenter);
+            vtdong += 30;
+            e.Graphics.DrawString("lay ngay khi mua hang.",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),

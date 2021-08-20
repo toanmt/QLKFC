@@ -60,7 +60,6 @@ namespace QLKFC
             // btnThem
             // 
             this.btnThem.BackColor = System.Drawing.Color.Green;
-            this.btnThem.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThem.ForeColor = System.Drawing.Color.White;

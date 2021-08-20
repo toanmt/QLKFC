@@ -13,20 +13,24 @@ namespace QLKFC
     public partial class Dashboard : Form
     {
         int Quyen;
+        string tenNV, sid, pid;
+
         public Dashboard()
         {
             InitializeComponent();
             hideSubMenu();
         }
-        public Dashboard(int Quyen)
+        public Dashboard(int Quyen,string tenNV)
         {
             InitializeComponent();
             hideSubMenu();
             this.Quyen = Quyen;
+            this.tenNV = tenNV;
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            lblTenNV.Text = tenNV;
             if (Quyen == 2)
             {
                 btnSanPham.Visible = false;
@@ -106,8 +110,6 @@ namespace QLKFC
         }
         #endregion
 
-        string sid, pid, ten;
-
         #region Hiển thị form chức năng
         private void ptbTrangChu_Click(object sender, EventArgs e)
         {
@@ -127,14 +129,13 @@ namespace QLKFC
                     {
                         sid = ktra.storeid;
                         pid = ktra.pos;
-                        ten = ktra.tennv;
-                        openForm(new Order(ktra.storeid, ktra.pos, ktra.tennv));
+                        openForm(new Order(ktra.storeid, ktra.pos, tenNV));
                         hideSubMenu();
                     }
                 }
             else
             {
-                openForm(new Order(sid, pid, ten));
+                openForm(new Order(sid, pid, tenNV));
                 hideSubMenu();
             }
         }

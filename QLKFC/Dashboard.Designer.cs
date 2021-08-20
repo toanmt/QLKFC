@@ -30,6 +30,7 @@ namespace QLKFC
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTenNV = new System.Windows.Forms.Label();
             this.btnNhapNL = new System.Windows.Forms.Button();
             this.panel_submenu_Kho = new System.Windows.Forms.Panel();
             this.btnNhapHang = new System.Windows.Forms.Button();
@@ -68,6 +69,7 @@ namespace QLKFC
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Red;
+            this.panel1.Controls.Add(this.lblTenNV);
             this.panel1.Controls.Add(this.btnNhapNL);
             this.panel1.Controls.Add(this.panel_submenu_Kho);
             this.panel1.Controls.Add(this.btnDangXuat);
@@ -86,6 +88,19 @@ namespace QLKFC
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(255, 692);
             this.panel1.TabIndex = 0;
+            // 
+            // lblTenNV
+            // 
+            this.lblTenNV.AutoSize = true;
+            this.lblTenNV.BackColor = System.Drawing.Color.White;
+            this.lblTenNV.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblTenNV.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTenNV.ForeColor = System.Drawing.Color.Red;
+            this.lblTenNV.Location = new System.Drawing.Point(0, 621);
+            this.lblTenNV.Name = "lblTenNV";
+            this.lblTenNV.Size = new System.Drawing.Size(181, 27);
+            this.lblTenNV.TabIndex = 8;
+            this.lblTenNV.Text = "             ";
             // 
             // btnNhapNL
             // 
@@ -411,7 +426,7 @@ namespace QLKFC
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(750, 665);
+            this.label3.Location = new System.Drawing.Point(750, 663);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 18);
             this.label3.TabIndex = 2;
@@ -455,6 +470,7 @@ namespace QLKFC
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.SizeChanged += new System.EventHandler(this.Dashboard_SizeChanged);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel_submenu_Kho.ResumeLayout(false);
             this.panel_submenu_HD.ResumeLayout(false);
             this.panel_submenu_NS.ResumeLayout(false);
@@ -495,6 +511,7 @@ namespace QLKFC
         private System.Windows.Forms.Panel panel_submenu_Kho;
         private System.Windows.Forms.Button btnNhapHang;
         private System.Windows.Forms.Button btnKhoHang;
+        private System.Windows.Forms.Label lblTenNV;
     }
 }
 
