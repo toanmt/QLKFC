@@ -1,4 +1,5 @@
-﻿using QLKFC.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using QLKFC.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,152 +12,87 @@ using System.Windows.Forms;
 
 namespace QLKFC
 {
-    public partial class NhapHang : Form
+    public partial class QuanLyNhap : Form
     {
         QLBHKFCContext db = new QLBHKFCContext();
         int index = 0;
-        public NhapHang()
+        public QuanLyNhap()
         {
             InitializeComponent();
+            AutoGiaoHang();
             load();
         }
-
-        #region Tương tác với bảng + combo box
+        #region Hiển thị và tương tác vs bảng
         public void load()
         {
-
-            var query = from x in db.NguyenLieus
-                        select x;
-            cbNguyenLieu.DataSource = query.ToList();
-            cbNguyenLieu.DisplayMember = "TenNL";
-            cbNguyenLieu.ValueMember = "DonGia";
-            txtdongia.Text = cbNguyenLieu.SelectedValue.ToString();
+            db = new QLBHKFCContext();
+            var query = db.HoaDonKhos.Where(x => x.TrangThai == "Đang xử lý" || x.TrangThai == "Đang giao hàng");
+            dgvNhapHang.Rows.Clear();
+            foreach (var item in query.ToList())
+            {
+                string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString(), "" };
+                dgvNhapHang.Rows.Add(hd);
+            }
+          
         }
-
+        private void btnHienThi_Click(object sender, EventArgs e)
+        {
+            dgvNhapHang.Rows.Clear();
+            load();
+        }
         private void dgvNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
-        }
-        private void cbNguyenLieu_SelectedValueChanged(object sender, EventArgs e)
-        {
-            txtdongia.Text = cbNguyenLieu.SelectedValue.ToString();
-        }
+        } 
         #endregion
 
-
-        #region Các nút thêm trong form
-        //Thêm 1 dòng
-        private void btnThem_Click(object sender, EventArgs e)
+        //Chi tiết 1 đơn nhập
+        private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            try
+            if (index > -1 && index < dgvNhapHang.RowCount-1)
             {
-                if (txtSoLuong.Text.Equals(""))
-                    throw new Exception("Bạn chưa nhập số lượng!");
-                if (int.Parse(txtSoLuong.Text) < 0)
-                    throw new Exception("Số lượng phải > 0 !");
-                var query = (from s in db.NguyenLieus
-                             where s.TenNl == cbNguyenLieu.Text
-                             select s).SingleOrDefault();
-                for (int i = 0; i < dgvNhapHang.Rows.Count - 1; i++)
-                    if (query.MaNl.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
-                    {
-                        int SLCu = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                        int SLMoi = int.Parse(txtSoLuong.Text);
+                ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
+                frm.Tag =int.Parse(dgvNhapHang.Rows[index].Cells[0].Value.ToString());
+                frm.ShowDialog();
+                this.Refresh();
+                load();
 
-                        dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", (SLCu + SLMoi));
-                        dgvNhapHang.Rows[i].Cells[4].Value = string.Format("{0:#,##0}", (SLCu + SLMoi) * query.DonGia);
-                        return;
-                    }
-                float tongtien = (float.Parse(txtdongia.Text) * float.Parse(txtSoLuong.Text));
-
-                string[] row = { query.MaNl.ToString(), cbNguyenLieu.Text, string.Format("{0:#,##0}", int.Parse(txtdongia.Text)), txtSoLuong.Text, string.Format("{0:#,##0}", int.Parse(tongtien.ToString())) };
-
-                dgvNhapHang.Rows.Add(row);
-            }
-            catch (System.FormatException)
-            {
-                MessageBox.Show("Số lượng phải là số > 0");
-                txtSoLuong.Focus();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                txtSoLuong.Focus();
-            }
-        }
-        //Xóa 1 dòng
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (index > -1 && index < dgvNhapHang.Rows.Count-1)
-            {
-                dgvNhapHang.Rows.RemoveAt(index);
-                index--;
             }
             else
+                MessageBox.Show("Chưa chọn hóa đơn !");
+        }
+        //Gọi thêm hàng vào kho
+        private void btnTaoPhieuNhap_Click(object sender, EventArgs e)
+        {
+            NhapHang frm = new NhapHang();
+            frm.ShowDialog();
+            dgvNhapHang.Rows.Clear();
+            load();
+        }
+        //Tìm kiếm
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var query = db.HoaDonKhos.Where(x => x.MaHdk.ToString().Contains(txtTimKiem.Text) || x.TrangThai.Contains(txtTimKiem.Text));
+            dgvNhapHang.Rows.Clear();
+            foreach (var item in query.ToList())
             {
-                MessageBox.Show("Chưa chọn nguyên liệu để xóa !");
+                string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString(), "" };
+                dgvNhapHang.Rows.Add(hd);
             }
         }
-        //Gửi đơn hàng đi
-        private void btnGuiDi_Click(object sender, EventArgs e)
+
+        public void AutoGiaoHang()
         {
-            int index = dgvNhapHang.Rows.Count;
-            if (index == 1)
+            var query = db.HoaDonKhos.Where(x => x.TrangThai == "Đang xử lý");
+
+            foreach (var item in query)
             {
-                MessageBox.Show("Chưa có nguyên liệu nào !!!");
-            }
-            else
-            {
-                HoaDonKho hdk = new HoaDonKho();
-
-                hdk.NgayCc = datatimepick.Value;
-                hdk.TrangThai = "Đang xử lý";
-                db.HoaDonKhos.Add(hdk);
-                db.SaveChanges();
-
-                var query = db.HoaDonKhos.Where(x => x.NgayCc == datatimepick.Value).FirstOrDefault();
-
-                for (int i = 0; i < (index - 1); i++)
+                if(DateTime.Now.Date > item.NgayCc.Value.Date)
                 {
-                    CthoaDonKho cthdk = new CthoaDonKho();
-                    cthdk.MaHdk = query.MaHdk;
-                    cthdk.MaNl = int.Parse(dgvNhapHang.Rows[i].Cells[0].Value.ToString());
-                    cthdk.SoLuong = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                    db.CthoaDonKhos.Add(cthdk);
-                }
-                db.SaveChanges();
-                this.Close();
-                MessageBox.Show("Đặt hàng thành công !");
+                    item.TrangThai = "Đang giao hàng";
+                }    
             }
+            db.SaveChanges();
         }
-        //Hủy đặt hàng
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        //Sửa 1 dòng
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var query = (from s in db.NguyenLieus
-                             where s.TenNl == cbNguyenLieu.Text
-                             select s).SingleOrDefault();
-                for (int i = 0; i < dgvNhapHang.Rows.Count - 1; i++)
-                    if (query.MaNl.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
-                    {
-                        int SLCu = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                        int SLMoi = int.Parse(txtSoLuong.Text);
-                        dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
-                        dgvNhapHang.Rows[i].Cells[4].Value = string.Format("{0:#,##0}", SLMoi * query.DonGia);
-                        return;
-                    }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        #endregion
     }
 }

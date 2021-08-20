@@ -62,7 +62,7 @@ namespace QLKFC
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(20, 14);
+            this.label2.Location = new System.Drawing.Point(31, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 23);
             this.label2.TabIndex = 9;
@@ -73,7 +73,7 @@ namespace QLKFC
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(20, 55);
+            this.label3.Location = new System.Drawing.Point(31, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 23);
             this.label3.TabIndex = 11;
@@ -93,7 +93,7 @@ namespace QLKFC
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(20, 92);
+            this.label4.Location = new System.Drawing.Point(31, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 23);
             this.label4.TabIndex = 13;
@@ -112,7 +112,7 @@ namespace QLKFC
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(20, 128);
+            this.label5.Location = new System.Drawing.Point(31, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 23);
             this.label5.TabIndex = 15;
@@ -131,7 +131,7 @@ namespace QLKFC
             // 
             this.cbMaNL.Enabled = false;
             this.cbMaNL.FormattingEnabled = true;
-            this.cbMaNL.Location = new System.Drawing.Point(189, 13);
+            this.cbMaNL.Location = new System.Drawing.Point(189, 7);
             this.cbMaNL.Name = "cbMaNL";
             this.cbMaNL.Size = new System.Drawing.Size(200, 28);
             this.cbMaNL.TabIndex = 21;
@@ -141,11 +141,11 @@ namespace QLKFC
             this.btnSua.BackColor = System.Drawing.Color.Lime;
             this.btnSua.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(453, 33);
+            this.btnSua.Location = new System.Drawing.Point(454, 32);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(102, 94);
             this.btnSua.TabIndex = 9;
-            this.btnSua.Text = "Sửa";
+            this.btnSua.Text = "Hủy";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
@@ -162,9 +162,9 @@ namespace QLKFC
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 472);
+            this.panel3.Location = new System.Drawing.Point(0, 452);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(912, 161);
+            this.panel3.Size = new System.Drawing.Size(912, 181);
             this.panel3.TabIndex = 3;
             // 
             // btnXuatKho
@@ -173,7 +173,7 @@ namespace QLKFC
             this.btnXuatKho.BackColor = System.Drawing.Color.Red;
             this.btnXuatKho.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnXuatKho.ForeColor = System.Drawing.Color.White;
-            this.btnXuatKho.Location = new System.Drawing.Point(729, 13);
+            this.btnXuatKho.Location = new System.Drawing.Point(754, 42);
             this.btnXuatKho.Name = "btnXuatKho";
             this.btnXuatKho.Size = new System.Drawing.Size(138, 127);
             this.btnXuatKho.TabIndex = 23;

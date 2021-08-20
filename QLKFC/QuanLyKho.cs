@@ -56,7 +56,7 @@ namespace QLKFC
         {
             if (txtTenNL.Text.Trim() == "")
             {
-                MessageBox.Show("Chưa chọn nguyên liệu để sửa");
+                MessageBox.Show("Chọn nguyên liệu để hủy");
                 return;
             }
                 
@@ -67,10 +67,11 @@ namespace QLKFC
                 if (check < 0)
                 {
                    throw new Exception("Số lượng phải >= 0"); 
-                }                Kho NLSua = db.Khos.SingleOrDefault(k => k.MaNl == MaNL);
-                NLSua.SoLuong = int.Parse(txtSoLuong.Text);
+                }                
+                Kho NLSua = db.Khos.SingleOrDefault(k => k.MaNl == MaNL);
+                NLSua.SoLuong -= int.Parse(txtSoLuong.Text);
                 db.SaveChanges();
-                MessageBox.Show("Sửa thành công!");
+                MessageBox.Show("Hủy thành công!");
                 load();
             }
             catch (System.FormatException)

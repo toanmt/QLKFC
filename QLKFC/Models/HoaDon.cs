@@ -4,7 +4,6 @@ using System.Collections.Generic;
 #nullable disable
 
 namespace QLKFC.Models
-
 {
     public partial class HoaDon
     {

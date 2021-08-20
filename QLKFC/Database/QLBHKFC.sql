@@ -114,7 +114,10 @@ GO
 CREATE TABLE BaoCao
 (
 MaBC int IDENTITY(1,1)Primary key,
+TenNV nvarchar(20),
+NgayLap DateTime,
 Loai nvarchar(50),
+StoreID nvarchar(20),
 Mota nvarchar(200)
 )
 GO
