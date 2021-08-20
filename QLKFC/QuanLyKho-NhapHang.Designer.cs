@@ -156,9 +156,9 @@ namespace QLKFC
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(212, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(460, 47);
+            this.label2.Size = new System.Drawing.Size(504, 47);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Danh Sách Phiếu Nhập";
+            this.label2.Text = "Danh Sách Đơn Đặt Hàng";
             // 
             // dgvNhapHang
             // 
@@ -253,7 +253,7 @@ namespace QLKFC
             this.btnTaoPhieuNhap.Name = "btnTaoPhieuNhap";
             this.btnTaoPhieuNhap.Size = new System.Drawing.Size(263, 118);
             this.btnTaoPhieuNhap.TabIndex = 9;
-            this.btnTaoPhieuNhap.Text = "Tạo phiếu nhập";
+            this.btnTaoPhieuNhap.Text = "Đặt hàng";
             this.btnTaoPhieuNhap.UseVisualStyleBackColor = false;
             this.btnTaoPhieuNhap.Click += new System.EventHandler(this.btnTaoPhieuNhap_Click);
             // 

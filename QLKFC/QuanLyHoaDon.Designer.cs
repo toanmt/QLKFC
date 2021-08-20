@@ -289,7 +289,6 @@ namespace QLKFC
             this.dgvHDBH.Size = new System.Drawing.Size(866, 273);
             this.dgvHDBH.TabIndex = 0;
             this.dgvHDBH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDBH_CellClick);
-            this.dgvHDBH.SizeChanged += new System.EventHandler(this.dgvHDBH_SizeChanged);
             // 
             // QuanLyHoaDon
             // 

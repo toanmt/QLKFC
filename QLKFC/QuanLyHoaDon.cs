@@ -218,24 +218,5 @@ namespace QLKFC
             }
         }
 
-
-        private void dgvHDBH_SizeChanged(object sender, EventArgs e)
-        {
-            if (Program.checksize  == 2)
-            {
-                Program.ItemNumber = 20;
-                Program.SkipItem = 20;
-                load(Pagenumber, Program.ItemNumber);
-                Program.checksize--;
-            }
-            else
-            {
-                Program.ItemNumber = 10;
-                Program.SkipItem = 10;
-                load(Pagenumber, Program.ItemNumber);
-                Program.checksize++;
-            } 
-                
-        }
     }
 }

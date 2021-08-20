@@ -46,6 +46,7 @@ CREATE TABLE CTHoaDonKho
 MaHDK int,
 MaNL int,
 SoLuong int,
+SoLuongDaNhap int,
 CONSTRAINT fk_hdk_cthdk FOREIGN KEY (MaHDK) REFERENCES HoaDonKho(MaHDK),
 CONSTRAINT fk_hdk_nl FOREIGN KEY (MaNL) REFERENCES NguyenLieu(MaNL),
 Primary key(MaHDK,MaNL)
@@ -109,7 +110,14 @@ MaNL int Primary key,
 SoLuong int,
 CONSTRAINT fk_K_SP FOREIGN KEY (MaNL) REFERENCES NguyenLieu(MaNL)
 )
-
+GO
+CREATE TABLE BaoCao
+(
+MaBC int IDENTITY(1,1)Primary key,
+Loai nvarchar(50),
+Mota nvarchar(200)
+)
+GO
 --------------------------Thêm dữ liệu----------------------------------------
 -------------------Nguyên Liệu-----------------------
 SET IDENTITY_INSERT [dbo].[NguyenLieu] ON 
@@ -260,17 +268,19 @@ INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (18, 18, 322)
 INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (19, 17, 43)
 
 -------------------CTHoa Đơn Kho-----------------------
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (1, 3, 4)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (2, 1, 10)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (2, 2, 6)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (2, 5, 8)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (4, 4, 23)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (4, 10, 2)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (5, 2, 6)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (5, 7, 6)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (6, 8, 4)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (7, 1, 2)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong]) VALUES (7, 6, 23)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (1, 3, 4,4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (2, 1, 10,4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (2, 2, 6,5)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (2, 5, 8,4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (3, 4, 23,0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (3, 10, 2,0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (4, 4, 23,23)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (4, 10, 2,2)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (5, 2, 6,0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (5, 7, 6,0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (6, 8, 4,2)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (7, 1, 2,1)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (7, 6, 23,20)
 
 
 -------------------Kho-----------------------

@@ -30,37 +30,31 @@ namespace QLKFC
         }
         public void load()
         {
+            
             lblNote.Hide();
             int check = (int)this.Tag;
             Mahdk = check;
-            lblMaHd.Text = check.ToString();
+            lblMaDonHang.Text = check.ToString();
             var getHDK = db.HoaDonKhos.Where(x => x.MaHdk == check).SingleOrDefault();
             datetimpick.Value = getHDK.NgayCc.Value;
             TrangThai = getHDK.TrangThai;
             cbTrangThai.Text = TrangThai;
             if (TrangThai.Trim().Equals("Hoàn Thành"))
             {
-                btnCapNhap.Hide();
                 btnHuyDonDatHang.Hide();
                 btnNhapKho.Hide();
-                cbTrangThai.Enabled = false;
+                btnHoanThanh.Hide();
                 lblNote.Show();
                 lblNote.Text = "Đơn hàng đã hoàn thành.Nhập kho thành công";
             }
             else if (TrangThai.Trim().Equals("Đã hủy"))
             {
-                btnCapNhap.Hide();
                 btnHuyDonDatHang.Hide();
                 btnNhapKho.Hide();
-                cbTrangThai.Enabled = false;
                 lblNote.Show();
                 lblNote.Text = "Đơn hàng đã bị hủy";
             }
-            else if (TrangThai.Trim().Equals("Đang giao hàng"))
-            {
-                cbTrangThai.Enabled = false;
-                btnCapNhap.Hide();
-            }
+
 
             var query = from k in db.CthoaDonKhos
                         where k.MaHdk == check
@@ -71,14 +65,21 @@ namespace QLKFC
                             k.MaNlNavigation.DonGia,
                             k.SoLuong
                         };
+            //DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+            //chk.Name = "Đã đủ hàng";
+            //chk.HeaderText = "Đã đủ hàng";
+            //chk.ReadOnly = false;
             foreach (var item in query)
             {
                 var tongtien = item.DonGia.Value * item.SoLuong.Value;
-                string[] row = { item.MaNl.ToString(), item.TenNl.ToString(), string.Format("{0:#,##0}", int.Parse(item.DonGia.ToString())), item.SoLuong.ToString(), string.Format("{0:#,##0}", int.Parse(tongtien.ToString())) };
+                string[] row = { item.TenNl.ToString(), string.Format("{0:#,##0}", int.Parse(item.DonGia.ToString())), item.SoLuong.ToString(), string.Format("{0:#,##0}", int.Parse(tongtien.ToString())) };
                 dgvNhapHang.Rows.Add(row);
+                
             }
+            //dgvNhapHang.Columns.Insert(4, chk);
+
+
         }
-        //Nhập kho khi hoàn thành hóa đơn
         private void btnNhapKho_Click(object sender, EventArgs e)
         {
             int check = (int)this.Tag;
@@ -93,7 +94,7 @@ namespace QLKFC
                 checkNew = 1;
                 foreach (var itemKho in queryKho)
                 {
-                    if (item.MaNl == itemKho.MaNl)
+                    if (item.MaNl == itemKho.MaNl )
                     {
                         itemKho.SoLuong += item.SoLuong;
                         checkNew = 0;
@@ -114,7 +115,7 @@ namespace QLKFC
                     db.Khos.Add(item);
                 }
             db.HoaDonKhos.Where(x => x.MaHdk == check).FirstOrDefault().TrangThai = "Hoàn Thành";
-
+            checkSoLuong();
             DialogResult dl = MessageBox.Show("Nhập hàng vào kho", "Xác nhận đã giao hàng", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dl == DialogResult.OK)
             {
@@ -124,6 +125,13 @@ namespace QLKFC
                 db.SaveChanges();
             }
 
+        }
+        public void checkSoLuong()
+        {
+            for (int i = 0; i < dgvNhapHang.Rows.Count; i++)
+            {
+
+            }
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -167,7 +175,13 @@ namespace QLKFC
             }
         }
 
-
-
+        private void dgvNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //for(int i=0;i<dgvNhapHang.Rows.Count;i++)
+            //{
+            //    if((bool)dgvNhapHang.Rows[i].Cells[4].Value == true)
+            //        dgvNhapHang.Rows[i].Cells[4].Value = "Đủ hàng";
+            //}    
+        }
     }
 }

@@ -215,12 +215,13 @@ namespace QLKFC
             // 
             // btnHienThi
             // 
+            this.btnHienThi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnHienThi.BackColor = System.Drawing.Color.Red;
             this.btnHienThi.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnHienThi.ForeColor = System.Drawing.Color.White;
-            this.btnHienThi.Location = new System.Drawing.Point(767, 11);
+            this.btnHienThi.Location = new System.Drawing.Point(663, 11);
             this.btnHienThi.Name = "btnHienThi";
-            this.btnHienThi.Size = new System.Drawing.Size(125, 36);
+            this.btnHienThi.Size = new System.Drawing.Size(229, 36);
             this.btnHienThi.TabIndex = 9;
             this.btnHienThi.Text = "Hiển thị";
             this.btnHienThi.UseVisualStyleBackColor = false;

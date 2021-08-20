@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLKFC.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,12 @@ namespace QLKFC
 {
     public partial class Dashboard : Form
     {
+        QLBHKFCContext db = new QLBHKFCContext();
+
         int Quyen;
         string tenNV, sid, pid;
-
         public Dashboard()
-        {
+       {
             InitializeComponent();
             hideSubMenu();
         }
@@ -26,26 +28,6 @@ namespace QLKFC
             hideSubMenu();
             this.Quyen = Quyen;
             this.tenNV = tenNV;
-        }
-
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
-            lblTenNV.Text = tenNV;
-            if (Quyen == 2)
-            {
-                btnSanPham.Visible = false;
-                btnNhanVien.Visible = false;
-                btnKho.Visible = false;
-                btnNhapNL.Visible = false;
-            }
-            else if (Quyen == 3)
-            {
-                btnSanPham.Visible = false;
-                btnHoaDon.Visible = false;
-                btnNhanVien.Visible = false;
-                btnNhapNL.Visible = false;
-                btnOrder.Visible = false;
-            }
         }
 
         #region Hiển thị chức năng
@@ -210,15 +192,6 @@ namespace QLKFC
         }
 
         #endregion
-
-        private void Dashboard_SizeChanged(object sender, EventArgs e)
-        {
-            if (Program.checksize == 1)
-            {
-                Program.checksize++;
-            }
-            else
-                Program.checksize--;
-        }
+        
     }
 }

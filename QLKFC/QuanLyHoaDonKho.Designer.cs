@@ -60,6 +60,7 @@ namespace QLKFC
             this.panel_header = new System.Windows.Forms.Panel();
             this.btnHienThi = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDonKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonKho)).BeginInit();
@@ -72,6 +73,7 @@ namespace QLKFC
             // 
             // btnThongKe
             // 
+            this.btnThongKe.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnThongKe.BackColor = System.Drawing.Color.Red;
             this.btnThongKe.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThongKe.ForeColor = System.Drawing.Color.White;
@@ -85,6 +87,7 @@ namespace QLKFC
             // 
             // dtpick2
             // 
+            this.dtpick2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpick2.CustomFormat = "dd/MM/yyyy";
             this.dtpick2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpick2.Location = new System.Drawing.Point(778, 55);
@@ -94,6 +97,7 @@ namespace QLKFC
             // 
             // dtpick1
             // 
+            this.dtpick1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpick1.CustomFormat = "dd/MM/yyyy";
             this.dtpick1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpick1.Location = new System.Drawing.Point(12, 54);
@@ -104,6 +108,7 @@ namespace QLKFC
             // 
             // txtTimKiem
             // 
+            this.txtTimKiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTimKiem.Location = new System.Drawing.Point(139, 9);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(176, 27);
@@ -111,6 +116,7 @@ namespace QLKFC
             // 
             // btnTimKiem
             // 
+            this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnTimKiem.BackColor = System.Drawing.Color.Red;
             this.btnTimKiem.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
@@ -142,11 +148,11 @@ namespace QLKFC
             this.Column6,
             this.Column7,
             this.Column8});
-            this.dgvChiTietHoaDonKho.Location = new System.Drawing.Point(10, 3);
+            this.dgvChiTietHoaDonKho.Location = new System.Drawing.Point(10, 61);
             this.dgvChiTietHoaDonKho.Name = "dgvChiTietHoaDonKho";
             this.dgvChiTietHoaDonKho.RowHeadersWidth = 51;
             this.dgvChiTietHoaDonKho.RowTemplate.Height = 29;
-            this.dgvChiTietHoaDonKho.Size = new System.Drawing.Size(890, 240);
+            this.dgvChiTietHoaDonKho.Size = new System.Drawing.Size(890, 242);
             this.dgvChiTietHoaDonKho.TabIndex = 0;
             // 
             // Column5
@@ -190,6 +196,7 @@ namespace QLKFC
             // 
             // dgvHoaDonKho
             // 
+            this.dgvHoaDonKho.AllowUserToAddRows = false;
             this.dgvHoaDonKho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -214,7 +221,7 @@ namespace QLKFC
             this.dgvHoaDonKho.ReadOnly = true;
             this.dgvHoaDonKho.RowHeadersWidth = 51;
             this.dgvHoaDonKho.RowTemplate.Height = 29;
-            this.dgvHoaDonKho.Size = new System.Drawing.Size(888, 217);
+            this.dgvHoaDonKho.Size = new System.Drawing.Size(888, 154);
             this.dgvHoaDonKho.TabIndex = 0;
             this.dgvHoaDonKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonKho_CellClick);
             // 
@@ -338,13 +345,26 @@ namespace QLKFC
             this.panel1.Size = new System.Drawing.Size(912, 549);
             this.panel1.TabIndex = 36;
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(214, -7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(482, 47);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Danh sách nguyên liệu";
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.dgvChiTietHoaDonKho);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 387);
+            this.panel2.Location = new System.Drawing.Point(0, 327);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(912, 246);
+            this.panel2.Size = new System.Drawing.Size(912, 306);
             this.panel2.TabIndex = 39;
             // 
             // QuanLyHoaDonKho
@@ -367,6 +387,7 @@ namespace QLKFC
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -394,5 +415,6 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.Label label2;
     }
 }

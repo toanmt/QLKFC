@@ -19,6 +19,7 @@ namespace QLKFC
         public QuanLyNhap()
         {
             InitializeComponent();
+            AutoGiaoHang();
             load();
         }
         #region Hiển thị và tương tác vs bảng
@@ -32,6 +33,7 @@ namespace QLKFC
                 string[] hd = { item.MaHdk.ToString(), item.NgayCc.ToString(), item.TrangThai.ToString(), "" };
                 dgvNhapHang.Rows.Add(hd);
             }
+          
         }
         private void btnHienThi_Click(object sender, EventArgs e)
         {
@@ -79,6 +81,18 @@ namespace QLKFC
             }
         }
 
-        
+        public void AutoGiaoHang()
+        {
+            var query = db.HoaDonKhos.Where(x => x.TrangThai == "Đang xử lý");
+
+            foreach (var item in query)
+            {
+                if(DateTime.Now.Date > item.NgayCc.Value.Date)
+                {
+                    item.TrangThai = "Đang giao hàng";
+                }    
+            }
+            db.SaveChanges();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using QLKFC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,8 @@ namespace QLKFC
 { 
     static class Program
     {
-        public static int checksize = 1;
-        public static int ItemNumber = 10;
-        public static int SkipItem = 10;
+        public static int ItemNumber = 20;
+        public static int SkipItem = 20;
 
         /// <summary>
         ///  The main entry point for the application.

@@ -62,7 +62,7 @@ namespace QLKFC
         {
             dgvChiTietHoaDonKho.Rows.Clear();
             index = e.RowIndex;
-            if (index > -1 && index < dgvHoaDonKho.Rows.Count - 1)
+            if (index > -1 && index < dgvHoaDonKho.Rows.Count)
             {
                 float tg = 0;
                 int check = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
