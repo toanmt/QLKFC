@@ -21,6 +21,7 @@ namespace QLKFC
         }
 
         public int Quyen { get; set; }
+        public int Tennv { get; set; }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
@@ -28,6 +29,7 @@ namespace QLKFC
             if(tk != null)
             {
                     Quyen = tk.Quyen.Value;
+                    Tennv = tk.Quyen.Value;
                     this.Hide();
                     Dashboard frm = new Dashboard(Quyen);
                     frm.ShowDialog();

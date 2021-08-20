@@ -68,7 +68,7 @@ namespace QLKFC
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
             this.Xoa = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -163,7 +163,7 @@ namespace QLKFC
             this.MaSP,
             this.TenSP,
             this.TenLSP,
-            this.DonVi,
+            this.DonViTinh,
             this.DonGia,
             this.ImageMota,
             this.Xoa});
@@ -500,13 +500,13 @@ namespace QLKFC
             this.TenLSP.ReadOnly = true;
             this.TenLSP.Width = 125;
             // 
-            // DonVi
+            // DonViTinh
             // 
-            this.DonVi.HeaderText = "Đơn vị";
-            this.DonVi.MinimumWidth = 6;
-            this.DonVi.Name = "DonVi";
-            this.DonVi.ReadOnly = true;
-            this.DonVi.Width = 120;
+            this.DonViTinh.HeaderText = "Đơn vị";
+            this.DonViTinh.MinimumWidth = 6;
+            this.DonViTinh.Name = "DonViTinh";
+            this.DonViTinh.ReadOnly = true;
+            this.DonViTinh.Width = 120;
             // 
             // DonGia
             // 
@@ -610,7 +610,7 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonVi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonViTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
         private System.Windows.Forms.DataGridViewImageColumn ImageMota;
         private System.Windows.Forms.DataGridViewButtonColumn Xoa;

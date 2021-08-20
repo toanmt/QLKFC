@@ -451,6 +451,7 @@ namespace QLKFC
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý KFC";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.SizeChanged += new System.EventHandler(this.Dashboard_SizeChanged);
             this.panel1.ResumeLayout(false);
