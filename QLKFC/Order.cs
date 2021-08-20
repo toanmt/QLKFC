@@ -154,9 +154,20 @@ namespace QLKFC
                     ==DialogResult.Yes)
                 {
                     dgvDSOrder.Rows.RemoveAt(e.RowIndex);
-                    TinhTien();
+                }
+            }
+            else
+            {
+                using(XacNhanSL xnsl=new XacNhanSL())
+                {
+                    if (xnsl.ShowDialog() == DialogResult.OK)
+                    {
+                        dgvDSOrder.Rows[e.RowIndex].Cells[3].Value = xnsl.soluong;
+                        dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong*double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    }
                 }    
             }
+            TinhTien();
         }
 
         #region Lọc bảng sản phẩm
@@ -271,16 +282,16 @@ namespace QLKFC
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 40;
-            e.Graphics.DrawString("STOREID:  "+hoadonin.StoreId,
+            e.Graphics.DrawString("STOREID:  " + hoadonin.StoreId,
                                 new Font("Courier New", 24, FontStyle.Bold),
                                 Brushes.Black,
-                                new RectangleF(new PointF(0, vtdong), layoutSize),
+                                new RectangleF(new PointF(10, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 40;
             e.Graphics.DrawString("-----------------------------------------------------------",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new RectangleF(new PointF(0, vtdong), layoutSize),
+                                new RectangleF(new PointF(10, vtdong), layoutSize),
                                 formatCenter);
             #endregion
 
@@ -291,7 +302,7 @@ namespace QLKFC
                                 hoadonin.Pos + "    POS" + hoadonin.Pos,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(0, vtdong)
+                                new PointF(20, vtdong)
                                 );
 
             e.Graphics.DrawString(
@@ -314,18 +325,18 @@ namespace QLKFC
             e.Graphics.DrawString("Chk  " + maHD,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(0, vtdong));
+                                new PointF(10, vtdong));
             vtdong += 30;
             e.Graphics.DrawString(String.Format("\t\t {0}", ((DateTime)hoadonin.NgayThang).ToString("dd/MM/yyyy HH:mm:ss")),
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(0, vtdong));
+                                new PointF(10, vtdong));
             vtdong += 30;
 
             e.Graphics.DrawString("-----------------------------------------------------------",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new RectangleF(new PointF(0, vtdong), layoutSize),
+                                new RectangleF(new PointF(10, vtdong), layoutSize),
                                 formatCenter);
             #endregion
 
@@ -348,11 +359,11 @@ namespace QLKFC
                 e.Graphics.DrawString(item.SoLuong + "\t",
                                     new Font("Courier New", 16, FontStyle.Regular),
                                     Brushes.Black,
-                                    new PointF(0, vtdong));
+                                    new PointF(20, vtdong));
                 e.Graphics.DrawString(item.TenSp,
                                     new Font("Courier New", 16, FontStyle.Regular),
                                     Brushes.Black,
-                                    new PointF(35, vtdong));
+                                    new PointF(55, vtdong));
                 e.Graphics.DrawString(string.Format("{0:N0}", item.DonGia),
                                     new Font("Courier New", 16, FontStyle.Regular),
                                     Brushes.Black,
@@ -362,10 +373,11 @@ namespace QLKFC
             #endregion
 
             #region Thông tin Thanh toán
+            vtdong += 20;
             e.Graphics.DrawString("Cash",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(0, vtdong));
+                                new PointF(20, vtdong));
             e.Graphics.DrawString(string.Format("{0:N0}", Double.Parse(txtDua.Text)),
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -374,7 +386,7 @@ namespace QLKFC
             e.Graphics.DrawString("Sub Total",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(0, vtdong));
+                                new PointF(20, vtdong));
             e.Graphics.DrawString(lblThanhTien.Text,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -383,7 +395,7 @@ namespace QLKFC
             e.Graphics.DrawString("Total: ",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(0, vtdong));
+                                new PointF(20, vtdong));
             e.Graphics.DrawString(lblThanhTien.Text,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -392,7 +404,7 @@ namespace QLKFC
             e.Graphics.DrawString("Payment: ",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(0, vtdong));
+                                new PointF(20, vtdong));
             e.Graphics.DrawString(string.Format("{0:N0}", Double.Parse(txtDua.Text)),
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -401,7 +413,7 @@ namespace QLKFC
             e.Graphics.DrawString("Change Due: ",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(0, vtdong));
+                                new PointF(20, vtdong));
             e.Graphics.DrawString(lblTienThua.Text,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -410,13 +422,13 @@ namespace QLKFC
             #endregion
 
             #region footer
-            e.Graphics.DrawString(String.Format("---- CLOSE  {0} ", DateTime.Now.ToString("dd / MM / yyyy HH: mm: ss")) + "  -----",
+            e.Graphics.DrawString(String.Format("---- CLOSE  {0} ", DateTime.Now.ToString()) + "  -----",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Tham gia khao sat va nhan qua tai:  www.talk2kfcvietnam.com",
+            e.Graphics.DrawString("Tham gia khao sat va nhan qua tai:\nwww.talk2kfcvietnam.com",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
@@ -428,25 +440,25 @@ namespace QLKFC
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Thoi gian tham gia doi thuong la 7 ngay ke tu ngay mua hang.",
+            e.Graphics.DrawString("Thoi gian tham gia doi thuong la\n 7 ngay ke tu ngay mua hang.",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Co gia tri doi thuong trong vong 15 ngay ke tu ngay mua hang.",
+            e.Graphics.DrawString("Co gia tri doi thuong trong vong\n 15 ngay ke tu ngay mua hang.",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Khao sat chi ap dung cho hoa don co gia tri tu 70.000 tro len.",
+            e.Graphics.DrawString("Khao sat chi ap dung cho hoa don co gia tri \ntu 70.000 tro len.",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
                                 formatCenter);
             vtdong += 30;
-            e.Graphics.DrawString("Quy khach can hoa don tai chinh de nghi lay ngay khi mua hang.",
+            e.Graphics.DrawString("Quy khach can hoa don tai chinh de nghi \nlay ngay khi mua hang.",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
