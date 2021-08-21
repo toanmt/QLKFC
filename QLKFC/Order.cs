@@ -14,7 +14,7 @@ namespace QLKFC
     public partial class Order : Form
     {
         //Khai báo biến
-        QLBHKFCContext db = new QLBHKFCContext();
+        QLBHKFCContext db = new ();
         string Pos, Storeid, Tennv;
         int maHD;
         int pageNu = 1, numberRe = 5;
@@ -29,7 +29,20 @@ namespace QLKFC
             this.Pos = pos;
             this.Storeid = storeid;
             this.Tennv = tennv;
+        }
+
+        private void Order_Load(object sender, EventArgs e)
+        {
             loadDGVSP(pageNu, numberRe);
+            var query = from lsp in db.LoaiSanPhams
+                        select new
+                        {
+                            lsp.TenLsp
+                        };
+            foreach (var item in query)
+            {
+                cmbLoc.Items.Add(item.TenLsp);
+            }
         }
 
         #region Khai báo hàm
@@ -44,7 +57,7 @@ namespace QLKFC
         private void loadDGVSP(int page, int recordNum)
         {
             dgv_DSSP.Rows.Clear();
-            var query = from sp in db.SanPhams.Skip((page - 1) * recordNum).Take(recordNum)
+            var query = from sp in db.SanPhams
                         select new
                         {
                             sp.MaSp,
@@ -53,21 +66,38 @@ namespace QLKFC
                             sp.DonVi,
                             sp.HinhAnh
                         };
+            int i = 0, d = 0;
             foreach (var item in query)
             {
-                if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                if (d < (page - 1) * recordNum)
+                    d++;
                 else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi);
+                {
+                    if (i < recordNum)
+                    {
+                        if (item.HinhAnh != null)
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                        else
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonVi, item.DonGia);
+                        i++;
+                    }
+                    else
+                        break;
+                }
             }
             dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
+            if (page == 1)
+                btnTrangTruoc.Visible = false;
+            else
+                btnTrangTruoc.Visible = true;
+            if (page - 1 < query.Count() / recordNum)
+                btnTrangSau.Visible = true;
+            else
+                btnTrangSau.Visible = false;
         }
 
-        private void locDL(string loc)
+        private void locDL(int page, int recordNum, string loc)
         {
-            btnTrangSau.Visible = false;
-            btnTrangTruoc.Visible = false;
-            txtSoTrang.Visible = false;
             dgv_DSSP.Rows.Clear();
             var query = from sp in db.SanPhams
                         join lsp in db.LoaiSanPhams on sp.MaLsp equals lsp.MaLsp
@@ -80,14 +110,34 @@ namespace QLKFC
                             sp.DonVi,
                             sp.HinhAnh
                         };
+            int i = 0, d = 0;
             foreach (var item in query)
             {
-                if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                if (d < (page - 1) * recordNum)
+                    d++;
                 else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi);
+                {
+                    if (i < recordNum)
+                    {
+                        if (item.HinhAnh != null)
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                        else
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonVi, item.DonGia);
+                        i++;
+                    }
+                    else
+                        break;
+                }
             }
             dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
+            if (page == 1)
+                btnTrangTruoc.Visible = false;
+            else
+                btnTrangTruoc.Visible = true;
+            if (page - 1 < query.Count() / recordNum)
+                btnTrangSau.Visible = true;
+            else
+                btnTrangSau.Visible = false;
         }
 
         private void TinhTien()
@@ -120,31 +170,28 @@ namespace QLKFC
                 string masp = dgv_DSSP.Rows[e.RowIndex].Cells[0].Value.ToString();
                 string tensp = dgv_DSSP.Rows[e.RowIndex].Cells[1].Value.ToString();
                 string dongia = dgv_DSSP.Rows[e.RowIndex].Cells[2].Value.ToString();
-                using (XacNhanSL xn = new XacNhanSL())
+                XacNhanSL xn = new();
+                if (xn.ShowDialog() == DialogResult.OK)
                 {
-                    if (xn.ShowDialog() == DialogResult.OK)
+                    int check = 0;
+                    if (dgvDSOrder.RowCount > 0)
                     {
-                        int check = 0;
-                        if (dgvDSOrder.RowCount > 0)
+                        for (int i = 0; i < dgvDSOrder.RowCount; i++)
                         {
-                            for (int i = 0; i < dgvDSOrder.RowCount; i++)
+                            var rowss = dgvDSOrder.Rows[i];
+                            if (rowss.Cells[1].Value.ToString() == tensp
+                                && rowss.Cells[2].Value.ToString() == dongia)
                             {
-                                var rowss = dgvDSOrder.Rows[i];
-                                if (rowss.Cells[1].Value.ToString() == tensp
-                                    && rowss.Cells[2].Value.ToString() == dongia)
-                                {
-                                    rowss.Cells[3].Value = xn.soluong + int.Parse(rowss.Cells[3].Value.ToString());
-                                    rowss.Cells[4].Value = int.Parse(rowss.Cells[3].Value.ToString()) * double.Parse(dongia);
-                                    check++;
-                                }
+                                rowss.Cells[3].Value = xn.soluong + int.Parse(rowss.Cells[3].Value.ToString());
+                                rowss.Cells[4].Value = int.Parse(rowss.Cells[3].Value.ToString()) * double.Parse(dongia);
+                                check++;
                             }
                         }
+                    }
 
-                        if (check == 0)
-                        {
-                            dgvDSOrder.Rows.Add(masp, tensp, dongia, xn.soluong, float.Parse(dongia) * xn.soluong);
-                        }
-
+                    if (check == 0)
+                    {
+                        dgvDSOrder.Rows.Add(masp, tensp, dongia, xn.soluong, float.Parse(dongia) * xn.soluong);
                     }
                 }
             }
@@ -153,45 +200,27 @@ namespace QLKFC
 
         private void dgvDSOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvDSOrder.Columns[e.ColumnIndex].Name=="Xoa")
+            if (dgvDSOrder.Columns[e.ColumnIndex].Name == "Xoa")
             {
-                if(MessageBox.Show("Xóa sản phẩm này?","Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Question)
-                    ==DialogResult.Yes)
+                if (MessageBox.Show("Xóa sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    == DialogResult.Yes)
                 {
                     dgvDSOrder.Rows.RemoveAt(e.RowIndex);
                 }
             }
             else
             {
-                using(XacNhanSL xnsl=new XacNhanSL())
+                XacNhanSL xnsl = new();
+                if (xnsl.ShowDialog() == DialogResult.OK)
                 {
-                    if (xnsl.ShowDialog() == DialogResult.OK)
-                    {
-                        dgvDSOrder.Rows[e.RowIndex].Cells[3].Value = xnsl.soluong;
-                        dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong*double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
-                    }
-                }    
+                    dgvDSOrder.Rows[e.RowIndex].Cells[3].Value = xnsl.soluong;
+                    dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong * double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
+                }
             }
             TinhTien();
         }
 
-
-
         #region Lọc bảng sản phẩm
-        private void btnChonComBo_Click(object sender, EventArgs e)
-        {
-            locDL("Combo");
-        }
-
-        private void btnChonMonLe_Click(object sender, EventArgs e)
-        {
-            locDL("Đồ ăn");
-        }
-
-        private void btnChonDoUong_Click(object sender, EventArgs e)
-        {
-            locDL("Đồ uống");
-        }
 
         private void txtFind_TextChanged(object sender, EventArgs e)
         {
@@ -238,11 +267,11 @@ namespace QLKFC
 
 
             // Khai báo định dạng kiểu căn giữa
-            StringFormat formatCenter = new StringFormat(StringFormatFlags.NoClip);
+            StringFormat formatCenter = new (StringFormatFlags.NoClip);
             formatCenter.Alignment = StringAlignment.Center;
 
             //Tạo khung nhập liệu
-            SizeF layoutSize = new SizeF(chieurong - vtdong * 2, 10);
+            SizeF layoutSize = new (chieurong - vtdong * 2, 10);
 
             #region Tạo header
             e.Graphics.DrawString("PHIEU TINH TIEN",
@@ -526,7 +555,7 @@ namespace QLKFC
             }
             else
             {
-                HoaDon hd = new HoaDon();
+                HoaDon hd = new ();
                 hd.TenNv = Tennv;
                 hd.StoreId = Storeid;
                 hd.Pos = Pos;
@@ -541,7 +570,7 @@ namespace QLKFC
                 {
                     MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                CthoaDon cthd = new CthoaDon();
+                CthoaDon cthd = new ();
                 maHD = db.HoaDons.SingleOrDefault(hdm => hdm.NgayThang == tg).MaHd;
                 cthd.MaHd = maHD;
                 for (int i = 0; i < dgvDSOrder.RowCount; i++)
@@ -593,6 +622,13 @@ namespace QLKFC
         }
 
         #region Phân trang
+        private void cmbLoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pageNu = 1;
+            txtSoTrang.Text = pageNu + "";
+            locDL(pageNu, numberRe, cmbLoc.Text.ToString());
+        }
+
         private void btnTrangTruoc_Click(object sender, EventArgs e)
         {
             if (pageNu - 1 > 0)
@@ -613,23 +649,13 @@ namespace QLKFC
 
         private void txtSoTrang_TextChanged(object sender, EventArgs e)
         {
-            loadDGVSP(pageNu, numberRe);
-            if (pageNu < db.SanPhams.Count() / numberRe + 1)
+            if (cmbLoc.Text == "")
             {
-                btnTrangSau.Visible = true;
+                loadDGVSP(pageNu, numberRe);
             }
             else
             {
-                btnTrangSau.Visible = false;
-            }
-
-            if (pageNu == 1)
-            {
-                btnTrangTruoc.Visible = false;
-            }
-            else
-            {
-                btnTrangTruoc.Visible = true;
+                locDL(pageNu, numberRe, cmbLoc.Text);
             }
         }
         #endregion

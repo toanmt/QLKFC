@@ -13,7 +13,6 @@ namespace QLKFC
 {
     public partial class Dashboard : Form
     {
-        QLBHKFCContext db = new QLBHKFCContext();
 
         int Quyen;
         string tenNV, sid, pid;
@@ -125,7 +124,7 @@ namespace QLKFC
         private void btnOrder_Click(object sender, EventArgs e)
         {
             if (sid == null)
-                using (KiemTraNVOrder ktra = new KiemTraNVOrder())
+                using (KiemTraNVOrder ktra = new ())
                 {
                     if (ktra.ShowDialog() == DialogResult.OK)
                     {
@@ -144,7 +143,7 @@ namespace QLKFC
 
         private void btnQLThucDon_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLySanPham());
+            openForm(new QuanLyMonAn());
             hideSubMenu();
         }
 
@@ -209,7 +208,7 @@ namespace QLKFC
             if (MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Hide();
-                DangNhap dn = new DangNhap();
+                DangNhap dn = new ();
                 dn.ShowDialog();
                 this.Close();
             }

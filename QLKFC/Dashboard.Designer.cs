@@ -334,7 +334,8 @@ namespace QLKFC
             this.btnQLLoaiSanPham.Name = "btnQLLoaiSanPham";
             this.btnQLLoaiSanPham.Size = new System.Drawing.Size(255, 44);
             this.btnQLLoaiSanPham.TabIndex = 6;
-            this.btnQLLoaiSanPham.Text = "Quản lý loại sản phẩm";
+            this.btnQLLoaiSanPham.Text = "Quản lý loại món ăn";
+            this.btnQLLoaiSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLLoaiSanPham.UseVisualStyleBackColor = true;
             this.btnQLLoaiSanPham.Click += new System.EventHandler(this.btnQLLoaiSanPham_Click);
             // 
@@ -349,7 +350,7 @@ namespace QLKFC
             this.btnQLThucDon.Name = "btnQLThucDon";
             this.btnQLThucDon.Size = new System.Drawing.Size(255, 44);
             this.btnQLThucDon.TabIndex = 5;
-            this.btnQLThucDon.Text = "Quản lý sản phẩm";
+            this.btnQLThucDon.Text = "Quản lý món ăn";
             this.btnQLThucDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLThucDon.UseVisualStyleBackColor = true;
             this.btnQLThucDon.Click += new System.EventHandler(this.btnQLThucDon_Click);

@@ -12,14 +12,14 @@ using QLKFC.Models;
 
 namespace QLKFC
 {
-    public partial class QuanLySanPham : Form
+    public partial class QuanLyMonAn : Form
     {
 
-        QLBHKFCContext db = new QLBHKFCContext();
+        QLBHKFCContext db = new ();
         string filename, iname;
         int pageNu = 1, numberRe = 3;
 
-        public QuanLySanPham()
+        public QuanLyMonAn()
         {
             InitializeComponent();
             loadCmb();
@@ -65,7 +65,7 @@ namespace QLKFC
         private void loadDGV(int page, int recordNum)
         {
             dgv_DSSP.Rows.Clear();
-            var query = from sp in db.SanPhams.Skip((page - 1) * recordNum).Take(recordNum)
+            var query = from sp in db.SanPhams
                         join lsp in db.LoaiSanPhams on sp.MaLsp equals lsp.MaLsp
                         select new
                         {
@@ -76,17 +76,37 @@ namespace QLKFC
                             sp.DonVi,
                             sp.HinhAnh
                         };
+            int i = 0, d = 0;
             foreach (var item in query)
             {
-                if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                if (d < (page - 1) * recordNum)
+                    d++;
                 else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
+                {
+                    if (i < recordNum)
+                    {
+                        if (item.HinhAnh != null)
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                        else
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
+                        i++;
+                    }
+                    else
+                        break;
+                }
             }
             dgv_DSSP.Columns["DonGia"].DefaultCellStyle.Format = "N0";
+            if (page == 1)
+                btnTrangTruoc.Visible = false;
+            else
+                btnTrangTruoc.Visible = true;
+            if (page - 2 < query.Count() / recordNum)
+                btnTrangSau.Visible = true;
+            else
+                btnTrangSau.Visible = false;
         }
 
-        private void locDL(string loc)
+        private void locDL(int page, int recordNum, string loc)
         {
             dgv_DSSP.Rows.Clear();
             var query = from sp in db.SanPhams
@@ -101,14 +121,34 @@ namespace QLKFC
                             sp.DonVi,
                             sp.HinhAnh
                         };
+            int i = 0, d = 0;
             foreach (var item in query)
             {
-                if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                if (d < (page - 1) * recordNum)
+                    d++;
                 else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
+                {
+                    if (i < recordNum)
+                    {
+                        if (item.HinhAnh != null)
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
+                        else
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.TenLsp, item.DonVi, item.DonGia);
+                        i++;
+                    }
+                    else
+                        break;
+                }
             }
             dgv_DSSP.Columns["DonGia"].DefaultCellStyle.Format = "N0";
+            if (page == 1)
+                btnTrangTruoc.Visible = false;
+            else
+                btnTrangTruoc.Visible = true;
+            if (page - 2 < query.Count() / recordNum)
+                btnTrangSau.Visible = true;
+            else
+                btnTrangSau.Visible = false;
         }
 
         private bool checkLoiNhapLieu()
@@ -198,7 +238,7 @@ namespace QLKFC
         {
             try
             {
-                OpenFileDialog browse = new OpenFileDialog()
+                OpenFileDialog browse = new ()
                 {
                     Title = "Chọn ảnh",
                     Filter = "All files|*.*|Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png|Png files(*.png)|*.png|Jpeg files(*.jpeg)|*.jpeg|Jpe files(*.jpe)|*.jpe|Jpg files(*.jpg)|*.jpg"
@@ -269,7 +309,7 @@ namespace QLKFC
             {
                 if (checkLoiNhapLieu())
                 {
-                    SanPham sp = new SanPham();
+                    SanPham sp = new ();
                     sp.TenSp = txtTenMon.Text;
                     sp.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
                     if (int.Parse(txtGiaBan.Text) < 1000)
@@ -368,6 +408,8 @@ namespace QLKFC
         {
             pageNu = 1;
             loadDGV(pageNu, numberRe);
+            clearTextBox();
+            cmbLoc.Text = null;
             txtFind.Clear();
         }
 
@@ -422,7 +464,9 @@ namespace QLKFC
 
         private void cmbLoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            locDL(cmbLoc.Text.ToString());
+            pageNu = 1;
+            txtSoTrang.Text = pageNu + "";
+            locDL(pageNu, numberRe, cmbLoc.Text.ToString());
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -495,23 +539,13 @@ namespace QLKFC
 
         private void txtSoTrang_TextChanged(object sender, EventArgs e)
         {
-            loadDGV(pageNu, numberRe);
-            if (pageNu < db.SanPhams.Count() / numberRe + 1)
+            if (cmbLoc.Text == "")
             {
-                btnTrangSau.Visible = true;
+                loadDGV(pageNu, numberRe);
             }
             else
             {
-                btnTrangSau.Visible = false;
-            }
-
-            if (pageNu == 1)
-            {
-                btnTrangTruoc.Visible = false;
-            }
-            else
-            {
-                btnTrangTruoc.Visible = true;
+                locDL(pageNu, numberRe, cmbLoc.Text);
             }
         }
         #endregion

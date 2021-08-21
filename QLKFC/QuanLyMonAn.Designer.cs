@@ -1,7 +1,7 @@
 ﻿
 namespace QLKFC
 {
-    partial class QuanLySanPham
+    partial class QuanLyMonAn
     {
         /// <summary>
         /// Required designer variable.
@@ -128,11 +128,11 @@ namespace QLKFC
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(290, 22);
+            this.label1.Location = new System.Drawing.Point(312, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(372, 47);
+            this.label1.Size = new System.Drawing.Size(328, 47);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Quản lý sản phẩm";
+            this.label1.Text = "Quản lý món ăn";
             // 
             // panel1
             // 
@@ -194,7 +194,9 @@ namespace QLKFC
             // 
             // cmbLoc
             // 
+            this.cmbLoc.BackColor = System.Drawing.Color.LemonChiffon;
             this.cmbLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbLoc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbLoc.FormattingEnabled = true;
             this.cmbLoc.Location = new System.Drawing.Point(12, 6);
@@ -250,7 +252,7 @@ namespace QLKFC
             // 
             // MaSP
             // 
-            this.MaSP.HeaderText = "Mã sản phẩm";
+            this.MaSP.HeaderText = "Mã món";
             this.MaSP.MinimumWidth = 6;
             this.MaSP.Name = "MaSP";
             this.MaSP.ReadOnly = true;
@@ -259,18 +261,18 @@ namespace QLKFC
             // TenSP
             // 
             this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenSP.HeaderText = "Tên Sản phẩm";
+            this.TenSP.HeaderText = "Tên món";
             this.TenSP.MinimumWidth = 6;
             this.TenSP.Name = "TenSP";
             this.TenSP.ReadOnly = true;
             // 
             // TenLSP
             // 
-            this.TenLSP.HeaderText = "Tên loại SP";
+            this.TenLSP.HeaderText = "Tên loại món";
             this.TenLSP.MinimumWidth = 6;
             this.TenLSP.Name = "TenLSP";
             this.TenLSP.ReadOnly = true;
-            this.TenLSP.Width = 120;
+            this.TenLSP.Width = 140;
             // 
             // DonViTinh
             // 
@@ -431,6 +433,7 @@ namespace QLKFC
             // 
             // cmbLoai
             // 
+            this.cmbLoai.BackColor = System.Drawing.Color.White;
             this.cmbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoai.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbLoai.FormattingEnabled = true;
@@ -604,7 +607,7 @@ namespace QLKFC
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // QuanLySanPham
+            // QuanLyMonAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -613,7 +616,7 @@ namespace QLKFC
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "QuanLySanPham";
+            this.Name = "QuanLyMonAn";
             this.Text = "Quản Lý Thực Đơn";
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
