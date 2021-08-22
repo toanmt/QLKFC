@@ -14,7 +14,7 @@ namespace QLKFC
     public partial class Order : Form
     {
         //Khai báo biến
-        QLBHKFCContext db = new QLBHKFCContext();
+        QLBHKFCContext db = new();
         string Pos, Storeid, Tennv;
         int maHD;
         int pageNu = 1, numberRe = 5;

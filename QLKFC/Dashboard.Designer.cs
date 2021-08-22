@@ -54,10 +54,10 @@ namespace QLKFC
             this.btnTrangChu = new System.Windows.Forms.Button();
             this.ptbTrangChu = new System.Windows.Forms.PictureBox();
             this.panel_control = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel_submenu_Kho.SuspendLayout();
             this.panel_submenu_HD.SuspendLayout();
@@ -423,6 +423,18 @@ namespace QLKFC
             this.panel_control.Size = new System.Drawing.Size(930, 692);
             this.panel_control.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(210, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(251, 38);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "             ";
+            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -456,18 +468,6 @@ namespace QLKFC
             this.label1.Size = new System.Drawing.Size(199, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chào mừng";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(210, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(264, 40);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "             ";
             // 
             // Dashboard
             // 
