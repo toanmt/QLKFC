@@ -149,7 +149,7 @@ namespace QLKFC
 
         private void btnQLLoaiSanPham_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLyLoaiSanPham());
+            openForm(new QuanLyLoaiMonAn());
             hideSubMenu();
         }
 

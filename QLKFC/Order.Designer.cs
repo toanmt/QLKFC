@@ -30,15 +30,15 @@ namespace QLKFC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.panel_header = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -59,7 +59,9 @@ namespace QLKFC
             this.btnTrangTruoc = new System.Windows.Forms.Button();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.panel_Loc = new System.Windows.Forms.Panel();
-            this.cmbLoc = new System.Windows.Forms.ComboBox();
+            this.btnChonDoUong = new System.Windows.Forms.Button();
+            this.btnChonMonLe = new System.Windows.Forms.Button();
+            this.btnChonComBo = new System.Windows.Forms.Button();
             this.panel_Order = new System.Windows.Forms.Panel();
             this.panel_TinhTien = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -172,14 +174,14 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_DSSP.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_DSSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DSSP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSP,
@@ -190,17 +192,17 @@ namespace QLKFC
             this.dgv_DSSP.EnableHeadersVisualStyles = false;
             this.dgv_DSSP.Location = new System.Drawing.Point(9, 159);
             this.dgv_DSSP.Name = "dgv_DSSP";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Khaki;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Khaki;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_DSSP.RowHeadersVisible = false;
             this.dgv_DSSP.RowHeadersWidth = 51;
-            this.dgv_DSSP.RowTemplate.Height = 145;
+            this.dgv_DSSP.RowTemplate.Height = 150;
             this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DSSP.Size = new System.Drawing.Size(447, 432);
             this.dgv_DSSP.TabIndex = 5;
@@ -208,7 +210,7 @@ namespace QLKFC
             // 
             // MaSP
             // 
-            this.MaSP.HeaderText = "Mã sản phẩm";
+            this.MaSP.HeaderText = "Mã món";
             this.MaSP.MinimumWidth = 6;
             this.MaSP.Name = "MaSP";
             this.MaSP.ReadOnly = true;
@@ -217,7 +219,7 @@ namespace QLKFC
             // TenSP
             // 
             this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenSP.HeaderText = "Tên Sản phẩm";
+            this.TenSP.HeaderText = "Tên món";
             this.TenSP.MinimumWidth = 6;
             this.TenSP.Name = "TenSP";
             this.TenSP.ReadOnly = true;
@@ -329,28 +331,53 @@ namespace QLKFC
             // 
             // panel_Loc
             // 
-            this.panel_Loc.Controls.Add(this.cmbLoc);
+            this.panel_Loc.Controls.Add(this.btnChonDoUong);
+            this.panel_Loc.Controls.Add(this.btnChonMonLe);
+            this.panel_Loc.Controls.Add(this.btnChonComBo);
             this.panel_Loc.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Loc.Location = new System.Drawing.Point(0, 0);
             this.panel_Loc.Name = "panel_Loc";
             this.panel_Loc.Size = new System.Drawing.Size(462, 70);
             this.panel_Loc.TabIndex = 0;
             // 
-            // cmbLoc
+            // btnChonDoUong
             // 
-            this.cmbLoc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbLoc.BackColor = System.Drawing.Color.LemonChiffon;
-            this.cmbLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbLoc.Font = new System.Drawing.Font("Consolas", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbLoc.FormattingEnabled = true;
-            this.cmbLoc.Location = new System.Drawing.Point(12, 6);
-            this.cmbLoc.Name = "cmbLoc";
-            this.cmbLoc.Size = new System.Drawing.Size(444, 51);
-            this.cmbLoc.TabIndex = 8;
-            this.cmbLoc.SelectedIndexChanged += new System.EventHandler(this.cmbLoc_SelectedIndexChanged);
+            this.btnChonDoUong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChonDoUong.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnChonDoUong.ForeColor = System.Drawing.Color.Red;
+            this.btnChonDoUong.Location = new System.Drawing.Point(306, 6);
+            this.btnChonDoUong.Name = "btnChonDoUong";
+            this.btnChonDoUong.Size = new System.Drawing.Size(150, 58);
+            this.btnChonDoUong.TabIndex = 2;
+            this.btnChonDoUong.Text = "Đồ uống";
+            this.btnChonDoUong.UseVisualStyleBackColor = true;
+            this.btnChonDoUong.Click += new System.EventHandler(this.btnChonDoUong_Click);
+            // 
+            // btnChonMonLe
+            // 
+            this.btnChonMonLe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChonMonLe.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnChonMonLe.ForeColor = System.Drawing.Color.Red;
+            this.btnChonMonLe.Location = new System.Drawing.Point(157, 6);
+            this.btnChonMonLe.Name = "btnChonMonLe";
+            this.btnChonMonLe.Size = new System.Drawing.Size(150, 58);
+            this.btnChonMonLe.TabIndex = 1;
+            this.btnChonMonLe.Text = "Đồ ăn";
+            this.btnChonMonLe.UseVisualStyleBackColor = true;
+            this.btnChonMonLe.Click += new System.EventHandler(this.btnChonMonLe_Click);
+            // 
+            // btnChonComBo
+            // 
+            this.btnChonComBo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChonComBo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnChonComBo.ForeColor = System.Drawing.Color.Red;
+            this.btnChonComBo.Location = new System.Drawing.Point(9, 6);
+            this.btnChonComBo.Name = "btnChonComBo";
+            this.btnChonComBo.Size = new System.Drawing.Size(150, 58);
+            this.btnChonComBo.TabIndex = 0;
+            this.btnChonComBo.Text = "Combo";
+            this.btnChonComBo.UseVisualStyleBackColor = true;
+            this.btnChonComBo.Click += new System.EventHandler(this.btnChonComBo_Click);
             // 
             // panel_Order
             // 
@@ -411,7 +438,6 @@ namespace QLKFC
             // txtDua
             // 
             this.txtDua.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDua.ForeColor = System.Drawing.Color.Red;
             this.txtDua.Location = new System.Drawing.Point(14, 98);
             this.txtDua.Name = "txtDua";
             this.txtDua.Size = new System.Drawing.Size(252, 31);
@@ -504,14 +530,14 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDSOrder.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDSOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDSOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDSOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Mamon,
@@ -533,8 +559,8 @@ namespace QLKFC
             // 
             // Mamon
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Mamon.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Mamon.DefaultCellStyle = dataGridViewCellStyle4;
             this.Mamon.HeaderText = "Mã món";
             this.Mamon.MinimumWidth = 6;
             this.Mamon.Name = "Mamon";
@@ -544,8 +570,8 @@ namespace QLKFC
             // TenMon
             // 
             this.TenMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.TenMon.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.TenMon.DefaultCellStyle = dataGridViewCellStyle5;
             this.TenMon.HeaderText = "Tên Món";
             this.TenMon.MinimumWidth = 6;
             this.TenMon.Name = "TenMon";
@@ -553,8 +579,8 @@ namespace QLKFC
             // 
             // DonGia
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DonGia.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DonGia.DefaultCellStyle = dataGridViewCellStyle6;
             this.DonGia.HeaderText = "Đơn giá";
             this.DonGia.MinimumWidth = 6;
             this.DonGia.Name = "DonGia";
@@ -563,8 +589,8 @@ namespace QLKFC
             // 
             // SoLuong
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.SoLuong.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.SoLuong.DefaultCellStyle = dataGridViewCellStyle7;
             this.SoLuong.HeaderText = "SL";
             this.SoLuong.MinimumWidth = 6;
             this.SoLuong.Name = "SoLuong";
@@ -573,8 +599,8 @@ namespace QLKFC
             // 
             // ThanhTien
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ThanhTien.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ThanhTien.DefaultCellStyle = dataGridViewCellStyle8;
             this.ThanhTien.HeaderText = "Thành Tiền";
             this.ThanhTien.MinimumWidth = 6;
             this.ThanhTien.Name = "ThanhTien";
@@ -583,12 +609,12 @@ namespace QLKFC
             // 
             // Xoa
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Red;
-            this.Xoa.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Red;
+            this.Xoa.DefaultCellStyle = dataGridViewCellStyle9;
             this.Xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Xoa.HeaderText = "Xóa";
             this.Xoa.MinimumWidth = 6;
@@ -627,7 +653,6 @@ namespace QLKFC
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Order";
             this.Text = "Order";
-            this.Load += new System.EventHandler(this.Order_Load);
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -671,6 +696,9 @@ namespace QLKFC
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFind;
+        private System.Windows.Forms.Button btnChonDoUong;
+        private System.Windows.Forms.Button btnChonMonLe;
+        private System.Windows.Forms.Button btnChonComBo;
         private System.Windows.Forms.DataGridView dgvDSOrder;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtDua;
@@ -680,11 +708,6 @@ namespace QLKFC
         private System.Drawing.Printing.PrintDocument pdHoaDon;
         private System.Windows.Forms.PrintPreviewDialog ppdHoaDon;
         private System.Windows.Forms.DataGridView dgv_DSSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Loai;
-        private System.Windows.Forms.DataGridViewImageColumn ImageMota;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mamon;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMon;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
@@ -694,6 +717,10 @@ namespace QLKFC
         private System.Windows.Forms.TextBox txtSoTrang;
         private System.Windows.Forms.Button btnTrangSau;
         private System.Windows.Forms.Button btnTrangTruoc;
-        private System.Windows.Forms.ComboBox cmbLoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Loai;
+        private System.Windows.Forms.DataGridViewImageColumn ImageMota;
     }
 }

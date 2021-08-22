@@ -11,9 +11,9 @@ using QLKFC.Models;
 
 namespace QLKFC
 {
-    public partial class QuanLyLoaiSanPham : Form
+    public partial class QuanLyLoaiMonAn : Form
     {
-        public QuanLyLoaiSanPham()
+        public QuanLyLoaiMonAn()
         {
             InitializeComponent();
             loadData();

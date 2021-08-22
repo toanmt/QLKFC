@@ -100,10 +100,12 @@ namespace QLKFC
                 btnTrangTruoc.Visible = false;
             else
                 btnTrangTruoc.Visible = true;
-            if (page - 2 < query.Count() / recordNum)
-                btnTrangSau.Visible = true;
-            else
+
+            if (page - 1 >= query.Count() / recordNum || 
+                (page == query.Count() / recordNum && query.Count() % recordNum == 0))
                 btnTrangSau.Visible = false;
+            else
+                btnTrangSau.Visible = true;
         }
 
         private void locDL(int page, int recordNum, string loc)
@@ -141,14 +143,17 @@ namespace QLKFC
                 }
             }
             dgv_DSSP.Columns["DonGia"].DefaultCellStyle.Format = "N0";
+
             if (page == 1)
                 btnTrangTruoc.Visible = false;
             else
                 btnTrangTruoc.Visible = true;
-            if (page - 2 < query.Count() / recordNum)
-                btnTrangSau.Visible = true;
-            else
+
+            if (page - 1 >= query.Count() / recordNum ||
+                (page == query.Count() / recordNum && query.Count() % recordNum == 0))
                 btnTrangSau.Visible = false;
+            else
+                btnTrangSau.Visible = true;
         }
 
         private bool checkLoiNhapLieu()

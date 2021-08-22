@@ -14,10 +14,11 @@ namespace QLKFC
     public partial class Order : Form
     {
         //Khai báo biến
-        QLBHKFCContext db = new ();
+        QLBHKFCContext db = new QLBHKFCContext();
         string Pos, Storeid, Tennv;
         int maHD;
         int pageNu = 1, numberRe = 5;
+        string locLoai = null;
 
         public Order()
         {
@@ -29,20 +30,7 @@ namespace QLKFC
             this.Pos = pos;
             this.Storeid = storeid;
             this.Tennv = tennv;
-        }
-
-        private void Order_Load(object sender, EventArgs e)
-        {
             loadDGVSP(pageNu, numberRe);
-            var query = from lsp in db.LoaiSanPhams
-                        select new
-                        {
-                            lsp.TenLsp
-                        };
-            foreach (var item in query)
-            {
-                cmbLoc.Items.Add(item.TenLsp);
-            }
         }
 
         #region Khai báo hàm
@@ -76,24 +64,26 @@ namespace QLKFC
                     if (i < recordNum)
                     {
                         if (item.HinhAnh != null)
-                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
-                        else
-                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonVi, item.DonGia);
-                        i++;
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                else
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
                     }
                     else
                         break;
                 }
             }
             dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
+            
             if (page == 1)
                 btnTrangTruoc.Visible = false;
             else
                 btnTrangTruoc.Visible = true;
-            if (page - 1 < query.Count() / recordNum)
-                btnTrangSau.Visible = true;
-            else
+
+            if (page - 1 >= query.Count() / recordNum ||
+                (page == query.Count() / recordNum && query.Count() % recordNum == 0))
                 btnTrangSau.Visible = false;
+            else
+                btnTrangSau.Visible = true;
         }
 
         private void locDL(int page, int recordNum, string loc)
@@ -120,10 +110,9 @@ namespace QLKFC
                     if (i < recordNum)
                     {
                         if (item.HinhAnh != null)
-                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonVi, item.DonGia, new Bitmap(pathImage() + item.HinhAnh));
-                        else
-                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonVi, item.DonGia);
-                        i++;
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                else
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
                     }
                     else
                         break;
@@ -134,10 +123,12 @@ namespace QLKFC
                 btnTrangTruoc.Visible = false;
             else
                 btnTrangTruoc.Visible = true;
-            if (page - 1 < query.Count() / recordNum)
-                btnTrangSau.Visible = true;
-            else
+
+            if (page - 1 >= query.Count() / recordNum ||
+                (page == query.Count() / recordNum && query.Count() % recordNum == 0))
                 btnTrangSau.Visible = false;
+            else
+                btnTrangSau.Visible = true;
         }
 
         private void TinhTien()
@@ -170,28 +161,31 @@ namespace QLKFC
                 string masp = dgv_DSSP.Rows[e.RowIndex].Cells[0].Value.ToString();
                 string tensp = dgv_DSSP.Rows[e.RowIndex].Cells[1].Value.ToString();
                 string dongia = dgv_DSSP.Rows[e.RowIndex].Cells[2].Value.ToString();
-                XacNhanSL xn = new();
-                if (xn.ShowDialog() == DialogResult.OK)
+                using (XacNhanSL xn = new XacNhanSL())
                 {
-                    int check = 0;
-                    if (dgvDSOrder.RowCount > 0)
+                    if (xn.ShowDialog() == DialogResult.OK)
                     {
-                        for (int i = 0; i < dgvDSOrder.RowCount; i++)
+                        int check = 0;
+                        if (dgvDSOrder.RowCount > 0)
                         {
-                            var rowss = dgvDSOrder.Rows[i];
-                            if (rowss.Cells[1].Value.ToString() == tensp
-                                && rowss.Cells[2].Value.ToString() == dongia)
+                            for (int i = 0; i < dgvDSOrder.RowCount; i++)
                             {
-                                rowss.Cells[3].Value = xn.soluong + int.Parse(rowss.Cells[3].Value.ToString());
-                                rowss.Cells[4].Value = int.Parse(rowss.Cells[3].Value.ToString()) * double.Parse(dongia);
-                                check++;
+                                var rowss = dgvDSOrder.Rows[i];
+                                if (rowss.Cells[1].Value.ToString() == tensp
+                                    && rowss.Cells[2].Value.ToString() == dongia)
+                                {
+                                    rowss.Cells[3].Value = xn.soluong + int.Parse(rowss.Cells[3].Value.ToString());
+                                    rowss.Cells[4].Value = int.Parse(rowss.Cells[3].Value.ToString()) * double.Parse(dongia);
+                                    check++;
+                                }
                             }
                         }
-                    }
 
-                    if (check == 0)
-                    {
-                        dgvDSOrder.Rows.Add(masp, tensp, dongia, xn.soluong, float.Parse(dongia) * xn.soluong);
+                        if (check == 0)
+                        {
+                            dgvDSOrder.Rows.Add(masp, tensp, dongia, xn.soluong, float.Parse(dongia) * xn.soluong);
+                        }
+
                     }
                 }
             }
@@ -200,27 +194,52 @@ namespace QLKFC
 
         private void dgvDSOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDSOrder.Columns[e.ColumnIndex].Name == "Xoa")
+            if(dgvDSOrder.Columns[e.ColumnIndex].Name=="Xoa")
             {
-                if (MessageBox.Show("Xóa sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    == DialogResult.Yes)
+                if(MessageBox.Show("Xóa sản phẩm này?","Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Question)
+                    ==DialogResult.Yes)
                 {
                     dgvDSOrder.Rows.RemoveAt(e.RowIndex);
                 }
             }
             else
             {
-                XacNhanSL xnsl = new();
-                if (xnsl.ShowDialog() == DialogResult.OK)
+                using(XacNhanSL xnsl=new XacNhanSL())
                 {
-                    dgvDSOrder.Rows[e.RowIndex].Cells[3].Value = xnsl.soluong;
-                    dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong * double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
-                }
+                    if (xnsl.ShowDialog() == DialogResult.OK)
+                    {
+                        dgvDSOrder.Rows[e.RowIndex].Cells[3].Value = xnsl.soluong;
+                        dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong*double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    }
+                }    
             }
             TinhTien();
         }
 
         #region Lọc bảng sản phẩm
+        private void btnChonComBo_Click(object sender, EventArgs e)
+        {
+            locLoai = "ComBo";
+            pageNu = 1;
+            txtSoTrang.Text = pageNu + "";
+            locDL(pageNu, numberRe, locLoai);
+        }
+
+        private void btnChonMonLe_Click(object sender, EventArgs e)
+        {
+            locLoai = "Đồ ăn";
+            pageNu = 1;
+            txtSoTrang.Text = pageNu + "";
+            locDL(pageNu, numberRe, locLoai);
+        }
+
+        private void btnChonDoUong_Click(object sender, EventArgs e)
+        {
+            locLoai = "Đồ uống";
+            pageNu = 1;
+            txtSoTrang.Text = pageNu + "";
+            locDL(pageNu, numberRe, locLoai);
+        }
 
         private void txtFind_TextChanged(object sender, EventArgs e)
         {
@@ -251,6 +270,8 @@ namespace QLKFC
             btnTrangTruoc.Visible = true;
             txtSoTrang.Visible = true;
             pageNu = 1;
+            txtSoTrang.Text = pageNu + "";
+            locLoai = null;
             loadDGVSP(pageNu, numberRe);
             txtFind.Clear();
         }
@@ -267,11 +288,11 @@ namespace QLKFC
 
 
             // Khai báo định dạng kiểu căn giữa
-            StringFormat formatCenter = new (StringFormatFlags.NoClip);
+            StringFormat formatCenter = new StringFormat(StringFormatFlags.NoClip);
             formatCenter.Alignment = StringAlignment.Center;
 
             //Tạo khung nhập liệu
-            SizeF layoutSize = new (chieurong - vtdong * 2, 10);
+            SizeF layoutSize = new SizeF(chieurong - vtdong * 2, 10);
 
             #region Tạo header
             e.Graphics.DrawString("PHIEU TINH TIEN",
@@ -339,10 +360,10 @@ namespace QLKFC
 
             vtdong += 30;
             e.Graphics.DrawString(
-                                hoadonin.Pos + "    POS" + hoadonin.Pos,
+                                hoadonin.Pos + "    POS " + hoadonin.Pos,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(20, vtdong)
+                                new PointF(30, vtdong)
                                 );
 
             e.Graphics.DrawString(
@@ -365,19 +386,18 @@ namespace QLKFC
             e.Graphics.DrawString("Chk  " + maHD,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(10, vtdong));
+                                new PointF(30, vtdong));
             vtdong += 30;
             e.Graphics.DrawString(String.Format("\t\t {0}", ((DateTime)hoadonin.NgayThang).ToString("dd/MM/yyyy HH:mm:ss")),
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(10, vtdong));
+                                new PointF(30, vtdong));
             vtdong += 30;
 
             e.Graphics.DrawString("-----------------------------------------------------------",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new RectangleF(new PointF(10, vtdong), layoutSize),
-                                formatCenter);
+                                new RectangleF(new PointF(10, vtdong), layoutSize), formatCenter);
             #endregion
 
             #region Lấy dữ liệu danh sách sản phẩm mua
@@ -399,11 +419,11 @@ namespace QLKFC
                 e.Graphics.DrawString(item.SoLuong + "\t",
                                     new Font("Courier New", 16, FontStyle.Regular),
                                     Brushes.Black,
-                                    new PointF(20, vtdong));
+                                    new PointF(30, vtdong));
                 e.Graphics.DrawString(item.TenSp,
                                     new Font("Courier New", 16, FontStyle.Regular),
                                     Brushes.Black,
-                                    new PointF(55, vtdong));
+                                    new PointF(65, vtdong));
                 e.Graphics.DrawString(string.Format("{0:N0}", item.DonGia * item.SoLuong),
                                     new Font("Courier New", 16, FontStyle.Regular),
                                     Brushes.Black,
@@ -417,7 +437,7 @@ namespace QLKFC
             e.Graphics.DrawString("Cash",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(20, vtdong));
+                                new PointF(30, vtdong));
             e.Graphics.DrawString(string.Format("{0:N0}", Double.Parse(txtDua.Text)),
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -426,7 +446,7 @@ namespace QLKFC
             e.Graphics.DrawString("Sub Total",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(20, vtdong));
+                                new PointF(30, vtdong));
             e.Graphics.DrawString(lblThanhTien.Text,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -435,7 +455,7 @@ namespace QLKFC
             e.Graphics.DrawString("Total: ",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(20, vtdong));
+                                new PointF(30, vtdong));
             e.Graphics.DrawString(lblThanhTien.Text,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -444,7 +464,7 @@ namespace QLKFC
             e.Graphics.DrawString("Payment: ",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(20, vtdong));
+                                new PointF(30, vtdong));
             e.Graphics.DrawString(string.Format("{0:N0}", Double.Parse(txtDua.Text)),
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -453,7 +473,7 @@ namespace QLKFC
             e.Graphics.DrawString("Change Due: ",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
-                                new PointF(20, vtdong));
+                                new PointF(30, vtdong));
             e.Graphics.DrawString(lblTienThua.Text,
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -555,7 +575,7 @@ namespace QLKFC
             }
             else
             {
-                HoaDon hd = new ();
+                HoaDon hd = new HoaDon();
                 hd.TenNv = Tennv;
                 hd.StoreId = Storeid;
                 hd.Pos = Pos;
@@ -570,7 +590,7 @@ namespace QLKFC
                 {
                     MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                CthoaDon cthd = new ();
+                CthoaDon cthd = new CthoaDon();
                 maHD = db.HoaDons.SingleOrDefault(hdm => hdm.NgayThang == tg).MaHd;
                 cthd.MaHd = maHD;
                 for (int i = 0; i < dgvDSOrder.RowCount; i++)
@@ -622,13 +642,6 @@ namespace QLKFC
         }
 
         #region Phân trang
-        private void cmbLoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            pageNu = 1;
-            txtSoTrang.Text = pageNu + "";
-            locDL(pageNu, numberRe, cmbLoc.Text.ToString());
-        }
-
         private void btnTrangTruoc_Click(object sender, EventArgs e)
         {
             if (pageNu - 1 > 0)
@@ -649,14 +662,10 @@ namespace QLKFC
 
         private void txtSoTrang_TextChanged(object sender, EventArgs e)
         {
-            if (cmbLoc.Text == "")
-            {
+            if (locLoai == null)
                 loadDGVSP(pageNu, numberRe);
-            }
             else
-            {
-                locDL(pageNu, numberRe, cmbLoc.Text);
-            }
+                locDL(pageNu, numberRe, locLoai);
         }
         #endregion
 

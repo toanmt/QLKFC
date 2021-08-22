@@ -1,7 +1,7 @@
 ﻿
 namespace QLKFC
 {
-    partial class QuanLyLoaiSanPham
+    partial class QuanLyLoaiMonAn
     {
         /// <summary>
         /// Required designer variable.
@@ -99,11 +99,11 @@ namespace QLKFC
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(235, 22);
+            this.label1.Location = new System.Drawing.Point(290, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(482, 47);
+            this.label1.Size = new System.Drawing.Size(372, 47);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Quản lý loại sản phẩm";
+            this.label1.Text = "Quản lý loại món";
             // 
             // panel1
             // 
@@ -202,9 +202,9 @@ namespace QLKFC
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(96, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 23);
+            this.label2.Size = new System.Drawing.Size(142, 23);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Mã món:";
+            this.label2.Text = "Mã loại món:";
             // 
             // panel2
             // 
@@ -283,7 +283,7 @@ namespace QLKFC
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // QuanLyLoaiSanPham
+            // QuanLyLoaiMonAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -293,7 +293,7 @@ namespace QLKFC
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "QuanLyLoaiSanPham";
+            this.Name = "QuanLyLoaiMonAn";
             this.Text = "QuanLyLoaiSanPham";
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();

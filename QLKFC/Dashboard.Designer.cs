@@ -334,7 +334,7 @@ namespace QLKFC
             this.btnQLLoaiSanPham.Name = "btnQLLoaiSanPham";
             this.btnQLLoaiSanPham.Size = new System.Drawing.Size(255, 44);
             this.btnQLLoaiSanPham.TabIndex = 6;
-            this.btnQLLoaiSanPham.Text = "Quản lý loại món ăn";
+            this.btnQLLoaiSanPham.Text = "Quản lý loại món";
             this.btnQLLoaiSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLLoaiSanPham.UseVisualStyleBackColor = true;
             this.btnQLLoaiSanPham.Click += new System.EventHandler(this.btnQLLoaiSanPham_Click);
