@@ -47,11 +47,6 @@ namespace QLKFC
             this.panel_control = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_DSSP = new System.Windows.Forms.DataGridView();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtSoTrang = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -85,6 +80,11 @@ namespace QLKFC
             this.errorProvider_TD = new System.Windows.Forms.ErrorProvider(this.components);
             this.pdHoaDon = new System.Drawing.Printing.PrintDocument();
             this.ppdHoaDon = new System.Windows.Forms.PrintPreviewDialog();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -202,52 +202,12 @@ namespace QLKFC
             this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_DSSP.RowHeadersVisible = false;
             this.dgv_DSSP.RowHeadersWidth = 51;
+            this.dgv_DSSP.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dgv_DSSP.RowTemplate.Height = 150;
             this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DSSP.Size = new System.Drawing.Size(447, 432);
             this.dgv_DSSP.TabIndex = 5;
             this.dgv_DSSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSSP_CellClick);
-            // 
-            // MaSP
-            // 
-            this.MaSP.HeaderText = "Mã món";
-            this.MaSP.MinimumWidth = 6;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            this.MaSP.Width = 60;
-            // 
-            // TenSP
-            // 
-            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenSP.HeaderText = "Tên món";
-            this.TenSP.MinimumWidth = 6;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            // 
-            // dg
-            // 
-            this.dg.HeaderText = "Đơn giá";
-            this.dg.MinimumWidth = 6;
-            this.dg.Name = "dg";
-            this.dg.ReadOnly = true;
-            this.dg.Width = 80;
-            // 
-            // Loai
-            // 
-            this.Loai.HeaderText = "Loại";
-            this.Loai.MinimumWidth = 6;
-            this.Loai.Name = "Loai";
-            this.Loai.ReadOnly = true;
-            this.Loai.Width = 80;
-            // 
-            // ImageMota
-            // 
-            this.ImageMota.HeaderText = "Hình ảnh";
-            this.ImageMota.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.ImageMota.MinimumWidth = 6;
-            this.ImageMota.Name = "ImageMota";
-            this.ImageMota.ReadOnly = true;
-            this.ImageMota.Width = 120;
             // 
             // panel4
             // 
@@ -551,6 +511,7 @@ namespace QLKFC
             this.dgvDSOrder.Name = "dgvDSOrder";
             this.dgvDSOrder.RowHeadersVisible = false;
             this.dgvDSOrder.RowHeadersWidth = 51;
+            this.dgvDSOrder.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dgvDSOrder.RowTemplate.Height = 29;
             this.dgvDSOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDSOrder.Size = new System.Drawing.Size(456, 390);
@@ -641,6 +602,47 @@ namespace QLKFC
             this.ppdHoaDon.Icon = ((System.Drawing.Icon)(resources.GetObject("ppdHoaDon.Icon")));
             this.ppdHoaDon.Name = "ppdHoaDon";
             this.ppdHoaDon.Visible = false;
+            // 
+            // MaSP
+            // 
+            this.MaSP.HeaderText = "Mã món";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            this.MaSP.Width = 50;
+            // 
+            // TenSP
+            // 
+            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSP.HeaderText = "Tên món";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // dg
+            // 
+            this.dg.HeaderText = "Đơn giá";
+            this.dg.MinimumWidth = 6;
+            this.dg.Name = "dg";
+            this.dg.ReadOnly = true;
+            this.dg.Width = 90;
+            // 
+            // Loai
+            // 
+            this.Loai.HeaderText = "Loại";
+            this.Loai.MinimumWidth = 6;
+            this.Loai.Name = "Loai";
+            this.Loai.ReadOnly = true;
+            this.Loai.Width = 90;
+            // 
+            // ImageMota
+            // 
+            this.ImageMota.HeaderText = "Hình ảnh";
+            this.ImageMota.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.ImageMota.MinimumWidth = 6;
+            this.ImageMota.Name = "ImageMota";
+            this.ImageMota.ReadOnly = true;
+            this.ImageMota.Width = 120;
             // 
             // Order
             // 

@@ -194,26 +194,29 @@ namespace QLKFC
 
         private void dgvDSOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvDSOrder.Columns[e.ColumnIndex].Name=="Xoa")
+            if (e.RowIndex > -1)
             {
-                if(MessageBox.Show("Xóa sản phẩm này?","Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Question)
-                    ==DialogResult.Yes)
+                if (dgvDSOrder.Columns[e.ColumnIndex].Name == "Xoa")
                 {
-                    dgvDSOrder.Rows.RemoveAt(e.RowIndex);
-                }
-            }
-            else
-            {
-                using(XacNhanSL xnsl=new XacNhanSL())
-                {
-                    if (xnsl.ShowDialog() == DialogResult.OK)
+                    if (MessageBox.Show("Xóa sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
                     {
-                        dgvDSOrder.Rows[e.RowIndex].Cells[3].Value = xnsl.soluong;
-                        dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong*double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        dgvDSOrder.Rows.RemoveAt(e.RowIndex);
                     }
-                }    
+                }
+                else
+                {
+                    using (XacNhanSL xnsl = new XacNhanSL())
+                    {
+                        if (xnsl.ShowDialog() == DialogResult.OK)
+                        {
+                            dgvDSOrder.Rows[e.RowIndex].Cells[3].Value = xnsl.soluong;
+                            dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong * double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        }
+                    }
+                }
+                TinhTien();
             }
-            TinhTien();
         }
 
         #region Lọc bảng sản phẩm
