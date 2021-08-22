@@ -64,16 +64,16 @@ namespace QLKFC
                     if (i < recordNum)
                     {
                         if (item.HinhAnh != null)
-                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
-                        else
-                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                else
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
                     }
                     else
                         break;
                 }
             }
             dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
-
+            
             if (page == 1)
                 btnTrangTruoc.Visible = false;
             else
@@ -110,9 +110,9 @@ namespace QLKFC
                     if (i < recordNum)
                     {
                         if (item.HinhAnh != null)
-                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
-                        else
-                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                else
+                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
                     }
                     else
                         break;
@@ -194,24 +194,24 @@ namespace QLKFC
 
         private void dgvDSOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDSOrder.Columns[e.ColumnIndex].Name == "Xoa")
+            if(dgvDSOrder.Columns[e.ColumnIndex].Name=="Xoa")
             {
-                if (MessageBox.Show("Xóa sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    == DialogResult.Yes)
+                if(MessageBox.Show("Xóa sản phẩm này?","Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Question)
+                    ==DialogResult.Yes)
                 {
                     dgvDSOrder.Rows.RemoveAt(e.RowIndex);
                 }
             }
             else
             {
-                using (XacNhanSL xnsl = new XacNhanSL())
+                using(XacNhanSL xnsl=new XacNhanSL())
                 {
                     if (xnsl.ShowDialog() == DialogResult.OK)
                     {
                         dgvDSOrder.Rows[e.RowIndex].Cells[3].Value = xnsl.soluong;
-                        dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong * double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong*double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
                     }
-                }
+                }    
             }
             TinhTien();
         }

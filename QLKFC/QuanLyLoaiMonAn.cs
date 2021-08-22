@@ -57,7 +57,7 @@ namespace QLKFC
             {
                 MessageBox.Show(ex.Message.ToString(), "Thông báo");
             }
-
+           
         }
         #endregion
 
@@ -168,7 +168,7 @@ namespace QLKFC
 
         private void txtTenLoaiMon_TextChanged(object sender, EventArgs e)
         {
-            if (txtTenLoaiMon.Text != null)
+            if(txtTenLoaiMon.Text!=null)
             {
                 errorProvider1.Clear();
             }

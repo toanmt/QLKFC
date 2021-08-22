@@ -15,7 +15,7 @@ namespace QLKFC
     public partial class QuanLyMonAn : Form
     {
 
-        QLBHKFCContext db = new();
+        QLBHKFCContext db = new ();
         string filename, iname;
         int pageNu = 1, numberRe = 3;
 
@@ -101,7 +101,7 @@ namespace QLKFC
             else
                 btnTrangTruoc.Visible = true;
 
-            if (page - 1 >= query.Count() / recordNum ||
+            if (page - 1 >= query.Count() / recordNum || 
                 (page == query.Count() / recordNum && query.Count() % recordNum == 0))
                 btnTrangSau.Visible = false;
             else
@@ -243,7 +243,7 @@ namespace QLKFC
         {
             try
             {
-                OpenFileDialog browse = new()
+                OpenFileDialog browse = new ()
                 {
                     Title = "Chọn ảnh",
                     Filter = "All files|*.*|Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png|Png files(*.png)|*.png|Jpeg files(*.jpeg)|*.jpeg|Jpe files(*.jpe)|*.jpe|Jpg files(*.jpg)|*.jpg"
@@ -314,7 +314,7 @@ namespace QLKFC
             {
                 if (checkLoiNhapLieu())
                 {
-                    SanPham sp = new();
+                    SanPham sp = new ();
                     sp.TenSp = txtTenMon.Text;
                     sp.MaLsp = db.LoaiSanPhams.SingleOrDefault(s => s.TenLsp.Equals(cmbLoai.SelectedItem.ToString())).MaLsp;
                     if (int.Parse(txtGiaBan.Text) < 1000)

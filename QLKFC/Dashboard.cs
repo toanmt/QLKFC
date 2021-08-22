@@ -13,7 +13,6 @@ namespace QLKFC
 {
     public partial class Dashboard : Form
     {
-        QLBHKFCContext db = new QLBHKFCContext();
 
         int Quyen;
         string tenNV, sid, pid;
@@ -92,6 +91,26 @@ namespace QLKFC
         }
         #endregion
 
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            lblTenNV.Text = tenNV;
+            if (Quyen == 2)
+            {
+                btnSanPham.Visible = false;
+                btnNhanVien.Visible = false;
+                btnKho.Visible = false;
+                btnNhapNL.Visible = false;
+            }
+            else if (Quyen == 3)
+            {
+                btnHoaDon.Visible = false;
+                btnSanPham.Visible = false;
+                btnNhanVien.Visible = false;
+                btnOrder.Visible = false;
+                btnNhapNL.Visible = false;
+            }
+        }
+
         #region Hiển thị form chức năng
         private void ptbTrangChu_Click(object sender, EventArgs e)
         {
@@ -105,7 +124,7 @@ namespace QLKFC
         private void btnOrder_Click(object sender, EventArgs e)
         {
             if (sid == null)
-                using (KiemTraNVOrder ktra = new KiemTraNVOrder())
+                using (KiemTraNVOrder ktra = new ())
                 {
                     if (ktra.ShowDialog() == DialogResult.OK)
                     {
@@ -160,17 +179,10 @@ namespace QLKFC
 
         private void btnHDBanHang_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLyHoaDon(this.Quyen,this.tenNV));
+            openForm(new QuanLyHoaDon(this.Quyen, this.tenNV));
             hideSubMenu();
         }
 
-        private void btnDangXuat_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            DangNhap dn = new DangNhap();
-            dn.ShowDialog();
-            this.Close();
-        }
 
         private void btnNhapNL_Click(object sender, EventArgs e)
         {
@@ -191,6 +203,16 @@ namespace QLKFC
             openForm(new QuanLyDonDatHang(this.tenNV));
         }
 
+        private void btnDangXuat_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Hide();
+                DangNhap dn = new ();
+                dn.ShowDialog();
+                this.Close();
+            }
+        }
         #endregion
         
     }
