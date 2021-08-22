@@ -391,7 +391,7 @@ namespace QLKFC
                                 Brushes.Black,
                                 new PointF(30, vtdong));
             vtdong += 30;
-            e.Graphics.DrawString(String.Format("\t\t {0}", ((DateTime)hoadonin.NgayThang).ToString("dd/MM/yyyy HH:mm:ss")),
+            e.Graphics.DrawString(String.Format("\t\t {0}", ((DateTime)hoadonin.NgayThang).ToString("dd MMM yyyy HH:mm:ss")),
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new PointF(30, vtdong));
@@ -485,7 +485,7 @@ namespace QLKFC
             #endregion
 
             #region footer
-            e.Graphics.DrawString(String.Format("---- CLOSE  {0} ", DateTime.Now.ToString()) + "  -----",
+            e.Graphics.DrawString(String.Format("---- CLOSE  {0} ", DateTime.Now.ToString("dd MMM yyyy HH:mm:ss")) + "  -----",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new RectangleF(new PointF(0, vtdong), layoutSize),
