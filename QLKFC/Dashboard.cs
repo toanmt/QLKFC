@@ -28,6 +28,26 @@ namespace QLKFC
             this.Quyen = Quyen;
             this.tenNV = tenNV;
         }
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            lblTenNV.Text = tenNV;
+            label4.Text = tenNV;
+            if (Quyen == 2)
+            {
+                btnSanPham.Visible = false;
+                btnNhanVien.Visible = false;
+                btnKho.Visible = false;
+                btnNhapNL.Visible = false;
+            }
+            else if (Quyen == 3)
+            {
+                btnHoaDon.Visible = false;
+                btnSanPham.Visible = false;
+                btnNhanVien.Visible = false;
+                btnOrder.Visible = false;
+                btnNhapNL.Visible = false;
+            }
+        }
 
         #region Hiển thị chức năng
         private Form activeForm = null;
@@ -90,26 +110,6 @@ namespace QLKFC
             showSubMenu(panel_submenu_HD);
         }
         #endregion
-
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
-            lblTenNV.Text = tenNV;
-            if (Quyen == 2)
-            {
-                btnSanPham.Visible = false;
-                btnNhanVien.Visible = false;
-                btnKho.Visible = false;
-                btnNhapNL.Visible = false;
-            }
-            else if (Quyen == 3)
-            {
-                btnHoaDon.Visible = false;
-                btnSanPham.Visible = false;
-                btnNhanVien.Visible = false;
-                btnOrder.Visible = false;
-                btnNhapNL.Visible = false;
-            }
-        }
 
         #region Hiển thị form chức năng
         private void ptbTrangChu_Click(object sender, EventArgs e)
