@@ -334,12 +334,8 @@ namespace QLKFC
             this.btnQLLoaiSanPham.Name = "btnQLLoaiSanPham";
             this.btnQLLoaiSanPham.Size = new System.Drawing.Size(255, 44);
             this.btnQLLoaiSanPham.TabIndex = 6;
-<<<<<<< HEAD
-            this.btnQLLoaiSanPham.Text = "Quản lý loại sản phẩm";
-=======
             this.btnQLLoaiSanPham.Text = "Quản lý loại món";
             this.btnQLLoaiSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
             this.btnQLLoaiSanPham.UseVisualStyleBackColor = true;
             this.btnQLLoaiSanPham.Click += new System.EventHandler(this.btnQLLoaiSanPham_Click);
             // 

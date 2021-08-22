@@ -124,7 +124,7 @@ namespace QLKFC
 
         private void btnQLThucDon_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLySanPham());
+            openForm(new QuanLyMonAn());
             hideSubMenu();
         }
 

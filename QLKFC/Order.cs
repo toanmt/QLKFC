@@ -17,11 +17,8 @@ namespace QLKFC
         QLBHKFCContext db = new QLBHKFCContext();
         string Pos, Storeid, Tennv;
         int maHD;
-<<<<<<< HEAD
-=======
         int pageNu = 1, numberRe = 5;
         string locLoai = null;
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
 
         public Order()
         {
@@ -33,11 +30,7 @@ namespace QLKFC
             this.Pos = pos;
             this.Storeid = storeid;
             this.Tennv = tennv;
-<<<<<<< HEAD
-            loadDGVSP();
-=======
             loadDGVSP(pageNu, numberRe);
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
         }
 
         #region Khai báo hàm
@@ -49,9 +42,10 @@ namespace QLKFC
             return newPath;
         }
 
-        private void loadDGVSP()
+        private void loadDGVSP(int page, int recordNum)
         {
-            var query = from sp in db.SanPhams 
+            dgv_DSSP.Rows.Clear();
+            var query = from sp in db.SanPhams
                         select new
                         {
                             sp.MaSp,
@@ -60,30 +54,26 @@ namespace QLKFC
                             sp.DonVi,
                             sp.HinhAnh
                         };
+            int i = 0, d = 0;
             foreach (var item in query)
             {
-                if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                if (d < (page - 1) * recordNum)
+                    d++;
                 else
-<<<<<<< HEAD
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi);
-            }
-            dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
-=======
                 {
                     if (i < recordNum)
                     {
                         if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
-                else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                        else
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
                     }
                     else
                         break;
                 }
             }
             dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
-            
+
             if (page == 1)
                 btnTrangTruoc.Visible = false;
             else
@@ -94,10 +84,9 @@ namespace QLKFC
                 btnTrangSau.Visible = false;
             else
                 btnTrangSau.Visible = true;
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
         }
 
-        private void locDL(string loc)
+        private void locDL(int page, int recordNum, string loc)
         {
             dgv_DSSP.Rows.Clear();
             var query = from sp in db.SanPhams
@@ -111,23 +100,19 @@ namespace QLKFC
                             sp.DonVi,
                             sp.HinhAnh
                         };
+            int i = 0, d = 0;
             foreach (var item in query)
             {
-                if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                if (d < (page - 1) * recordNum)
+                    d++;
                 else
-<<<<<<< HEAD
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi);
-            }
-            dgv_DSSP.Columns["dg"].DefaultCellStyle.Format = "N0";
-=======
                 {
                     if (i < recordNum)
                     {
                         if (item.HinhAnh != null)
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
-                else
-                    dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi, new Bitmap(pathImage() + item.HinhAnh));
+                        else
+                            dgv_DSSP.Rows.Add(item.MaSp, item.TenSp, item.DonGia, item.DonVi); i++;
                     }
                     else
                         break;
@@ -144,7 +129,6 @@ namespace QLKFC
                 btnTrangSau.Visible = false;
             else
                 btnTrangSau.Visible = true;
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
         }
 
         private void TinhTien()
@@ -210,24 +194,24 @@ namespace QLKFC
 
         private void dgvDSOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvDSOrder.Columns[e.ColumnIndex].Name=="Xoa")
+            if (dgvDSOrder.Columns[e.ColumnIndex].Name == "Xoa")
             {
-                if(MessageBox.Show("Xóa sản phẩm này?","Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Question)
-                    ==DialogResult.Yes)
+                if (MessageBox.Show("Xóa sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    == DialogResult.Yes)
                 {
                     dgvDSOrder.Rows.RemoveAt(e.RowIndex);
                 }
             }
             else
             {
-                using(XacNhanSL xnsl=new XacNhanSL())
+                using (XacNhanSL xnsl = new XacNhanSL())
                 {
                     if (xnsl.ShowDialog() == DialogResult.OK)
                     {
                         dgvDSOrder.Rows[e.RowIndex].Cells[3].Value = xnsl.soluong;
-                        dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong*double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        dgvDSOrder.Rows[e.RowIndex].Cells[4].Value = xnsl.soluong * double.Parse(dgvDSOrder.Rows[e.RowIndex].Cells[2].Value.ToString());
                     }
-                }    
+                }
             }
             TinhTien();
         }
@@ -235,38 +219,26 @@ namespace QLKFC
         #region Lọc bảng sản phẩm
         private void btnChonComBo_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            locDL("Combo");
-=======
             locLoai = "ComBo";
             pageNu = 1;
             txtSoTrang.Text = pageNu + "";
             locDL(pageNu, numberRe, locLoai);
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
         }
 
         private void btnChonMonLe_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            locDL("Đồ ăn");
-=======
             locLoai = "Đồ ăn";
             pageNu = 1;
             txtSoTrang.Text = pageNu + "";
             locDL(pageNu, numberRe, locLoai);
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
         }
 
         private void btnChonDoUong_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            locDL("Đồ uống");
-=======
             locLoai = "Đồ uống";
             pageNu = 1;
             txtSoTrang.Text = pageNu + "";
             locDL(pageNu, numberRe, locLoai);
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
         }
 
         private void txtFind_TextChanged(object sender, EventArgs e)
@@ -294,9 +266,6 @@ namespace QLKFC
 
         private void button1_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            loadDGVSP();
-=======
             btnTrangSau.Visible = true;
             btnTrangTruoc.Visible = true;
             txtSoTrang.Visible = true;
@@ -304,7 +273,6 @@ namespace QLKFC
             txtSoTrang.Text = pageNu + "";
             locLoai = null;
             loadDGVSP(pageNu, numberRe);
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
             txtFind.Clear();
         }
         #endregion
@@ -672,8 +640,6 @@ namespace QLKFC
         {
             Don();
         }
-<<<<<<< HEAD
-=======
 
         #region Phân trang
         private void btnTrangTruoc_Click(object sender, EventArgs e)
@@ -703,7 +669,6 @@ namespace QLKFC
         }
         #endregion
 
->>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
         #endregion
     }
 }
