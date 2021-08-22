@@ -85,8 +85,9 @@ namespace QLKFC
             this.panel1.Controls.Add(this.ptbTrangChu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(255, 692);
+            this.panel1.Size = new System.Drawing.Size(223, 519);
             this.panel1.TabIndex = 0;
             // 
             // lblTenNV
@@ -96,9 +97,9 @@ namespace QLKFC
             this.lblTenNV.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblTenNV.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTenNV.ForeColor = System.Drawing.Color.Red;
-            this.lblTenNV.Location = new System.Drawing.Point(0, 621);
+            this.lblTenNV.Location = new System.Drawing.Point(0, 464);
             this.lblTenNV.Name = "lblTenNV";
-            this.lblTenNV.Size = new System.Drawing.Size(181, 27);
+            this.lblTenNV.Size = new System.Drawing.Size(140, 22);
             this.lblTenNV.TabIndex = 8;
             this.lblTenNV.Text = "             ";
             // 
@@ -108,9 +109,10 @@ namespace QLKFC
             this.btnNhapNL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhapNL.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNhapNL.ForeColor = System.Drawing.Color.White;
-            this.btnNhapNL.Location = new System.Drawing.Point(0, 872);
+            this.btnNhapNL.Location = new System.Drawing.Point(0, 653);
+            this.btnNhapNL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNhapNL.Name = "btnNhapNL";
-            this.btnNhapNL.Size = new System.Drawing.Size(255, 44);
+            this.btnNhapNL.Size = new System.Drawing.Size(223, 33);
             this.btnNhapNL.TabIndex = 15;
             this.btnNhapNL.Text = "Nhập nguyên liệu";
             this.btnNhapNL.UseVisualStyleBackColor = true;
@@ -121,9 +123,10 @@ namespace QLKFC
             this.panel_submenu_Kho.Controls.Add(this.btnNhapHang);
             this.panel_submenu_Kho.Controls.Add(this.btnKhoHang);
             this.panel_submenu_Kho.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_submenu_Kho.Location = new System.Drawing.Point(0, 787);
+            this.panel_submenu_Kho.Location = new System.Drawing.Point(0, 589);
+            this.panel_submenu_Kho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_submenu_Kho.Name = "panel_submenu_Kho";
-            this.panel_submenu_Kho.Size = new System.Drawing.Size(255, 85);
+            this.panel_submenu_Kho.Size = new System.Drawing.Size(223, 64);
             this.panel_submenu_Kho.TabIndex = 3;
             // 
             // btnNhapHang
@@ -132,9 +135,10 @@ namespace QLKFC
             this.btnNhapHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhapHang.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNhapHang.ForeColor = System.Drawing.Color.White;
-            this.btnNhapHang.Location = new System.Drawing.Point(0, 44);
+            this.btnNhapHang.Location = new System.Drawing.Point(0, 33);
+            this.btnNhapHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(255, 44);
+            this.btnNhapHang.Size = new System.Drawing.Size(223, 33);
             this.btnNhapHang.TabIndex = 15;
             this.btnNhapHang.Text = "Nhập hàng";
             this.btnNhapHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,8 +152,9 @@ namespace QLKFC
             this.btnKhoHang.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnKhoHang.ForeColor = System.Drawing.Color.White;
             this.btnKhoHang.Location = new System.Drawing.Point(0, 0);
+            this.btnKhoHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKhoHang.Name = "btnKhoHang";
-            this.btnKhoHang.Size = new System.Drawing.Size(255, 44);
+            this.btnKhoHang.Size = new System.Drawing.Size(223, 33);
             this.btnKhoHang.TabIndex = 14;
             this.btnKhoHang.Text = "Kho Hàng";
             this.btnKhoHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,9 +167,10 @@ namespace QLKFC
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangXuat.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 648);
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 486);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(255, 44);
+            this.btnDangXuat.Size = new System.Drawing.Size(223, 33);
             this.btnDangXuat.TabIndex = 11;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.UseVisualStyleBackColor = true;
@@ -176,9 +182,10 @@ namespace QLKFC
             this.btnKho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKho.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnKho.ForeColor = System.Drawing.Color.White;
-            this.btnKho.Location = new System.Drawing.Point(0, 743);
+            this.btnKho.Location = new System.Drawing.Point(0, 556);
+            this.btnKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKho.Name = "btnKho";
-            this.btnKho.Size = new System.Drawing.Size(255, 44);
+            this.btnKho.Size = new System.Drawing.Size(223, 33);
             this.btnKho.TabIndex = 9;
             this.btnKho.Text = "Kho";
             this.btnKho.UseVisualStyleBackColor = true;
@@ -189,9 +196,10 @@ namespace QLKFC
             this.panel_submenu_HD.Controls.Add(this.btnHDBanHang);
             this.panel_submenu_HD.Controls.Add(this.btnHDKho);
             this.panel_submenu_HD.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_submenu_HD.Location = new System.Drawing.Point(0, 652);
+            this.panel_submenu_HD.Location = new System.Drawing.Point(0, 488);
+            this.panel_submenu_HD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_submenu_HD.Name = "panel_submenu_HD";
-            this.panel_submenu_HD.Size = new System.Drawing.Size(255, 91);
+            this.panel_submenu_HD.Size = new System.Drawing.Size(223, 68);
             this.panel_submenu_HD.TabIndex = 8;
             // 
             // btnHDBanHang
@@ -201,9 +209,10 @@ namespace QLKFC
             this.btnHDBanHang.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnHDBanHang.ForeColor = System.Drawing.Color.White;
             this.btnHDBanHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHDBanHang.Location = new System.Drawing.Point(0, 44);
+            this.btnHDBanHang.Location = new System.Drawing.Point(0, 33);
+            this.btnHDBanHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHDBanHang.Name = "btnHDBanHang";
-            this.btnHDBanHang.Size = new System.Drawing.Size(255, 44);
+            this.btnHDBanHang.Size = new System.Drawing.Size(223, 33);
             this.btnHDBanHang.TabIndex = 6;
             this.btnHDBanHang.Text = "Hóa đơn bán hàng";
             this.btnHDBanHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -218,8 +227,9 @@ namespace QLKFC
             this.btnHDKho.ForeColor = System.Drawing.Color.White;
             this.btnHDKho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHDKho.Location = new System.Drawing.Point(0, 0);
+            this.btnHDKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHDKho.Name = "btnHDKho";
-            this.btnHDKho.Size = new System.Drawing.Size(255, 44);
+            this.btnHDKho.Size = new System.Drawing.Size(223, 33);
             this.btnHDKho.TabIndex = 5;
             this.btnHDKho.Text = "Hóa đơn kho";
             this.btnHDKho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -232,9 +242,10 @@ namespace QLKFC
             this.btnHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHoaDon.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnHoaDon.ForeColor = System.Drawing.Color.White;
-            this.btnHoaDon.Location = new System.Drawing.Point(0, 608);
+            this.btnHoaDon.Location = new System.Drawing.Point(0, 455);
+            this.btnHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(255, 44);
+            this.btnHoaDon.Size = new System.Drawing.Size(223, 33);
             this.btnHoaDon.TabIndex = 7;
             this.btnHoaDon.Text = "Hóa đơn";
             this.btnHoaDon.UseVisualStyleBackColor = true;
@@ -246,9 +257,10 @@ namespace QLKFC
             this.panel_submenu_NS.Controls.Add(this.btnQLChucVu);
             this.panel_submenu_NS.Controls.Add(this.btnQLNhanVien);
             this.panel_submenu_NS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_submenu_NS.Location = new System.Drawing.Point(0, 473);
+            this.panel_submenu_NS.Location = new System.Drawing.Point(0, 354);
+            this.panel_submenu_NS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_submenu_NS.Name = "panel_submenu_NS";
-            this.panel_submenu_NS.Size = new System.Drawing.Size(255, 135);
+            this.panel_submenu_NS.Size = new System.Drawing.Size(223, 101);
             this.panel_submenu_NS.TabIndex = 6;
             // 
             // btnQLTaiKhoan
@@ -258,9 +270,10 @@ namespace QLKFC
             this.btnQLTaiKhoan.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnQLTaiKhoan.ForeColor = System.Drawing.Color.White;
             this.btnQLTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLTaiKhoan.Location = new System.Drawing.Point(0, 88);
+            this.btnQLTaiKhoan.Location = new System.Drawing.Point(0, 66);
+            this.btnQLTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQLTaiKhoan.Name = "btnQLTaiKhoan";
-            this.btnQLTaiKhoan.Size = new System.Drawing.Size(255, 44);
+            this.btnQLTaiKhoan.Size = new System.Drawing.Size(223, 33);
             this.btnQLTaiKhoan.TabIndex = 7;
             this.btnQLTaiKhoan.Text = "Quản lý tài khoản";
             this.btnQLTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -274,9 +287,10 @@ namespace QLKFC
             this.btnQLChucVu.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnQLChucVu.ForeColor = System.Drawing.Color.White;
             this.btnQLChucVu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLChucVu.Location = new System.Drawing.Point(0, 44);
+            this.btnQLChucVu.Location = new System.Drawing.Point(0, 33);
+            this.btnQLChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQLChucVu.Name = "btnQLChucVu";
-            this.btnQLChucVu.Size = new System.Drawing.Size(255, 44);
+            this.btnQLChucVu.Size = new System.Drawing.Size(223, 33);
             this.btnQLChucVu.TabIndex = 6;
             this.btnQLChucVu.Text = "Quản lý chức vụ";
             this.btnQLChucVu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -291,8 +305,9 @@ namespace QLKFC
             this.btnQLNhanVien.ForeColor = System.Drawing.Color.White;
             this.btnQLNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLNhanVien.Location = new System.Drawing.Point(0, 0);
+            this.btnQLNhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQLNhanVien.Name = "btnQLNhanVien";
-            this.btnQLNhanVien.Size = new System.Drawing.Size(255, 44);
+            this.btnQLNhanVien.Size = new System.Drawing.Size(223, 33);
             this.btnQLNhanVien.TabIndex = 5;
             this.btnQLNhanVien.Text = "Quản lý nhân viên";
             this.btnQLNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -305,9 +320,10 @@ namespace QLKFC
             this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhanVien.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNhanVien.ForeColor = System.Drawing.Color.White;
-            this.btnNhanVien.Location = new System.Drawing.Point(0, 429);
+            this.btnNhanVien.Location = new System.Drawing.Point(0, 321);
+            this.btnNhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(255, 44);
+            this.btnNhanVien.Size = new System.Drawing.Size(223, 33);
             this.btnNhanVien.TabIndex = 5;
             this.btnNhanVien.Text = "Nhân sự";
             this.btnNhanVien.UseVisualStyleBackColor = true;
@@ -318,9 +334,10 @@ namespace QLKFC
             this.panel_submenu_SP.Controls.Add(this.btnQLLoaiSanPham);
             this.panel_submenu_SP.Controls.Add(this.btnQLThucDon);
             this.panel_submenu_SP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_submenu_SP.Location = new System.Drawing.Point(0, 338);
+            this.panel_submenu_SP.Location = new System.Drawing.Point(0, 253);
+            this.panel_submenu_SP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_submenu_SP.Name = "panel_submenu_SP";
-            this.panel_submenu_SP.Size = new System.Drawing.Size(255, 91);
+            this.panel_submenu_SP.Size = new System.Drawing.Size(223, 68);
             this.panel_submenu_SP.TabIndex = 4;
             // 
             // btnQLLoaiSanPham
@@ -330,9 +347,10 @@ namespace QLKFC
             this.btnQLLoaiSanPham.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnQLLoaiSanPham.ForeColor = System.Drawing.Color.White;
             this.btnQLLoaiSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLLoaiSanPham.Location = new System.Drawing.Point(0, 44);
+            this.btnQLLoaiSanPham.Location = new System.Drawing.Point(0, 33);
+            this.btnQLLoaiSanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQLLoaiSanPham.Name = "btnQLLoaiSanPham";
-            this.btnQLLoaiSanPham.Size = new System.Drawing.Size(255, 44);
+            this.btnQLLoaiSanPham.Size = new System.Drawing.Size(223, 33);
             this.btnQLLoaiSanPham.TabIndex = 6;
             this.btnQLLoaiSanPham.Text = "Quản lý loại món";
             this.btnQLLoaiSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -347,8 +365,9 @@ namespace QLKFC
             this.btnQLThucDon.ForeColor = System.Drawing.Color.White;
             this.btnQLThucDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLThucDon.Location = new System.Drawing.Point(0, 0);
+            this.btnQLThucDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQLThucDon.Name = "btnQLThucDon";
-            this.btnQLThucDon.Size = new System.Drawing.Size(255, 44);
+            this.btnQLThucDon.Size = new System.Drawing.Size(223, 33);
             this.btnQLThucDon.TabIndex = 5;
             this.btnQLThucDon.Text = "Quản lý món ăn";
             this.btnQLThucDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -361,9 +380,10 @@ namespace QLKFC
             this.btnSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSanPham.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSanPham.ForeColor = System.Drawing.Color.White;
-            this.btnSanPham.Location = new System.Drawing.Point(0, 294);
+            this.btnSanPham.Location = new System.Drawing.Point(0, 220);
+            this.btnSanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSanPham.Name = "btnSanPham";
-            this.btnSanPham.Size = new System.Drawing.Size(255, 44);
+            this.btnSanPham.Size = new System.Drawing.Size(223, 33);
             this.btnSanPham.TabIndex = 3;
             this.btnSanPham.Text = "Sản phẩm";
             this.btnSanPham.UseVisualStyleBackColor = true;
@@ -375,9 +395,10 @@ namespace QLKFC
             this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrder.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOrder.ForeColor = System.Drawing.Color.White;
-            this.btnOrder.Location = new System.Drawing.Point(0, 250);
+            this.btnOrder.Location = new System.Drawing.Point(0, 187);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(255, 44);
+            this.btnOrder.Size = new System.Drawing.Size(223, 33);
             this.btnOrder.TabIndex = 2;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
@@ -389,9 +410,10 @@ namespace QLKFC
             this.btnTrangChu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrangChu.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnTrangChu.ForeColor = System.Drawing.Color.White;
-            this.btnTrangChu.Location = new System.Drawing.Point(0, 198);
+            this.btnTrangChu.Location = new System.Drawing.Point(0, 148);
+            this.btnTrangChu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTrangChu.Name = "btnTrangChu";
-            this.btnTrangChu.Size = new System.Drawing.Size(255, 52);
+            this.btnTrangChu.Size = new System.Drawing.Size(223, 39);
             this.btnTrangChu.TabIndex = 1;
             this.btnTrangChu.Text = "Trang chủ";
             this.btnTrangChu.UseVisualStyleBackColor = true;
@@ -400,10 +422,10 @@ namespace QLKFC
             // ptbTrangChu
             // 
             this.ptbTrangChu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ptbTrangChu.Image = global::QLKFC.Properties.Resources.kfc__1_;
             this.ptbTrangChu.Location = new System.Drawing.Point(0, 0);
+            this.ptbTrangChu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbTrangChu.Name = "ptbTrangChu";
-            this.ptbTrangChu.Size = new System.Drawing.Size(255, 198);
+            this.ptbTrangChu.Size = new System.Drawing.Size(223, 148);
             this.ptbTrangChu.TabIndex = 0;
             this.ptbTrangChu.TabStop = false;
             this.ptbTrangChu.Click += new System.EventHandler(this.ptbTrangChu_Click);
@@ -416,9 +438,10 @@ namespace QLKFC
             this.panel_control.Controls.Add(this.label1);
             this.panel_control.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_control.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel_control.Location = new System.Drawing.Point(255, 0);
+            this.panel_control.Location = new System.Drawing.Point(223, 0);
+            this.panel_control.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_control.Name = "panel_control";
-            this.panel_control.Size = new System.Drawing.Size(930, 692);
+            this.panel_control.Size = new System.Drawing.Size(814, 519);
             this.panel_control.TabIndex = 1;
             // 
             // label3
@@ -427,9 +450,9 @@ namespace QLKFC
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(750, 663);
+            this.label3.Location = new System.Drawing.Point(656, 497);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 18);
+            this.label3.Size = new System.Drawing.Size(147, 14);
             this.label3.TabIndex = 2;
             this.label3.Text = "developed by Nhóm 10";
             // 
@@ -438,9 +461,9 @@ namespace QLKFC
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(17, 92);
+            this.label2.Location = new System.Drawing.Point(15, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(441, 27);
+            this.label2.Size = new System.Drawing.Size(340, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "đến phần mềm Quản lý cửa hàng KFC";
             // 
@@ -449,21 +472,22 @@ namespace QLKFC
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(17, 35);
+            this.label1.Location = new System.Drawing.Point(15, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 43);
+            this.label1.Size = new System.Drawing.Size(159, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chào mừng";
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1185, 692);
+            this.ClientSize = new System.Drawing.Size(1037, 519);
             this.Controls.Add(this.panel_control);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý KFC";

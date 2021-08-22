@@ -30,11 +30,10 @@ namespace QLKFC
                             {
                                cv.MaCv,
                                cv.TenCv,
-                               //cv.Id
                             };
                 foreach (var item in query)
                 {
-                    //dgvChucVu.Rows.Add(item.MaCv, item.TenCv, item.Id);
+                    dgvChucVu.Rows.Add(item.MaCv, item.TenCv);
                 }
             }
             catch (Exception)
@@ -47,7 +46,6 @@ namespace QLKFC
         {
             txtMaCV.Clear();
             txtTenCV.Clear();
-            cbQuyen.Text = "";
         }
 
         private void QuanLyChucVu_Load(object sender, EventArgs e)
@@ -62,11 +60,6 @@ namespace QLKFC
                 int index = e.RowIndex;
                 txtMaCV.Text = dgvChucVu.Rows[index].Cells[0].Value.ToString();
                 txtTenCV.Text = dgvChucVu.Rows[index].Cells[1].Value.ToString();
-                string id = dgvChucVu.Rows[index].Cells[2].Value.ToString();
-                if (id == "1")
-                    cbQuyen.Text = "Quản lý";
-                if (id == "2")
-                    cbQuyen.Text = "Nhân Viên";
             }
             catch (Exception)
             {
@@ -86,16 +79,9 @@ namespace QLKFC
                     throw new Exception("Hãy nhập tên chức vụ!");
                 if (db.ChucVus.Where(cv => cv.TenCv == txtTenCV.Text).FirstOrDefault() != null)
                     throw new Exception("Chức vụ đã tồn tại");
-                if (cbQuyen.Text == "")
-                    throw new Exception("Hãy chọn quyền tài khoản của chức vụ!");
-
+                
                 ChucVu cvMoi = new ChucVu();
                 cvMoi.TenCv = txtTenCV.Text;
-                if (cbQuyen.Text == "Quản lý")
-                    //cvMoi.Id = 1;
-                if (cbQuyen.Text == "Nhân Viên")
-                    //cvMoi.Id = 2;
-
                 db.ChucVus.Add(cvMoi);
                 db.SaveChanges();
                 HienThi();
@@ -118,11 +104,6 @@ namespace QLKFC
 
                 ChucVu cvSua = db.ChucVus.Where(cv => cv.MaCv == int.Parse(txtMaCV.Text)).FirstOrDefault();
                 cvSua.TenCv = txtTenCV.Text;
-                if (cbQuyen.Text == "Quản lý")
-                    //cvSua.Id = 1;
-                if (cbQuyen.Text == "Nhân Viên")
-                    //cvSua.Id = 2;
-
                 db.SaveChanges();
                 HienThi();
                 XoaTrang();
@@ -177,11 +158,11 @@ namespace QLKFC
                              {
                                  cv.MaCv,
                                  cv.TenCv,
-                                 //cv.Id
+
                              };
                 foreach (var item in query1)
                 {
-                    //dgvChucVu.Rows.Add(item.MaCv, item.TenCv, item.Id);
+                    dgvChucVu.Rows.Add(item.MaCv, item.TenCv);
                 }
             }
             catch (Exception)
@@ -202,24 +183,9 @@ namespace QLKFC
             }
         }
 
-        private void cbQuyen_Validating(object sender, CancelEventArgs e)
-        {
-            if(cbQuyen.Text == "")
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(cbQuyen, "Bạn hãy chọn quyền tài khoản của chức vụ");
-                cbQuyen.Focus();
-            }
-        }
-
         private void txtTenCV_Validated(object sender, EventArgs e)
         {
             errorProvider1.SetError(txtTenCV, "");
-        }
-
-        private void cbQuyen_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(cbQuyen, "");
         }
 
         #endregion

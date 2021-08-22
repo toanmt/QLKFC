@@ -55,7 +55,7 @@ namespace QLKFC
                 e.Cancel = true;
                 errorProvider1.SetError(txtTaiKhoan,"Bạn hãy nhập tài khoản");
                 txtTaiKhoan.Focus();
-            }    
+            }
         }
 
         private void txtMatKhau_Validating(object sender, CancelEventArgs e)
@@ -94,6 +94,12 @@ namespace QLKFC
                 btnGiauMK.BringToFront();
                 txtMatKhau.PasswordChar = '\0';
             }
+        }
+
+        private void llbDoiMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DoiMatKhau frm = new DoiMatKhau();
+            frm.ShowDialog();
         }
     }
 }

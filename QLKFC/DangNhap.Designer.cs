@@ -42,6 +42,7 @@ namespace QLKFC
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnGiauMK = new System.Windows.Forms.Button();
             this.btnXemMK = new System.Windows.Forms.Button();
+            this.llbDoiMK = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -98,11 +99,11 @@ namespace QLKFC
             this.btnDangNhap.BackColor = System.Drawing.Color.Red;
             this.btnDangNhap.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
-            this.btnDangNhap.Location = new System.Drawing.Point(77, 282);
+            this.btnDangNhap.Location = new System.Drawing.Point(79, 301);
             this.btnDangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(104, 35);
-            this.btnDangNhap.TabIndex = 2;
+            this.btnDangNhap.TabIndex = 0;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
@@ -113,7 +114,7 @@ namespace QLKFC
             this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(208, 23);
-            this.txtTaiKhoan.TabIndex = 0;
+            this.txtTaiKhoan.TabIndex = 1;
             this.txtTaiKhoan.Validating += new System.ComponentModel.CancelEventHandler(this.txtTaiKhoan_Validating);
             this.txtTaiKhoan.Validated += new System.EventHandler(this.txtTaiKhoan_Validated);
             // 
@@ -124,7 +125,7 @@ namespace QLKFC
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(208, 23);
-            this.txtMatKhau.TabIndex = 1;
+            this.txtMatKhau.TabIndex = 2;
             this.txtMatKhau.Validating += new System.ComponentModel.CancelEventHandler(this.txtMatKhau_Validating);
             this.txtMatKhau.Validated += new System.EventHandler(this.txtMatKhau_Validated);
             // 
@@ -133,7 +134,7 @@ namespace QLKFC
             this.btnThoat.BackColor = System.Drawing.Color.Red;
             this.btnThoat.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThoat.ForeColor = System.Drawing.Color.White;
-            this.btnThoat.Location = new System.Drawing.Point(229, 282);
+            this.btnThoat.Location = new System.Drawing.Point(231, 301);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(89, 35);
@@ -168,11 +169,24 @@ namespace QLKFC
             this.btnXemMK.UseVisualStyleBackColor = true;
             this.btnXemMK.Click += new System.EventHandler(this.btnXemMK_Click_1);
             // 
+            // llbDoiMK
+            // 
+            this.llbDoiMK.AutoSize = true;
+            this.llbDoiMK.LinkColor = System.Drawing.Color.Red;
+            this.llbDoiMK.Location = new System.Drawing.Point(276, 274);
+            this.llbDoiMK.Name = "llbDoiMK";
+            this.llbDoiMK.Size = new System.Drawing.Size(78, 15);
+            this.llbDoiMK.TabIndex = 8;
+            this.llbDoiMK.TabStop = true;
+            this.llbDoiMK.Text = "Đổi mật khẩu";
+            this.llbDoiMK.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbDoiMK_LinkClicked);
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 338);
+            this.ClientSize = new System.Drawing.Size(384, 347);
+            this.Controls.Add(this.llbDoiMK);
             this.Controls.Add(this.btnXemMK);
             this.Controls.Add(this.btnGiauMK);
             this.Controls.Add(this.txtMatKhau);
@@ -186,7 +200,7 @@ namespace QLKFC
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DangNhap";
+            this.Text = "Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -210,5 +224,6 @@ namespace QLKFC
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnGiauMK;
         private System.Windows.Forms.Button btnXemMK;
+        private System.Windows.Forms.LinkLabel llbDoiMK;
     }
 }

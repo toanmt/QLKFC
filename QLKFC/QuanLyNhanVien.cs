@@ -21,181 +21,8 @@ namespace QLKFC
             InitializeComponent();
         }
 
-        #region bắt lỗi
-        private void txtCMND_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtCMND.Text == "")
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtCMND, "Bạn hãy nhập số CMND!");
-                txtCMND.Focus();
-            }
-        }
+        string soCMND = "";
 
-        private void txtTenNV_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtTenNV.Text == "")
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtTenNV, "Bạn hãy nhập tên nhân viên!");
-                txtTenNV.Focus();
-            }
-        }
-
-        private void txtNgaySinh_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtNgaySinh.Text == "")
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtNgaySinh, "Bạn hãy nhập ngày sinh!");
-                txtNgaySinh.Focus();
-            }
-            else
-            {
-                try
-                {
-                    int tuoi = DateTime.Now.Year - txtNgaySinh.Value.Year;
-                    if (tuoi < 18)
-                        throw new Exception("Nhân viên phải từ 18 tuổi trở lên!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                
-            }
-        }
-
-        private void txtDiaChi_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtDiaChi.Text == "")
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtDiaChi, "Bạn hãy nhập địa chỉ!");
-                txtDiaChi.Focus();
-            }
-        }
-
-        private void txtSDT_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtSDT.Text == "")
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtSDT, "Bạn hãy nhập số điện thoại!");
-                txtSDT.Focus();
-            }
-        }
-
-        private void txtEmail_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtEmail.Text == "")
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtEmail, "Bạn hãy nhập Email!");
-                txtEmail.Focus();
-            }
-        }
-
-        private void txtNgayBD_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtNgayBD.Text == "")
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtNgayBD, "Bạn hãy nhập ngày bắt đầu!");
-                txtNgayBD.Focus();
-            }
-        }
-
-        private void cbChucVu_Validating(object sender, CancelEventArgs e)
-        {
-            if (cbChucVu.Text == "")
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(cbChucVu, "Bạn hãy chọn chức vụ!");
-                cbChucVu.Focus();
-            }
-        }
-
-        private void groupBox1_Validating(object sender, CancelEventArgs e)
-        {
-            if (radNam.Checked == false && radNu.Checked == false)
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(groupBox1, "Bạn hãy chọn giới tính!");
-            }
-        }
-
-        private void txtCMND_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtCMND, "");
-        }
-
-        private void txtTenNV_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtTenNV, "");
-        }
-
-        private void groupBox1_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(groupBox1, "");
-        }
-
-        private void txtNgaySinh_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtNgaySinh, "");
-        }
-
-        private void txtDiaChi_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtDiaChi, "");
-        }
-
-        private void txtSDT_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtSDT, "");
-        }
-
-        private void txtEmail_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtEmail, "");
-        }
-
-        private void txtNgayBD_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtNgayBD, "");
-        }
-
-        private void cbChucVu_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(cbChucVu, "");
-        }
-
-        public void CheckLoi()
-        {
-            try
-            {
-                if (txtCMND.Text == "")
-                    throw new Exception("Bạn chưa nhập số CMND");
-                if (txtTenNV.Text == "")
-                    throw new Exception("Bạn chưa nhập tên nhân viên");
-                if (radNam.Checked == false && radNu.Checked == false)
-                    throw new Exception("Bạn hãy chọn giới tính của nhân viên");
-                if (txtDiaChi.Text == "")
-                    throw new Exception("Bạn hãy nhập địa chỉ");
-                if (txtSDT.Text == "")
-                    throw new Exception("Bạn hãy nhập số điện thoại");
-                if (cbChucVu.Text == "")
-                    throw new Exception("Bạn hãy chọn chức vụ");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        #endregion
-
-        #region Hiển thị
         public void HienThi()
         {
             try
@@ -219,184 +46,32 @@ namespace QLKFC
                     dgvNhanVien.Rows.Add(item.SoCmt, item.TenNv, item.GioiTinh, item.NgaySinh, item.DiaChi, item.SoDienThoai, item.Email, item.NgayBatDau, item.cv);
                 }
             }
-            catch(Exception)
-            {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-        }
-
-        public void ChonChucVu()
-        {
-            try
-            {
-                foreach (var item in db.ChucVus)
-                {
-                    cbChucVu.Items.Add(item.TenCv);
-                }
-            }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Lỗi kết nối cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public void XoaTrang()
-        {
-            txtCMND.Clear();
-            txtTenNV.Clear();
-            radNam.Checked = true;
-            txtNgaySinh.Value = DateTime.Now;
-            txtDiaChi.Clear();
-            txtSDT.Clear();
-            txtEmail.Clear();
-            txtNgayBD.Value = DateTime.Now;
-            cbChucVu.Text = "";
-        }
-        
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
             HienThi();
-            ChonChucVu();
         }
 
-        private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int index = e.RowIndex;
-                txtCMND.Text = dgvNhanVien.Rows[index].Cells[0].Value.ToString();
-                txtTenNV.Text = dgvNhanVien.Rows[index].Cells[1].Value.ToString();
-                string gt = dgvNhanVien.Rows[index].Cells[2].Value.ToString();
-                if (gt == "Nam")
-                    radNam.Checked = true;
-                if (gt == "Nữ")
-                    radNu.Checked = true;
-                txtNgaySinh.Text = dgvNhanVien.Rows[index].Cells[3].Value.ToString();
-                txtDiaChi.Text = dgvNhanVien.Rows[index].Cells[4].Value.ToString();
-                txtSDT.Text = dgvNhanVien.Rows[index].Cells[5].Value.ToString();
-                txtEmail.Text = dgvNhanVien.Rows[index].Cells[6].Value.ToString();
-                txtNgayBD.Text = dgvNhanVien.Rows[index].Cells[7].Value.ToString();
-                cbChucVu.Text = dgvNhanVien.Rows[index].Cells[8].Value.ToString();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Lỗi chọn thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            using (QuanLyNhanVien_Them frm = new QuanLyNhanVien_Them()){
+                if(frm.ShowDialog() == DialogResult.OK)
+                {
+                    HienThi();
+                }
             }
         }
-        #endregion
-
-        #region Các nút
 
         private void btnHienThi_Click(object sender, EventArgs e)
         {
             HienThi();
-            XoaTrang();
-        }
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            CheckLoi();
-            try
-            {
-                if (db.NhanViens.Find(txtCMND.Text) != null)
-                    throw new Exception("Số CMND đã tồn tại");
-                NhanVien nvm = new NhanVien();
-                nvm.SoCmt = txtCMND.Text;
-                nvm.TenNv = txtTenNV.Text;
-                if (radNam.Checked)
-                    nvm.GioiTinh = "Nam";
-                else if (radNu.Checked)
-                    nvm.GioiTinh = "Nữ";
-                nvm.NgaySinh = txtNgaySinh.Value;
-                nvm.DiaChi = txtDiaChi.Text;
-                nvm.SoDienThoai = txtSDT.Text;
-                nvm.Email = txtEmail.Text;
-                nvm.NgayBatDau = txtNgayBD.Value;
-
-                foreach (var item in db.ChucVus)
-                {
-                    if (item.TenCv == cbChucVu.SelectedItem.ToString())
-                    {
-                        nvm.MaCv = item.MaCv;
-                    }
-                }
-
-                db.NhanViens.Add(nvm);
-                db.SaveChanges();
-                HienThi();
-                XoaTrang();
-
-                MessageBox.Show("Thêm thành công!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Lỗi thêm nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            CheckLoi();
-            try
-            {
-                NhanVien nvSua = db.NhanViens.Where(nv => nv.SoCmt == txtCMND.Text).FirstOrDefault();
-                if (nvSua == null)
-                    throw new Exception("Nhân viên không tồn tại");
-                nvSua.TenNv = txtTenNV.Text;
-                if (radNam.Checked)
-                    nvSua.GioiTinh = "Nam";
-                else if (radNu.Checked)
-                    nvSua.GioiTinh = "Nữ";
-                nvSua.NgaySinh = txtNgaySinh.Value;
-                nvSua.DiaChi = txtDiaChi.Text;
-                nvSua.SoDienThoai = txtSDT.Text;
-                nvSua.Email = txtEmail.Text;
-                nvSua.NgayBatDau = txtNgayBD.Value;
-
-                foreach (var item in db.ChucVus)
-                {
-                    if (item.TenCv == cbChucVu.Text)
-                    {
-                        nvSua.MaCv = item.MaCv;
-                    }
-                }
-
-                db.SaveChanges();
-                HienThi();
-                XoaTrang();
-
-                MessageBox.Show("Sửa thành công!", "Sửa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch(Exception)
-            {
-                MessageBox.Show("Lỗi sửa thông tin nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtCMND.Text == "")
-                    throw new Exception("Bạn phải nhập Số CMND");
-                NhanVien nvXoa = db.NhanViens.Where(nv => nv.SoCmt == txtCMND.Text).FirstOrDefault();
-                if (nvXoa == null)
-                    throw new Exception("Nhân viên không tồn tại");
-                DialogResult dr = MessageBox.Show("Bạn có chắc muốn xóa nhân viên này?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(dr == DialogResult.Yes)
-                {
-                    db.NhanViens.Remove(nvXoa);
-                    db.SaveChanges();
-                    HienThi();
-                    XoaTrang();
-                }    
-            }
-            catch(Exception)
-            {
-                MessageBox.Show("Lỗi xóa nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        
         private void btnIn_Click(object sender, EventArgs e)
         {
             try
@@ -428,10 +103,71 @@ namespace QLKFC
                 }
                 MessageBox.Show("Thành công!");
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Lỗi xuất file Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int index = e.RowIndex;
+                soCMND = dgvNhanVien.Rows[index].Cells[0].Value.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy chọn nhân viên trong bảng","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (soCMND == "")
+                    throw new Exception("Bạn phải chọn nhân viên muốn xóa");
+                NhanVien nvXoa = db.NhanViens.Where(nv => nv.SoCmt == soCMND).FirstOrDefault();
+                if (nvXoa == null)
+                    throw new Exception("Nhân viên không tồn tại");
+                DialogResult dr = MessageBox.Show("Bạn có chắc muốn xóa nhân viên này?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    TaiKhoan tkXoa = db.TaiKhoans.Where(tk => tk.Id == nvXoa.Id).FirstOrDefault();
+                    db.TaiKhoans.Remove(tkXoa);
+                    db.NhanViens.Remove(nvXoa);
+                    db.SaveChanges();
+                    HienThi();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi xóa nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (soCMND == "")
+                    throw new Exception("Hãy chọn nhân viên muốn sửa");
+                using (QuanLyNhanVien_Sua frm = new QuanLyNhanVien_Sua(soCMND))
+                {
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        HienThi();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+                
+            
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -465,6 +201,21 @@ namespace QLKFC
                 MessageBox.Show("Lỗi tìm nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        #endregion
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (soCMND == "")
+                    throw new Exception("Hãy chọn nhân viên muốn xem chi tiết");
+                QuanLyNhanVien_ChiTiet frm = new QuanLyNhanVien_ChiTiet(soCMND);
+                frm.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
     }
 }

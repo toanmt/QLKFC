@@ -167,7 +167,7 @@ namespace QLKFC
 
         private void btnQLTaiKhoan_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLyTaiKhoan());
+            //openForm(new QuanLyTaiKhoan());
             hideSubMenu();
         }
 
