@@ -1,7 +1,7 @@
 ﻿
 namespace QLKFC
 {
-    partial class QuanLyKho_XuatKho
+    partial class XacNhanXuatKho
     {
         /// <summary>
         /// Required designer variable.
@@ -210,6 +210,7 @@ namespace QLKFC
             // 
             // dgvNhapHang
             // 
+            this.dgvNhapHang.AllowUserToAddRows = false;
             this.dgvNhapHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhapHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

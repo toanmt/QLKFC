@@ -17,13 +17,19 @@ namespace QLKFC
     {
         QLBHKFCContext db = new QLBHKFCContext();
         int index;
-        int Pagenumber = 1;
-        int check = 0;
-        public QuanLyHoaDon()
+        int Pagenumber = 1;     // Trang bắt đầu
+        int check = 0;          //Kiểm tra xem đang thống kê hay không
+        int NumberItem = 0;     //Lấy số hóa đơn của 1 quyery
+        int Quyen=0;            //Kiểm tra quyền của tài khoản
+        string TenNV = "";
+        public QuanLyHoaDon(int Quyen,String TenNV)
         {
             InitializeComponent();
             dtpick1.Value = DateTime.Now.Date;
             dtpick2.Value = DateTime.Now.Date;
+           
+            this.Quyen = Quyen;
+            this.TenNV = TenNV;
             load(Pagenumber, Program.ItemNumber);
 
         }
@@ -49,21 +55,35 @@ namespace QLKFC
         #endregion
 
         #region Phân trang + load dữ liệu
+        //Load thống kê
         public void load2(int Pagenumber, int ItemNumber)
         {
-            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * Program.SkipItem).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
-                        where h.NgayThang.Value.Date >= dtpick1.Value && h.NgayThang.Value.Date <= dtpick2.Value
-                        select new
-                        {
-                            h.MaHd,
-                            h.TenNv,
-                            h.StoreId,
-                            h.Pos,
-                            h.NgayThang,
-                        };
-            if (query.ToList().Count() > 0)
+            if (this.Quyen == 1)
             {
+                var query = from h in db.HoaDons.Where(x=>x.NgayThang.Value.Date>=dtpick1.Value&& x.NgayThang.Value.Date <= dtpick2.Value).Skip((Pagenumber - 1) * Program.SkipItem).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
+                            select new
+                            {
+                                h.MaHd,
+                                h.TenNv,
+                                h.StoreId,
+                                h.Pos,
+                                h.NgayThang,
+                            };
                 dgvHDBH.DataSource = query.ToList();
+            }
+            else
+            {
+                var query = from h in db.HoaDons.Where(x => x.NgayThang.Value.Date.Equals(DateTime.Now.Date)).Skip((Pagenumber - 1) * Program.SkipItem).Take(ItemNumber)
+                            select new
+                            {
+                                h.MaHd,
+                                h.TenNv,
+                                h.StoreId,
+                                h.Pos,
+                                h.NgayThang,
+                            };
+                dgvHDBH.DataSource = query.ToList();
+            }
                 dgvHDBH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvHDBH.Columns[0].HeaderText = "Mã Hóa Đơn";
                 dgvHDBH.Columns[1].HeaderText = "Nhân viên";
@@ -71,23 +91,38 @@ namespace QLKFC
                 dgvHDBH.Columns[3].HeaderText = "Pos";
                 dgvHDBH.Columns[4].HeaderText = "Ngày Tháng";
                 btnTrangHienTai.Text = Pagenumber.ToString();
+
+        }
+
+        //Load all hóa đơn
+        public void load(int Pagenumber, int ItemNumber)
+        { 
+            if (this.Quyen == 1)
+            {
+                var query = from h in db.HoaDons.Skip((Pagenumber - 1) * Program.SkipItem).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
+                            select new
+                            {
+                                h.MaHd,
+                                h.TenNv,
+                                h.StoreId,
+                                h.Pos,
+                                h.NgayThang,
+                            };
+                dgvHDBH.DataSource = query.ToList();
             }
             else
-                MessageBox.Show("Không tìm thấy hóa đơn nào !!!");
-        }
-        public void load(int Pagenumber, int ItemNumber)
-        {
-
-            var query = from h in db.HoaDons.Skip((Pagenumber - 1) * Program.SkipItem).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
-                        select new
-                        {
-                            h.MaHd,
-                            h.TenNv,
-                            h.StoreId,
-                            h.Pos,
-                            h.NgayThang,
-                        };
-            dgvHDBH.DataSource = query.ToList();
+            {
+                var query = from h in db.HoaDons.Where(x => x.NgayThang.Value.Date.Equals(DateTime.Now.Date)).Skip((Pagenumber - 1) * Program.SkipItem).Take(ItemNumber).OrderByDescending(x => x.NgayThang)
+                            select new
+                            {
+                                h.MaHd,
+                                h.TenNv,
+                                h.StoreId,
+                                h.Pos,
+                                h.NgayThang,
+                            };
+                dgvHDBH.DataSource = query.ToList();
+            }    
             dgvHDBH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHDBH.Columns[0].HeaderText = "Mã Hóa Đơn";
             dgvHDBH.Columns[1].HeaderText = "Nhân viên";
@@ -98,9 +133,9 @@ namespace QLKFC
         }
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-            Pagenumber = 1;
-            load2(Pagenumber, Program.ItemNumber);
-            check = 1;
+                Pagenumber = 1;
+                load2(Pagenumber, Program.ItemNumber);
+                check = 1;
         }
         private void btnDau_Click(object sender, EventArgs e)
         {
@@ -112,6 +147,7 @@ namespace QLKFC
                 load2(Pagenumber, Program.ItemNumber);
         }
 
+        #region Nút phân trang
         private void btnTrangtrc_Click(object sender, EventArgs e)
         {
             if (Pagenumber - 1 > 0)
@@ -128,11 +164,15 @@ namespace QLKFC
 
         private void btnTrangsau_Click(object sender, EventArgs e)
         {
-            int NumberItem = 0;
-            if (check == 0)
-                NumberItem = db.HoaDons.Count();
+            if (Quyen == 1)
+            {
+                if (check == 0)
+                    NumberItem = db.HoaDons.Count();
+                else
+                    NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date >= dtpick1.Value && x.NgayThang.Value.Date <= dtpick2.Value).Count();
+            }
             else
-                NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date >= dtpick1.Value && x.NgayThang.Value.Date <= dtpick2.Value).Count();
+                NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date.Equals(DateTime.Now.Date)).Count();
 
             if (Pagenumber - 1 < NumberItem / Program.SkipItem)
             {
@@ -145,20 +185,26 @@ namespace QLKFC
                 if (check == 0)
                     load(Pagenumber, Program.ItemNumber);
                 else
-                    load2(Pagenumber, Program.ItemNumber);} 
-                    
-                
-            
+                    load2(Pagenumber, Program.ItemNumber);
+            }
+
+
+
         }
 
         private void btncuoi_Click(object sender, EventArgs e)
         {
             if (check == 0)
             {
-                int NumberItem = db.HoaDons.Count();
+                if (Quyen == 1)
+                    NumberItem = db.HoaDons.Count();
+                else
+                    NumberItem = db.HoaDons.Where(x => x.NgayThang.Value.Date.Equals(DateTime.Now.Date)).Count();
+
                 if (NumberItem % Program.SkipItem != 0)
                     Pagenumber = NumberItem / Program.SkipItem + 1;
                 else Pagenumber = NumberItem / Program.SkipItem;
+
                 load(Pagenumber, Program.ItemNumber);
             }
             else
@@ -178,23 +224,27 @@ namespace QLKFC
             Pagenumber = 1;
             load(Pagenumber, Program.ItemNumber);
             check = 0;
-        }
+        } 
+        #endregion
         #endregion
 
         //Tìm kiếm theo mã hóa đơn +Tên nhân viên
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            var query = from h in db.HoaDons
-                        where h.MaHd.ToString().Contains(txtTimKiem.Text)
-                        select new  {
-                                        h.MaHd,
-                                        h.TenNv,
-                                        h.StoreId,
-                                        h.Pos,
-                                        h.NgayThang,
-                                    };
-            if(query.ToList().Count == 0)
-                query = from h in db.HoaDons
+            if (this.Quyen == 1)
+            {
+                var query = from h in db.HoaDons
+                            where h.MaHd.ToString().Contains(txtTimKiem.Text)
+                            select new
+                            {
+                                h.MaHd,
+                                h.TenNv,
+                                h.StoreId,
+                                h.Pos,
+                                h.NgayThang,
+                            };
+                if (query.ToList().Count == 0)
+                    query = from h in db.HoaDons
                             where h.TenNv.Contains(txtTimKiem.Text)
                             select new
                             {
@@ -204,19 +254,40 @@ namespace QLKFC
                                 h.Pos,
                                 h.NgayThang,
                             };
-            if (query.ToList().Count == 0)
-                MessageBox.Show("Không có hóa đơn nào !");
+                dgvHDBH.DataSource = query.ToList(); 
+            }
             else
             {
+                var query = from h in db.HoaDons.Where(x=>x.NgayThang.Value.Date == DateTime.Now.Date)
+                            where h.MaHd.ToString().Contains(txtTimKiem.Text)
+                            select new
+                            {
+                                h.MaHd,
+                                h.TenNv,
+                                h.StoreId,
+                                h.Pos,
+                                h.NgayThang,
+                            };
+                if (query.ToList().Count == 0)
+                    query = from h in db.HoaDons.Where(x => x.NgayThang.Value.Date == DateTime.Now.Date)
+                            where h.TenNv.Contains(txtTimKiem.Text)
+                            select new
+                            {
+                                h.MaHd,
+                                h.TenNv,
+                                h.StoreId,
+                                h.Pos,
+                                h.NgayThang,
+                            };
                 dgvHDBH.DataSource = query.ToList();
+            }    
+
                 dgvHDBH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvHDBH.Columns[0].HeaderText = "Mã Hóa Đơn";
                 dgvHDBH.Columns[1].HeaderText = "Nhân viên";
                 dgvHDBH.Columns[2].HeaderText = "Store ID";
                 dgvHDBH.Columns[3].HeaderText = "Pos";
                 dgvHDBH.Columns[4].HeaderText = "Ngày Tháng";
-            }
         }
-
     }
 }

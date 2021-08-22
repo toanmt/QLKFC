@@ -157,18 +157,18 @@ namespace QLKFC
             this.dtpick1.Name = "dtpick1";
             this.dtpick1.Size = new System.Drawing.Size(125, 27);
             this.dtpick1.TabIndex = 1;
-            this.dtpick1.Value = new System.DateTime(2021, 8, 12, 14, 46, 6, 0);
+            this.dtpick1.Value = new System.DateTime(2021, 8, 21, 0, 0, 0, 0);
             // 
             // dtpick2
             // 
             this.dtpick2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpick2.CustomFormat = "dd/MM/yyy";
-            this.dtpick2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpick2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpick2.Location = new System.Drawing.Point(766, 65);
             this.dtpick2.Name = "dtpick2";
             this.dtpick2.Size = new System.Drawing.Size(124, 27);
             this.dtpick2.TabIndex = 10;
-            this.dtpick2.Value = new System.DateTime(2021, 8, 12, 14, 45, 58, 0);
+            this.dtpick2.Value = new System.DateTime(2021, 8, 21, 0, 0, 0, 0);
             // 
             // btnThongKe
             // 

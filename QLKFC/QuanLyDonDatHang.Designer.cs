@@ -1,7 +1,7 @@
 ﻿
 namespace QLKFC
 {
-    partial class QuanLyNhap
+    partial class QuanLyDonDatHang
     {
         /// <summary>
         /// Required designer variable.

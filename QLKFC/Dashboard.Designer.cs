@@ -334,8 +334,12 @@ namespace QLKFC
             this.btnQLLoaiSanPham.Name = "btnQLLoaiSanPham";
             this.btnQLLoaiSanPham.Size = new System.Drawing.Size(255, 44);
             this.btnQLLoaiSanPham.TabIndex = 6;
+<<<<<<< HEAD
+            this.btnQLLoaiSanPham.Text = "Quản lý loại sản phẩm";
+=======
             this.btnQLLoaiSanPham.Text = "Quản lý loại món";
             this.btnQLLoaiSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+>>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780
             this.btnQLLoaiSanPham.UseVisualStyleBackColor = true;
             this.btnQLLoaiSanPham.Click += new System.EventHandler(this.btnQLLoaiSanPham_Click);
             // 
@@ -350,7 +354,7 @@ namespace QLKFC
             this.btnQLThucDon.Name = "btnQLThucDon";
             this.btnQLThucDon.Size = new System.Drawing.Size(255, 44);
             this.btnQLThucDon.TabIndex = 5;
-            this.btnQLThucDon.Text = "Quản lý món ăn";
+            this.btnQLThucDon.Text = "Quản lý sản phẩm";
             this.btnQLThucDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLThucDon.UseVisualStyleBackColor = true;
             this.btnQLThucDon.Click += new System.EventHandler(this.btnQLThucDon_Click);
@@ -464,11 +468,11 @@ namespace QLKFC
             this.Controls.Add(this.panel_control);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý KFC";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel_submenu_Kho.ResumeLayout(false);

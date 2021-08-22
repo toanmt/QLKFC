@@ -16,7 +16,8 @@ namespace QLKFC
     {
         QLBHKFCContext db = new QLBHKFCContext();
         int index = 0;
-        public QuanLyHoaDonKho()
+        string TenNV = "";
+        public QuanLyHoaDonKho(string TenNV)
         {
             InitializeComponent();
             dtpick1.Value = DateTime.Now.Date;
@@ -78,7 +79,7 @@ namespace QLKFC
                 dgvChiTietHoaDonKho.Rows.Add(row);
                 if (dgvHoaDonKho.Rows[index].Cells[3].Selected)
                 {
-                    ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
+                    ChiTietPhieuDatHang frm = new ChiTietPhieuDatHang(this.TenNV);
                     frm.Tag = int.Parse(dgvHoaDonKho.Rows[index].Cells[0].Value.ToString());
                     frm.ShowDialog();
                     if (frm.Message != null)

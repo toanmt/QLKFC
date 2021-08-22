@@ -1,7 +1,7 @@
 ﻿
 namespace QLKFC
 {
-    partial class NhapHang
+    partial class XacNhanDatHang
     {
         /// <summary>
         /// Required designer variable.

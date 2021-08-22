@@ -37,7 +37,7 @@ namespace QLKFC
             this.label5 = new System.Windows.Forms.Label();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.cbMaNL = new System.Windows.Forms.ComboBox();
-            this.btnSua = new System.Windows.Forms.Button();
+            this.btnHuyHang = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnXuatKho = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
@@ -136,23 +136,23 @@ namespace QLKFC
             this.cbMaNL.Size = new System.Drawing.Size(200, 28);
             this.cbMaNL.TabIndex = 21;
             // 
-            // btnSua
+            // btnHuyHang
             // 
-            this.btnSua.BackColor = System.Drawing.Color.Lime;
-            this.btnSua.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(454, 32);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(102, 94);
-            this.btnSua.TabIndex = 9;
-            this.btnSua.Text = "Hủy";
-            this.btnSua.UseVisualStyleBackColor = false;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            this.btnHuyHang.BackColor = System.Drawing.Color.Lime;
+            this.btnHuyHang.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHuyHang.ForeColor = System.Drawing.Color.White;
+            this.btnHuyHang.Location = new System.Drawing.Point(454, 32);
+            this.btnHuyHang.Name = "btnHuyHang";
+            this.btnHuyHang.Size = new System.Drawing.Size(160, 94);
+            this.btnHuyHang.TabIndex = 9;
+            this.btnHuyHang.Text = "Hủy hàng";
+            this.btnHuyHang.UseVisualStyleBackColor = false;
+            this.btnHuyHang.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnXuatKho);
-            this.panel3.Controls.Add(this.btnSua);
+            this.panel3.Controls.Add(this.btnHuyHang);
             this.panel3.Controls.Add(this.cbMaNL);
             this.panel3.Controls.Add(this.txtDonGia);
             this.panel3.Controls.Add(this.label5);
@@ -321,7 +321,7 @@ namespace QLKFC
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.ComboBox cbMaNL;
-        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnHuyHang;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.TextBox txtTimKiem;

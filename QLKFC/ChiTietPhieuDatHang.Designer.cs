@@ -1,7 +1,7 @@
 ﻿
 namespace QLKFC
 {
-    partial class ChiTietPhieuNhap
+    partial class ChiTietPhieuDatHang
     {
         /// <summary>
         /// Required designer variable.
@@ -36,6 +36,11 @@ namespace QLKFC
             this.btnDong = new System.Windows.Forms.Button();
             this.btnNhapKho = new System.Windows.Forms.Button();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnHuyDonDatHang = new System.Windows.Forms.Button();
@@ -47,11 +52,6 @@ namespace QLKFC
             this.label1 = new System.Windows.Forms.Label();
             this.lblMaDonHang = new System.Windows.Forms.Label();
             this.btnHoanThanh = new System.Windows.Forms.Button();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,6 +133,39 @@ namespace QLKFC
             this.dgvNhapHang.Size = new System.Drawing.Size(767, 234);
             this.dgvNhapHang.TabIndex = 38;
             this.dgvNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapHang_CellClick);
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Tên nguyên liệu";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Đơn giá";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Số lượng";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Tổng tiền";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Số lượng nhập";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // label3
             // 
@@ -247,41 +280,9 @@ namespace QLKFC
             this.btnHoanThanh.TabIndex = 61;
             this.btnHoanThanh.Text = "Hoàn thành";
             this.btnHoanThanh.UseVisualStyleBackColor = false;
+            this.btnHoanThanh.Click += new System.EventHandler(this.btnHoanThanh_Click);
             // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Tên nguyên liệu";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Đơn giá";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Số lượng";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Tổng tiền";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Số lượng nhập";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // ChiTietPhieuNhap
+            // ChiTietPhieuDatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,7 +301,7 @@ namespace QLKFC
             this.Controls.Add(this.btnNhapKho);
             this.Controls.Add(this.dgvNhapHang);
             this.Controls.Add(this.label3);
-            this.Name = "ChiTietPhieuNhap";
+            this.Name = "ChiTietPhieuDatHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đơn đặt hàng : X";
             this.Load += new System.EventHandler(this.ChiTietPhieuNhap_Load);

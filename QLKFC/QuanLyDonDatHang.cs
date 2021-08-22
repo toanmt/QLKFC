@@ -12,13 +12,15 @@ using System.Windows.Forms;
 
 namespace QLKFC
 {
-    public partial class QuanLyNhap : Form
+    public partial class QuanLyDonDatHang : Form
     {
         QLBHKFCContext db = new QLBHKFCContext();
         int index = 0;
-        public QuanLyNhap()
+        string TenNV = "";
+        public QuanLyDonDatHang(string TenNV)
         {
             InitializeComponent();
+            this.TenNV = TenNV;
             AutoGiaoHang();
             load();
         }
@@ -51,7 +53,7 @@ namespace QLKFC
         {
             if (index > -1 && index < dgvNhapHang.RowCount-1)
             {
-                ChiTietPhieuNhap frm = new ChiTietPhieuNhap();
+                ChiTietPhieuDatHang frm = new ChiTietPhieuDatHang(TenNV);
                 frm.Tag =int.Parse(dgvNhapHang.Rows[index].Cells[0].Value.ToString());
                 frm.ShowDialog();
                 this.Refresh();
@@ -64,7 +66,7 @@ namespace QLKFC
         //Gọi thêm hàng vào kho
         private void btnTaoPhieuNhap_Click(object sender, EventArgs e)
         {
-            NhapHang frm = new NhapHang();
+            XacNhanDatHang frm = new XacNhanDatHang();
             frm.ShowDialog();
             dgvNhapHang.Rows.Clear();
             load();

@@ -11,13 +11,15 @@ using System.Windows.Forms;
 
 namespace QLKFC
 {
-    public partial class QuanLyKho_XuatKho : Form
+    public partial class XacNhanXuatKho : Form
     {
         QLBHKFCContext db = new QLBHKFCContext();
         int index = 0;
-        public QuanLyKho_XuatKho()
+        string TenNV;
+        public XacNhanXuatKho(string TenNV)
         {
             InitializeComponent();
+            this.TenNV = TenNV;
             load();
         }
         #region Lấy dữ liệu vào cbbox + textbox
@@ -63,7 +65,7 @@ namespace QLKFC
                     throw new Exception("Số lượng phải > 0 !");
                 if (int.Parse(txtSoLuong.Text) > int.Parse(txtSoLuongTon.Text))
                     throw new Exception("Số lượng xuất phải < số lượng tồn");
-                
+
                 var query = (from s in db.NguyenLieus
                              where s.TenNl == cbNguyenLieu.Text
                              select s).SingleOrDefault();
@@ -73,15 +75,15 @@ namespace QLKFC
                         int SLCu = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
                         if (SLCu == int.Parse(txtSoLuongTon.Text))
                             throw new Exception("Số lượng thêm vào đã đạt tối đa. Không thể thêm nữa!!!");
-                            int SLMoi = int.Parse(txtSoLuong.Text);
+                        int SLMoi = int.Parse(txtSoLuong.Text);
                         if ((SLCu + SLMoi) <= int.Parse(txtSoLuongTon.Text))
                         {
-                            
+
                             dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", (SLCu + SLMoi));
                         }
                         else
                             throw new Exception("Không thể xuất nhiều hơn số lượng trong kho !!!");
-                        
+
                         return;
                     }
                 string[] row = { query.MaNl.ToString(), cbNguyenLieu.Text, string.Format("{0:#,##0}", int.Parse(txtdongia.Text)), txtSoLuong.Text };
@@ -102,7 +104,7 @@ namespace QLKFC
         //Xóa 1 dòng
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (index > -1 && index < dgvNhapHang.RowCount-1)
+            if (index > -1 && index < dgvNhapHang.RowCount)
             {
                 dgvNhapHang.Rows.RemoveAt(index);
                 index--;
@@ -140,25 +142,37 @@ namespace QLKFC
         {
             int index = dgvNhapHang.Rows.Count;
             var query = db.Khos.Select(x => x);
+            
             if (index == 1)
                 MessageBox.Show("Chưa có nguyên liệu nào !");
             else
             {
-                foreach (var item in query)
+                BaoCao bc = new BaoCao();
+                bc.NgayLap = DateTime.Now;
+                bc.StoreId = "044";
+                bc.Loai = "Kho-Xuất hàng";
+                bc.TenNv = this.TenNV;
+                String MoTa = "Xuất hàng";
+                for (int i = 0; i < index; i++)
                 {
-                    for (int i = 0; i < (index - 1); i++)
+                    String d1 = dgvNhapHang.Rows[i].Cells[0].Value.ToString();
+                    String d2 = dgvNhapHang.Rows[i].Cells[1].Value.ToString();
+                    float d3 = float.Parse(dgvNhapHang.Rows[i].Cells[2].Value.ToString());
+                    int d4 = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
+                    MoTa += d1 + "-" + d2 + "-" + d4 + "-Tổng:" + (d3 * d4).ToString() + "\t";
+                    foreach (var item in query)
                     {
-                        string MaNL = dgvNhapHang.Rows[i].Cells[0].Value.ToString();
-                        if (item.MaNl.ToString() == MaNL)
-                        {
-                            item.SoLuong -= int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                        }
+                        if (d1 == item.MaNl.ToString())
+                            item.SoLuong -= d4;
                     }
                 }
-                db.SaveChanges();
-                this.Close();
-                MessageBox.Show("Xuất kho thành công !");
+                db.BaoCaos.Add(bc);
             }
+            db.SaveChanges();
+            this.Close();
+            MessageBox.Show("Xuất kho thành công !");
         }
     }
 }
+
+

@@ -1,7 +1,7 @@
 ﻿
 namespace QLKFC
 {
-    partial class QuanLyMonAn
+    partial class QuanLySanPham
     {
         /// <summary>
         /// Required designer variable.
@@ -38,18 +38,7 @@ namespace QLKFC
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtSoTrang = new System.Windows.Forms.TextBox();
-            this.btnTrangSau = new System.Windows.Forms.Button();
-            this.btnTrangTruoc = new System.Windows.Forms.Button();
-            this.cmbLoc = new System.Windows.Forms.ComboBox();
             this.dgv_DSSP = new System.Windows.Forms.DataGridView();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Xoa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -76,6 +65,13 @@ namespace QLKFC
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Xoa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -128,18 +124,14 @@ namespace QLKFC
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(312, 22);
+            this.label1.Location = new System.Drawing.Point(290, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(328, 47);
+            this.label1.Size = new System.Drawing.Size(372, 47);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Quản lý món ăn";
+            this.label1.Text = "Quản lý sản phẩm";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtSoTrang);
-            this.panel1.Controls.Add(this.btnTrangSau);
-            this.panel1.Controls.Add(this.btnTrangTruoc);
-            this.panel1.Controls.Add(this.cmbLoc);
             this.panel1.Controls.Add(this.dgv_DSSP);
             this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Controls.Add(this.txtFind);
@@ -149,61 +141,6 @@ namespace QLKFC
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(930, 596);
             this.panel1.TabIndex = 2;
-            // 
-            // txtSoTrang
-            // 
-            this.txtSoTrang.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtSoTrang.Enabled = false;
-            this.txtSoTrang.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSoTrang.Location = new System.Drawing.Point(417, 276);
-            this.txtSoTrang.Name = "txtSoTrang";
-            this.txtSoTrang.Size = new System.Drawing.Size(38, 31);
-            this.txtSoTrang.TabIndex = 17;
-            this.txtSoTrang.Text = "1";
-            this.txtSoTrang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSoTrang.TextChanged += new System.EventHandler(this.txtSoTrang_TextChanged);
-            // 
-            // btnTrangSau
-            // 
-            this.btnTrangSau.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrangSau.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.btnTrangSau.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnTrangSau.ForeColor = System.Drawing.Color.White;
-            this.btnTrangSau.Location = new System.Drawing.Point(478, 273);
-            this.btnTrangSau.Name = "btnTrangSau";
-            this.btnTrangSau.Size = new System.Drawing.Size(146, 34);
-            this.btnTrangSau.TabIndex = 17;
-            this.btnTrangSau.Text = "Trang sau";
-            this.btnTrangSau.UseVisualStyleBackColor = false;
-            this.btnTrangSau.Click += new System.EventHandler(this.btnTrangSau_Click);
-            // 
-            // btnTrangTruoc
-            // 
-            this.btnTrangTruoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrangTruoc.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.btnTrangTruoc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnTrangTruoc.ForeColor = System.Drawing.Color.White;
-            this.btnTrangTruoc.Location = new System.Drawing.Point(248, 273);
-            this.btnTrangTruoc.Name = "btnTrangTruoc";
-            this.btnTrangTruoc.Size = new System.Drawing.Size(146, 34);
-            this.btnTrangTruoc.TabIndex = 16;
-            this.btnTrangTruoc.Text = "Trang trước";
-            this.btnTrangTruoc.UseVisualStyleBackColor = false;
-            this.btnTrangTruoc.Visible = false;
-            this.btnTrangTruoc.Click += new System.EventHandler(this.btnTrangTruoc_Click);
-            // 
-            // cmbLoc
-            // 
-            this.cmbLoc.BackColor = System.Drawing.Color.LemonChiffon;
-            this.cmbLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbLoc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbLoc.FormattingEnabled = true;
-            this.cmbLoc.Location = new System.Drawing.Point(12, 6);
-            this.cmbLoc.Name = "cmbLoc";
-            this.cmbLoc.Size = new System.Drawing.Size(309, 31);
-            this.cmbLoc.TabIndex = 7;
-            this.cmbLoc.SelectedIndexChanged += new System.EventHandler(this.cmbLoc_SelectedIndexChanged);
             // 
             // dgv_DSSP
             // 
@@ -243,86 +180,25 @@ namespace QLKFC
             this.dgv_DSSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_DSSP.RowHeadersVisible = false;
             this.dgv_DSSP.RowHeadersWidth = 51;
+<<<<<<< HEAD:QLKFC/QuanLySanPham.Designer.cs
+            this.dgv_DSSP.RowTemplate.Height = 150;
+            this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_DSSP.Size = new System.Drawing.Size(921, 253);
+=======
             this.dgv_DSSP.RowTemplate.Height = 175;
             this.dgv_DSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DSSP.Size = new System.Drawing.Size(921, 218);
+>>>>>>> 8c34cb1c5a97b247e0c0feed5653cd64b5ab4780:QLKFC/QuanLyMonAn.Designer.cs
             this.dgv_DSSP.TabIndex = 6;
-            this.dgv_DSSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSSP_CellClick);
-            this.dgv_DSSP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DSSP_CellContentClick);
-            // 
-            // MaSP
-            // 
-            this.MaSP.HeaderText = "Mã món";
-            this.MaSP.MinimumWidth = 6;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            this.MaSP.Width = 60;
-            // 
-            // TenSP
-            // 
-            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenSP.HeaderText = "Tên món";
-            this.TenSP.MinimumWidth = 6;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            // 
-            // TenLSP
-            // 
-            this.TenLSP.HeaderText = "Tên loại món";
-            this.TenLSP.MinimumWidth = 6;
-            this.TenLSP.Name = "TenLSP";
-            this.TenLSP.ReadOnly = true;
-            this.TenLSP.Width = 140;
-            // 
-            // DonViTinh
-            // 
-            this.DonViTinh.HeaderText = "Đơn vị";
-            this.DonViTinh.MinimumWidth = 6;
-            this.DonViTinh.Name = "DonViTinh";
-            this.DonViTinh.ReadOnly = true;
-            this.DonViTinh.Width = 80;
-            // 
-            // DonGia
-            // 
-            this.DonGia.HeaderText = "Đơn giá";
-            this.DonGia.MinimumWidth = 6;
-            this.DonGia.Name = "DonGia";
-            this.DonGia.ReadOnly = true;
-            this.DonGia.Width = 80;
-            // 
-            // ImageMota
-            // 
-            this.ImageMota.HeaderText = "Hình ảnh";
-            this.ImageMota.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.ImageMota.MinimumWidth = 6;
-            this.ImageMota.Name = "ImageMota";
-            this.ImageMota.ReadOnly = true;
-            this.ImageMota.Width = 255;
-            // 
-            // Xoa
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.Xoa.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Xoa.HeaderText = "Xóa";
-            this.Xoa.MinimumWidth = 6;
-            this.Xoa.Name = "Xoa";
-            this.Xoa.Text = "X";
-            this.Xoa.UseColumnTextForButtonValue = true;
-            this.Xoa.Width = 50;
             // 
             // btnRefresh
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Image = global::QLKFC.Properties.Resources.refresh__1_;
-            this.btnRefresh.Location = new System.Drawing.Point(433, 6);
+            this.btnRefresh.Location = new System.Drawing.Point(415, 6);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(38, 31);
+            this.btnRefresh.Size = new System.Drawing.Size(56, 37);
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -330,10 +206,10 @@ namespace QLKFC
             // txtFind
             // 
             this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFind.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFind.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFind.Location = new System.Drawing.Point(477, 6);
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(441, 31);
+            this.txtFind.Size = new System.Drawing.Size(441, 37);
             this.txtFind.TabIndex = 2;
             this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
@@ -433,7 +309,6 @@ namespace QLKFC
             // 
             // cmbLoai
             // 
-            this.cmbLoai.BackColor = System.Drawing.Color.White;
             this.cmbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoai.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbLoai.FormattingEnabled = true;
@@ -607,7 +482,72 @@ namespace QLKFC
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // QuanLyMonAn
+            // MaSP
+            // 
+            this.MaSP.HeaderText = "Mã sản phẩm";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            this.MaSP.Width = 80;
+            // 
+            // TenSP
+            // 
+            this.TenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSP.HeaderText = "Tên Sản phẩm";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // TenLSP
+            // 
+            this.TenLSP.HeaderText = "Tên loại SP";
+            this.TenLSP.MinimumWidth = 6;
+            this.TenLSP.Name = "TenLSP";
+            this.TenLSP.ReadOnly = true;
+            this.TenLSP.Width = 125;
+            // 
+            // DonViTinh
+            // 
+            this.DonViTinh.HeaderText = "Đơn vị";
+            this.DonViTinh.MinimumWidth = 6;
+            this.DonViTinh.Name = "DonViTinh";
+            this.DonViTinh.ReadOnly = true;
+            this.DonViTinh.Width = 120;
+            // 
+            // DonGia
+            // 
+            this.DonGia.HeaderText = "Đơn giá";
+            this.DonGia.MinimumWidth = 6;
+            this.DonGia.Name = "DonGia";
+            this.DonGia.ReadOnly = true;
+            this.DonGia.Width = 125;
+            // 
+            // ImageMota
+            // 
+            this.ImageMota.HeaderText = "Hình ảnh";
+            this.ImageMota.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.ImageMota.MinimumWidth = 6;
+            this.ImageMota.Name = "ImageMota";
+            this.ImageMota.ReadOnly = true;
+            this.ImageMota.Width = 222;
+            // 
+            // Xoa
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.Xoa.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Xoa.HeaderText = "Xóa";
+            this.Xoa.MinimumWidth = 6;
+            this.Xoa.Name = "Xoa";
+            this.Xoa.Text = "X";
+            this.Xoa.UseColumnTextForButtonValue = true;
+            this.Xoa.Width = 50;
+            // 
+            // QuanLySanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -616,7 +556,7 @@ namespace QLKFC
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "QuanLyMonAn";
+            this.Name = "QuanLySanPham";
             this.Text = "Quản Lý Thực Đơn";
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
@@ -673,10 +613,6 @@ namespace QLKFC
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridView dgv_DSSP;
-        private System.Windows.Forms.ComboBox cmbLoc;
-        private System.Windows.Forms.TextBox txtSoTrang;
-        private System.Windows.Forms.Button btnTrangSau;
-        private System.Windows.Forms.Button btnTrangTruoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLSP;

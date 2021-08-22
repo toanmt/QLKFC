@@ -130,8 +130,12 @@ namespace QLKFC
                 NguyenLieu nlMoi = new NguyenLieu();
                 nlMoi.TenNl = txtTenNL.Text;
                 nlMoi.DonGia = float.Parse(txtDonGia.Text);
-
                 db.NguyenLieus.Add(nlMoi);
+                db.SaveChanges();
+                Kho nl = new Kho();
+                nl.MaNl = db.NguyenLieus.Select(x => x).Last().MaNl;
+                nl.SoLuong = 0;
+                db.Khos.Add(nl);
                 db.SaveChanges();
                 HienThi();
                 XoaTrang();

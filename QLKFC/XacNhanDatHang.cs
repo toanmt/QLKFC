@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace QLKFC
 {
-    public partial class NhapHang : Form
+    public partial class XacNhanDatHang : Form
     {
         QLBHKFCContext db = new QLBHKFCContext();
         int index = 0;
-        public NhapHang()
+        public XacNhanDatHang()
         {
             InitializeComponent();
             load();
@@ -122,6 +122,7 @@ namespace QLKFC
                     cthdk.MaHdk = query.MaHdk;
                     cthdk.MaNl = int.Parse(dgvNhapHang.Rows[i].Cells[0].Value.ToString());
                     cthdk.SoLuong = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
+                    cthdk.SoLuongDaNhap = 0;
                     db.CthoaDonKhos.Add(cthdk);
                 }
                 db.SaveChanges();

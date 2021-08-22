@@ -14,9 +14,11 @@ namespace QLKFC
     public partial class QuanLyKho : Form
     {
         QLBHKFCContext db = new QLBHKFCContext();
-        public QuanLyKho()
+        string TenNV;
+        public QuanLyKho(String TenNV)
         {
             InitializeComponent();
+            this.TenNV = TenNV;
             load();
         }
         #region Tương tác dữ liệu
@@ -53,37 +55,10 @@ namespace QLKFC
 
         //Sửa số lượng 
         private void btnSua_Click(object sender, EventArgs e)
-        {
-            if (txtTenNL.Text.Trim() == "")
-            {
-                MessageBox.Show("Chọn nguyên liệu để hủy");
-                return;
-            }
-                
-            try
-            {
-                int MaNL = int.Parse(cbMaNL.Text);
-                int check = int.Parse(txtSoLuong.Text);
-                if (check < 0)
-                {
-                   throw new Exception("Số lượng phải >= 0"); 
-                }                
-                Kho NLSua = db.Khos.SingleOrDefault(k => k.MaNl == MaNL);
-                NLSua.SoLuong -= int.Parse(txtSoLuong.Text);
-                db.SaveChanges();
-                MessageBox.Show("Hủy thành công!");
-                load();
-            }
-            catch (System.FormatException)
-            {
-                MessageBox.Show("Số lượng phải là số");
-                txtSoLuong.Focus();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                txtSoLuong.Focus();
-            }
+        {       
+                XacNhanHuyHang xnhh = new XacNhanHuyHang(this.TenNV);
+            xnhh.ShowDialog();
+            load();
             
         }
 
@@ -130,7 +105,7 @@ namespace QLKFC
 
         private void btnXuatKho_Click(object sender, EventArgs e)
         {
-            QuanLyKho_XuatKho frm = new QuanLyKho_XuatKho();
+            XacNhanXuatKho frm = new XacNhanXuatKho(this.TenNV);
             frm.ShowDialog();
             load();
         }
@@ -138,6 +113,12 @@ namespace QLKFC
         private void btnHienThi_Click(object sender, EventArgs e)
         {
             load();
+        }
+        public void checkNLNew()
+        {
+            var queryNL = db.NguyenLieus.Select(x => x);
+            var queryKho = db.Khos.Select(x => x);
+
         }
     }
 }

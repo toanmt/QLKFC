@@ -13,6 +13,7 @@ namespace QLKFC
 {
     public partial class Dashboard : Form
     {
+        QLBHKFCContext db = new QLBHKFCContext();
 
         int Quyen;
         string tenNV, sid, pid;
@@ -91,26 +92,6 @@ namespace QLKFC
         }
         #endregion
 
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
-            lblTenNV.Text = tenNV;
-            if (Quyen == 2)
-            {
-                btnSanPham.Visible = false;
-                btnNhanVien.Visible = false;
-                btnKho.Visible = false;
-                btnNhapNL.Visible = false;
-            }
-            else if (Quyen == 3)
-            {
-                btnHoaDon.Visible = false;
-                btnSanPham.Visible = false;
-                btnNhanVien.Visible = false;
-                btnOrder.Visible = false;
-                btnNhapNL.Visible = false;
-            }
-        }
-
         #region Hiển thị form chức năng
         private void ptbTrangChu_Click(object sender, EventArgs e)
         {
@@ -124,7 +105,7 @@ namespace QLKFC
         private void btnOrder_Click(object sender, EventArgs e)
         {
             if (sid == null)
-                using (KiemTraNVOrder ktra = new ())
+                using (KiemTraNVOrder ktra = new KiemTraNVOrder())
                 {
                     if (ktra.ShowDialog() == DialogResult.OK)
                     {
@@ -143,7 +124,7 @@ namespace QLKFC
 
         private void btnQLThucDon_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLyMonAn());
+            openForm(new QuanLySanPham());
             hideSubMenu();
         }
 
@@ -173,16 +154,23 @@ namespace QLKFC
 
         private void btnHDKho_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLyHoaDonKho());
+            openForm(new QuanLyHoaDonKho(this.tenNV));
             hideSubMenu();
         }
 
         private void btnHDBanHang_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLyHoaDon());
+            openForm(new QuanLyHoaDon(this.Quyen,this.tenNV));
             hideSubMenu();
         }
 
+        private void btnDangXuat_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            DangNhap dn = new DangNhap();
+            dn.ShowDialog();
+            this.Close();
+        }
 
         private void btnNhapNL_Click(object sender, EventArgs e)
         {
@@ -192,7 +180,7 @@ namespace QLKFC
 
         private void btnKhoHang_Click(object sender, EventArgs e)
         {
-            openForm(new QuanLyKho());
+            openForm(new QuanLyKho(this.tenNV));
             hideSubMenu();
 
         }
@@ -200,19 +188,9 @@ namespace QLKFC
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
             hideSubMenu();
-            openForm(new QuanLyNhap());
+            openForm(new QuanLyDonDatHang(this.tenNV));
         }
 
-        private void btnDangXuat_Click_1(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                this.Hide();
-                DangNhap dn = new ();
-                dn.ShowDialog();
-                this.Close();
-            }
-        }
         #endregion
         
     }
