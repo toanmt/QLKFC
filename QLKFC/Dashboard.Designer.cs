@@ -350,7 +350,7 @@ namespace QLKFC
             this.btnQLThucDon.Name = "btnQLThucDon";
             this.btnQLThucDon.Size = new System.Drawing.Size(255, 44);
             this.btnQLThucDon.TabIndex = 5;
-            this.btnQLThucDon.Text = "Quản lý món ăn";
+            this.btnQLThucDon.Text = "Quản lý món";
             this.btnQLThucDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQLThucDon.UseVisualStyleBackColor = true;
             this.btnQLThucDon.Click += new System.EventHandler(this.btnQLThucDon_Click);
