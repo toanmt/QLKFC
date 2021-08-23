@@ -37,9 +37,9 @@ namespace QLKFC
             this.lblTenBaoCao = new System.Windows.Forms.Panel();
             this.btnXuatBaoCao = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbLocDuLieu = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.cbLocDuLieu = new System.Windows.Forms.ComboBox();
             this.btnLocDuLieu = new System.Windows.Forms.Button();
             this.btnHienThiToanBo = new System.Windows.Forms.Button();
             this.dgvBaoCao = new System.Windows.Forms.DataGridView();
@@ -114,9 +114,9 @@ namespace QLKFC
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.cbLocDuLieu);
             this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txtTimKiem);
+            this.panel2.Controls.Add(this.cbLocDuLieu);
             this.panel2.Controls.Add(this.btnLocDuLieu);
             this.panel2.Controls.Add(this.btnHienThiToanBo);
             this.panel2.Controls.Add(this.dgvBaoCao);
@@ -126,40 +126,40 @@ namespace QLKFC
             this.panel2.Size = new System.Drawing.Size(912, 361);
             this.panel2.TabIndex = 5;
             // 
-            // label3
+            // label2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(236, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 47);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "X";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(12, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 27);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Tìm kiếm";
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(12, 41);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(199, 27);
+            this.txtTimKiem.TabIndex = 36;
+            this.txtTimKiem.Tag = "Tìm kiếm";
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // cbLocDuLieu
             // 
             this.cbLocDuLieu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbLocDuLieu.FormattingEnabled = true;
             this.cbLocDuLieu.Items.AddRange(new object[] {
+            "Nhập hàng-Thiếu",
             "Xuất hàng",
-            "Hủy hàng"});
+            "Hủy hàng",
+            "Nhập hàng"});
             this.cbLocDuLieu.Location = new System.Drawing.Point(487, 26);
             this.cbLocDuLieu.Name = "cbLocDuLieu";
             this.cbLocDuLieu.Size = new System.Drawing.Size(162, 28);
             this.cbLocDuLieu.TabIndex = 34;
             this.cbLocDuLieu.Text = "Nhập hàng";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(12, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(218, 47);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Danh Sách";
             // 
             // btnLocDuLieu
             // 
@@ -313,8 +313,6 @@ namespace QLKFC
         private System.Windows.Forms.ComboBox cbLocDuLieu;
         private System.Windows.Forms.Button btnLocDuLieu;
         private System.Windows.Forms.Button btnHienThiToanBo;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnXuatBaoCao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -324,5 +322,7 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Drawing.Printing.PrintDocument printDoc;
         private System.Windows.Forms.PrintPreviewDialog printPRDialog;
+        private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.Label label2;
     }
 }

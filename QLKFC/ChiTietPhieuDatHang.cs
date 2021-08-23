@@ -168,14 +168,14 @@ namespace QLKFC
                                 x.SoLuongDaNhap
                             };
                 int check = 0;
-                string MoTa = "Đơn hàng thiếu : \n";
+                string MoTa = "Mã đơn hàng "+Mahdk+" .Đơn hàng thiếu : ";
                 foreach (var item in query)
                 {
                     if (item.SoLuong.Value.Equals(item.SoLuongDaNhap))
                         check++;
                     else
                     {
-                        MoTa += item.TenNl + "- Thiếu : " + (item.SoLuong.Value - item.SoLuongDaNhap).ToString() + "\n";
+                        MoTa += "\n"+item.TenNl + "- Thiếu : " + (item.SoLuong.Value - item.SoLuongDaNhap).ToString();
                     }
                 }
                 if (check == query.ToList().Count)
@@ -195,7 +195,7 @@ namespace QLKFC
                     if (dl == DialogResult.Yes)
                     {
                         BaoCao bc = new BaoCao();
-                        bc.Loai = "Nhập hàng";
+                        bc.Loai = "Nhập hàng-Thiếu";
                         bc.Mota = MoTa;
                         bc.NgayLap = DateTime.Now;
                         bc.StoreId = "044";

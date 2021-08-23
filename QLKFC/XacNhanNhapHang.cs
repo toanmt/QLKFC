@@ -170,7 +170,7 @@ namespace QLKFC
                     bc.StoreId = "044";
                     bc.Loai = "Nhập hàng";
                     bc.TenNv = this.TenNV;
-                    String MoTa = "Nhập hàng";
+                    String MoTa = "Mã hóa đơn : "+ MaHdk.ToString();
                     for (int i = 0; i < index; i++)
                     {
                         checkNew = 0;
@@ -178,7 +178,7 @@ namespace QLKFC
                         String d2 = dgvNhapHang.Rows[i].Cells[1].Value.ToString();
                         float d3 = float.Parse(dgvNhapHang.Rows[i].Cells[2].Value.ToString());
                         int d4 = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                        MoTa += "\n"+d2 + "- Số lượng :" + d4 + "- Tổng : " + (d3*d4).ToString();
+                        MoTa += "\n\tTên nguyên liệu "+d2 + " - Số lượng : " + d4 + " - Tổng : " + (d3*d4).ToString();
                         db.CthoaDonKhos.Where(x => x.MaHdk == MaHdk && x.MaNl == int.Parse(d1)).SingleOrDefault().SoLuongDaNhap += d4;
                         foreach (var itemKho in queryKho.ToList())
                         {
