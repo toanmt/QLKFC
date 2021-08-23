@@ -85,6 +85,7 @@ namespace QLKFC
             this.dg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -170,8 +171,8 @@ namespace QLKFC
             // 
             this.dgv_DSSP.AllowUserToAddRows = false;
             this.dgv_DSSP.AllowUserToResizeRows = false;
-            this.dgv_DSSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgv_DSSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_DSSP.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -237,7 +238,7 @@ namespace QLKFC
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -280,7 +281,7 @@ namespace QLKFC
             // 
             // txtFind
             // 
-            this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFind.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFind.Location = new System.Drawing.Point(65, 6);
@@ -475,6 +476,7 @@ namespace QLKFC
             // 
             // panel_DSOrder
             // 
+            this.panel_DSOrder.Controls.Add(this.label3);
             this.panel_DSOrder.Controls.Add(this.dgvDSOrder);
             this.panel_DSOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_DSOrder.Location = new System.Drawing.Point(0, 0);
@@ -486,8 +488,8 @@ namespace QLKFC
             // 
             this.dgvDSOrder.AllowUserToAddRows = false;
             this.dgvDSOrder.AllowUserToResizeRows = false;
-            this.dgvDSOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvDSOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDSOrder.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -507,14 +509,14 @@ namespace QLKFC
             this.ThanhTien,
             this.Xoa});
             this.dgvDSOrder.EnableHeadersVisualStyles = false;
-            this.dgvDSOrder.Location = new System.Drawing.Point(6, 6);
+            this.dgvDSOrder.Location = new System.Drawing.Point(6, 49);
             this.dgvDSOrder.Name = "dgvDSOrder";
             this.dgvDSOrder.RowHeadersVisible = false;
             this.dgvDSOrder.RowHeadersWidth = 51;
             this.dgvDSOrder.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dgvDSOrder.RowTemplate.Height = 29;
             this.dgvDSOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDSOrder.Size = new System.Drawing.Size(456, 390);
+            this.dgvDSOrder.Size = new System.Drawing.Size(456, 347);
             this.dgvDSOrder.TabIndex = 4;
             this.dgvDSOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSOrder_CellContentClick);
             // 
@@ -602,6 +604,7 @@ namespace QLKFC
             // pdHoaDon
             // 
             this.pdHoaDon.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pdHoaDon_PrintPage);
+            // 
             // MaSP
             // 
             this.MaSP.HeaderText = "Mã món";
@@ -628,7 +631,7 @@ namespace QLKFC
             // 
             // Loai
             // 
-            this.Loai.HeaderText = "Loại";
+            this.Loai.HeaderText = "Đơn vị";
             this.Loai.MinimumWidth = 6;
             this.Loai.Name = "Loai";
             this.Loai.ReadOnly = true;
@@ -642,6 +645,19 @@ namespace QLKFC
             this.ImageMota.Name = "ImageMota";
             this.ImageMota.ReadOnly = true;
             this.ImageMota.Width = 120;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Consolas", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(97, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(302, 40);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Danh sách Order";
             // 
             // Order
             // 
@@ -670,6 +686,7 @@ namespace QLKFC
             this.panel2.PerformLayout();
             this.panel_button.ResumeLayout(false);
             this.panel_DSOrder.ResumeLayout(false);
+            this.panel_DSOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_TD)).EndInit();
             this.ResumeLayout(false);
@@ -717,11 +734,12 @@ namespace QLKFC
         private System.Windows.Forms.TextBox txtSoTrang;
         private System.Windows.Forms.Button btnTrangSau;
         private System.Windows.Forms.Button btnTrangTruoc;
+        private System.Drawing.Printing.PrintDocument pdHoaDon;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn dg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Loai;
         private System.Windows.Forms.DataGridViewImageColumn ImageMota;
-        private System.Drawing.Printing.PrintDocument pdHoaDon;
+        private System.Windows.Forms.Label label3;
     }
 }
