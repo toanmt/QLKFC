@@ -29,6 +29,7 @@ namespace QLKFC
             dgvChiTietHoaDonKho.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
             load();
         }
+        #region Tương tác với bảng
         //Clear datagridview
         public void clear()
         {
@@ -55,9 +56,10 @@ namespace QLKFC
             }
             checkDonHuy();
         }
+        //Kiểm tra đơn bị hủy và bôi vàng
         public void checkDonHuy()
         {
-            for (int i = 0; i < dgvHoaDonKho.Rows.Count ; i++)
+            for (int i = 0; i < dgvHoaDonKho.Rows.Count; i++)
             {
                 if (dgvHoaDonKho.Rows[i].Cells[2].Value.Equals("Đã hủy"))
                     dgvHoaDonKho.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
@@ -96,8 +98,11 @@ namespace QLKFC
             }
         }
 
-        //Thống kê theo ngày
-        private void btnThongKe_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Các nút lọc dữ liệu , tìm kiếm , hiển thị toàn bộ
+        //Lọc dữ liệu theo ngày
+        private void btnLocDuLieu_Click(object sender, EventArgs e)
         {
             if (dgvHoaDonKho.Rows.Count > 0)
                 clear();
@@ -115,7 +120,6 @@ namespace QLKFC
                 dgvHoaDonKho.Rows.Add(hd);
             }
             checkDonHuy();
-
         }
 
         //Tìm kiếm theo Mã hoặc Trạng thái của hóa đơn
@@ -134,11 +138,10 @@ namespace QLKFC
             checkDonHuy();
 
         }
-
-
         private void btnHienThi_Click(object sender, EventArgs e)
         {
             load();
-        }
+        } 
+        #endregion
     }
 }

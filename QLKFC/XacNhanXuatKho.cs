@@ -53,6 +53,7 @@ namespace QLKFC
         }
         #endregion
 
+        #region Các nút thêm, xóa, sửa,hủy,xuất kho
         private void btnThem_Click(object sender, EventArgs e)
         {
             try
@@ -139,7 +140,7 @@ namespace QLKFC
         {
             int index = dgvNhapHang.Rows.Count;
             var query = db.Khos.Select(x => x);
-            
+
             if (index == 0)
                 MessageBox.Show("Chưa có nguyên liệu nào !");
             else
@@ -156,7 +157,7 @@ namespace QLKFC
                     String d2 = dgvNhapHang.Rows[i].Cells[1].Value.ToString();
                     float d3 = float.Parse(dgvNhapHang.Rows[i].Cells[2].Value.ToString());
                     int d4 = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                    MoTa +="\n"+d2 + "- Số lượng : " + d4 + "- Tổng : " + (d3 * d4).ToString();
+                    MoTa += "\n" + d2 + "- Số lượng : " + d4 + "- Tổng : " + (d3 * d4).ToString();
                     foreach (var item in query)
                     {
                         if (d1 == item.MaNl.ToString())
@@ -169,7 +170,8 @@ namespace QLKFC
             db.SaveChanges();
             this.Close();
             MessageBox.Show("Xuất kho thành công !");
-        }
+        } 
+        #endregion
     }
 }
 

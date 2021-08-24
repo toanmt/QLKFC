@@ -50,7 +50,7 @@ namespace QLKFC
         } 
         #endregion
 
-        //Chi tiết 1 đơn nhập
+        // Xem Chi tiết 1 đơn nhập
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
             if (index > -1 && index < dgvNhapHang.RowCount-1)
@@ -65,8 +65,9 @@ namespace QLKFC
             else
                 MessageBox.Show("Chưa chọn hóa đơn !");
         }
-        //Gọi thêm hàng vào kho
-        private void btnTaoPhieuNhap_Click(object sender, EventArgs e)
+        //Đặt hàng
+
+        private void btnDatHang_Click(object sender, EventArgs e)
         {
             XacNhanDatHang frm = new XacNhanDatHang();
             frm.ShowDialog();
@@ -85,6 +86,7 @@ namespace QLKFC
             }
         }
 
+        //Tự động chuyển trạng thái đang giao hàng khi qua ngày mới
         public void AutoGiaoHang()
         {
             var query = db.HoaDonKhos.Where(x => x.TrangThai == "Đang xử lý");
@@ -97,6 +99,6 @@ namespace QLKFC
                 }    
             }
             db.SaveChanges();
-        }
+        }   
     }
 }

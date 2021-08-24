@@ -24,14 +24,15 @@ namespace QLKFC
             InitializeComponent();
             this.TenNV = TenNV;
         }
-        //Load dữ liệu
+
+        #region Load dữ liệu
         private void ChiTietPhieuNhap_Load(object sender, EventArgs e)
         {
             load();
         }
         public void load()
         {
-            
+
             lblNote.Hide();
             int check = (int)this.Tag;
             Mahdk = check;
@@ -75,13 +76,17 @@ namespace QLKFC
             foreach (var item in query)
             {
                 var tongtien = item.DonGia.Value * item.SoLuong.Value;
-                string[] row = { item.TenNl.ToString(), string.Format("{0:#,##0}", int.Parse(item.DonGia.ToString())), item.SoLuong.ToString(), string.Format("{0:#,##0}", int.Parse(tongtien.ToString())),item.SoLuongDaNhap.ToString() };
+                string[] row = { item.TenNl.ToString(), string.Format("{0:#,##0}", int.Parse(item.DonGia.ToString())), item.SoLuong.ToString(), string.Format("{0:#,##0}", int.Parse(tongtien.ToString())), item.SoLuongDaNhap.ToString() };
                 dgvNhapHang.Rows.Add(row);
-                
+
             }
 
 
         }
+        #endregion
+
+        #region Các nút nhập hàng , hoàn thành , hủy đơn , đóng
+        //Nhập hàng vào kho
         private void btnNhapKho_Click(object sender, EventArgs e)
         {
             if (cbTrangThai.Text == "Đang xử lý")
@@ -91,7 +96,7 @@ namespace QLKFC
                 if (checkSoLuong() == false)
                 {
                     int check = (int)this.Tag;
-                    XacNhanNhapHang xnnh = new XacNhanNhapHang(check,this.TenNV);
+                    XacNhanNhapHang xnnh = new XacNhanNhapHang(check, this.TenNV);
                     xnnh.ShowDialog();
                     dgvNhapHang.Rows.Clear();
                     load();
@@ -108,6 +113,7 @@ namespace QLKFC
             }
         }
 
+        //Kiểm tra số lượng trc khi hoàn thành đơn
         public bool checkSoLuong()
         {
             int check = 0;
@@ -121,6 +127,7 @@ namespace QLKFC
             else return false;
         }
 
+        //Nút đóng
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -145,12 +152,12 @@ namespace QLKFC
                 }
             }
         }
-
+        //Tương tác với bảng
         private void dgvNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-       
-        }
 
+        }
+        //Nút hoàn thành
         private void btnHoanThanh_Click(object sender, EventArgs e)
         {
             HoanThanh();
@@ -168,14 +175,14 @@ namespace QLKFC
                                 x.SoLuongDaNhap
                             };
                 int check = 0;
-                string MoTa = "Mã đơn hàng "+Mahdk+" .Đơn hàng thiếu : ";
+                string MoTa = "Mã đơn hàng " + Mahdk + " .Đơn hàng thiếu : ";
                 foreach (var item in query)
                 {
                     if (item.SoLuong.Value.Equals(item.SoLuongDaNhap))
                         check++;
                     else
                     {
-                        MoTa += "\n"+item.TenNl + "- Thiếu : " + (item.SoLuong.Value - item.SoLuongDaNhap).ToString();
+                        MoTa += "\n" + item.TenNl + "- Thiếu : " + (item.SoLuong.Value - item.SoLuongDaNhap).ToString();
                     }
                 }
                 if (check == query.ToList().Count)
@@ -207,13 +214,14 @@ namespace QLKFC
                         this.Close();
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-        }
+        } 
+        #endregion
     }
 }

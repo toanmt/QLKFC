@@ -31,6 +31,7 @@ namespace QLKFC
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyBaoCao));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_header = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -43,14 +44,14 @@ namespace QLKFC
             this.btnLocDuLieu = new System.Windows.Forms.Button();
             this.btnHienThiToanBo = new System.Windows.Forms.Button();
             this.dgvBaoCao = new System.Windows.Forms.DataGridView();
+            this.printDoc = new System.Drawing.Printing.PrintDocument();
+            this.printPRDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.printDoc = new System.Drawing.Printing.PrintDocument();
-            this.printPRDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.lblTenBaoCao.SuspendLayout();
@@ -104,7 +105,7 @@ namespace QLKFC
             this.btnXuatBaoCao.BackColor = System.Drawing.Color.Red;
             this.btnXuatBaoCao.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnXuatBaoCao.ForeColor = System.Drawing.Color.White;
-            this.btnXuatBaoCao.Location = new System.Drawing.Point(718, 62);
+            this.btnXuatBaoCao.Location = new System.Drawing.Point(703, 49);
             this.btnXuatBaoCao.Name = "btnXuatBaoCao";
             this.btnXuatBaoCao.Size = new System.Drawing.Size(182, 102);
             this.btnXuatBaoCao.TabIndex = 35;
@@ -198,6 +199,14 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBaoCao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBaoCao.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBaoCao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBaoCao.ColumnHeadersHeight = 45;
             this.dgvBaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBaoCao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -209,61 +218,13 @@ namespace QLKFC
             this.Column6});
             this.dgvBaoCao.Location = new System.Drawing.Point(12, 74);
             this.dgvBaoCao.Name = "dgvBaoCao";
+            this.dgvBaoCao.RowHeadersVisible = false;
             this.dgvBaoCao.RowHeadersWidth = 51;
             this.dgvBaoCao.RowTemplate.Height = 29;
+            this.dgvBaoCao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBaoCao.Size = new System.Drawing.Size(888, 281);
             this.dgvBaoCao.TabIndex = 0;
             this.dgvBaoCao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBaoCao_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 53.04351F;
-            this.Column1.HeaderText = "Mã báo cáo";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 55.51887F;
-            this.Column2.HeaderText = "Tên nhân viên";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 64.17112F;
-            this.Column3.HeaderText = "Ngày lập";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 55.51887F;
-            this.Column4.HeaderText = "Loại";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 55.51887F;
-            this.Column5.HeaderText = "StoreID";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column6.FillWeight = 316.2287F;
-            this.Column6.HeaderText = "Mô tả";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // printDoc
             // 
@@ -279,6 +240,56 @@ namespace QLKFC
             this.printPRDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPRDialog.Icon")));
             this.printPRDialog.Name = "printPRDialog";
             this.printPRDialog.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 73.05698F;
+            this.Column1.HeaderText = "Mã báo cáo";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 76.91557F;
+            this.Column2.HeaderText = "Tên nhân viên";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 80.21389F;
+            this.Column3.HeaderText = "Ngày lập";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 48.05345F;
+            this.Column4.HeaderText = "Loại";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 48.05345F;
+            this.Column5.HeaderText = "StoreID";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column6.FillWeight = 273.7066F;
+            this.Column6.HeaderText = "Mô tả";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // QuanLyBaoCao
             // 
@@ -314,15 +325,15 @@ namespace QLKFC
         private System.Windows.Forms.Button btnLocDuLieu;
         private System.Windows.Forms.Button btnHienThiToanBo;
         private System.Windows.Forms.Button btnXuatBaoCao;
+        private System.Drawing.Printing.PrintDocument printDoc;
+        private System.Windows.Forms.PrintPreviewDialog printPRDialog;
+        private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Drawing.Printing.PrintDocument printDoc;
-        private System.Windows.Forms.PrintPreviewDialog printPRDialog;
-        private System.Windows.Forms.TextBox txtTimKiem;
-        private System.Windows.Forms.Label label2;
     }
 }

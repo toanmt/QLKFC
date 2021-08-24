@@ -29,6 +29,7 @@ namespace QLKFC
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_header = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,7 +47,7 @@ namespace QLKFC
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnChiTiet = new System.Windows.Forms.Button();
-            this.btnTaoPhieuNhap = new System.Windows.Forms.Button();
+            this.btnDatHang = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -166,6 +167,14 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvNhapHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhapHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvNhapHang.ColumnHeadersHeight = 45;
             this.dgvNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvNhapHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -224,7 +233,7 @@ namespace QLKFC
             // panel4
             // 
             this.panel4.Controls.Add(this.btnChiTiet);
-            this.panel4.Controls.Add(this.btnTaoPhieuNhap);
+            this.panel4.Controls.Add(this.btnDatHang);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 449);
             this.panel4.Name = "panel4";
@@ -245,19 +254,19 @@ namespace QLKFC
             this.btnChiTiet.UseVisualStyleBackColor = false;
             this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
-            // btnTaoPhieuNhap
+            // btnDatHang
             // 
-            this.btnTaoPhieuNhap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTaoPhieuNhap.BackColor = System.Drawing.Color.Red;
-            this.btnTaoPhieuNhap.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnTaoPhieuNhap.ForeColor = System.Drawing.Color.White;
-            this.btnTaoPhieuNhap.Location = new System.Drawing.Point(15, 6);
-            this.btnTaoPhieuNhap.Name = "btnTaoPhieuNhap";
-            this.btnTaoPhieuNhap.Size = new System.Drawing.Size(263, 118);
-            this.btnTaoPhieuNhap.TabIndex = 9;
-            this.btnTaoPhieuNhap.Text = "Đặt hàng";
-            this.btnTaoPhieuNhap.UseVisualStyleBackColor = false;
-            this.btnTaoPhieuNhap.Click += new System.EventHandler(this.btnTaoPhieuNhap_Click);
+            this.btnDatHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDatHang.BackColor = System.Drawing.Color.Red;
+            this.btnDatHang.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDatHang.ForeColor = System.Drawing.Color.White;
+            this.btnDatHang.Location = new System.Drawing.Point(15, 6);
+            this.btnDatHang.Name = "btnDatHang";
+            this.btnDatHang.Size = new System.Drawing.Size(263, 118);
+            this.btnDatHang.TabIndex = 9;
+            this.btnDatHang.Text = "Đặt hàng";
+            this.btnDatHang.UseVisualStyleBackColor = false;
+            this.btnDatHang.Click += new System.EventHandler(this.btnDatHang_Click);
             // 
             // QuanLyDonDatHang
             // 
@@ -299,7 +308,7 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnChiTiet;
-        private System.Windows.Forms.Button btnTaoPhieuNhap;
+        private System.Windows.Forms.Button btnDatHang;
         private System.Windows.Forms.Button btnHienThi;
     }
 }

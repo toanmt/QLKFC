@@ -24,6 +24,7 @@ namespace QLKFC
             this.TenNV = TenNV;
             load();
         }
+
         #region Tương tác dữ liệu
         public void load()
         {
@@ -53,16 +54,16 @@ namespace QLKFC
                 txtDonGia.Text = dgvKho.Rows[index].Cells[2].Value.ToString();
                 txtSoLuong.Text = dgvKho.Rows[index].Cells[3].Value.ToString();
             }
-        } 
+        }
         #endregion
 
-        //Sửa số lượng 
-        private void btnSua_Click(object sender, EventArgs e)
-        {       
-                XacNhanHuyHang xnhh = new XacNhanHuyHang(this.TenNV);
+        #region Các nút hủy hàng , xuất kho , hiền thị , tìm kiếm
+        //Hủy hàng 
+        private void btnHuyHang_Click(object sender, EventArgs e)
+        {
+            XacNhanHuyHang xnhh = new XacNhanHuyHang(this.TenNV);
             xnhh.ShowDialog();
             load();
-            
         }
 
         //Tìm kiếm Theo 3 tiêu chí : Mã => Tên => Số lượng
@@ -117,11 +118,8 @@ namespace QLKFC
         {
             load();
         }
-        public void checkNLNew()
-        {
-            var queryNL = db.NguyenLieus.Select(x => x);
-            var queryKho = db.Khos.Select(x => x);
+        #endregion
 
-        }
+        
     }
 }

@@ -64,6 +64,7 @@ namespace QLKFC
         }
         #endregion
 
+        #region Các nút thêm, xóa hủy, sửa,xác nhận
         private void btnThem_Click(object sender, EventArgs e)
         {
             try
@@ -145,9 +146,7 @@ namespace QLKFC
                     return;
                 }
         }
-
-
-
+        // Xác nhận hủy hàng
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             try
@@ -158,7 +157,7 @@ namespace QLKFC
                     throw new Exception("Chưa có nguyên liệu nào");
                 else
                 {
-                    if(txtLyDo.Text == "")
+                    if (txtLyDo.Text == "")
                         throw new Exception("Chưa nhập lý do");
                     BaoCao bc = new BaoCao();
                     bc.NgayLap = DateTime.Now;
@@ -191,9 +190,10 @@ namespace QLKFC
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        } 
+        #endregion
 
-        
+
     }
 }
 
