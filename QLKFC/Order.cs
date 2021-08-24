@@ -436,7 +436,6 @@ namespace QLKFC
             #endregion
 
             #region Thông tin Thanh toán
-            vtdong += 20;
             e.Graphics.DrawString("Cash",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
@@ -445,7 +444,7 @@ namespace QLKFC
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
                                 new PointF(chieurong - 150, vtdong));
-            vtdong += 30;
+            vtdong += 50;
             e.Graphics.DrawString("Sub Total",
                                 new Font("Courier New", 16, FontStyle.Regular),
                                 Brushes.Black,
