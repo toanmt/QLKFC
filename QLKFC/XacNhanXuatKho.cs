@@ -25,7 +25,15 @@ namespace QLKFC
         #region Lấy dữ liệu vào cbbox + textbox
         public void load()
         {
-            var query = db.NguyenLieus.Select(x => x);
+            var query = from x in db.Khos
+                        join y in db.NguyenLieus on x.MaNl equals y.MaNl
+                        select new
+                        {
+                            x.MaNl,
+                            y.TenNl,
+                            y.DonGia,
+                            x.SoLuong,
+                        };
             cbNguyenLieu.DataSource = query.ToList();
             cbNguyenLieu.DisplayMember = "TenNL";
             cbNguyenLieu.ValueMember = "DonGia";

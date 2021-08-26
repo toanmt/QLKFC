@@ -87,7 +87,9 @@ namespace QLKFC
         //Xóa 1 dòng
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (index > -1 && index < dgvNhapHang.Rows.Count-1)
+            if (dgvNhapHang.Rows.Count == 1)
+                MessageBox.Show("Chưa có nguyên liệu nào được thêm vào");
+            else if (index > -1 && index < dgvNhapHang.Rows.Count-1)
             {
                 dgvNhapHang.Rows.RemoveAt(index);
                 index--;

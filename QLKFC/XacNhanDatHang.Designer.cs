@@ -180,6 +180,7 @@ namespace QLKFC
             // 
             // cbNguyenLieu
             // 
+            this.cbNguyenLieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNguyenLieu.FormattingEnabled = true;
             this.cbNguyenLieu.Location = new System.Drawing.Point(202, 342);
             this.cbNguyenLieu.Name = "cbNguyenLieu";
@@ -339,7 +340,7 @@ namespace QLKFC
             this.label8.TabIndex = 37;
             this.label8.Text = "Store ID : 044";
             // 
-            // NhapHang
+            // XacNhanDatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -365,7 +366,7 @@ namespace QLKFC
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "NhapHang";
+            this.Name = "XacNhanDatHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập_Hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).EndInit();

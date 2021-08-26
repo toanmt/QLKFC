@@ -118,7 +118,7 @@ TenNV nvarchar(20),
 NgayLap DateTime,
 Loai nvarchar(50),
 StoreID nvarchar(20),
-Mota nvarchar(200)
+Mota nvarchar(1000)
 )
 GO
 --------------------------Thêm dữ liệu----------------------------------------
@@ -231,17 +231,37 @@ INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (1
 INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (17, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:44:23.883' AS DateTime))
 INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (18, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:44:32.050' AS DateTime))
 INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (19, N'Đỗ Thắng', N'044', N'3', CAST(N'2021-08-18 15:44:45.137' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (20, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:43:34.307' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (21, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:43:40.783' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (22, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:43:58.343' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (23, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:44:04.767' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (24, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:44:14.303' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (25, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:44:27.680' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (26, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:44:37.320' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (27, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:44:46.633' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (28, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:44:53.857' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (29, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:45:03.120' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (30, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:45:19.460' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (31, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:45:31.120' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (32, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:45:35.880' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (33, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:45:43.967' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (34, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:45:49.367' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (35, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:45:55.567' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (36, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:46:02.383' AS DateTime))
+INSERT [dbo].[HoaDon] ([MaHD], [TenNV], [StoreID], [Pos], [NgayThang]) VALUES (37, N'Đỗ Thắng', N'044', N'1', CAST(N'2021-08-25 15:46:07.950' AS DateTime))
 SET IDENTITY_INSERT [dbo].[HoaDon] OFF
 
 -------------------Hóa Đơn Kho-----------------------
 SET IDENTITY_INSERT [dbo].[HoaDonKho] ON 
-INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (1, CAST(N'2021-08-03 00:00:00.000' AS DateTime), N'Đang Xử Lý')
+INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (1, CAST(N'2021-08-03 00:00:00.000' AS DateTime), N'Hoàn Thành')
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (2, CAST(N'2021-07-31 00:00:00.000' AS DateTime), N'Hoàn Thành')
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (3, CAST(N'2021-08-03 00:00:00.000' AS DateTime), N'Đã hủy')
-INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (4, CAST(N'2021-08-18 15:44:54.330' AS DateTime), N'Đang xử lý')
+INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (4, CAST(N'2021-08-18 15:44:54.330' AS DateTime), N'Đang giao hàng')
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (5, CAST(N'2021-08-18 15:45:11.550' AS DateTime), N'Đã hủy')
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (6, CAST(N'2021-08-18 15:45:24.913' AS DateTime), N'Hoàn Thành')
 INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (7, CAST(N'2021-08-18 15:45:34.683' AS DateTime), N'Đang giao hàng')
+INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (8, CAST(N'2021-08-25 15:46:27.613' AS DateTime), N'Đang giao hàng')
+INSERT [dbo].[HoaDonKho] ([MaHDK], [NgayCC], [TrangThai]) VALUES (9, CAST(N'2021-08-25 15:50:39.407' AS DateTime), N'Đang giao hàng')
 SET IDENTITY_INSERT [dbo].[HoaDonKho] OFF
 
 -------------------CTHoa Don-----------------------
@@ -269,21 +289,65 @@ INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (16, 19, 2334234)
 INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (17, 17, 12)
 INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (18, 18, 322)
 INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (19, 17, 43)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (20, 1, 1)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (20, 2, 1)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (21, 3, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (22, 4, 5)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (22, 7, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (22, 9, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (23, 12, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (24, 11, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (24, 12, 1)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (24, 13, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (24, 14, 4)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (25, 17, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (25, 18, 3)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (26, 16, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (26, 18, 4)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (26, 19, 4)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (27, 9, 3)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (28, 5, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (29, 2, 3)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (29, 3, 3)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (29, 8, 3)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (30, 3, 323)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (31, 7, 10)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (32, 6, 1)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (33, 6, 1)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (34, 7, 1)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (35, 7, 1)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (36, 8, 2)
+INSERT [dbo].[CTHoaDon] ([MaHD], [MaSP], [SoLuong]) VALUES (37, 10, 32)
 
 -------------------CTHoa Đơn Kho-----------------------
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (1, 3, 4,4)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (2, 1, 10,4)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (2, 2, 6,5)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (2, 5, 8,4)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (3, 4, 23,0)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (3, 10, 2,0)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (4, 4, 23,23)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (4, 10, 2,2)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (5, 2, 6,0)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (5, 7, 6,0)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (6, 8, 4,2)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (7, 1, 2,1)
-INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong],[SoLuongDaNhap]) VALUES (7, 6, 23,20)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (1, 3, 4, 4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (2, 1, 10, 4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (2, 2, 6, 5)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (2, 5, 8, 4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (3, 4, 23, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (3, 10, 2, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (4, 4, 23, 23)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (4, 10, 2, 2)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (5, 2, 6, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (5, 7, 6, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (6, 8, 4, 2)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (7, 1, 2, 1)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (7, 6, 23, 20)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 1, 12, 2)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 2, 12, 4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 3, 12, 1)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 4, 24, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 5, 12, 4)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 6, 12, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 7, 12, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 8, 12, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 9, 12, 1)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (8, 10, 24, 24)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (9, 2, 22, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (9, 3, 2, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (9, 7, 12, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (9, 9, 11, 0)
+INSERT [dbo].[CTHoaDonKho] ([MaHDK], [MaNL], [SoLuong], [SoLuongDaNhap]) VALUES (9, 10, 466, 0)
 
 
 -------------------Kho-----------------------
@@ -294,4 +358,42 @@ INSERT [dbo].[Kho] ([MaNL], [SoLuong]) VALUES (4, 29)
 INSERT [dbo].[Kho] ([MaNL], [SoLuong]) VALUES (5, 12)
 
 
+----------------------Báo cáo------------------------------
 
+SET IDENTITY_INSERT [dbo].[BaoCao] ON 
+
+INSERT [dbo].[BaoCao] ([MaBC], [TenNV], [NgayLap], [Loai], [StoreID], [Mota]) VALUES (1, N'Đỗ Thắng', CAST(N'2021-08-25 15:51:39.767' AS DateTime), N'Xuất hàng', N'044', N'Xuất hàng thành công
+Bột Mỳ- Số lượng : 1- Tổng : 10000
+Cocacola- Số lượng : 2- Tổng : 10000')
+INSERT [dbo].[BaoCao] ([MaBC], [TenNV], [NgayLap], [Loai], [StoreID], [Mota]) VALUES (2, N'Đỗ Thắng', CAST(N'2021-08-25 15:56:24.543' AS DateTime), N'Xuất hàng', N'044', N'Xuất hàng thành công
+Cánh Gà- Số lượng : 6- Tổng : 360000
+Chân Gà- Số lượng : 3- Tổng : 120000
+Bột Mỳ- Số lượng : 3- Tổng : 30000
+Gạo- Số lượng : 3- Tổng : 90000
+Lườn gà- Số lượng : 3- Tổng : 210000')
+INSERT [dbo].[BaoCao] ([MaBC], [TenNV], [NgayLap], [Loai], [StoreID], [Mota]) VALUES (3, N'Đỗ Thắng', CAST(N'2021-08-25 15:58:30.357' AS DateTime), N'Hủy hàng', N'044', N'Hết date
+Gạo- Số lượng : 23- Tổng : 230000
+Chân Gà- Số lượng : 1- Tổng : 10000
+Cánh Gà- Số lượng : 1- Tổng : 10000
+Bột Mỳ- Số lượng : 1- Tổng : 10000
+Lườn gà- Số lượng : 1- Tổng : 10000')
+INSERT [dbo].[BaoCao] ([MaBC], [TenNV], [NgayLap], [Loai], [StoreID], [Mota]) VALUES (4, N'Đỗ Thắng', CAST(N'2021-08-25 15:58:39.073' AS DateTime), N'Xuất hàng', N'044', N'Xuất hàng thành công
+Bột Mỳ- Số lượng : 3- Tổng : 30000
+Chân Gà- Số lượng : 2- Tổng : 80000')
+INSERT [dbo].[BaoCao] ([MaBC], [TenNV], [NgayLap], [Loai], [StoreID], [Mota]) VALUES (6, N'Đỗ Thắng', CAST(N'2021-08-26 16:00:12.367' AS DateTime), N'Nhập hàng', N'044', N'Mã hóa đơn : 8
+	Tên nguyên liệu Cánh Gà - Số lượng : 1 - Tổng : 60000
+	Tên nguyên liệu Bột Mỳ - Số lượng : 1 - Tổng : 10000')
+INSERT [dbo].[BaoCao] ([MaBC], [TenNV], [NgayLap], [Loai], [StoreID], [Mota]) VALUES (7, N'Đỗ Thắng', CAST(N'2021-08-26 16:00:38.813' AS DateTime), N'Nhập hàng', N'044', N'Mã hóa đơn : 8
+	Tên nguyên liệu Cánh Gà - Số lượng : 2 - Tổng : 120000
+	Tên nguyên liệu Cà chua - Số lượng : 22 - Tổng : 418000
+	Tên nguyên liệu Lườn gà - Số lượng : 4 - Tổng : 280000')
+INSERT [dbo].[BaoCao] ([MaBC], [TenNV], [NgayLap], [Loai], [StoreID], [Mota]) VALUES (9, N'Đỗ Thắng', CAST(N'2021-08-26 16:06:51.413' AS DateTime), N'Nhập hàng', N'044', N'Mã hóa đơn : 8
+	Tên nguyên liệu Cà chua - Số lượng : 1 - Tổng : 19000')
+INSERT [dbo].[BaoCao] ([MaBC], [TenNV], [NgayLap], [Loai], [StoreID], [Mota]) VALUES (10, N'Đỗ Thắng', CAST(N'2021-08-26 16:07:14.023' AS DateTime), N'Nhập hàng', N'044', N'Mã hóa đơn : 8
+	Tên nguyên liệu Cánh Gà - Số lượng : 1 - Tổng : 60000
+	Tên nguyên liệu Gạo - Số lượng : 1 - Tổng : 30000')
+INSERT [dbo].[BaoCao] ([MaBC], [TenNV], [NgayLap], [Loai], [StoreID], [Mota]) VALUES (11, N'Đỗ Thắng', CAST(N'2021-08-26 16:07:37.350' AS DateTime), N'Nhập hàng', N'044', N'Mã hóa đơn : 8
+	Tên nguyên liệu Xà lách - Số lượng : 1 - Tổng : 49000
+	Tên nguyên liệu Cà chua - Số lượng : 1 - Tổng : 19000
+	Tên nguyên liệu Bột Mỳ - Số lượng : 1 - Tổng : 10000')
+SET IDENTITY_INSERT [dbo].[BaoCao] OFF

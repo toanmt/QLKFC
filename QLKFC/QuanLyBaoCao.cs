@@ -94,7 +94,7 @@ namespace QLKFC
             e.Graphics.DrawString(queryBc.NgayLap.ToString(), new Font("Times New Roman", 20, FontStyle.Regular), Brushes.Black, new Point(425, 353));
 
             if (queryBc.Loai == "Nhập hàng")
-                e.Graphics.DrawString("Nhập hàng thành công : " + queryBc.Mota, new Font("Times New Roman", 30, FontStyle.Regular), Brushes.Black, new Point(35, 400));
+                e.Graphics.DrawString("Nhập hàng thành công : \n" + queryBc.Mota, new Font("Times New Roman", 20, FontStyle.Regular), Brushes.Black, new Point(35, 400));
             else if (queryBc.Loai == "Nhập hàng")
                 e.Graphics.DrawString("Lý do : Trung tâm giao thiếu hàng \n " + queryBc.Mota, new Font("Times New Roman", 30, FontStyle.Regular), Brushes.Black, new Point(35, 400));
             else if (queryBc.Loai == "Hủy hàng")
@@ -102,12 +102,12 @@ namespace QLKFC
             else
                 e.Graphics.DrawString(queryBc.Mota, new Font("Times New Roman", 30, FontStyle.Regular), Brushes.Black, new Point(35, 400));
 
-            e.Graphics.DrawString("Nhân viên", new Font("Times New Roman", 30, FontStyle.Regular), Brushes.Black, new Point(35, 825));
-            e.Graphics.DrawString("(Ký rõ họ tên)", new Font("Times New Roman", 20, FontStyle.Regular), Brushes.Black, new Point(35, 870));
+            e.Graphics.DrawString("Nhân viên", new Font("Times New Roman", 30, FontStyle.Regular), Brushes.Black, new Point(35, 900));
+            e.Graphics.DrawString("(Ký rõ họ tên)", new Font("Times New Roman", 20, FontStyle.Regular), Brushes.Black, new Point(35, 950));
 
 
-            e.Graphics.DrawString("Người lập", new Font("Times New Roman", 30, FontStyle.Regular), Brushes.Black, new Point(550, 825));
-            e.Graphics.DrawString("(Ký rõ họ tên)", new Font("Times New Roman", 20, FontStyle.Regular), Brushes.Black, new Point(550, 870));
+            e.Graphics.DrawString("Người lập", new Font("Times New Roman", 30, FontStyle.Regular), Brushes.Black, new Point(550, 900));
+            e.Graphics.DrawString("(Ký rõ họ tên)", new Font("Times New Roman", 20, FontStyle.Regular), Brushes.Black, new Point(550, 950));
 
 
 

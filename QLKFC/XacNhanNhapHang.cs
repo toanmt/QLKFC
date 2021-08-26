@@ -165,6 +165,7 @@ namespace QLKFC
                     throw new Exception("Chưa có nguyên liệu nào");
                 else
                 {
+                    List<Kho> listNLMoi = new List<Kho>();
                     BaoCao bc = new BaoCao();
                     bc.NgayLap = DateTime.Now;
                     bc.StoreId = "044";
@@ -195,22 +196,27 @@ namespace QLKFC
                             Kho nl = new Kho();
                             nl.MaNl = int.Parse(d1.ToString());
                             nl.SoLuong = d4;
-                            db.Khos.Add(nl);  
+                            listNLMoi.Add(nl);
                         }    
                     }
                     bc.Mota = MoTa;
                     db.BaoCaos.Add(bc);
                     db.SaveChanges();
+                    foreach (var item in listNLMoi)
+                    {
+                        db.Khos.Add(item);
+                    }
+                    db.SaveChanges();
                     MessageBox.Show("Nhập kho thành công. !");
                     this.Close();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
+}
 
-    }
+}
 }
 

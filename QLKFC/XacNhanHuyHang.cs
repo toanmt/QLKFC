@@ -38,7 +38,7 @@ namespace QLKFC
                         };
             cbNguyenLieu.DataSource = query.ToList();
             cbNguyenLieu.DisplayMember = "TenNl";
-            cbNguyenLieu.ValueMember = "SoLuong";
+            cbNguyenLieu.ValueMember = "Dongia";
             txtdongia.Text = cbNguyenLieu.SelectedValue.ToString();
             cbNguyenLieu.SelectedIndex = 1;
             cbNguyenLieu.SelectedIndex = 0;

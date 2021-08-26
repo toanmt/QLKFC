@@ -24,6 +24,7 @@ namespace QLKFC
             dtpick2.Value = DateTime.Now.Date;
             dgvHoaDonKho.EnableHeadersVisualStyles = false;
             dgvHoaDonKho.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
+            this.TenNV = TenNV;
 
             dgvChiTietHoaDonKho.EnableHeadersVisualStyles = false;
             dgvChiTietHoaDonKho.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
@@ -65,7 +66,7 @@ namespace QLKFC
                     dgvHoaDonKho.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
             }
         }
-        //Tương tác với bảng hóa đơn kho
+        //Tương tác với bảng hóa đơn kho + xem chi tiết
         private void dgvHoaDonKho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvChiTietHoaDonKho.Rows.Clear();

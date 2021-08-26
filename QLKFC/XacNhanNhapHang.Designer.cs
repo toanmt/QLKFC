@@ -214,12 +214,12 @@ namespace QLKFC
             // 
             // cbNguyenLieu
             // 
+            this.cbNguyenLieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNguyenLieu.FormattingEnabled = true;
             this.cbNguyenLieu.Location = new System.Drawing.Point(202, 336);
             this.cbNguyenLieu.Name = "cbNguyenLieu";
             this.cbNguyenLieu.Size = new System.Drawing.Size(141, 28);
             this.cbNguyenLieu.TabIndex = 83;
-            this.cbNguyenLieu.Text = "Chọn nguyên liệu";
             this.cbNguyenLieu.SelectedValueChanged += new System.EventHandler(this.cbNguyenLieu_SelectedValueChanged);
             // 
             // label1
