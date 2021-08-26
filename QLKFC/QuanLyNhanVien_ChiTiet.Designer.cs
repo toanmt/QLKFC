@@ -166,9 +166,9 @@ namespace QLKFC
             // ptbNV
             // 
             this.ptbNV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbNV.Location = new System.Drawing.Point(558, 33);
+            this.ptbNV.Location = new System.Drawing.Point(599, 17);
             this.ptbNV.Name = "ptbNV";
-            this.ptbNV.Size = new System.Drawing.Size(199, 156);
+            this.ptbNV.Size = new System.Drawing.Size(125, 188);
             this.ptbNV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbNV.TabIndex = 93;
             this.ptbNV.TabStop = false;
@@ -416,6 +416,7 @@ namespace QLKFC
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "QuanLyNhanVien_ChiTiet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuanLyNhanVien_ChiTiet";

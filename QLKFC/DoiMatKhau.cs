@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,7 +22,7 @@ namespace QLKFC
         }
         #region kt lỗi nhập dữ liệu
 
-        #region lỗi để trắng
+        #region lỗi để trống
         private void txtTaiKhoan_Validating(object sender, CancelEventArgs e)
         {
             if(txtTaiKhoan.Text == "")
@@ -120,12 +121,18 @@ namespace QLKFC
                 errorProvider1.Clear();
             }
         }
-
         private void txtMKMoi_TextChanged(object sender, EventArgs e)
         {
+            Regex regex = new Regex(@"^(?=[^\d_].*?\d)\w(\w|[!@#$%]){8}");
+            Match mk = regex.Match(txtMKMoi.Text);
             if (txtMKCu.Text == txtMKMoi.Text)
             {
                 errorProvider1.SetError(txtMKMoi, "Hãy nhập 1 mật khẩu khác");
+                txtMKMoi.Focus();
+            }
+            else if (mk.Success == false)
+            {
+                errorProvider1.SetError(txtMKMoi, "Mật khẩu phải ít nhất 8 kí tự và có kí tự đặc biệt");
                 txtMKMoi.Focus();
             }
             else

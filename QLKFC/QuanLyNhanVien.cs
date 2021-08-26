@@ -137,6 +137,7 @@ namespace QLKFC
                 {
                     TaiKhoan tkXoa = db.TaiKhoans.Where(tk => tk.Id == nvXoa.Id).FirstOrDefault();
                     db.TaiKhoans.Remove(tkXoa);
+                    db.SaveChanges();
                     db.NhanViens.Remove(nvXoa);
                     db.SaveChanges();
                     HienThi();

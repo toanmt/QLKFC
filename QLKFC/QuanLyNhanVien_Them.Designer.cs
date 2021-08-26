@@ -217,9 +217,9 @@ namespace QLKFC
             // ptbNV
             // 
             this.ptbNV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ptbNV.Location = new System.Drawing.Point(542, 21);
+            this.ptbNV.Location = new System.Drawing.Point(519, 20);
             this.ptbNV.Name = "ptbNV";
-            this.ptbNV.Size = new System.Drawing.Size(158, 137);
+            this.ptbNV.Size = new System.Drawing.Size(125, 188);
             this.ptbNV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbNV.TabIndex = 68;
             this.ptbNV.TabStop = false;
@@ -228,9 +228,9 @@ namespace QLKFC
             // 
             this.btnAnh.BackColor = System.Drawing.Color.Red;
             this.btnAnh.ForeColor = System.Drawing.Color.White;
-            this.btnAnh.Location = new System.Drawing.Point(569, 167);
+            this.btnAnh.Location = new System.Drawing.Point(668, 95);
             this.btnAnh.Name = "btnAnh";
-            this.btnAnh.Size = new System.Drawing.Size(100, 36);
+            this.btnAnh.Size = new System.Drawing.Size(89, 67);
             this.btnAnh.TabIndex = 12;
             this.btnAnh.Text = "Chọn ảnh";
             this.btnAnh.UseVisualStyleBackColor = false;
@@ -463,7 +463,7 @@ namespace QLKFC
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "QuanLyNhanVien_Them";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm nhân viên mới";
