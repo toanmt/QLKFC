@@ -234,7 +234,10 @@ namespace QLKFC
         //Tìm kiếm theo mã hóa đơn +Tên nhân viên
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            if (this.Quyen == 1)
+            if(txtTimKiem.Text.Equals(""))
+            { return;
+            }    
+            else if (this.Quyen == 1)
             {
                 var query = from h in db.HoaDons
                             where h.MaHd.ToString().Contains(txtTimKiem.Text)
