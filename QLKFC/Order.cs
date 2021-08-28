@@ -148,6 +148,24 @@ namespace QLKFC
             txtDua.Clear();
             lblTienThua.Text = 0 + "";
         }
+
+        private bool ktraNhap()
+        {
+            try
+            {
+                if (double.Parse(txtDua.Text)<double.Parse(lblThanhTien.Text))
+                {
+                    errorProvider_TD.SetError(txtDua, "Tiển đưa phải lớn hơn tổng hóa đơn");
+                    return false;
+                }
+            }
+            catch
+            {
+                errorProvider_TD.SetError(txtDua, "Phải nhập tiền đưa là số");
+                return false;
+            }
+            return true;
+        }
         #endregion
 
         #region Tương tác người dùng
@@ -216,6 +234,8 @@ namespace QLKFC
                     }
                 }
                 TinhTien();
+                lblTienThua.Text = 0 + "";
+                txtDua.Text = "";
             }
         }
 
@@ -575,7 +595,7 @@ namespace QLKFC
             {
                 MessageBox.Show("Chưa nhập tiền đưa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
+            else if(ktraNhap())
             {
                 HoaDon hd = new HoaDon();
                 hd.TenNv = Tennv;
@@ -623,11 +643,10 @@ namespace QLKFC
                     errorProvider_TD.Clear();
                     lblTienThua.Text = string.Format("{0:N0}", (float.Parse(txtDua.Text) - float.Parse(lblThanhTien.Text)));
                 }
-                if (double.Parse(lblTienThua.Text) < 0)
+                if (double.Parse(txtDua.Text) < double.Parse(lblThanhTien.Text))
                 {
                     errorProvider_TD.SetError(txtDua, "Tiền đưa phải lớn hơn tổng tiền!");
                     txtDua.Focus();
-                    txtDua.SelectAll();
                     lblTienThua.Text = 0 + "";
                 }
             }

@@ -398,10 +398,6 @@ namespace QLKFC
                     MessageBox.Show(ex.Message.ToString(), "Thông báo");
                 }
             }
-            else
-            {
-                MessageBox.Show("Đã tồn tại loại sản phẩm này!", "Thông báo");
-            }
         }
 
         private void btnHuyBo_Click(object sender, EventArgs e)
