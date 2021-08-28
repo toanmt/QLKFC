@@ -38,6 +38,7 @@ namespace QLKFC
                 btnNhanVien.Visible = false;
                 btnKho.Visible = false;
                 btnNhapNL.Visible = false;
+                btnBaoCao.Visible = false;
             }
             else if (Quyen == 3)
             {
@@ -46,6 +47,7 @@ namespace QLKFC
                 btnNhanVien.Visible = false;
                 btnOrder.Visible = false;
                 btnNhapNL.Visible = false;
+                btnBaoCao.Visible = false;
             }
         }
 
