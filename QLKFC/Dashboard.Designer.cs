@@ -89,11 +89,7 @@ namespace QLKFC
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-<<<<<<< HEAD
-            this.panel1.Size = new System.Drawing.Size(255, 1040);
-=======
             this.panel1.Size = new System.Drawing.Size(223, 519);
->>>>>>> 9dfad44d3d379a5c42392a9d77dfbe7cffd0b44a
             this.panel1.TabIndex = 0;
             // 
             // btnBaoCao
@@ -117,11 +113,8 @@ namespace QLKFC
             this.lblTenNV.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblTenNV.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTenNV.ForeColor = System.Drawing.Color.Red;
-<<<<<<< HEAD
-            this.lblTenNV.Location = new System.Drawing.Point(0, 969);
-=======
+
             this.lblTenNV.Location = new System.Drawing.Point(0, 464);
->>>>>>> 9dfad44d3d379a5c42392a9d77dfbe7cffd0b44a
             this.lblTenNV.Name = "lblTenNV";
             this.lblTenNV.Size = new System.Drawing.Size(140, 22);
             this.lblTenNV.TabIndex = 8;
@@ -191,12 +184,8 @@ namespace QLKFC
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangXuat.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-<<<<<<< HEAD
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 996);
-=======
             this.btnDangXuat.Location = new System.Drawing.Point(0, 486);
             this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
->>>>>>> 9dfad44d3d379a5c42392a9d77dfbe7cffd0b44a
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(223, 33);
             this.btnDangXuat.TabIndex = 11;
@@ -469,11 +458,7 @@ namespace QLKFC
             this.panel_control.Location = new System.Drawing.Point(223, 0);
             this.panel_control.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_control.Name = "panel_control";
-<<<<<<< HEAD
-            this.panel_control.Size = new System.Drawing.Size(930, 1040);
-=======
             this.panel_control.Size = new System.Drawing.Size(814, 519);
->>>>>>> 9dfad44d3d379a5c42392a9d77dfbe7cffd0b44a
             this.panel_control.TabIndex = 1;
             // 
             // label3
@@ -482,11 +467,7 @@ namespace QLKFC
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-<<<<<<< HEAD
-            this.label3.Location = new System.Drawing.Point(750, 1011);
-=======
             this.label3.Location = new System.Drawing.Point(656, 497);
->>>>>>> 9dfad44d3d379a5c42392a9d77dfbe7cffd0b44a
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 14);
             this.label3.TabIndex = 2;
@@ -519,11 +500,7 @@ namespace QLKFC
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(1185, 1040);
-=======
             this.ClientSize = new System.Drawing.Size(1037, 519);
->>>>>>> 9dfad44d3d379a5c42392a9d77dfbe7cffd0b44a
             this.Controls.Add(this.panel_control);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
