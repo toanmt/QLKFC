@@ -148,6 +148,7 @@ namespace QLKFC
             this.btnHuy.TabIndex = 59;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // label6
             // 
@@ -263,6 +264,7 @@ namespace QLKFC
             // 
             this.dgvHuyHang.AllowUserToAddRows = false;
             this.dgvHuyHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHuyHang.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvHuyHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHuyHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column5,
@@ -271,6 +273,7 @@ namespace QLKFC
             this.Column7});
             this.dgvHuyHang.Location = new System.Drawing.Point(12, 107);
             this.dgvHuyHang.Name = "dgvHuyHang";
+            this.dgvHuyHang.RowHeadersVisible = false;
             this.dgvHuyHang.RowHeadersWidth = 51;
             this.dgvHuyHang.RowTemplate.Height = 29;
             this.dgvHuyHang.Size = new System.Drawing.Size(767, 220);
@@ -360,6 +363,7 @@ namespace QLKFC
             this.Controls.Add(this.cbNguyenLieu);
             this.Controls.Add(this.dgvHuyHang);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "XacNhanHuyHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XacNhanHuyHang";

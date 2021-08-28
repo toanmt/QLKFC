@@ -69,7 +69,7 @@ namespace QLKFC
                 var query = (from s in db.NguyenLieus
                              where s.TenNl == cbNguyenLieu.Text
                              select s).SingleOrDefault();
-                for (int i = 0; i < dgvNhapHang.Rows.Count - 1; i++)
+                for (int i = 0; i < dgvNhapHang.Rows.Count; i++)
                     if (query.MaNl.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
                     {
                         int SLCu = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
@@ -78,13 +78,11 @@ namespace QLKFC
                         int SLMoi = int.Parse(txtSoLuong.Text);
                         if ((SLCu + SLMoi) <= int.Parse(txtSoLuongTon.Text))
                         {
-
                             dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", (SLCu + SLMoi));
+                            return;
                         }
                         else
                             throw new Exception("Không thể xuất nhiều hơn số lượng trong kho !!!");
-
-                        return;
                     }
                 string[] row = { query.MaNl.ToString(), cbNguyenLieu.Text, string.Format("{0:#,##0}", int.Parse(txtdongia.Text)), txtSoLuong.Text };
 
@@ -107,7 +105,6 @@ namespace QLKFC
             if (index > -1 && index < dgvNhapHang.RowCount)
             {
                 dgvNhapHang.Rows.RemoveAt(index);
-                index--;
             }
             else
             {
@@ -143,29 +140,30 @@ namespace QLKFC
             int index = dgvNhapHang.Rows.Count;
             var query = db.Khos.Select(x => x);
             
-            if (index == 1)
+            if (index == 0)
                 MessageBox.Show("Chưa có nguyên liệu nào !");
             else
             {
                 BaoCao bc = new BaoCao();
                 bc.NgayLap = DateTime.Now;
                 bc.StoreId = "044";
-                bc.Loai = "Kho-Xuất hàng";
+                bc.Loai = "Xuất hàng";
                 bc.TenNv = this.TenNV;
-                String MoTa = "Xuất hàng";
+                String MoTa = "Xuất hàng thành công";
                 for (int i = 0; i < index; i++)
                 {
                     String d1 = dgvNhapHang.Rows[i].Cells[0].Value.ToString();
                     String d2 = dgvNhapHang.Rows[i].Cells[1].Value.ToString();
                     float d3 = float.Parse(dgvNhapHang.Rows[i].Cells[2].Value.ToString());
                     int d4 = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                    MoTa += d1 + "-" + d2 + "-" + d4 + "-Tổng:" + (d3 * d4).ToString() + "\t";
+                    MoTa +="\n"+d2 + "- Số lượng : " + d4 + "- Tổng : " + (d3 * d4).ToString();
                     foreach (var item in query)
                     {
                         if (d1 == item.MaNl.ToString())
                             item.SoLuong -= d4;
                     }
                 }
+                bc.Mota = MoTa;
                 db.BaoCaos.Add(bc);
             }
             db.SaveChanges();

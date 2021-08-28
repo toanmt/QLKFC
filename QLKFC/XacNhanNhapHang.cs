@@ -17,9 +17,10 @@ namespace QLKFC
         int index = 0;
         String TenNV = "";
         int MaHdk;
-        public XacNhanNhapHang(int MaHdk)
+        public XacNhanNhapHang(int MaHdk,String TenNV)
         {
             InitializeComponent();
+            this.TenNV = TenNV;
             this.MaHdk = MaHdk;
             load();
 
@@ -101,7 +102,7 @@ namespace QLKFC
                         else
                             throw new Exception("Không thể nhập nhiều hơn số lượng đã đặt !!!");
                     }
-                string[] row = { queryNL.MaNl.ToString(), queryNL.DonGia.Value.ToString(), string.Format("{0:#,##0}", int.Parse(txtSoLuongDaNhap.Text)), nUDSoLuongNhap.Text };
+                string[] row = { queryNL.MaNl.ToString(), queryNL.TenNl.ToString(),queryNL.DonGia.Value.ToString(), string.Format("{0:#,##0}",nUDSoLuongNhap.Text) };
 
                 dgvNhapHang.Rows.Add(row);
             }
@@ -169,19 +170,19 @@ namespace QLKFC
                     bc.StoreId = "044";
                     bc.Loai = "Nhập hàng";
                     bc.TenNv = this.TenNV;
-                    String MoTa = "";
+                    String MoTa = "Nhập hàng";
                     for (int i = 0; i < index; i++)
                     {
+                        checkNew = 0;
                         String d1 = dgvNhapHang.Rows[i].Cells[0].Value.ToString();
                         String d2 = dgvNhapHang.Rows[i].Cells[1].Value.ToString();
                         float d3 = float.Parse(dgvNhapHang.Rows[i].Cells[2].Value.ToString());
                         int d4 = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
-                        MoTa += d1 + "-" + d2 + "-" + d4 + "- Tổng:" + (d3*d4).ToString() + "\n";
+                        MoTa += "\n"+d2 + "- Số lượng :" + d4 + "- Tổng : " + (d3*d4).ToString();
                         db.CthoaDonKhos.Where(x => x.MaHdk == MaHdk && x.MaNl == int.Parse(d1)).SingleOrDefault().SoLuongDaNhap += d4;
                         foreach (var itemKho in queryKho.ToList())
                         {
                             //Kiểm tra nếu nguyên liệu cũ thì + số lượng
-                            checkNew = 0;
                             if (d1 == itemKho.MaNl.ToString())
                             {
                                 itemKho.SoLuong += d4;
@@ -194,7 +195,7 @@ namespace QLKFC
                             Kho nl = new Kho();
                             nl.MaNl = int.Parse(d1.ToString());
                             nl.SoLuong = d4;
-                            db.Khos.Add(nl);
+                            db.Khos.Add(nl);  
                         }    
                     }
                     bc.Mota = MoTa;

@@ -197,6 +197,12 @@ namespace QLKFC
 
         }
 
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            openForm(new QuanLyBaoCao());
+            hideSubMenu();
+        }
+
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
             hideSubMenu();

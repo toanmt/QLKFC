@@ -1,4 +1,5 @@
-﻿using QLKFC.Models;
+﻿using OfficeOpenXml;
+using QLKFC.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,9 @@ namespace QLKFC
             InitializeComponent();
             dtpick1.Value = DateTime.Now.Date;
             dtpick2.Value = DateTime.Now.Date;
-           
+            dgvHDBH.EnableHeadersVisualStyles = false;
+            dgvHDBH.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
+
             this.Quyen = Quyen;
             this.TenNV = TenNV;
             load(Pagenumber, Program.ItemNumber);
@@ -288,6 +291,6 @@ namespace QLKFC
                 dgvHDBH.Columns[2].HeaderText = "Store ID";
                 dgvHDBH.Columns[3].HeaderText = "Pos";
                 dgvHDBH.Columns[4].HeaderText = "Ngày Tháng";
-        }
-    }
+        } 
+   }
 }

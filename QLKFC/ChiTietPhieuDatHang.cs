@@ -91,7 +91,7 @@ namespace QLKFC
                 if (checkSoLuong() == false)
                 {
                     int check = (int)this.Tag;
-                    XacNhanNhapHang xnnh = new XacNhanNhapHang(check);
+                    XacNhanNhapHang xnnh = new XacNhanNhapHang(check,this.TenNV);
                     xnnh.ShowDialog();
                     dgvNhapHang.Rows.Clear();
                     load();
@@ -159,31 +159,40 @@ namespace QLKFC
         {
             try
             {
-                DialogResult dl = MessageBox.Show("Xác nhận đã hoàn thành đơn hàng", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dl == DialogResult.Yes)
+                var query = from x in db.CthoaDonKhos
+                            where x.MaHdk == Mahdk
+                            select new
+                            {
+                                x.MaNlNavigation.TenNl,
+                                x.SoLuong,
+                                x.SoLuongDaNhap
+                            };
+                int check = 0;
+                string MoTa = "Đơn hàng thiếu : \n";
+                foreach (var item in query)
                 {
-                    var query = from x in db.CthoaDonKhos
-                                where x.MaHdk == Mahdk
-                                select new
-                                {
-                                    x.MaNlNavigation.TenNl,
-                                    x.SoLuong,
-                                    x.SoLuongDaNhap
-                                };
-                    int check = 0;
-                    string MoTa = "Đơn hàng thiếu \n";
-                    foreach (var item in query)
-                    {
-                        if (item.SoLuong.Value.Equals(item.SoLuongDaNhap))
-                            check++;
-                        else
-                        {
-                            MoTa += item.TenNl + "- Thiếu :" + (item.SoLuong.Value - item.SoLuongDaNhap).ToString()+"\n";
-                        }
-                    }
-                    if (check == query.ToList().Count)
-                        MessageBox.Show("Đơn hàng hoàn thành");
+                    if (item.SoLuong.Value.Equals(item.SoLuongDaNhap))
+                        check++;
                     else
+                    {
+                        MoTa += item.TenNl + "- Thiếu : " + (item.SoLuong.Value - item.SoLuongDaNhap).ToString() + "\n";
+                    }
+                }
+                if (check == query.ToList().Count)
+                {
+                    DialogResult dl = MessageBox.Show("Đã đủ hàng.Xác nhận hoàn thành", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dl == DialogResult.Yes)
+                    {
+                        db.HoaDonKhos.Where(x => x.MaHdk == Mahdk).FirstOrDefault().TrangThai = "Hoàn Thành";
+                        MessageBox.Show("Hoàn thành đơn hàng.Kiểm tra kho của bạn");
+                        db.SaveChanges();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    DialogResult dl = MessageBox.Show("Đơn hàng thiếu. Xác nhận hoàn thành !!!", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dl == DialogResult.Yes)
                     {
                         BaoCao bc = new BaoCao();
                         bc.Loai = "Nhập hàng";
@@ -193,11 +202,12 @@ namespace QLKFC
                         bc.TenNv = this.TenNV;
                         db.BaoCaos.Add(bc);
                         MessageBox.Show(MoTa, "Hoàn thành đơn hàng.Kiểm tra kho của bạn");
+                        db.HoaDonKhos.Where(x => x.MaHdk == Mahdk).FirstOrDefault().TrangThai = "Hoàn Thành";
+                        db.SaveChanges();
+                        this.Close();
                     }
-                    db.HoaDonKhos.Where(x => x.MaHdk == Mahdk).FirstOrDefault().TrangThai = "Hoàn Thành";
-                    db.SaveChanges();
-                    this.Close();
                 }
+                
             }
             catch (Exception ex)
             {

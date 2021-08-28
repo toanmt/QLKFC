@@ -30,15 +30,16 @@ namespace QLKFC
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.dtpick2 = new System.Windows.Forms.DateTimePicker();
             this.dtpick1 = new System.Windows.Forms.DateTimePicker();
@@ -77,11 +78,11 @@ namespace QLKFC
             this.btnThongKe.BackColor = System.Drawing.Color.Red;
             this.btnThongKe.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThongKe.ForeColor = System.Drawing.Color.White;
-            this.btnThongKe.Location = new System.Drawing.Point(385, 34);
+            this.btnThongKe.Location = new System.Drawing.Point(349, 40);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(146, 50);
+            this.btnThongKe.Size = new System.Drawing.Size(214, 41);
             this.btnThongKe.TabIndex = 31;
-            this.btnThongKe.Text = "Thống Kê";
+            this.btnThongKe.Text = "Lọc dữ liệu";
             this.btnThongKe.UseVisualStyleBackColor = false;
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
@@ -100,7 +101,7 @@ namespace QLKFC
             this.dtpick1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpick1.CustomFormat = "dd/MM/yyyy";
             this.dtpick1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpick1.Location = new System.Drawing.Point(12, 54);
+            this.dtpick1.Location = new System.Drawing.Point(12, 50);
             this.dtpick1.Name = "dtpick1";
             this.dtpick1.Size = new System.Drawing.Size(125, 27);
             this.dtpick1.TabIndex = 24;
@@ -134,6 +135,7 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvChiTietHoaDonKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvChiTietHoaDonKho.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -142,14 +144,24 @@ namespace QLKFC
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvChiTietHoaDonKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvChiTietHoaDonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChiTietHoaDonKho.ColumnHeadersHeight = 45;
+            this.dgvChiTietHoaDonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvChiTietHoaDonKho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column5,
             this.Column6,
             this.Column7,
             this.Column8});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChiTietHoaDonKho.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvChiTietHoaDonKho.Location = new System.Drawing.Point(10, 61);
             this.dgvChiTietHoaDonKho.Name = "dgvChiTietHoaDonKho";
+            this.dgvChiTietHoaDonKho.RowHeadersVisible = false;
             this.dgvChiTietHoaDonKho.RowHeadersWidth = 51;
             this.dgvChiTietHoaDonKho.RowTemplate.Height = 29;
             this.dgvChiTietHoaDonKho.Size = new System.Drawing.Size(890, 242);
@@ -201,15 +213,17 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvHoaDonKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDonKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvHoaDonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHoaDonKho.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDonKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvHoaDonKho.ColumnHeadersHeight = 45;
+            this.dgvHoaDonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvHoaDonKho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -219,6 +233,7 @@ namespace QLKFC
             this.dgvHoaDonKho.MultiSelect = false;
             this.dgvHoaDonKho.Name = "dgvHoaDonKho";
             this.dgvHoaDonKho.ReadOnly = true;
+            this.dgvHoaDonKho.RowHeadersVisible = false;
             this.dgvHoaDonKho.RowHeadersWidth = 51;
             this.dgvHoaDonKho.RowTemplate.Height = 29;
             this.dgvHoaDonKho.Size = new System.Drawing.Size(888, 154);
@@ -227,10 +242,10 @@ namespace QLKFC
             // 
             // Column1
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column1.FillWeight = 42.78075F;
             this.Column1.HeaderText = "Mã";
             this.Column1.MinimumWidth = 6;
@@ -239,8 +254,8 @@ namespace QLKFC
             // 
             // Column2
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column2.FillWeight = 119.0731F;
             this.Column2.HeaderText = "Ngày cung cấp";
             this.Column2.MinimumWidth = 6;
@@ -249,8 +264,8 @@ namespace QLKFC
             // 
             // Column4
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column4.FillWeight = 119.0731F;
             this.Column4.HeaderText = "Trạng thái";
             this.Column4.MinimumWidth = 6;
@@ -259,10 +274,10 @@ namespace QLKFC
             // 
             // Column3
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column3.HeaderText = "Thông tin ";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";

@@ -78,13 +78,16 @@ namespace QLKFC
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Xoa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.errorProvider_TD = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pdHoaDon = new System.Drawing.Printing.PrintDocument();
             this.ppdHoaDon = new System.Windows.Forms.PrintPreviewDialog();
+<<<<<<< HEAD
+            this.pdHoaDon = new System.Drawing.Printing.PrintDocument();
+=======
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImageMota = new System.Windows.Forms.DataGridViewImageColumn();
+>>>>>>> 9dfad44d3d379a5c42392a9d77dfbe7cffd0b44a
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -588,10 +591,6 @@ namespace QLKFC
             // 
             this.errorProvider_TD.ContainerControl = this;
             // 
-            // pdHoaDon
-            // 
-            this.pdHoaDon.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pdHoaDon_PrintPage);
-            // 
             // ppdHoaDon
             // 
             this.ppdHoaDon.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -603,6 +602,11 @@ namespace QLKFC
             this.ppdHoaDon.Name = "ppdHoaDon";
             this.ppdHoaDon.Visible = false;
             // 
+<<<<<<< HEAD
+            // pdHoaDon
+            // 
+            this.pdHoaDon.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.pdHoaDon_PrintPage);
+=======
             // MaSP
             // 
             this.MaSP.HeaderText = "Mã món";
@@ -643,6 +647,7 @@ namespace QLKFC
             this.ImageMota.Name = "ImageMota";
             this.ImageMota.ReadOnly = true;
             this.ImageMota.Width = 120;
+>>>>>>> 9dfad44d3d379a5c42392a9d77dfbe7cffd0b44a
             // 
             // Order
             // 
@@ -707,7 +712,6 @@ namespace QLKFC
         private System.Windows.Forms.ErrorProvider errorProvider_TD;
         private System.Windows.Forms.Label lblTienThua;
         private System.Windows.Forms.Label label5;
-        private System.Drawing.Printing.PrintDocument pdHoaDon;
         private System.Windows.Forms.PrintPreviewDialog ppdHoaDon;
         private System.Windows.Forms.DataGridView dgv_DSSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mamon;
@@ -724,5 +728,6 @@ namespace QLKFC
         private System.Windows.Forms.DataGridViewTextBoxColumn dg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Loai;
         private System.Windows.Forms.DataGridViewImageColumn ImageMota;
+        private System.Drawing.Printing.PrintDocument pdHoaDon;
     }
 }

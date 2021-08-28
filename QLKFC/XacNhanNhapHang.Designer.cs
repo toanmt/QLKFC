@@ -255,6 +255,7 @@ namespace QLKFC
             this.Column7});
             this.dgvNhapHang.Location = new System.Drawing.Point(14, 74);
             this.dgvNhapHang.Name = "dgvNhapHang";
+            this.dgvNhapHang.RowHeadersVisible = false;
             this.dgvNhapHang.RowHeadersWidth = 51;
             this.dgvNhapHang.RowTemplate.Height = 29;
             this.dgvNhapHang.Size = new System.Drawing.Size(767, 239);
@@ -339,6 +340,7 @@ namespace QLKFC
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvNhapHang);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "XacNhanNhapHang";
             this.Text = "XacNhanNhapHang";
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).EndInit();

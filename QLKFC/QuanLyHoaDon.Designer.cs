@@ -48,17 +48,20 @@ namespace QLKFC
             this.btnHienThi = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvHDBH = new System.Windows.Forms.DataGridView();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDBH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_header
             // 
             this.panel_header.BackColor = System.Drawing.Color.Red;
+            this.panel_header.Controls.Add(this.pictureBox3);
             this.panel_header.Controls.Add(this.pictureBox2);
             this.panel_header.Controls.Add(this.pictureBox1);
             this.panel_header.Controls.Add(this.label1);
@@ -118,9 +121,9 @@ namespace QLKFC
             this.btnChiTiet.BackColor = System.Drawing.Color.Red;
             this.btnChiTiet.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnChiTiet.ForeColor = System.Drawing.Color.White;
-            this.btnChiTiet.Location = new System.Drawing.Point(24, 15);
+            this.btnChiTiet.Location = new System.Drawing.Point(24, 6);
             this.btnChiTiet.Name = "btnChiTiet";
-            this.btnChiTiet.Size = new System.Drawing.Size(172, 47);
+            this.btnChiTiet.Size = new System.Drawing.Size(172, 56);
             this.btnChiTiet.TabIndex = 22;
             this.btnChiTiet.Text = "Chi Tiết";
             this.btnChiTiet.UseVisualStyleBackColor = false;
@@ -153,7 +156,7 @@ namespace QLKFC
             this.dtpick1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpick1.CustomFormat = "dd/MM/yyy";
             this.dtpick1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpick1.Location = new System.Drawing.Point(24, 65);
+            this.dtpick1.Location = new System.Drawing.Point(24, 66);
             this.dtpick1.Name = "dtpick1";
             this.dtpick1.Size = new System.Drawing.Size(125, 27);
             this.dtpick1.TabIndex = 1;
@@ -164,9 +167,9 @@ namespace QLKFC
             this.dtpick2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpick2.CustomFormat = "dd/MM/yyy";
             this.dtpick2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpick2.Location = new System.Drawing.Point(766, 65);
+            this.dtpick2.Location = new System.Drawing.Point(766, 66);
             this.dtpick2.Name = "dtpick2";
-            this.dtpick2.Size = new System.Drawing.Size(124, 27);
+            this.dtpick2.Size = new System.Drawing.Size(125, 27);
             this.dtpick2.TabIndex = 10;
             this.dtpick2.Value = new System.DateTime(2021, 8, 21, 0, 0, 0, 0);
             // 
@@ -176,67 +179,72 @@ namespace QLKFC
             this.btnThongKe.BackColor = System.Drawing.Color.Red;
             this.btnThongKe.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnThongKe.ForeColor = System.Drawing.Color.White;
-            this.btnThongKe.Location = new System.Drawing.Point(400, 47);
+            this.btnThongKe.Location = new System.Drawing.Point(370, 57);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(150, 45);
+            this.btnThongKe.Size = new System.Drawing.Size(181, 45);
             this.btnThongKe.TabIndex = 11;
-            this.btnThongKe.Text = "Thống Kê";
+            this.btnThongKe.Text = "Lọc dữ liệu";
             this.btnThongKe.UseVisualStyleBackColor = false;
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // btnDau
             // 
             this.btnDau.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDau.Location = new System.Drawing.Point(163, 428);
+            this.btnDau.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnDau.Location = new System.Drawing.Point(118, 417);
             this.btnDau.Name = "btnDau";
-            this.btnDau.Size = new System.Drawing.Size(94, 29);
+            this.btnDau.Size = new System.Drawing.Size(108, 40);
             this.btnDau.TabIndex = 23;
             this.btnDau.Text = "Đầu";
-            this.btnDau.UseVisualStyleBackColor = true;
+            this.btnDau.UseVisualStyleBackColor = false;
             this.btnDau.Click += new System.EventHandler(this.btnDau_Click);
             // 
             // btncuoi
             // 
             this.btncuoi.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btncuoi.Location = new System.Drawing.Point(642, 428);
+            this.btncuoi.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btncuoi.Location = new System.Drawing.Point(676, 417);
             this.btncuoi.Name = "btncuoi";
-            this.btncuoi.Size = new System.Drawing.Size(94, 29);
+            this.btncuoi.Size = new System.Drawing.Size(108, 40);
             this.btncuoi.TabIndex = 24;
             this.btncuoi.Text = "Cuối";
-            this.btncuoi.UseVisualStyleBackColor = true;
+            this.btncuoi.UseVisualStyleBackColor = false;
             this.btncuoi.Click += new System.EventHandler(this.btncuoi_Click);
             // 
             // btnTrangsau
             // 
             this.btnTrangsau.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrangsau.Location = new System.Drawing.Point(518, 428);
+            this.btnTrangsau.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnTrangsau.Location = new System.Drawing.Point(540, 417);
             this.btnTrangsau.Name = "btnTrangsau";
-            this.btnTrangsau.Size = new System.Drawing.Size(94, 29);
+            this.btnTrangsau.Size = new System.Drawing.Size(108, 40);
             this.btnTrangsau.TabIndex = 26;
             this.btnTrangsau.Text = "Trang sau";
-            this.btnTrangsau.UseVisualStyleBackColor = true;
+            this.btnTrangsau.UseVisualStyleBackColor = false;
             this.btnTrangsau.Click += new System.EventHandler(this.btnTrangsau_Click);
             // 
             // btnTrangtrc
             // 
             this.btnTrangtrc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrangtrc.Location = new System.Drawing.Point(276, 428);
+            this.btnTrangtrc.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnTrangtrc.Location = new System.Drawing.Point(252, 417);
             this.btnTrangtrc.Name = "btnTrangtrc";
-            this.btnTrangtrc.Size = new System.Drawing.Size(94, 29);
+            this.btnTrangtrc.Size = new System.Drawing.Size(108, 40);
             this.btnTrangtrc.TabIndex = 27;
             this.btnTrangtrc.Text = "Trang trước";
-            this.btnTrangtrc.UseVisualStyleBackColor = true;
+            this.btnTrangtrc.UseVisualStyleBackColor = false;
             this.btnTrangtrc.Click += new System.EventHandler(this.btnTrangtrc_Click);
             // 
             // btnTrangHienTai
             // 
             this.btnTrangHienTai.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTrangHienTai.Location = new System.Drawing.Point(421, 428);
+            this.btnTrangHienTai.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnTrangHienTai.Location = new System.Drawing.Point(426, 417);
             this.btnTrangHienTai.Name = "btnTrangHienTai";
-            this.btnTrangHienTai.Size = new System.Drawing.Size(58, 29);
+            this.btnTrangHienTai.Size = new System.Drawing.Size(50, 40);
             this.btnTrangHienTai.TabIndex = 28;
             this.btnTrangHienTai.Text = "1";
-            this.btnTrangHienTai.UseVisualStyleBackColor = true;
+            this.btnTrangHienTai.UseVisualStyleBackColor = false;
             // 
             // btnHienThi
             // 
@@ -279,16 +287,27 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvHDBH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvHDBH.ColumnHeadersHeight = 70;
-            this.dgvHDBH.Location = new System.Drawing.Point(24, 108);
+            this.dgvHDBH.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvHDBH.ColumnHeadersHeight = 45;
+            this.dgvHDBH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvHDBH.Location = new System.Drawing.Point(24, 113);
             this.dgvHDBH.MultiSelect = false;
             this.dgvHDBH.Name = "dgvHDBH";
             this.dgvHDBH.ReadOnly = true;
+            this.dgvHDBH.RowHeadersVisible = false;
             this.dgvHDBH.RowHeadersWidth = 51;
             this.dgvHDBH.RowTemplate.Height = 29;
             this.dgvHDBH.Size = new System.Drawing.Size(866, 273);
             this.dgvHDBH.TabIndex = 0;
             this.dgvHDBH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDBH_CellClick);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(831, 75);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(8, 8);
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
             // 
             // QuanLyHoaDon
             // 
@@ -309,6 +328,7 @@ namespace QLKFC
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDBH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,5 +354,6 @@ namespace QLKFC
         private System.Windows.Forms.Button btnHienThi;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvHDBH;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

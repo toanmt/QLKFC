@@ -22,6 +22,11 @@ namespace QLKFC
             InitializeComponent();
             dtpick1.Value = DateTime.Now.Date;
             dtpick2.Value = DateTime.Now.Date;
+            dgvHoaDonKho.EnableHeadersVisualStyles = false;
+            dgvHoaDonKho.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
+
+            dgvChiTietHoaDonKho.EnableHeadersVisualStyles = false;
+            dgvChiTietHoaDonKho.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
             load();
         }
         //Clear datagridview
@@ -43,7 +48,7 @@ namespace QLKFC
                 dgvHoaDonKho.Rows.Add(hd);
             }
 
-            for (int i = 0; i < dgvHoaDonKho.Rows.Count - 1; i++)
+            for (int i = 0; i < dgvHoaDonKho.Rows.Count; i++)
             {
                 if (dgvHoaDonKho.Rows[i].Cells[2].Value.Equals("Đã hủy"))
                     dgvHoaDonKho.Rows[i].DefaultCellStyle.BackColor = Color.Red;
@@ -52,10 +57,10 @@ namespace QLKFC
         }
         public void checkDonHuy()
         {
-            for (int i = 0; i < dgvHoaDonKho.Rows.Count - 1; i++)
+            for (int i = 0; i < dgvHoaDonKho.Rows.Count ; i++)
             {
                 if (dgvHoaDonKho.Rows[i].Cells[2].Value.Equals("Đã hủy"))
-                    dgvHoaDonKho.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dgvHoaDonKho.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
             }
         }
         //Tương tác với bảng hóa đơn kho

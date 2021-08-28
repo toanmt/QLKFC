@@ -101,9 +101,11 @@ namespace QLKFC
             // 
             // txtSoLuong
             // 
+            this.txtSoLuong.Enabled = false;
             this.txtSoLuong.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtSoLuong.Location = new System.Drawing.Point(189, 84);
             this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.ReadOnly = true;
             this.txtSoLuong.Size = new System.Drawing.Size(200, 31);
             this.txtSoLuong.TabIndex = 14;
             // 
@@ -232,10 +234,13 @@ namespace QLKFC
             this.dgvKho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKho.ColumnHeadersHeight = 45;
+            this.dgvKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvKho.Location = new System.Drawing.Point(15, 53);
             this.dgvKho.Name = "dgvKho";
-            this.dgvKho.RowHeadersWidth = 51;
+            this.dgvKho.RowHeadersVisible = false;
+            this.dgvKho.RowHeadersWidth = 60;
+            this.dgvKho.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvKho.RowTemplate.Height = 29;
             this.dgvKho.Size = new System.Drawing.Size(877, 309);
             this.dgvKho.TabIndex = 8;

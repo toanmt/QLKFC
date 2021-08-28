@@ -18,6 +18,9 @@ namespace QLKFC
         public QuanLyKho(String TenNV)
         {
             InitializeComponent();
+            dgvKho.EnableHeadersVisualStyles = false;
+            dgvKho.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
+
             this.TenNV = TenNV;
             load();
         }

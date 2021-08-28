@@ -27,10 +27,18 @@ namespace QLKFC
         #region Lấy dữ liệu vào cbbox + textbox
         public void load()
         {
-            var query = db.NguyenLieus.Select(x => x);
+            var query = from k in db.Khos
+                        join n in db.NguyenLieus on k.MaNl equals n.MaNl
+                        select new
+                        {
+                            k.MaNl,
+                            n.TenNl,
+                            n.DonGia,
+                            k.SoLuong
+                        };
             cbNguyenLieu.DataSource = query.ToList();
-            cbNguyenLieu.DisplayMember = "TenNL";
-            cbNguyenLieu.ValueMember = "DonGia";
+            cbNguyenLieu.DisplayMember = "TenNl";
+            cbNguyenLieu.ValueMember = "SoLuong";
             txtdongia.Text = cbNguyenLieu.SelectedValue.ToString();
             cbNguyenLieu.SelectedIndex = 1;
             cbNguyenLieu.SelectedIndex = 0;
@@ -51,6 +59,7 @@ namespace QLKFC
                 {
                     txtSoLuongTon.Text = item.SoLuong.ToString();
                 }
+                
             }
         }
         #endregion
@@ -71,7 +80,7 @@ namespace QLKFC
                 var query = (from s in db.NguyenLieus
                              where s.TenNl == cbNguyenLieu.Text
                              select s).SingleOrDefault();
-                for (int i = 0; i < dgvHuyHang.Rows.Count - 1; i++)
+                for (int i = 0; i < dgvHuyHang.Rows.Count; i++)
                     if (query.MaNl.ToString().Equals(dgvHuyHang.Rows[i].Cells[0].Value))
                     {
                         int SLCu = int.Parse(dgvHuyHang.Rows[i].Cells[3].Value.ToString());
@@ -80,13 +89,11 @@ namespace QLKFC
                         int SLMoi = int.Parse(txtSoLuongHuy.Text);
                         if ((SLCu + SLMoi) <= int.Parse(txtSoLuongTon.Text))
                         {
-
                             dgvHuyHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", (SLCu + SLMoi));
+                            return;
                         }
                         else
                             throw new Exception("Không thể hủy nhiều hơn số lượng trong kho !!!");
-
-                        return;
                     }
                 string[] row = { query.MaNl.ToString(), cbNguyenLieu.Text, string.Format("{0:#,##0}", int.Parse(txtdongia.Text)), txtSoLuongHuy.Text };
 
@@ -156,16 +163,16 @@ namespace QLKFC
                     BaoCao bc = new BaoCao();
                     bc.NgayLap = DateTime.Now;
                     bc.StoreId = "044";
-                    bc.Loai = "Kho-Hủy hàng";
+                    bc.Loai = "Hủy hàng";
                     bc.TenNv = this.TenNV;
-                    String MoTa = txtLyDo.Text + "\t";
+                    String MoTa = txtLyDo.Text;
                     for (int i = 0; i < index; i++)
                     {
                         String d1 = dgvHuyHang.Rows[i].Cells[0].Value.ToString();
                         String d2 = dgvHuyHang.Rows[i].Cells[1].Value.ToString();
                         float d3 = float.Parse(dgvHuyHang.Rows[i].Cells[2].Value.ToString());
                         int d4 = int.Parse(dgvHuyHang.Rows[i].Cells[3].Value.ToString());
-                        MoTa += d1 + "-" + d2 + "-" + d4 + "-Tổng:" + (d3 * d4).ToString() + "\t";
+                        MoTa += "\n" + d2 + "- Số lượng : " + d4 + "- Tổng : " + (d3 * d4).ToString();
                         foreach (var item in query)
                         {
                             if (d1 == item.MaNl.ToString())

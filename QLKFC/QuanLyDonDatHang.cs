@@ -20,6 +20,8 @@ namespace QLKFC
         public QuanLyDonDatHang(string TenNV)
         {
             InitializeComponent();
+            dgvNhapHang.EnableHeadersVisualStyles = false;
+            dgvNhapHang.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
             this.TenNV = TenNV;
             AutoGiaoHang();
             load();

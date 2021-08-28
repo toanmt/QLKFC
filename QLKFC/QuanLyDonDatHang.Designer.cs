@@ -166,13 +166,15 @@ namespace QLKFC
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvNhapHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhapHang.ColumnHeadersHeight = 45;
+            this.dgvNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvNhapHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column4});
             this.dgvNhapHang.Location = new System.Drawing.Point(12, 208);
             this.dgvNhapHang.Name = "dgvNhapHang";
+            this.dgvNhapHang.RowHeadersVisible = false;
             this.dgvNhapHang.RowHeadersWidth = 51;
             this.dgvNhapHang.RowTemplate.Height = 29;
             this.dgvNhapHang.Size = new System.Drawing.Size(870, 234);
@@ -257,14 +259,14 @@ namespace QLKFC
             this.btnTaoPhieuNhap.UseVisualStyleBackColor = false;
             this.btnTaoPhieuNhap.Click += new System.EventHandler(this.btnTaoPhieuNhap_Click);
             // 
-            // QuanLyNhap
+            // QuanLyDonDatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 586);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "QuanLyNhap";
+            this.Name = "QuanLyDonDatHang";
             this.Text = "QuanLyNhapXuat";
             this.panel1.ResumeLayout(false);
             this.panel_header.ResumeLayout(false);

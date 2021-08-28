@@ -220,6 +220,7 @@ namespace QLKFC
             this.Column7});
             this.dgvNhapHang.Location = new System.Drawing.Point(17, 52);
             this.dgvNhapHang.Name = "dgvNhapHang";
+            this.dgvNhapHang.RowHeadersVisible = false;
             this.dgvNhapHang.RowHeadersWidth = 51;
             this.dgvNhapHang.RowTemplate.Height = 29;
             this.dgvNhapHang.Size = new System.Drawing.Size(767, 274);
@@ -283,7 +284,7 @@ namespace QLKFC
             this.txtSoLuongTon.Size = new System.Drawing.Size(146, 31);
             this.txtSoLuongTon.TabIndex = 52;
             // 
-            // QuanLyKho_XuatKho
+            // XacNhanXuatKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -304,7 +305,7 @@ namespace QLKFC
             this.Controls.Add(this.dgvNhapHang);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "QuanLyKho_XuatKho";
+            this.Name = "XacNhanXuatKho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuanLyKho_XuatKho";
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).EndInit();
