@@ -77,6 +77,8 @@ namespace QLKFC
         //Tìm kiếm
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            if (txtTimKiem.Text.Equals(""))
+                return;
             var query = db.HoaDonKhos.Where(x => x.MaHdk.ToString().Contains(txtTimKiem.Text) || x.TrangThai.Contains(txtTimKiem.Text));
             dgvNhapHang.Rows.Clear();
             foreach (var item in query.ToList())

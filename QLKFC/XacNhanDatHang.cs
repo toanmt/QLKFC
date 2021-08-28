@@ -150,10 +150,16 @@ namespace QLKFC
                     {
                         int SLCu = int.Parse(dgvNhapHang.Rows[i].Cells[3].Value.ToString());
                         int SLMoi = int.Parse(txtSoLuong.Text);
+                        if (SLMoi < 0)
+                            throw new Exception("Số lượng phải > 0");
                         dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
                         dgvNhapHang.Rows[i].Cells[4].Value = string.Format("{0:#,##0}", SLMoi * query.DonGia);
                         return;
                     }
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("Số lượng phải là số > 0");
             }
             catch (Exception ex)
             {

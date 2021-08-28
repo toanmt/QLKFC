@@ -137,19 +137,34 @@ namespace QLKFC
         //Sửa 1 dòng
         private void btnSua_Click(object sender, EventArgs e)
         {
-            var query = (from s in db.NguyenLieus
-                         where s.TenNl == cbNguyenLieu.Text
-                         select s).SingleOrDefault();
-            for (int i = 0; i < dgvNhapHang.Rows.Count; i++)
-                if (query.MaNl.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
-                {
-                    int SLMoi = int.Parse(nUDSoLuongNhap.Text);
-                    if (SLMoi <= nUDSoLuongNhap.Maximum)
-                        dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
-                    else
-                        MessageBox.Show("Số lượng phải nhỏ hơn số lượng đặt!!!");
-                    return;
-                }
+            try
+            {
+                var query = (from s in db.NguyenLieus
+                             where s.TenNl == cbNguyenLieu.Text
+                             select s).SingleOrDefault();
+                for (int i = 0; i < dgvNhapHang.Rows.Count; i++)
+                    if (query.MaNl.ToString().Equals(dgvNhapHang.Rows[i].Cells[0].Value))
+                    {
+                        int SLMoi = int.Parse(nUDSoLuongNhap.Text);
+                        if (SLMoi < 0)
+                            throw new Exception("Số lượng phải >0");
+                        if (SLMoi <= nUDSoLuongNhap.Maximum)
+                            dgvNhapHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
+                        else
+                        {
+                            MessageBox.Show("Số lượng phải nhỏ hơn số lượng đặt!!!");
+                            return;
+                        }
+                    }
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("Số lượng phải là số > 0");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
 

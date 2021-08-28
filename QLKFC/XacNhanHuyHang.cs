@@ -114,7 +114,7 @@ namespace QLKFC
         //Xóa 1 dòng
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (index > -1 && index < dgvHuyHang.RowCount - 1)
+            if (index > -1 && index < dgvHuyHang.RowCount)
             {
                 dgvHuyHang.Rows.RemoveAt(index);
                 index--;
@@ -131,20 +131,36 @@ namespace QLKFC
         //Sửa 1 dòng
         private void btnSua_Click(object sender, EventArgs e)
         {
-            var query = (from s in db.NguyenLieus
-                         where s.TenNl == cbNguyenLieu.Text
-                         select s).SingleOrDefault();
-            for (int i = 0; i < dgvHuyHang.Rows.Count - 1; i++)
-                if (query.MaNl.ToString().Equals(dgvHuyHang.Rows[i].Cells[0].Value))
-                {
-                    int SLCu = int.Parse(txtSoLuongTon.Text);
-                    int SLMoi = int.Parse(txtSoLuongHuy.Text);
-                    if (SLMoi <= SLCu)
-                        dgvHuyHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
-                    else
-                        MessageBox.Show("Số lượng không đủ để cập nhập!!!");
-                    return;
-                }
+            try
+            {
+                var query = (from s in db.NguyenLieus
+                             where s.TenNl == cbNguyenLieu.Text
+                             select s).SingleOrDefault();
+                for (int i = 0; i < dgvHuyHang.Rows.Count; i++)
+                    if (query.MaNl.ToString().Equals(dgvHuyHang.Rows[i].Cells[0].Value))
+                    {
+                        int SLCu = int.Parse(txtSoLuongTon.Text);
+                        int SLMoi = int.Parse(txtSoLuongHuy.Text);
+                        if (SLMoi < 0)
+                            throw new Exception("Số lượng phải > 0");
+                        if (SLMoi <= SLCu)
+                            dgvHuyHang.Rows[i].Cells[3].Value = string.Format("{0:#,##0}", SLMoi);
+                        else
+                        {
+                            MessageBox.Show("Số lượng không đủ để cập nhập!!!");
+                            return;
+                        }
+                    }
+            }
+            
+            catch (System.FormatException)
+            {
+                MessageBox.Show("Số lượng phải là số > 0");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         // Xác nhận hủy hàng
         private void btnXacNhan_Click(object sender, EventArgs e)
