@@ -38,6 +38,17 @@ namespace QLKFC
                 errorProvider1.SetError(txtDonGia, "Bạn cần phải nhập đơn giá của nguyên liệu");
                 txtDonGia.Focus();
             }
+            else
+            {
+                try
+                {
+                    if (int.Parse(txtDonGia.Text) < 0)
+                        throw new Exception("Đơn giá phải lớn hơn 0");
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void txtTenNL_Validated(object sender, EventArgs e)

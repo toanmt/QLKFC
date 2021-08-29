@@ -114,7 +114,8 @@ namespace QLKFC
             try
             {
                 int index = e.RowIndex;
-                soCMND = dgvNhanVien.Rows[index].Cells[0].Value.ToString();
+                if(index > -1)
+                    soCMND = dgvNhanVien.Rows[index].Cells[0].Value.ToString();
             }
             catch (Exception)
             {

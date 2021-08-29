@@ -58,8 +58,11 @@ namespace QLKFC
             try
             {
                 int index = e.RowIndex;
-                txtMaCV.Text = dgvChucVu.Rows[index].Cells[0].Value.ToString();
-                txtTenCV.Text = dgvChucVu.Rows[index].Cells[1].Value.ToString();
+                if(index > -1)
+                {
+                    txtMaCV.Text = dgvChucVu.Rows[index].Cells[0].Value.ToString();
+                    txtTenCV.Text = dgvChucVu.Rows[index].Cells[1].Value.ToString();
+                }
             }
             catch (Exception)
             {
