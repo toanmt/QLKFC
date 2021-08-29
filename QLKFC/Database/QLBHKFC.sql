@@ -206,9 +206,9 @@ SET IDENTITY_INSERT [dbo].[ChucVu] OFF
 
 -------------------Nhân Viên-----------------------
 
-INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [ID], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau],[HinhAnh]) VALUES ('001200012423', 1,1, N'Đỗ Thắng', N'Nam', CAST(N'2000-05-10 00:00:00.000' AS DateTime), N'Vạn Phúc', N'0398299428', N'ddooxthawsng@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime), null)
-INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [ID], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau],[HinhAnh]) VALUES ('001703015435', 2,2, N'Mai Thế Toàn', N'Nam', CAST(N'2000-06-06 00:00:00.000' AS DateTime), N'Thanh Hóa', N'0932606905', N'maithe.toan2k@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime),null)
-INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [ID], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau],[HinhAnh]) VALUES ('001200012345', 4,3, N'Kim Anh Mạnh', N'Nam', CAST(N'2000-01-01 00:00:00.000' AS DateTime), N'Hà Nội', N'0123456789', N'Manh@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime),null)
+INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [ID], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau],[HinhAnh]) VALUES ('001200012423', 1,1, N'Đỗ Thắng', N'Nam', CAST(N'2000-05-10 00:00:00.000' AS DateTime), N'Vạn Phúc', N'0398299428', N'ddooxthawsng@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime), N'thang.jpg')
+INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [ID], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau],[HinhAnh]) VALUES ('001703015435', 2,2, N'Mai Thế Toàn', N'Nam', CAST(N'2000-06-06 00:00:00.000' AS DateTime), N'Thanh Hóa', N'0932606905', N'maithe.toan2k@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime),N'toan.jpg')
+INSERT [dbo].[NhanVien] ([SoCMT], [MaCV], [ID], [TenNV], [GioiTinh], [NgaySinh], [DiaChi], [SoDienThoai], [Email], [NgayBatDau],[HinhAnh]) VALUES ('001200012345', 4,3, N'Kim Anh Mạnh', N'Nam', CAST(N'2000-01-01 00:00:00.000' AS DateTime), N'Hà Nội', N'0123456789', N'Manh@gmail.com', CAST(N'2021-07-01 00:00:00.000' AS DateTime),N'amdz.jpg')
 
 -------------------Hóa Đơn-----------------------
 SET IDENTITY_INSERT [dbo].[HoaDon] ON 
