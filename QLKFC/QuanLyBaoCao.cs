@@ -71,14 +71,18 @@ namespace QLKFC
             int vtri = 25;
             Bitmap bmp = Properties.Resources.kfc__1_;
             Image newImage = bmp;
+            //Vẽ logo
             e.Graphics.DrawImage(newImage,25,25, int.Parse(newImage.Width.ToString()), int.Parse(newImage.Height.ToString()));
             vtri += 200;
             StringFormat formatCenter = new StringFormat(StringFormatFlags.NoClip);
             formatCenter.Alignment = StringAlignment.Center;
             e.Graphics.DrawString("Cửa hàng KFC", new Font("Arial", 30, FontStyle.Regular), Brushes.Black, new Point(25, vtri));
             vtri += 200;
-            e.Graphics.DrawString("Test", new Font("Arial", 30, FontStyle.Regular), Brushes.Black, new Point(25, vtri));
-            
+            e.Graphics.DrawString("CN Cty LD TNHH KFC VietNam", new Font("Arial", 50, FontStyle.Regular), Brushes.Red, new Point(220, 25));
+
+            e.Graphics.DrawString("CN Cty LD TNHH KFC VietNam", new Font("Arial", 50, FontStyle.Regular), Brushes.Red, new Point(220, 50));
+
+
         }
 
         private void dgvBaoCao_CellClick(object sender, DataGridViewCellEventArgs e)
